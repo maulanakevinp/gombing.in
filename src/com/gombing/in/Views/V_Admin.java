@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package com.gombing.in.Views;
-
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import javax.swing.Icon;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
@@ -31,217 +29,232 @@ public class V_Admin extends javax.swing.JFrame {
         initComponents();
     }
 
-
     // <editor-fold defaultstate="collapsed" desc="USERS">   
     public JTable getTable_users() {
         return table_users;
     }
-    
+
     public JTableHeader getTableHeader_users() {
         return table_users.getTableHeader();
     }
-    
-    public void addUsers(ActionListener a){
-        button_addUsers.addActionListener(a);
+
+    public JComboBox<String> getComboBox_level() {
+        return comboBox_level;
+    }
+
+    public JComboBox<String> getComboBox_level1() {
+        return comboBox_level1;
     }
     
-    public void saveAddUsers(ActionListener a){
-        button_saveAddUsers.addActionListener(a);
+    public JButton getButton_addUsers() {
+        return button_addUsers;
     }
-    
-    public void cancelAddUsers(ActionListener a){
-        button_cancelAddUsers.addActionListener(a);
-    }    
-    
-    public void editUsers(ActionListener a){
-        button_editUsers.addActionListener(a);
+
+    public JButton getButton_cancelAddUsers() {
+        return button_cancelAddUsers;
     }
-    
-    public void saveEditUsers(ActionListener a){
-        button_saveEditUsers.addActionListener(a);
+
+    public JButton getButton_cancelEditUsers() {
+        return button_cancelEditUsers;
     }
-    
-    public void cancelEditUsers(ActionListener a){
-        button_cancelEditUsers.addActionListener(a);
-    }    
-    
-    public void deleteUsers(ActionListener a){
-        button_deleteUsers.addActionListener(a);
+
+    public JButton getButton_deleteUsers() {
+        return button_deleteUsers;
     }
-    
-    public void refreshUsers(ActionListener a){
-        button_refreshUsers.addActionListener(a);
+
+    public JButton getButton_editUsers() {
+        return button_editUsers;
     }
-    //</editor-fold>
+
+    public JButton getButton_refreshUsers() {
+        return button_refreshUsers;
+    }
+
+    public JButton getButton_saveAddUsers() {
+        return button_saveAddUsers;
+    }
+
+    public JButton getButton_saveEditUsers() {
+        return button_saveEditUsers;
+    }
+
+    public JButton getButton_users() {
+        return button_users;
+    }
+
+    public JLabel getColor_users() {
+        return color_users;
+    }//</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL">   
     public JTable getTable_animal() {
         return table_animal;
     }
-    
+
     public JTableHeader getTableHeader_animal() {
         return table_animal.getTableHeader();
     }
-    
-    public void addAnimal(ActionListener a){
-        button_addAnimal.addActionListener(a);
+
+    public JButton getButton_addAnimal() {
+        return button_addAnimal;
+    }
+
+    public JComboBox<String> getComboBox_animalType() {
+        return comboBox_animalType;
+    }
+
+    public JComboBox<String> getComboBox_animalType1() {
+        return comboBox_animalType1;
+    }
+
+    public JComboBox<String> getComboBox_typePet() {
+        return comboBox_typePet;
+    }
+
+    public JComboBox<String> getComboBox_typePet1() {
+        return comboBox_typePet1;
     }
     
-    public void saveAddAnimal(ActionListener a){
-        button_saveAddAnimal.addActionListener(a);
+    public JButton getButton_cancelAddAnimal() {
+        return button_cancelAddAnimal;
     }
-    
-    public void cancelAddAnimal(ActionListener a){
-        button_cancelAddAnimal.addActionListener(a);
-    }    
-    
-    public void editAnimal(ActionListener a){
-        button_editAnimal.addActionListener(a);
+
+    public JButton getButton_cancelEditAnimal() {
+        return button_cancelEditAnimal;
     }
-    
-    public void saveEditAnimal(ActionListener a){
-        button_saveEditAnimal.addActionListener(a);
+
+    public JButton getButton_deleteAnimal() {
+        return button_deleteAnimal;
     }
-    
-    public void cancelEditAnimal(ActionListener a){
-        button_cancelEditAnimal.addActionListener(a);
-    }    
-    
-    public void deleteAnimal(ActionListener a){
-        button_deleteAnimal.addActionListener(a);
+
+    public JButton getButton_editAnimal() {
+        return button_editAnimal;
     }
-    
-    public void refreshAnimal(ActionListener a){
-        button_refreshAnimal.addActionListener(a);
+
+    public JButton getButton_refreshAnimal() {
+        return button_refreshAnimal;
     }
-    //</editor-fold>
+
+    public JButton getButton_saveAddAnimal() {
+        return button_saveAddAnimal;
+    }
+
+    public JButton getButton_saveEditAnimal() {
+        return button_saveEditAnimal;
+    }
+
+    public JButton getButton_animal() {
+        return button_animal;
+    }
+
+    public JLabel getColor_animal() {
+        return color_animal;
+    }//</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL TYPE">   
     public JTable getTable_animalType() {
         return table_animalType;
     }
-    
+
     public JTableHeader getTableHeader_animalType() {
         return table_animalType.getTableHeader();
     }
-    
-    public void addAnimalType(ActionListener a){
-        button_addAnimalType.addActionListener(a);
+
+    public JButton getButton_addAnimalType() {
+        return button_addAnimalType;
     }
-    
-    public void saveAddAnimalType(ActionListener a){
-        button_saveAddAnimalType.addActionListener(a);
+
+    public JButton getButton_cancelAddAnimalType() {
+        return button_cancelAddAnimalType;
     }
-    
-    public void cancelAddAnimalType(ActionListener a){
-        button_cancelAddAnimalType.addActionListener(a);
-    }    
-    
-    public void editAnimalType(ActionListener a){
-        button_editAnimalType.addActionListener(a);
+
+    public JButton getButton_cancelEditAnimalType() {
+        return button_cancelEditAnimalType;
     }
-    
-    public void saveEditAnimalType(ActionListener a){
-        button_saveEditAnimalType.addActionListener(a);
+
+    public JButton getButton_deleteAnimalType() {
+        return button_deleteAnimalType;
     }
-    
-    public void cancelEditAnimalType(ActionListener a){
-        button_cancelEditAnimalType.addActionListener(a);
-    }    
-    
-    public void deleteAnimalType(ActionListener a){
-        button_deleteAnimal.addActionListener(a);
+
+    public JButton getButton_editAnimalType() {
+        return button_editAnimalType;
     }
-    
-    public void refreshAnimalType(ActionListener a){
-        button_refreshAnimal.addActionListener(a);
+
+    public JButton getButton_refreshAnimalType() {
+        return button_refreshAnimalType;
     }
-    //</editor-fold>
-    
+
+    public JButton getButton_saveAddAnimalType() {
+        return button_saveAddAnimalType;
+    }
+
+    public JButton getButton_saveEditAnimalType() {
+        return button_saveEditAnimalType;
+    }
+
+    public JButton getButton_animalType() {
+        return button_animalType;
+    }
+
+    public JLabel getColor_animalType() {
+        return color_animalType;
+    }//</editor-fold>
+
     // <editor-fold defaultstate="collapsed" desc="TYPE PET">   
     public JTable getTable_typePet() {
         return table_typePet;
     }
-    
+
     public JTableHeader getTableHeader_typePet() {
         return table_typePet.getTableHeader();
     }
-    
-    public void addTypePet(ActionListener a){
-        button_addTypePet.addActionListener(a);
-    }
-    
-    public void saveAddTypePet(ActionListener a){
-        button_saveAddTypePet.addActionListener(a);
-    }
-    
-    public void cancelAddTypePet(ActionListener a){
-        button_cancelAddTypePet.addActionListener(a);
-    }    
-    
-    public void editTypePet(ActionListener a){
-        button_editTypePet.addActionListener(a);
-    }
-    
-    public void saveEditTypePet(ActionListener a){
-        button_saveEditTypePet.addActionListener(a);
-    }
-    
-    public void cancelEditTypePet(ActionListener a){
-        button_cancelEditTypePet.addActionListener(a);
-    }    
-    
-    public void deleteTypePet(ActionListener a){
-        button_deleteTypePet.addActionListener(a);
-    }
-    
-    public void refreshTypePet(ActionListener a){
-        button_refreshTypePet.addActionListener(a);
-    }
-    //</editor-fold>
-    
-    // <editor-fold defaultstate="collapsed" desc="ACTION LISTENER">
-    public void buttonUsers(ActionListener a) {
-        button_users.addActionListener(a);
+
+    public JButton getButton_addTypePet() {
+        return button_addTypePet;
     }
 
-    public void setColorUsers(Color a) {
-        color_users.setBackground(a);
+    public JButton getButton_cancelAddTypePet() {
+        return button_cancelAddTypePet;
     }
 
-    public void buttonAnimal(ActionListener a) {
-        button_animal.addActionListener(a);
+    public JButton getButton_cancelEditTypePet() {
+        return button_cancelEditTypePet;
     }
 
-    public void setColorAnimal(Color a) {
-        color_animal.setBackground(a);
+    public JButton getButton_deleteTypePet() {
+        return button_deleteTypePet;
     }
 
-    public void buttonAnimalType(ActionListener a) {
-        button_animalType.addActionListener(a);
+    public JButton getButton_editTypePet() {
+        return button_editTypePet;
     }
 
-    public void setColorAnimalType(Color a) {
-        color_animalType.setBackground(a);
+    public JButton getButton_refreshTypePet() {
+        return button_refreshTypePet;
     }
 
-    public void buttonTypePet(ActionListener a) {
-        button_typePet.addActionListener(a);
+    public JButton getButton_saveAddTypePet() {
+        return button_saveAddTypePet;
     }
 
-    public void setColorTypePet(Color a) {
-        color_typePet.setBackground(a);
+    public JButton getButton_saveEditTypePet() {
+        return button_saveEditTypePet;
     }
 
-    public void buttonLogout(MouseListener a) {
-        button_logout.addMouseListener(a);
+    public JButton getButton_typePet() {
+        return button_typePet;
     }
 
-    public void setColorButtonLogout(Color a) {
-        button_logout.setForeground(a);
+    public JLabel getColor_typePet() {
+        return color_typePet;
     }//</editor-fold>
-
+    
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
+
+    public JLabel getButton_logout() {
+        return button_logout;
+    }
+        
     public JPanel getPanel_body() {
         return panel_body;
     }
@@ -262,26 +275,18 @@ public class V_Admin extends javax.swing.JFrame {
         this.yMouse = yMouse;
     }
 
-    public void buttonMinimize(MouseListener a) {
-        button_minimize.addMouseListener(a);
-    }
-
-    public void setIconButtonMinimize(Icon a) {
-        button_minimize.setIcon(a);
-    }
+    public JLabel getButton_minimize() {
+        return button_minimize;
+    }    
 
     public void minimize(int State) {
         this.setState(State);
     }
 
-    public void buttonMaximize(MouseListener a) {
-        button_maximize.addMouseListener(a);
+    public JLabel getButton_maximize() {
+        return button_maximize;
     }
-
-    public void setIconButtonMaximize(Icon a) {
-        button_maximize.setIcon(a);
-    }
-
+    
     public void naximize(int State) {
         this.setState(State);
     }
@@ -294,20 +299,12 @@ public class V_Admin extends javax.swing.JFrame {
         V_Admin.maximized = maximized;
     }
 
-    public void buttonExit(MouseListener a) {
-        button_exit.addMouseListener(a);
-    }
+    public JLabel getButton_exit() {
+        return button_exit;
+    } 
 
-    public void setIconButtonExit(Icon a) {
-        button_exit.setIcon(a);
-    }
-
-    public void mousePanelUndecorated(MouseListener a) {
-        panel_undercorated.addMouseListener(a);
-    }
-
-    public void dragPanelUndecorated(MouseMotionListener a) {
-        panel_undercorated.addMouseMotionListener(a);
+    public JPanel getPanel_undecorated() {
+        return panel_undecorated;
     }//</editor-fold>
 
     /**
@@ -319,7 +316,7 @@ public class V_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_undercorated = new javax.swing.JPanel();
+        panel_undecorated = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         button_exit = new javax.swing.JLabel();
         button_minimize = new javax.swing.JLabel();
@@ -375,8 +372,8 @@ public class V_Admin extends javax.swing.JFrame {
         editText_password1 = new javax.swing.JPasswordField();
         textView_level1 = new javax.swing.JLabel();
         textView_status1 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        comboBox_level1 = new javax.swing.JComboBox<>();
+        comboBox_status1 = new javax.swing.JComboBox<>();
         button_cancelEditUsers = new javax.swing.JButton();
         button_saveEditUsers = new javax.swing.JButton();
         panel_animal = new javax.swing.JPanel();
@@ -486,10 +483,9 @@ public class V_Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1200, 700));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
         setSize(new java.awt.Dimension(1200, 700));
 
-        panel_undercorated.setBackground(new java.awt.Color(255, 255, 255));
+        panel_undecorated.setBackground(new java.awt.Color(255, 255, 255));
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/title.png"))); // NOI18N
 
@@ -500,11 +496,11 @@ public class V_Admin extends javax.swing.JFrame {
 
         button_maximize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png"))); // NOI18N
 
-        javax.swing.GroupLayout panel_undercoratedLayout = new javax.swing.GroupLayout(panel_undercorated);
-        panel_undercorated.setLayout(panel_undercoratedLayout);
-        panel_undercoratedLayout.setHorizontalGroup(
-            panel_undercoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_undercoratedLayout.createSequentialGroup()
+        javax.swing.GroupLayout panel_undecoratedLayout = new javax.swing.GroupLayout(panel_undecorated);
+        panel_undecorated.setLayout(panel_undecoratedLayout);
+        panel_undecoratedLayout.setHorizontalGroup(
+            panel_undecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_undecoratedLayout.createSequentialGroup()
                 .addComponent(title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(button_minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -513,8 +509,8 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        panel_undercoratedLayout.setVerticalGroup(
-            panel_undercoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel_undecoratedLayout.setVerticalGroup(
+            panel_undecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_minimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -865,8 +861,8 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGroup(panel_addUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editText_subtitle4)
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_addUsersLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_addUsersLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel_formAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -878,9 +874,9 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(editText_subtitle4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(70, 70, 70)
                 .addComponent(panel_formAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_addUsers, "panel_addUsers");
@@ -915,11 +911,11 @@ public class V_Admin extends javax.swing.JFrame {
         textView_status1.setText("Status");
         textView_status1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jComboBox2.setEditable(true);
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBox_level1.setEditable(true);
+        comboBox_level1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox4.setEditable(true);
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBox_status1.setEditable(true);
+        comboBox_status1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         button_cancelEditUsers.setBackground(new java.awt.Color(255, 255, 255));
         button_cancelEditUsers.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -938,25 +934,25 @@ public class V_Admin extends javax.swing.JFrame {
         panel_formEditUsersLayout.setHorizontalGroup(
             panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_formEditUsersLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textView_level1)
                     .addComponent(textView_status1)
                     .addComponent(textView_password1)
                     .addComponent(textView_email1)
                     .addComponent(textView_name1))
-                .addGap(47, 47, 47)
+                .addGap(45, 45, 45)
                 .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtName2)
                     .addComponent(txtName3)
                     .addComponent(editText_password1)
-                    .addComponent(jComboBox2, 0, 210, Short.MAX_VALUE)
-                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboBox_status1, 0, 210, Short.MAX_VALUE)
                     .addGroup(panel_formEditUsersLayout.createSequentialGroup()
                         .addComponent(button_cancelEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button_saveEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(button_saveEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBox_level1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_formEditUsersLayout.setVerticalGroup(
             panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -975,11 +971,11 @@ public class V_Admin extends javax.swing.JFrame {
                     .addComponent(textView_password1))
                 .addGap(19, 19, 19)
                 .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBox_level1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textView_level1))
                 .addGap(18, 18, 18)
                 .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBox_status1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textView_status1))
                 .addGap(18, 18, 18)
                 .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -993,14 +989,14 @@ public class V_Admin extends javax.swing.JFrame {
         panel_editUsersLayout.setHorizontalGroup(
             panel_editUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_editUsersLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(panel_editUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editText_subtitle5)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_editUsersLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_editUsersLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panel_formEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panel_formEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_editUsersLayout.setVerticalGroup(
@@ -1010,9 +1006,9 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(editText_subtitle5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(70, 70, 70)
                 .addComponent(panel_formEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_editUsers, "panel_editUsers");
@@ -1274,7 +1270,7 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGroup(panel_addAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editText_subtitle6)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_addAnimalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel_formAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1287,9 +1283,9 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(editText_subtitle6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(70, 70, 70)
                 .addComponent(panel_formAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_addAnimal, "panel_addAnimal");
@@ -1449,16 +1445,15 @@ public class V_Admin extends javax.swing.JFrame {
         panel_editAnimalLayout.setHorizontalGroup(
             panel_editAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_editAnimalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(panel_editAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editText_subtitle7)
                     .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_editAnimalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel_formEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panel_editAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_editAnimalLayout.createSequentialGroup()
-                    .addGap(223, 223, 223)
-                    .addComponent(panel_formEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(224, Short.MAX_VALUE)))
         );
         panel_editAnimalLayout.setVerticalGroup(
             panel_editAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1467,12 +1462,9 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(editText_subtitle7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(405, Short.MAX_VALUE))
-            .addGroup(panel_editAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_editAnimalLayout.createSequentialGroup()
-                    .addGap(132, 132, 132)
-                    .addComponent(panel_formEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(135, Short.MAX_VALUE)))
+                .addGap(70, 70, 70)
+                .addComponent(panel_formEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_editAnimal, "panel_editAnimal");
@@ -1623,11 +1615,11 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGroup(panel_formAddAnimalTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editText_animalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textView_animaType))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_formAddAnimalTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancelAddAnimalType)
                     .addComponent(button_saveAddAnimalType))
-                .addGap(20, 20, 20))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout panel_addAnimalTypeLayout = new javax.swing.GroupLayout(panel_addAnimalType);
@@ -1639,8 +1631,8 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGroup(panel_addAnimalTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editText_subtitle8)
                     .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addGroup(panel_addAnimalTypeLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_addAnimalTypeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel_formAddAnimalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1652,9 +1644,9 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(editText_subtitle8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(150, 150, 150)
                 .addComponent(panel_formAddAnimalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_addAnimalType, "panel_addAnimalType");
@@ -1707,11 +1699,11 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGroup(panel_formEditAnimalTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editText_animalType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textView_animaType1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_formEditAnimalTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancelEditAnimalType)
                     .addComponent(button_saveEditAnimalType))
-                .addGap(20, 20, 20))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout panel_editAnimalTypeLayout = new javax.swing.GroupLayout(panel_editAnimalType);
@@ -1727,7 +1719,7 @@ public class V_Admin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_editAnimalTypeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel_formEditAnimalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(409, 409, 409))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_editAnimalTypeLayout.setVerticalGroup(
             panel_editAnimalTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1736,9 +1728,9 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(editText_subtitle9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
+                .addGap(150, 150, 150)
                 .addComponent(panel_formEditAnimalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_editAnimalType, "panel_editAnimalType");
@@ -1889,11 +1881,11 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGroup(panel_formAddTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editText_typePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textView_typePet2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_formAddTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancelAddTypePet)
                     .addComponent(button_saveAddTypePet))
-                .addGap(20, 20, 20))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout panel_addTypePetLayout = new javax.swing.GroupLayout(panel_addTypePet);
@@ -1901,16 +1893,15 @@ public class V_Admin extends javax.swing.JFrame {
         panel_addTypePetLayout.setHorizontalGroup(
             panel_addTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_addTypePetLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(panel_addTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editText_subtitle10)
                     .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_addTypePetLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel_formAddTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panel_addTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_addTypePetLayout.createSequentialGroup()
-                    .addGap(371, 371, 371)
-                    .addComponent(panel_formAddTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(387, Short.MAX_VALUE)))
         );
         panel_addTypePetLayout.setVerticalGroup(
             panel_addTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1919,12 +1910,9 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(editText_subtitle10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(405, Short.MAX_VALUE))
-            .addGroup(panel_addTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_addTypePetLayout.createSequentialGroup()
-                    .addGap(196, 196, 196)
-                    .addComponent(panel_formAddTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(197, Short.MAX_VALUE)))
+                .addGap(150, 150, 150)
+                .addComponent(panel_formAddTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_addTypePet, "panel_addTypePet");
@@ -1932,7 +1920,7 @@ public class V_Admin extends javax.swing.JFrame {
         panel_editTypePet.setBackground(new java.awt.Color(255, 255, 255));
 
         editText_subtitle11.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
-        editText_subtitle11.setText("EDIT ANIMAL");
+        editText_subtitle11.setText("EDIT TYPE PET");
 
         panel_formEditTypePet.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1968,7 +1956,7 @@ public class V_Admin extends javax.swing.JFrame {
                         .addComponent(button_cancelEditTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button_saveEditTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         panel_formEditTypePetLayout.setVerticalGroup(
             panel_formEditTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1977,11 +1965,11 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGroup(panel_formEditTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editText_typePet1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textView_typePet3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_formEditTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancelEditTypePet)
                     .addComponent(button_saveEditTypePet))
-                .addGap(20, 20, 20))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout panel_editTypePetLayout = new javax.swing.GroupLayout(panel_editTypePet);
@@ -1993,8 +1981,8 @@ public class V_Admin extends javax.swing.JFrame {
                 .addGroup(panel_editTypePetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editText_subtitle11)
                     .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_editTypePetLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_editTypePetLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel_formEditTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2006,9 +1994,9 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(editText_subtitle11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
+                .addGap(150, 150, 150)
                 .addComponent(panel_formEditTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_editTypePet, "panel_editTypePet");
@@ -2017,14 +2005,14 @@ public class V_Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_undercorated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_undecorated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panel_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panel_body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel_undercorated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panel_undecorated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(panel_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -2123,7 +2111,9 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBox_gender;
     private javax.swing.JComboBox<String> comboBox_gender1;
     private javax.swing.JComboBox<String> comboBox_level;
+    private javax.swing.JComboBox<String> comboBox_level1;
     private javax.swing.JComboBox<String> comboBox_status;
+    private javax.swing.JComboBox<String> comboBox_status1;
     private javax.swing.JComboBox<String> comboBox_typePet;
     private javax.swing.JComboBox<String> comboBox_typePet1;
     private javax.swing.JTextField editText_animalName;
@@ -2153,8 +2143,6 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JTextField editText_typePet1;
     private javax.swing.JTextField editText_user;
     private javax.swing.JTextField editText_user1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -2188,7 +2176,7 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JPanel panel_formEditTypePet;
     private javax.swing.JPanel panel_formEditUsers;
     private javax.swing.JPanel panel_header;
-    private javax.swing.JPanel panel_undercorated;
+    private javax.swing.JPanel panel_undecorated;
     private javax.swing.JPanel panel_users;
     private javax.swing.JLabel picture;
     private javax.swing.JScrollPane scrollPane_animal;

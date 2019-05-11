@@ -18,4 +18,5 @@ public interface TypePetInterface {
     public void update(M_TypePet m)throws SQLException;
     public void delete(M_TypePet m)throws SQLException;
     public ArrayList<M_TypePet> getAll()throws SQLException;
+    public ArrayList<String> fillComboBox()throws SQLException;
 }

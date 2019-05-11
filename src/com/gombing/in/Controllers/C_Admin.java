@@ -25,8 +25,10 @@ import java.awt.event.MouseMotionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,6 +57,10 @@ public class C_Admin {
         connection.getAnimal().setCon(connection.getConnection());
         connection.getAnimalType().setCon(connection.getConnection());
         connection.getTypePet().setCon(connection.getConnection());
+                
+        comboBoxLevel();
+        comboBoxAnimalType();
+        comboBoxTypePet();
 
         viewUsers();
         tableUsers();
@@ -98,11 +104,11 @@ public class C_Admin {
 
     // <editor-fold defaultstate="collapsed" desc="Users">
     private void viewUsers() {
-        viewAdmin.buttonUsers((ActionEvent e) -> {
-            viewAdmin.setColorUsers(new Color(0, 255, 0));
-            viewAdmin.setColorAnimal(new Color(255, 255, 255));
-            viewAdmin.setColorAnimalType(new Color(255, 255, 255));
-            viewAdmin.setColorTypePet(new Color(255, 255, 255));
+        viewAdmin.getButton_users().addActionListener((ActionEvent e) -> {
+            viewAdmin.getColor_users().setBackground(new Color(0, 255, 0));
+            viewAdmin.getColor_animal().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_animalType().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_typePet().setBackground(new Color(255, 255, 255));
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_users");
             tableUsers();
@@ -127,42 +133,51 @@ public class C_Admin {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private void comboBoxLevel(){
+        try {
+            viewAdmin.getComboBox_level().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBox().toArray()));
+            viewAdmin.getComboBox_level1().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBox().toArray()));
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     private void addUsers() {
-        viewAdmin.addUsers((ActionEvent e) -> {
+        viewAdmin.getButton_addUsers().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_addUsers");
         });
     }
 
     private void saveAddUsers() {
-        viewAdmin.saveAddUsers((ActionEvent e) -> {
+        viewAdmin.getButton_saveAddUsers().addActionListener((ActionEvent e) -> {
 
         });
     }
 
     private void cancelAddUsers() {
-        viewAdmin.cancelAddUsers((ActionEvent e) -> {
+        viewAdmin.getButton_cancelAddUsers().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_users");
         });
     }
 
     private void editUsers() {
-        viewAdmin.editUsers((ActionEvent e) -> {
+        viewAdmin.getButton_editUsers().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_editUsers");
         });
     }
 
     private void saveEditUsers() {
-        viewAdmin.saveEditUsers((ActionEvent e) -> {
+        viewAdmin.getButton_saveEditUsers().addActionListener((ActionEvent e) -> {
 
         });
     }
 
     private void cancelEditUsers() {
-        viewAdmin.cancelEditUsers((ActionEvent e) -> {
+        viewAdmin.getButton_cancelEditUsers().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_users");
         });
@@ -170,11 +185,11 @@ public class C_Admin {
 
     // <editor-fold defaultstate="collapsed" desc="Animal">
     private void viewAnimal() {
-        viewAdmin.buttonAnimal((ActionEvent e) -> {
-            viewAdmin.setColorUsers(new Color(255, 255, 255));
-            viewAdmin.setColorAnimal(new Color(0, 255, 0));
-            viewAdmin.setColorAnimalType(new Color(255, 255, 255));
-            viewAdmin.setColorTypePet(new Color(255, 255, 255));
+        viewAdmin.getButton_animal().addActionListener((ActionEvent e) -> {
+            viewAdmin.getColor_users().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_animal().setBackground(new Color(0, 255, 0));
+            viewAdmin.getColor_animalType().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_typePet().setBackground(new Color(255, 255, 255));
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_animal");
             tableAnimal();
@@ -201,40 +216,40 @@ public class C_Admin {
     }
 
     private void addAnimal() {
-        viewAdmin.addAnimal((ActionEvent e) -> {
+        viewAdmin.getButton_addAnimal().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_addAnimal");
         });
     }
 
     private void saveAddAnimal() {
-        viewAdmin.saveAddAnimal((ActionEvent e) -> {
-
+        viewAdmin.getButton_saveAddAnimal().addActionListener((ActionEvent e) -> {
+            
         });
     }
 
     private void cancelAddAnimal() {
-        viewAdmin.cancelAddAnimal((ActionEvent e) -> {
+        viewAdmin.getButton_cancelAddAnimal().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_animal");
         });
     }
 
     private void editAnimal() {
-        viewAdmin.editAnimal((ActionEvent e) -> {
+        viewAdmin.getButton_editAnimal().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_editAnimal");
         });
     }
 
     private void saveEditAnimal() {
-        viewAdmin.saveEditAnimal((ActionEvent e) -> {
+        viewAdmin.getButton_saveEditAnimal().addActionListener((ActionEvent e) -> {
 
         });
     }
 
     private void cancelEditAnimal() {
-        viewAdmin.cancelEditAnimal((ActionEvent e) -> {
+        viewAdmin.getButton_cancelEditAnimal().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_animal");
         });
@@ -243,11 +258,11 @@ public class C_Admin {
 
     // <editor-fold defaultstate="collapsed" desc="Animal Type">
     private void viewAnimalType() {
-        viewAdmin.buttonAnimalType((ActionEvent e) -> {
-            viewAdmin.setColorUsers(new Color(255, 255, 255));
-            viewAdmin.setColorAnimal(new Color(255, 255, 255));
-            viewAdmin.setColorAnimalType(new Color(0, 255, 0));
-            viewAdmin.setColorTypePet(new Color(255, 255, 255));
+        viewAdmin.getButton_animalType().addActionListener((ActionEvent e) -> {
+            viewAdmin.getColor_users().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_animal().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_animalType().setBackground(new Color(0, 255, 0));
+            viewAdmin.getColor_typePet().setBackground(new Color(255, 255, 255));
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_animalType");
             tableAnimalType();
@@ -264,50 +279,59 @@ public class C_Admin {
             viewAdmin.getTable_animalType().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    
+
                 }
-                
+
             });
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void comboBoxAnimalType(){
+        try {
+            viewAdmin.getComboBox_animalType().setModel(new DefaultComboBoxModel(connection.getAnimalType().fillComboBox().toArray()));
+            viewAdmin.getComboBox_animalType1().setModel(new DefaultComboBoxModel(connection.getAnimalType().fillComboBox().toArray()));
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     private void addAnimalType() {
-        viewAdmin.addAnimalType((ActionEvent e) -> {
+        viewAdmin.getButton_addAnimalType().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
-            card.show(viewAdmin.getPanel_body(), "panel_addAnimalType");
+            card.show(viewAdmin.getPanel_body(), "panel_addAnimalType");           
         });
     }
 
     private void saveAddAnimalType() {
-        viewAdmin.saveAddAnimalType((ActionEvent e) -> {
+        viewAdmin.getButton_saveAddAnimalType().addActionListener((ActionEvent e) -> {
 
         });
     }
 
     private void cancelAddAnimalType() {
-        viewAdmin.cancelAddAnimalType((ActionEvent e) -> {
+        viewAdmin.getButton_cancelAddAnimalType().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_animalType");
         });
     }
 
     private void editAnimalType() {
-        viewAdmin.editAnimalType((ActionEvent e) -> {
+        viewAdmin.getButton_editAnimalType().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_editAnimalType");
         });
     }
 
     private void saveEditAnimalType() {
-        viewAdmin.saveEditAnimalType((ActionEvent e) -> {
+        viewAdmin.getButton_saveEditAnimalType().addActionListener((ActionEvent e) -> {
 
         });
     }
 
     private void cancelEditAnimalType() {
-        viewAdmin.cancelEditAnimalType((ActionEvent e) -> {
+        viewAdmin.getButton_cancelEditAnimalType().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_animalType");
         });
@@ -316,11 +340,11 @@ public class C_Admin {
 
     // <editor-fold defaultstate="collapsed" desc="Type Pet">
     private void viewTypePet() {
-        viewAdmin.buttonTypePet((ActionEvent e) -> {
-            viewAdmin.setColorUsers(new Color(255, 255, 255));
-            viewAdmin.setColorAnimal(new Color(255, 255, 255));
-            viewAdmin.setColorAnimalType(new Color(255, 255, 255));
-            viewAdmin.setColorTypePet(new Color(0, 255, 0));
+        viewAdmin.getButton_typePet().addActionListener((ActionEvent e) -> {
+            viewAdmin.getColor_users().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_animal().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_animalType().setBackground(new Color(255, 255, 255));
+            viewAdmin.getColor_typePet().setBackground(new Color(0, 255, 0));
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_typePet");
             tableTypePet();
@@ -346,41 +370,51 @@ public class C_Admin {
         }
     }
 
+    
+    private void comboBoxTypePet(){
+        try {
+            viewAdmin.getComboBox_typePet().setModel(new DefaultComboBoxModel(connection.getTypePet().fillComboBox().toArray()));
+            viewAdmin.getComboBox_typePet1().setModel(new DefaultComboBoxModel(connection.getTypePet().fillComboBox().toArray()));
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void addTypePet() {
-        viewAdmin.addTypePet((ActionEvent e) -> {
+        viewAdmin.getButton_addTypePet().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_addTypePet");
         });
     }
 
     private void saveAddTypePet() {
-        viewAdmin.saveAddTypePet((ActionEvent e) -> {
+        viewAdmin.getButton_saveAddTypePet().addActionListener((ActionEvent e) -> {
 
         });
     }
 
     private void cancelAddTypePet() {
-        viewAdmin.cancelAddTypePet((ActionEvent e) -> {
+        viewAdmin.getButton_cancelAddTypePet().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_typePet");
         });
     }
 
     private void editTypePet() {
-        viewAdmin.editTypePet((ActionEvent e) -> {
+        viewAdmin.getButton_editTypePet().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_editTypePet");
         });
     }
 
     private void saveEditTypePet() {
-        viewAdmin.saveEditTypePet((ActionEvent e) -> {
+        viewAdmin.getButton_saveEditTypePet().addActionListener((ActionEvent e) -> {
 
         });
     }
 
     private void cancelEditTypePet() {
-        viewAdmin.cancelEditTypePet((ActionEvent e) -> {
+        viewAdmin.getButton_cancelEditTypePet().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_typePet");
         });
@@ -389,7 +423,7 @@ public class C_Admin {
 
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
-        viewAdmin.buttonLogout(new MouseListener() {
+        viewAdmin.getButton_logout().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 logout();
@@ -397,34 +431,39 @@ public class C_Admin {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewAdmin.setColorButtonLogout(new Color(0, 0, 150));
+                viewAdmin.getButton_logout().setForeground(new Color(0, 0, 150));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewAdmin.setColorButtonLogout(new Color(0, 0, 255));
+                viewAdmin.getButton_logout().setForeground(new Color(0, 0, 255));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewAdmin.setColorButtonLogout(new Color(0, 255, 0));
+                viewAdmin.getButton_logout().setForeground(new Color(0, 255, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewAdmin.setColorButtonLogout(new Color(0, 0, 255));
+                viewAdmin.getButton_logout().setForeground(new Color(0, 0, 255));
             }
         });
     }
 
     private void logout() {
-        C_Login login = new C_Login();
-        viewAdmin.dispose();
+        int pilihan = JOptionPane.showConfirmDialog(viewAdmin, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        if (pilihan == JOptionPane.YES_OPTION) {
+            C_Login login = new C_Login();
+            viewAdmin.dispose();
+        } else {
+            
+        }
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Button Maximize">
     private void buttonMaximize() {
-        viewAdmin.buttonMaximize(new MouseListener() {
+        viewAdmin.getButton_maximize().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (viewAdmin.isMaximized()) {
@@ -440,29 +479,29 @@ public class C_Admin {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewAdmin.setIconButtonMaximize(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_2.png")));
+                viewAdmin.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewAdmin.setIconButtonMaximize(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
+                viewAdmin.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewAdmin.setIconButtonMaximize(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_1.png")));
+                viewAdmin.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_1.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewAdmin.setIconButtonMaximize(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
+                viewAdmin.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
             }
         });
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Button Exit">
     private void buttonExit() {
-        viewAdmin.buttonExit(new MouseListener() {
+        viewAdmin.getButton_exit().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 exit();
@@ -470,22 +509,22 @@ public class C_Admin {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewAdmin.setIconButtonExit(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_2.png")));
+                viewAdmin.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewAdmin.setIconButtonExit(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
+                viewAdmin.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewAdmin.setIconButtonExit(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_1.png")));
+                viewAdmin.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_1.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewAdmin.setIconButtonExit(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
+                viewAdmin.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
             }
         });
     }
@@ -496,7 +535,7 @@ public class C_Admin {
 
     // <editor-fold defaultstate="collapsed" desc="Button Minimize">
     private void buttonMinimize() {
-        viewAdmin.buttonMinimize(new MouseListener() {
+        viewAdmin.getButton_minimize().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 minimize();
@@ -504,22 +543,22 @@ public class C_Admin {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewAdmin.setIconButtonMinimize(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_2.png")));
+                viewAdmin.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewAdmin.setIconButtonMinimize(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
+                viewAdmin.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewAdmin.setIconButtonMinimize(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px.png")));
+                viewAdmin.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewAdmin.setIconButtonMinimize(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
+                viewAdmin.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
             }
         });
     }
@@ -531,7 +570,7 @@ public class C_Admin {
     // <editor-fold defaultstate="collapsed" desc="Drag Window">
     private void dragWindow() {
 
-        viewAdmin.mousePanelUndecorated(new MouseListener() {
+        viewAdmin.getPanel_undecorated().addMouseListener(new MouseListener() {
             // <editor-fold defaultstate="collapsed" desc="Unused">
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -561,7 +600,7 @@ public class C_Admin {
             }//</editor-fold>
         });
 
-        viewAdmin.dragPanelUndecorated(new MouseMotionListener() {
+        viewAdmin.getPanel_undecorated().addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 int kordinatX = e.getXOnScreen();

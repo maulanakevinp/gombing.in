@@ -21,10 +21,7 @@ import java.util.ArrayList;
 public class AnimalCareService implements AnimalCareInterface {
 
     private Connection con;
-    private final String sql_select = "SELECT ac.id, animal.animal_name, users.name , ac.weight, ac.body_length, \n"
-            + "ac.chest_size, ac.height, ac.comment, ac.timestamp\n"
-            + "FROM public.animal_care ac join public.animal on ac.id_animal=animal.id\n"
-            + "join public.users ON users.id = ac.id_user;";
+    private final String sql_select = "SELECT ac.id, animal.animal_name, users.name , ac.weight, ac.body_length, ac.chest_size, ac.height, ac.comment, ac.timestamp FROM public.animal_care ac join public.animal on ac.id_animal=animal.id join public.users ON users.id = ac.id_user;";
 
     public void setCon(Connection con) {
         this.con = con;
@@ -47,13 +44,10 @@ public class AnimalCareService implements AnimalCareInterface {
 
     @Override
     public ArrayList<M_AnimalCare> getAll() throws SQLException {
-        PreparedStatement st = null;
-        ResultSet rs = null;
-        ArrayList<M_AnimalCare> list = null;
+        ArrayList<M_AnimalCare> list = new ArrayList<>();
         try {
-            list = new ArrayList<>();
-            st = con.prepareStatement(sql_select);
-            rs = st.executeQuery();
+            PreparedStatement st = con.prepareStatement(sql_select);
+            ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 M_AnimalCare m = new M_AnimalCare();
 

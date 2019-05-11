@@ -6,11 +6,11 @@
 package com.gombing.in.Views;
 
 import java.awt.Color;
-import java.awt.Frame;
-import java.awt.event.KeyListener;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.Icon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -31,118 +31,65 @@ public class V_Login extends javax.swing.JFrame {
         initComponents();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="GETTER SETTER">
-    public JPasswordField getEditText_confirmPassword() {
-        return editText_confirmPassword;
-    }
-
-    public void setEditText_confirmPassword(JPasswordField editText_confirmPassword) {
-        this.editText_confirmPassword = editText_confirmPassword;
-    }
-
-    public JTextField getEditText_emailF() {
-        return editText_emailF;
-    }
-
-    public void setEditText_emailF(JTextField editText_emailF) {
-        this.editText_emailF = editText_emailF;
-    }
-
-    public JTextField getEditText_emailR() {
-        return editText_emailR;
-    }
-
-    public void setEditText_emailR(JTextField editText_emailR) {
-        this.editText_emailR = editText_emailR;
+    // <editor-fold defaultstate="collapsed" desc="LOGIN PAGE">
+    public JTextField getEditText_emailL() {
+        return editText_emailL;
     }
 
     public JPasswordField getEditText_passwordL() {
         return editText_passwordL;
     }
 
-    public void setEditText_passwordL(JPasswordField editText_passwordL) {
-        this.editText_passwordL = editText_passwordL;
+    public JPanel getButton_login() {
+        return button_login;
+    }
+
+    public JLabel getButton_viewForgotPassword() {
+        return button_viewForgotPassword;
+    }
+
+    public JLabel getButton_viewRegister() {
+        return button_viewRegister;
+    }//</editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="FORGOT PASSWORD PAGE">
+    public JTextField getEditText_emailF() {
+        return editText_emailF;
+    }
+
+    public JPanel getButton_send() {
+        return button_send;
+    }
+
+    public JLabel getButton_viewLoginF() {
+        return button_viewLoginF;
+    }//</editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="REGISTRER PAGE">
+    public JTextField getEditText_usernameR() {
+        return editText_usernameR;
+    }
+
+    public JTextField getEditText_emailR() {
+        return editText_emailR;
     }
 
     public JPasswordField getEditText_passwordR() {
         return editText_passwordR;
     }
 
-    public void setEditText_passwordR(JPasswordField editText_passwordR) {
-        this.editText_passwordR = editText_passwordR;
+    public JPasswordField getEditText_confirmPassword() {
+        return editText_confirmPassword;
     }
 
-    public JTextField getEditText_emailL() {
-        return editText_emailL;
+    public JPanel getButton_register() {
+        return button_register;
     }
 
-    public void setEditText_emailL(JTextField editText_usernameL) {
-        this.editText_emailL = editText_usernameL;
-    }
-
-    public JTextField getEditText_usernameR() {
-        return editText_usernameR;
-    }
-
-    public void setEditText_usernameR(JTextField editText_usernameR) {
-        this.editText_usernameR = editText_usernameR;
-    }//</editor-fold>    
-
-    // <editor-fold defaultstate="collapsed" desc="ACTION LISTENER">
-    public void login(KeyListener a) {
-        button_login.addKeyListener(a);
-    }
-
-    public void buttonViewLogin(MouseListener a) {
-        button_viewLoginF.addMouseListener(a);
-        button_viewLoginR.addMouseListener(a);
-    }
-
-    public void setColorButtonViewLogin(Color a) {
-        button_viewLoginF.setForeground(a);
-        button_viewLoginR.setForeground(a);
-    }
-
-    public void buttonLogin(MouseListener a) {
-        button_login.addMouseListener(a);
-    }
-
-    public void setColorButtonLogin(Color a) {
-        button_login.setBackground(a);
-    }
-
-    public void buttonViewForgotPassword(MouseListener a) {
-        button_viewForgotPassword.addMouseListener(a);
-    }
-
-    public void setColorButtonViewForgotPassword(Color a) {
-        button_viewForgotPassword.setForeground(a);
-    }
-
-    public void buttonSend(MouseListener a) {
-        button_send.addMouseListener(a);
-    }
-
-    public void setColorButtonSend(Color a) {
-        button_send.setBackground(a);
-    }
-
-    public void buttonViewRegister(MouseListener a) {
-        button_viewRegister.addMouseListener(a);
-    }
-
-    public void setColorButtonViewRegister(Color a) {
-        button_viewRegister.setForeground(a);
-    }
-
-    public void buttonRegister(MouseListener a) {
-        button_register.addMouseListener(a);
-    }
-
-    public void setColorButtonRegister(Color a) {
-        button_register.setBackground(a);
+    public JLabel getButton_viewLoginR() {
+        return button_viewLoginR;
     }//</editor-fold>
-
+    
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
     public JPanel getPanel_body() {
         return panel_body;
@@ -164,34 +111,22 @@ public class V_Login extends javax.swing.JFrame {
         this.yMouse = yMouse;
     }
 
-    public void buttonMinimize(MouseListener a) {
-        button_minimize.addMouseListener(a);
-    }
-
-    public void setIconButtonMinimize(Icon a) {
-        button_minimize.setIcon(a);
+    public JLabel getButton_minimize() {
+        return button_minimize;
     }
 
     public void minimize(int State) {
         this.setState(State);
     }
 
-    public void buttonExit(MouseListener a) {
-        button_exit.addMouseListener(a);
+    public JLabel getButton_exit() {
+        return button_exit;
     }
 
-    public void setIconButtonExit(Icon a) {
-        button_exit.setIcon(a);
-    }
-
-    public void mousePanelUndecorated(MouseListener a) {
-        panel_undercorated.addMouseListener(a);
-    }
-
-    public void dragPanelUndecorated(MouseMotionListener a) {
-        panel_undercorated.addMouseMotionListener(a);
+    public JPanel getPanel_undecorated() {
+        return panel_undecorated;
     }//</editor-fold>
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -201,7 +136,7 @@ public class V_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_undercorated = new javax.swing.JPanel();
+        panel_undecorated = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         button_exit = new javax.swing.JLabel();
         button_minimize = new javax.swing.JLabel();
@@ -252,7 +187,7 @@ public class V_Login extends javax.swing.JFrame {
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(700, 428));
 
-        panel_undercorated.setBackground(new java.awt.Color(255, 255, 255));
+        panel_undecorated.setBackground(new java.awt.Color(255, 255, 255));
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/title.png"))); // NOI18N
 
@@ -261,11 +196,11 @@ public class V_Login extends javax.swing.JFrame {
 
         button_minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png"))); // NOI18N
 
-        javax.swing.GroupLayout panel_undercoratedLayout = new javax.swing.GroupLayout(panel_undercorated);
-        panel_undercorated.setLayout(panel_undercoratedLayout);
-        panel_undercoratedLayout.setHorizontalGroup(
-            panel_undercoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_undercoratedLayout.createSequentialGroup()
+        javax.swing.GroupLayout panel_undecoratedLayout = new javax.swing.GroupLayout(panel_undecorated);
+        panel_undecorated.setLayout(panel_undecoratedLayout);
+        panel_undecoratedLayout.setHorizontalGroup(
+            panel_undecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_undecoratedLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(title)
                 .addGap(224, 224, 224)
@@ -273,8 +208,8 @@ public class V_Login extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        panel_undercoratedLayout.setVerticalGroup(
-            panel_undercoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel_undecoratedLayout.setVerticalGroup(
+            panel_undecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_minimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -670,7 +605,7 @@ public class V_Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_undercorated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_undecorated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -679,7 +614,7 @@ public class V_Login extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel_undercorated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panel_undecorated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -750,7 +685,7 @@ public class V_Login extends javax.swing.JFrame {
     private javax.swing.JPanel panel_login;
     private javax.swing.JPanel panel_logo;
     private javax.swing.JPanel panel_register;
-    private javax.swing.JPanel panel_undercorated;
+    private javax.swing.JPanel panel_undecorated;
     private javax.swing.JLabel register;
     private javax.swing.JLabel send;
     private javax.swing.JSeparator separator_confirmPassword;

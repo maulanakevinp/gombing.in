@@ -29,7 +29,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panel_undercorated" alignment="0" max="32767" attributes="0"/>
+          <Component id="panel_undecorated" alignment="0" max="32767" attributes="0"/>
           <Component id="panel_header" alignment="0" max="32767" attributes="0"/>
           <Component id="panel_body" alignment="0" max="32767" attributes="0"/>
       </Group>
@@ -37,7 +37,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="panel_undercorated" min="-2" max="-2" attributes="0"/>
+              <Component id="panel_undecorated" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="panel_header" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -47,7 +47,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="panel_undercorated">
+    <Container class="javax.swing.JPanel" name="panel_undecorated">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -317,7 +317,6 @@
                     <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="rowSelectionAllowed" type="boolean" value="true"/>
                     <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="ff" red="0" type="rgb"/>
                     </Property>

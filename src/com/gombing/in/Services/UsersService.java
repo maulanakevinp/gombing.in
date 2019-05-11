@@ -56,10 +56,10 @@ public class UsersService implements UsersInterface {
 
                 user.setId(rs.getInt(1));
                 user.setName(rs.getString(2));
-                user.setEmail(rs.getString(3)); 
+                user.setEmail(rs.getString(3));
                 user.setPassword(rs.getString(4));
                 user.setLevelName(rs.getString(5));
-                user.setStatus(rs.getInt(6));                
+                user.setStatus(rs.getInt(6));
                 user.setUpdated_at(rs.getDate(7));
                 user.setCreated_at(rs.getDate(8));
 
@@ -85,6 +85,22 @@ public class UsersService implements UsersInterface {
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);
         }
+    }    
+    
+    @Override
+    public ArrayList<String> fillComboBox() throws SQLException {
+        ArrayList<String> list = new ArrayList<>();
+        String query = "SELECT level FROM public.level";
+        try {
+            list = new ArrayList<>();
+            PreparedStatement st = con.prepareStatement(query);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return list;
     }
-
 }

@@ -19,4 +19,5 @@ public interface UsersInterface {
     public void delete(M_Users m)throws SQLException;
     public void checkLogin(M_Users m)throws SQLException;
     public ArrayList<M_Users> getAll()throws SQLException;
+    public ArrayList<String> fillComboBox()throws SQLException;
 }

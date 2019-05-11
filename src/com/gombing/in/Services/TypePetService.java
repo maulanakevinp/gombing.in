@@ -63,4 +63,20 @@ public class TypePetService implements TypePetInterface {
         return list;
     }
 
+    @Override
+    public ArrayList<String> fillComboBox() throws SQLException {
+        ArrayList<String> list = new ArrayList<>();
+        try {
+            list = new ArrayList<>();
+            PreparedStatement st = con.prepareStatement(sql_select);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getString(2));
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return list;
+    }
+
 }

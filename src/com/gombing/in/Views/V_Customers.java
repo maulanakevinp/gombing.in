@@ -8,8 +8,8 @@ package com.gombing.in.Views;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -28,25 +28,21 @@ public class V_Customers extends javax.swing.JFrame {
     public V_Customers() {
         initComponents();
     }
-
-    // <editor-fold defaultstate="collapsed" desc="ACTION LISTENER">
-    public void buttonAnimalCare(ActionListener a) {
-        button_animalCare.addActionListener(a);
+    
+    // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">
+    public JButton getButton_animalCare() {
+        return button_animalCare;
     }
-
-    public void setColorAnimalCare(Color a) {
-        color_animalCare.setBackground(a);
-    }
-
-    public void buttonLogout(MouseListener a) {
-        button_logout.addMouseListener(a);
-    }
-
-    public void setColorButtonLogout(Color a) {
-        button_logout.setForeground(a);
+    
+    public JLabel getColor_animalCare() {
+        return color_animalCare;
     }//</editor-fold>
-
+    
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
+    public JLabel getButton_logout() {
+        return button_logout;
+    }
+        
     public JPanel getPanel_body() {
         return panel_body;
     }
@@ -67,26 +63,18 @@ public class V_Customers extends javax.swing.JFrame {
         this.yMouse = yMouse;
     }
 
-    public void buttonMinimize(MouseListener a) {
-        button_minimize.addMouseListener(a);
-    }
-
-    public void setIconButtonMinimize(Icon a) {
-        button_minimize.setIcon(a);
-    }
+    public JLabel getButton_minimize() {
+        return button_minimize;
+    }    
 
     public void minimize(int State) {
         this.setState(State);
     }
 
-    public void buttonMaximize(MouseListener a) {
-        button_maximize.addMouseListener(a);
+    public JLabel getButton_maximize() {
+        return button_maximize;
     }
-
-    public void setIconButtonMaximize(Icon a) {
-        button_maximize.setIcon(a);
-    }
-
+    
     public void naximize(int State) {
         this.setState(State);
     }
@@ -99,20 +87,12 @@ public class V_Customers extends javax.swing.JFrame {
         V_Admin.maximized = maximized;
     }
 
-    public void buttonExit(MouseListener a) {
-        button_exit.addMouseListener(a);
-    }
+    public JLabel getButton_exit() {
+        return button_exit;
+    } 
 
-    public void setIconButtonExit(Icon a) {
-        button_exit.setIcon(a);
-    }
-
-    public void mousePanelUndecorated(MouseListener a) {
-        panel_undercorated.addMouseListener(a);
-    }
-
-    public void dragPanelUndecorated(MouseMotionListener a) {
-        panel_undercorated.addMouseMotionListener(a);
+    public JPanel getPanel_undecorated() {
+        return panel_undecorated;
     }//</editor-fold>
 
     /**
@@ -124,7 +104,7 @@ public class V_Customers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_undercorated = new javax.swing.JPanel();
+        panel_undecorated = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         button_exit = new javax.swing.JLabel();
         button_minimize = new javax.swing.JLabel();
@@ -147,7 +127,7 @@ public class V_Customers extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1184, 661));
         setUndecorated(true);
 
-        panel_undercorated.setBackground(new java.awt.Color(255, 255, 255));
+        panel_undecorated.setBackground(new java.awt.Color(255, 255, 255));
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/title.png"))); // NOI18N
 
@@ -158,11 +138,11 @@ public class V_Customers extends javax.swing.JFrame {
 
         button_maximize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png"))); // NOI18N
 
-        javax.swing.GroupLayout panel_undercoratedLayout = new javax.swing.GroupLayout(panel_undercorated);
-        panel_undercorated.setLayout(panel_undercoratedLayout);
-        panel_undercoratedLayout.setHorizontalGroup(
-            panel_undercoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_undercoratedLayout.createSequentialGroup()
+        javax.swing.GroupLayout panel_undecoratedLayout = new javax.swing.GroupLayout(panel_undecorated);
+        panel_undecorated.setLayout(panel_undecoratedLayout);
+        panel_undecoratedLayout.setHorizontalGroup(
+            panel_undecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_undecoratedLayout.createSequentialGroup()
                 .addComponent(title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(button_minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,8 +151,8 @@ public class V_Customers extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        panel_undercoratedLayout.setVerticalGroup(
-            panel_undercoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel_undecoratedLayout.setVerticalGroup(
+            panel_undecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_minimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -266,7 +246,6 @@ public class V_Customers extends javax.swing.JFrame {
             }
         ));
         table.setGridColor(new java.awt.Color(255, 255, 255));
-        table.setRowSelectionAllowed(true);
         table.setSelectionBackground(new java.awt.Color(0, 255, 0));
         table.getTableHeader().setResizingAllowed(false);
         table.getTableHeader().setReorderingAllowed(false);
@@ -302,14 +281,14 @@ public class V_Customers extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_undercorated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_undecorated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panel_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panel_body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel_undercorated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panel_undecorated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(panel_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -368,7 +347,7 @@ public class V_Customers extends javax.swing.JFrame {
     private javax.swing.JPanel panel_animalCare;
     private javax.swing.JPanel panel_body;
     private javax.swing.JPanel panel_header;
-    private javax.swing.JPanel panel_undercorated;
+    private javax.swing.JPanel panel_undecorated;
     private javax.swing.JLabel picture;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTable table;

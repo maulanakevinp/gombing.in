@@ -17,28 +17,28 @@ import java.util.ArrayList;
  *
  * @author MaulanaKevinPradana
  */
-public class AnimalTypeService implements AnimalTypeInterface{
+public class AnimalTypeService implements AnimalTypeInterface {
 
     private Connection con;
     private final String sql_select = "SELECT id, animal_type FROM public.animal_type order by id;";
-    
+
     public void setCon(Connection con) {
         this.con = con;
     }
-    
+
     @Override
     public void insert(M_AnimalType m) throws SQLException {
-        
+
     }
 
     @Override
     public void update(M_AnimalType m) throws SQLException {
-        
+
     }
 
     @Override
     public void delete(M_AnimalType m) throws SQLException {
-        
+
     }
 
     @Override
@@ -62,6 +62,21 @@ public class AnimalTypeService implements AnimalTypeInterface{
             System.out.println("Something was wrong. Error: " + e);
         }
         return list;
-    }
+    }    
     
+    @Override
+    public ArrayList<String> fillComboBox() throws SQLException {
+        ArrayList<String> list = new ArrayList<>();
+        try {
+            list = new ArrayList<>();
+            PreparedStatement st = con.prepareStatement(sql_select);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getString(2));
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return list;
+    }
 }

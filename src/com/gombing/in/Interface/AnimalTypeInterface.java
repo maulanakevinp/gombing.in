@@ -18,4 +18,5 @@ public interface AnimalTypeInterface {
     public void update(M_AnimalType m)throws SQLException;
     public void delete(M_AnimalType m)throws SQLException;
     public ArrayList<M_AnimalType> getAll()throws SQLException;
+    public ArrayList<String> fillComboBox()throws SQLException;
 }
