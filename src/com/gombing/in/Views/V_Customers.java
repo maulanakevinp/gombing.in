@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 /**
  *
@@ -36,7 +37,12 @@ public class V_Customers extends javax.swing.JFrame {
     
     public JLabel getColor_animalCare() {
         return color_animalCare;
+    }
+    
+    public JTable getTable_animalCare() {
+        return table_animalCare;
     }//</editor-fold>
+
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
     public JLabel getButton_logout() {
@@ -121,7 +127,7 @@ public class V_Customers extends javax.swing.JFrame {
         editText_subtitle = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         scrollPane = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
+        table_animalCare = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1184, 661));
@@ -234,7 +240,7 @@ public class V_Customers extends javax.swing.JFrame {
         scrollPane.setBackground(new java.awt.Color(255, 255, 255));
         scrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        table_animalCare.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -245,11 +251,11 @@ public class V_Customers extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        table.setGridColor(new java.awt.Color(255, 255, 255));
-        table.setSelectionBackground(new java.awt.Color(0, 255, 0));
-        table.getTableHeader().setResizingAllowed(false);
-        table.getTableHeader().setReorderingAllowed(false);
-        scrollPane.setViewportView(table);
+        table_animalCare.setGridColor(new java.awt.Color(255, 255, 255));
+        table_animalCare.setSelectionBackground(new java.awt.Color(0, 255, 0));
+        table_animalCare.getTableHeader().setResizingAllowed(false);
+        table_animalCare.getTableHeader().setReorderingAllowed(false);
+        scrollPane.setViewportView(table_animalCare);
 
         javax.swing.GroupLayout panel_animalCareLayout = new javax.swing.GroupLayout(panel_animalCare);
         panel_animalCare.setLayout(panel_animalCareLayout);
@@ -350,7 +356,7 @@ public class V_Customers extends javax.swing.JFrame {
     private javax.swing.JPanel panel_undecorated;
     private javax.swing.JLabel picture;
     private javax.swing.JScrollPane scrollPane;
-    private javax.swing.JTable table;
+    private javax.swing.JTable table_animalCare;
     private javax.swing.JLabel textView_user;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables

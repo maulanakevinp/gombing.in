@@ -5,15 +5,22 @@
  */
 package com.gombing.in.Controllers;
 
+import com.gombing.in.DBUtils.config;
+import com.gombing.in.Models.Table_AnimalCare;
 import com.gombing.in.Views.V_Customers;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -23,31 +30,57 @@ import javax.swing.JOptionPane;
  * @author MaulanaKevinPradana
  */
 public class C_Customers {
+
     private final V_Customers viewCustomers;
+    private final Table_AnimalCare tableAnimalCare;
+    private final config connection;
 
     public C_Customers() {
         viewCustomers = new V_Customers();
         viewCustomers.setVisible(true);
+        tableAnimalCare = new Table_AnimalCare();
+        connection = new config();
+        connection.getAnimalCare().setCon(connection.getConnection());
+
         buttonLogout();
         buttonMinimize();
         buttonMaximize();
         buttonExit();
         dragWindow();
-        
-        animalCare();
+
+        viewAnimalCare();
+        tableAnimalCare();
     }
-    
-    
+
     // <editor-fold defaultstate="collapsed" desc="Animal Care">
-    private void animalCare() {
+    private void viewAnimalCare() {
         viewCustomers.getButton_animalCare().addActionListener((ActionEvent e) -> {
             viewCustomers.getColor_animalCare().setBackground(new Color(255, 255, 255));
             CardLayout card = (CardLayout) viewCustomers.getPanel_body().getLayout();
             card.show(viewCustomers.getPanel_body(), "panel_animalCare");
         });
     }
+
+    private void tableAnimalCare() {
+        try {
+            tableAnimalCare.setList(connection.getAnimalCare().getAll());
+            viewCustomers.getTable_animalCare().setModel(tableAnimalCare);
+            viewCustomers.getTable_animalCare().getTableHeader().setOpaque(false);
+            viewCustomers.getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            viewCustomers.getTable_animalCare().getTableHeader().setBackground(Color.white);
+            viewCustomers.getTable_animalCare().addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    
+                }
+                
+            });
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     //</editor-fold>
-    
+
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
         viewCustomers.getButton_logout().addMouseListener(new MouseListener() {
@@ -84,7 +117,7 @@ public class C_Customers {
             C_Login login = new C_Login();
             viewCustomers.dispose();
         } else {
-            
+
         }
     }//</editor-fold>
 
@@ -243,5 +276,5 @@ public class C_Customers {
             }//</editor-fold>
         });
     }//</editor-fold>
-    
+
 }

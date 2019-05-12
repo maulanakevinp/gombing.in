@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -58,7 +60,85 @@ public class V_Nurse extends javax.swing.JFrame {
     
     public JLabel getColor_animalCare() {
         return color_animalCare;
-    }//</editor-fold>
+    }
+
+    public JButton getButton_addAnimalCare() {
+        return button_addAnimalCare;
+    }
+
+    public JButton getButton_cancelAddAnimalCare() {
+        return button_cancelAddAnimalCare;
+    }
+
+    public JButton getButton_cancelEditAnimalCare() {
+        return button_cancelEditAnimalCare;
+    }
+
+    public JButton getButton_deleteAnimalCare() {
+        return button_deleteAnimalCare;
+    }
+
+    public JButton getButton_editAnimalCare() {
+        return button_editAnimalCare;
+    }
+
+    public JButton getButton_refreshAnimalCare() {
+        return button_refreshAnimalCare;
+    }
+
+    public JButton getButton_saveAddAnimalCare() {
+        return button_saveAddAnimalCare;
+    }
+
+    public JButton getButton_saveEditAnimalCare() {
+        return button_saveEditAnimalCare;
+    }
+
+    public JTextField getEditText_animalName() {
+        return editText_animalName;
+    }
+
+    public JTextField getEditText_animalName1() {
+        return editText_animalName1;
+    }
+
+    public JTextField getEditText_animalOwner() {
+        return editText_animalOwner;
+    }
+
+    public JTextField getEditText_bodyLength() {
+        return editText_bodyLength;
+    }
+
+    public JTextField getEditText_bodyLength1() {
+        return editText_bodyLength1;
+    }
+
+    public JTextField getEditText_chestSize() {
+        return editText_chestSize;
+    }
+
+    public JTextField getEditText_chestSize1() {
+        return editText_chestSize1;
+    }
+
+    public JTextArea getEditText_comment() {
+        return editText_comment;
+    }
+
+    public JTextArea getEditText_comment1() {
+        return editText_comment1;
+    }
+
+    public JTextField getEditText_height1() {
+        return editText_height1;
+    }
+
+    public JTextField getEditText_height2() {
+        return editText_height2;
+    }
+    
+//</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
     public JLabel getButton_logout() {
@@ -151,6 +231,52 @@ public class V_Nurse extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         scrollPane_animalCare = new javax.swing.JScrollPane();
         table_animalCare = new javax.swing.JTable();
+        button_addAnimalCare = new javax.swing.JButton();
+        button_deleteAnimalCare = new javax.swing.JButton();
+        button_editAnimalCare = new javax.swing.JButton();
+        button_refreshAnimalCare = new javax.swing.JButton();
+        panel_addAnimalCare = new javax.swing.JPanel();
+        editText_subtitle6 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        panel_formAddAnimalCare = new javax.swing.JPanel();
+        button_cancelAddAnimalCare = new javax.swing.JButton();
+        button_saveAddAnimalCare = new javax.swing.JButton();
+        textView_animalName = new javax.swing.JLabel();
+        editText_animalName = new javax.swing.JTextField();
+        textView_weight = new javax.swing.JLabel();
+        editText_weight = new javax.swing.JTextField();
+        textView_bodyLegth = new javax.swing.JLabel();
+        editText_bodyLength = new javax.swing.JTextField();
+        textView_chestSize = new javax.swing.JLabel();
+        editText_chestSize = new javax.swing.JTextField();
+        textView_animalOwner = new javax.swing.JLabel();
+        editText_animalOwner = new javax.swing.JTextField();
+        textView_skinColor2 = new javax.swing.JLabel();
+        editText_height2 = new javax.swing.JTextField();
+        textView_comment = new javax.swing.JLabel();
+        scrollPane_comment = new javax.swing.JScrollPane();
+        editText_comment = new javax.swing.JTextArea();
+        panel_editAnimalCare = new javax.swing.JPanel();
+        editText_subtitle7 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        panel_formEditAnimalCare = new javax.swing.JPanel();
+        button_cancelEditAnimalCare = new javax.swing.JButton();
+        button_saveEditAnimalCare = new javax.swing.JButton();
+        textView_animalName1 = new javax.swing.JLabel();
+        editText_animalName1 = new javax.swing.JTextField();
+        textView_weight1 = new javax.swing.JLabel();
+        editText_weight1 = new javax.swing.JTextField();
+        textView_bodyLength1 = new javax.swing.JLabel();
+        editText_bodyLength1 = new javax.swing.JTextField();
+        textView_chestSize1 = new javax.swing.JLabel();
+        editText_chestSize1 = new javax.swing.JTextField();
+        textView_animalOwner1 = new javax.swing.JLabel();
+        editText_user1 = new javax.swing.JTextField();
+        textView_skinColor1 = new javax.swing.JLabel();
+        editText_height1 = new javax.swing.JTextField();
+        textView_comment1 = new javax.swing.JLabel();
+        scrollPane_comment1 = new javax.swing.JScrollPane();
+        editText_comment1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1184, 661));
@@ -353,6 +479,30 @@ public class V_Nurse extends javax.swing.JFrame {
         table_animalCare.getTableHeader().setReorderingAllowed(false);
         scrollPane_animalCare.setViewportView(table_animalCare);
 
+        button_addAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_addAnimalCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/add.png"))); // NOI18N
+        button_addAnimalCare.setText("Add");
+        button_addAnimalCare.setContentAreaFilled(false);
+        button_addAnimalCare.setFocusable(false);
+
+        button_deleteAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_deleteAnimalCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/hapus.png"))); // NOI18N
+        button_deleteAnimalCare.setText("Delete");
+        button_deleteAnimalCare.setContentAreaFilled(false);
+        button_deleteAnimalCare.setFocusable(false);
+
+        button_editAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_editAnimalCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/edit.png"))); // NOI18N
+        button_editAnimalCare.setText("Edit");
+        button_editAnimalCare.setContentAreaFilled(false);
+        button_editAnimalCare.setFocusable(false);
+
+        button_refreshAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_refreshAnimalCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/refresh.png"))); // NOI18N
+        button_refreshAnimalCare.setText("Refresh");
+        button_refreshAnimalCare.setContentAreaFilled(false);
+        button_refreshAnimalCare.setFocusable(false);
+
         javax.swing.GroupLayout panel_animalCareLayout = new javax.swing.GroupLayout(panel_animalCare);
         panel_animalCare.setLayout(panel_animalCareLayout);
         panel_animalCareLayout.setHorizontalGroup(
@@ -363,6 +513,16 @@ public class V_Nurse extends javax.swing.JFrame {
                     .addComponent(editText_subtitle1)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_animalCareLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_addAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(button_deleteAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(button_editAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(button_refreshAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_animalCareLayout.createSequentialGroup()
                     .addGap(53, 53, 53)
@@ -376,7 +536,13 @@ public class V_Nurse extends javax.swing.JFrame {
                 .addComponent(editText_subtitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(405, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_addAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_deleteAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_editAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_refreshAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
             .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_animalCareLayout.createSequentialGroup()
                     .addGap(112, 112, 112)
@@ -385,6 +551,340 @@ public class V_Nurse extends javax.swing.JFrame {
         );
 
         panel_body.add(panel_animalCare, "panel_animalCare");
+
+        panel_addAnimalCare.setBackground(new java.awt.Color(255, 255, 255));
+
+        editText_subtitle6.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        editText_subtitle6.setText("ADD ANIMAL CARE");
+
+        panel_formAddAnimalCare.setBackground(new java.awt.Color(255, 255, 255));
+
+        button_cancelAddAnimalCare.setBackground(new java.awt.Color(255, 255, 255));
+        button_cancelAddAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        button_cancelAddAnimalCare.setText("CANCEL");
+        button_cancelAddAnimalCare.setContentAreaFilled(false);
+        button_cancelAddAnimalCare.setFocusable(false);
+
+        button_saveAddAnimalCare.setBackground(new java.awt.Color(255, 255, 255));
+        button_saveAddAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        button_saveAddAnimalCare.setText("SAVE");
+        button_saveAddAnimalCare.setContentAreaFilled(false);
+        button_saveAddAnimalCare.setFocusable(false);
+
+        textView_animalName.setText("Animal Name");
+        textView_animalName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_animalName.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_animalName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_weight.setText("Weight");
+        textView_weight.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_weight.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_weight.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_bodyLegth.setText("Body Length");
+        textView_bodyLegth.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_bodyLength.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_bodyLength.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_chestSize.setText("Chest Size");
+        textView_chestSize.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_chestSize.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_chestSize.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_animalOwner.setText("Animal Owner");
+        textView_animalOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_animalOwner.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_animalOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_skinColor2.setText("Height");
+        textView_skinColor2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_height2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_height2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_comment.setText("Comment");
+        textView_comment.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_comment.setColumns(20);
+        editText_comment.setRows(5);
+        scrollPane_comment.setViewportView(editText_comment);
+
+        javax.swing.GroupLayout panel_formAddAnimalCareLayout = new javax.swing.GroupLayout(panel_formAddAnimalCare);
+        panel_formAddAnimalCare.setLayout(panel_formAddAnimalCareLayout);
+        panel_formAddAnimalCareLayout.setHorizontalGroup(
+            panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddAnimalCareLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textView_chestSize)
+                    .addComponent(textView_bodyLegth)
+                    .addComponent(textView_weight)
+                    .addComponent(textView_animalName))
+                .addGap(18, 18, 18)
+                .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editText_chestSize, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_formAddAnimalCareLayout.createSequentialGroup()
+                        .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editText_animalName, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editText_weight, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editText_bodyLength, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textView_comment)
+                            .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(scrollPane_comment, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_formAddAnimalCareLayout.createSequentialGroup()
+                                    .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(textView_animalOwner)
+                                        .addComponent(textView_skinColor2))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(editText_height2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(editText_animalOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(panel_formAddAnimalCareLayout.createSequentialGroup()
+                                    .addComponent(button_cancelAddAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(button_saveAddAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(15, 15, 15))
+        );
+        panel_formAddAnimalCareLayout.setVerticalGroup(
+            panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddAnimalCareLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_animalOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_animalName)
+                    .addComponent(textView_animalOwner)
+                    .addComponent(editText_animalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_height2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_skinColor2)
+                    .addComponent(textView_weight)
+                    .addComponent(editText_weight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_formAddAnimalCareLayout.createSequentialGroup()
+                        .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_comment)
+                            .addComponent(textView_bodyLegth)
+                            .addComponent(editText_bodyLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editText_chestSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_chestSize)))
+                    .addComponent(scrollPane_comment, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_cancelAddAnimalCare)
+                    .addComponent(button_saveAddAnimalCare))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panel_addAnimalCareLayout = new javax.swing.GroupLayout(panel_addAnimalCare);
+        panel_addAnimalCare.setLayout(panel_addAnimalCareLayout);
+        panel_addAnimalCareLayout.setHorizontalGroup(
+            panel_addAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_addAnimalCareLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(panel_addAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editText_subtitle6)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_addAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_addAnimalCareLayout.createSequentialGroup()
+                    .addGap(270, 270, 270)
+                    .addComponent(panel_formAddAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(271, Short.MAX_VALUE)))
+        );
+        panel_addAnimalCareLayout.setVerticalGroup(
+            panel_addAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_addAnimalCareLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(editText_subtitle6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(405, Short.MAX_VALUE))
+            .addGroup(panel_addAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_addAnimalCareLayout.createSequentialGroup()
+                    .addGap(133, 133, 133)
+                    .addComponent(panel_formAddAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(134, Short.MAX_VALUE)))
+        );
+
+        panel_body.add(panel_addAnimalCare, "panel_addAnimalCare");
+
+        panel_editAnimalCare.setBackground(new java.awt.Color(255, 255, 255));
+
+        editText_subtitle7.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        editText_subtitle7.setText("EDIT ANIMAL CARE");
+
+        panel_formEditAnimalCare.setBackground(new java.awt.Color(255, 255, 255));
+
+        button_cancelEditAnimalCare.setBackground(new java.awt.Color(255, 255, 255));
+        button_cancelEditAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        button_cancelEditAnimalCare.setText("CANCEL");
+        button_cancelEditAnimalCare.setContentAreaFilled(false);
+        button_cancelEditAnimalCare.setFocusable(false);
+
+        button_saveEditAnimalCare.setBackground(new java.awt.Color(255, 255, 255));
+        button_saveEditAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        button_saveEditAnimalCare.setText("SAVE");
+        button_saveEditAnimalCare.setContentAreaFilled(false);
+        button_saveEditAnimalCare.setFocusable(false);
+
+        textView_animalName1.setText("Animal Name");
+        textView_animalName1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_animalName1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_animalName1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_weight1.setText("Weight");
+        textView_weight1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_weight1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_weight1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_bodyLength1.setText("Body Length");
+        textView_bodyLength1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_bodyLength1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_bodyLength1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_chestSize1.setText("Chest Size");
+        textView_chestSize1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_chestSize1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_chestSize1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_animalOwner1.setText("Animal Owner");
+        textView_animalOwner1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_user1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_user1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_skinColor1.setText("Height");
+        textView_skinColor1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_height1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_height1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_comment1.setText("Comment");
+        textView_comment1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_comment1.setColumns(20);
+        editText_comment1.setRows(5);
+        scrollPane_comment1.setViewportView(editText_comment1);
+
+        javax.swing.GroupLayout panel_formEditAnimalCareLayout = new javax.swing.GroupLayout(panel_formEditAnimalCare);
+        panel_formEditAnimalCare.setLayout(panel_formEditAnimalCareLayout);
+        panel_formEditAnimalCareLayout.setHorizontalGroup(
+            panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalCareLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textView_chestSize1)
+                    .addComponent(textView_bodyLength1)
+                    .addComponent(textView_weight1)
+                    .addComponent(textView_animalName1))
+                .addGap(18, 18, 18)
+                .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editText_chestSize1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_formEditAnimalCareLayout.createSequentialGroup()
+                        .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editText_animalName1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editText_weight1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editText_bodyLength1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textView_comment1)
+                            .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(scrollPane_comment1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_formEditAnimalCareLayout.createSequentialGroup()
+                                    .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(textView_animalOwner1)
+                                        .addComponent(textView_skinColor1))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(editText_height1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(editText_user1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(panel_formEditAnimalCareLayout.createSequentialGroup()
+                                    .addComponent(button_cancelEditAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(button_saveEditAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(15, 15, 15))
+        );
+        panel_formEditAnimalCareLayout.setVerticalGroup(
+            panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalCareLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_user1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_animalName1)
+                    .addComponent(textView_animalOwner1)
+                    .addComponent(editText_animalName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_height1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_skinColor1)
+                    .addComponent(textView_weight1)
+                    .addComponent(editText_weight1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_formEditAnimalCareLayout.createSequentialGroup()
+                        .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_comment1)
+                            .addComponent(textView_bodyLength1)
+                            .addComponent(editText_bodyLength1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editText_chestSize1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_chestSize1)))
+                    .addComponent(scrollPane_comment1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_cancelEditAnimalCare)
+                    .addComponent(button_saveEditAnimalCare))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panel_editAnimalCareLayout = new javax.swing.GroupLayout(panel_editAnimalCare);
+        panel_editAnimalCare.setLayout(panel_editAnimalCareLayout);
+        panel_editAnimalCareLayout.setHorizontalGroup(
+            panel_editAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_editAnimalCareLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(panel_editAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editText_subtitle7)
+                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_editAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_editAnimalCareLayout.createSequentialGroup()
+                    .addGap(270, 270, 270)
+                    .addComponent(panel_formEditAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(271, Short.MAX_VALUE)))
+        );
+        panel_editAnimalCareLayout.setVerticalGroup(
+            panel_editAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_editAnimalCareLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(editText_subtitle7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(405, Short.MAX_VALUE))
+            .addGroup(panel_editAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_editAnimalCareLayout.createSequentialGroup()
+                    .addGap(133, 133, 133)
+                    .addComponent(panel_formEditAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(134, Short.MAX_VALUE)))
+        );
+
+        panel_body.add(panel_editAnimalCare, "panel_editAnimalCare");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -444,30 +944,76 @@ public class V_Nurse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_addAnimalCare;
     private javax.swing.JButton button_animal;
     private javax.swing.JButton button_animalCare;
+    private javax.swing.JButton button_cancelAddAnimalCare;
+    private javax.swing.JButton button_cancelEditAnimalCare;
+    private javax.swing.JButton button_deleteAnimalCare;
+    private javax.swing.JButton button_editAnimalCare;
     private javax.swing.JLabel button_exit;
     private javax.swing.JLabel button_logout;
     private javax.swing.JLabel button_maximize;
     private javax.swing.JLabel button_minimize;
+    private javax.swing.JButton button_refreshAnimalCare;
+    private javax.swing.JButton button_saveAddAnimalCare;
+    private javax.swing.JButton button_saveEditAnimalCare;
     private javax.swing.JLabel color_animal;
     private javax.swing.JLabel color_animalCare;
+    private javax.swing.JTextField editText_animalName;
+    private javax.swing.JTextField editText_animalName1;
+    private javax.swing.JTextField editText_animalOwner;
+    private javax.swing.JTextField editText_bodyLength;
+    private javax.swing.JTextField editText_bodyLength1;
+    private javax.swing.JTextField editText_chestSize;
+    private javax.swing.JTextField editText_chestSize1;
+    private javax.swing.JTextArea editText_comment;
+    private javax.swing.JTextArea editText_comment1;
+    private javax.swing.JTextField editText_height1;
+    private javax.swing.JTextField editText_height2;
     private javax.swing.JLabel editText_name;
     private javax.swing.JLabel editText_subtitle1;
     private javax.swing.JLabel editText_subtitle2;
+    private javax.swing.JLabel editText_subtitle6;
+    private javax.swing.JLabel editText_subtitle7;
+    private javax.swing.JTextField editText_user1;
+    private javax.swing.JTextField editText_weight;
+    private javax.swing.JTextField editText_weight1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JPanel panel_addAnimalCare;
     private javax.swing.JPanel panel_animal;
     private javax.swing.JPanel panel_animalCare;
     private javax.swing.JPanel panel_body;
+    private javax.swing.JPanel panel_editAnimalCare;
+    private javax.swing.JPanel panel_formAddAnimalCare;
+    private javax.swing.JPanel panel_formEditAnimalCare;
     private javax.swing.JPanel panel_header;
     private javax.swing.JPanel panel_undecorated;
     private javax.swing.JLabel picture;
     private javax.swing.JScrollPane scrollPane_animal;
     private javax.swing.JScrollPane scrollPane_animalCare;
+    private javax.swing.JScrollPane scrollPane_comment;
+    private javax.swing.JScrollPane scrollPane_comment1;
     private javax.swing.JTable table_animal;
     private javax.swing.JTable table_animalCare;
+    private javax.swing.JLabel textView_animalName;
+    private javax.swing.JLabel textView_animalName1;
+    private javax.swing.JLabel textView_animalOwner;
+    private javax.swing.JLabel textView_animalOwner1;
+    private javax.swing.JLabel textView_bodyLegth;
+    private javax.swing.JLabel textView_bodyLength1;
+    private javax.swing.JLabel textView_chestSize;
+    private javax.swing.JLabel textView_chestSize1;
+    private javax.swing.JLabel textView_comment;
+    private javax.swing.JLabel textView_comment1;
+    private javax.swing.JLabel textView_skinColor1;
+    private javax.swing.JLabel textView_skinColor2;
     private javax.swing.JLabel textView_user;
+    private javax.swing.JLabel textView_weight;
+    private javax.swing.JLabel textView_weight1;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

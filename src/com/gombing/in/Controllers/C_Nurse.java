@@ -42,6 +42,7 @@ public class C_Nurse {
         viewNurse.setVisible(true);
         connection = new config();
         connection.getAnimal().setCon(connection.getConnection());
+        connection.getAnimalCare().setCon(connection.getConnection());
         tableAnimal = new Table_Animal();
         tableAnimalCare = new Table_AnimalCare();
 
@@ -54,6 +55,14 @@ public class C_Nurse {
         viewAnimal();
         tableAnimal();
         viewAnimalCare();
+        addAnimalCare();
+        saveAddAnimalCare();
+        cancelAddAnimalCare();
+        deleteAnimalCare();
+        editAnimalCare();
+        saveEditAnimalCare();
+        cancelEditAnimalCare();
+        refreshAnimalCare();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Animal">
@@ -99,19 +108,76 @@ public class C_Nurse {
     }
 
     private void tableAnimalCare() {
-        //            tableAnimalCare.setList(connection.getAnimalCare().getAll());
-        viewNurse.getTable_animalCare().setModel(tableAnimalCare);
-        viewNurse.getTable_animalCare().getTableHeader().setOpaque(false);
-        viewNurse.getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
-        viewNurse.getTable_animalCare().getTableHeader().setBackground(Color.white);
-        viewNurse.getTable_animalCare().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
+        try {
+            tableAnimalCare.setList(connection.getAnimalCare().getAll());
+            viewNurse.getTable_animalCare().setModel(tableAnimalCare);
+            viewNurse.getTable_animalCare().getTableHeader().setOpaque(false);
+            viewNurse.getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            viewNurse.getTable_animalCare().getTableHeader().setBackground(Color.white);
+            viewNurse.getTable_animalCare().addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    
+                }
                 
-            }
+            });
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Nurse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void addAnimalCare() {
+        viewNurse.getButton_addAnimalCare().addActionListener((ActionEvent e) -> {
+            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
+            card.show(viewNurse.getPanel_body(), "panel_addAnimalCare");
+        });
+    }
+
+    private void saveAddAnimalCare() {
+        viewNurse.getButton_saveAddAnimalCare().addActionListener((ActionEvent e) -> {
             
         });
     }
+
+    private void cancelAddAnimalCare() {
+        viewNurse.getButton_cancelAddAnimalCare().addActionListener((ActionEvent e) -> {
+            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
+            card.show(viewNurse.getPanel_body(), "panel_animalCare");
+        });
+    }
+
+    private void editAnimalCare() {
+        viewNurse.getButton_editAnimalCare().addActionListener((ActionEvent e) -> {
+            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
+            card.show(viewNurse.getPanel_body(), "panel_editAnimalCare");
+        });
+    }
+
+    private void saveEditAnimalCare() {
+        viewNurse.getButton_saveEditAnimalCare().addActionListener((ActionEvent e) -> {
+
+        });
+    }
+
+    private void cancelEditAnimalCare() {
+        viewNurse.getButton_cancelEditAnimalCare().addActionListener((ActionEvent e) -> {
+            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
+            card.show(viewNurse.getPanel_body(), "panel_animalCare");
+        });
+    }
+    
+    private void deleteAnimalCare(){
+        viewNurse.getButton_deleteAnimalCare().addActionListener((ActionEvent e) -> {
+            
+        });
+    }
+    
+    private void refreshAnimalCare(){
+        viewNurse.getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
+            tableAnimalCare();
+        });
+    }
+    
     //</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="Button Logout">

@@ -17,7 +17,8 @@ public class Table_AnimalCare extends AbstractTableModel {
     private ArrayList<M_AnimalCare> list = new ArrayList<>();
 
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
-    private final String[] header = {"Id","Animal Name","User","Weight","Body Length","Chest Size","Height","Comment","Timestamp"};
+    
+    private final String[] header = {"Id","Animal Name","Animal Owner","Weight","Body Length","Chest Size","Height","Comment","Timestamp"};
 
     public void setList(ArrayList<M_AnimalCare> list) {
         this.list = list;

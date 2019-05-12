@@ -57,7 +57,7 @@ public class C_Admin {
         connection.getAnimal().setCon(connection.getConnection());
         connection.getAnimalType().setCon(connection.getConnection());
         connection.getTypePet().setCon(connection.getConnection());
-                
+
         comboBoxLevel();
         comboBoxAnimalType();
         comboBoxTypePet();
@@ -70,6 +70,8 @@ public class C_Admin {
         editUsers();
         saveEditUsers();
         cancelEditUsers();
+        deleteUsers();
+        refreshUsers();
 
         viewAnimal();
         addAnimal();
@@ -78,6 +80,8 @@ public class C_Admin {
         editAnimal();
         saveEditAnimal();
         cancelEditAnimal();
+        deleteAnimal();
+        refreshAnimal();
 
         viewAnimalType();
         addAnimalType();
@@ -86,6 +90,8 @@ public class C_Admin {
         editAnimalType();
         saveEditAnimalType();
         cancelEditAnimalType();
+        deleteAnimalType();
+        refreshAnimalType();
 
         viewTypePet();
         addTypePet();
@@ -94,6 +100,8 @@ public class C_Admin {
         editTypePet();
         saveEditTypePet();
         cancelEditTypePet();
+        deleteTypePet();
+        refreshTypePet();
 
         buttonMinimize();
         buttonMaximize();
@@ -133,8 +141,8 @@ public class C_Admin {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private void comboBoxLevel(){
+
+    private void comboBoxLevel() {
         try {
             viewAdmin.getComboBox_level().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBox().toArray()));
             viewAdmin.getComboBox_level1().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBox().toArray()));
@@ -181,6 +189,18 @@ public class C_Admin {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_users");
         });
+    }
+
+    private void deleteUsers() {
+        viewAdmin.getButton_deleteUsers().addActionListener((ActionEvent e) -> {
+
+        });
+    }
+
+    private void refreshUsers() {
+        viewAdmin.getButton_refreshUsers().addActionListener((ActionEvent e) -> {
+            tableUsers();
+        });
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Animal">
@@ -224,7 +244,7 @@ public class C_Admin {
 
     private void saveAddAnimal() {
         viewAdmin.getButton_saveAddAnimal().addActionListener((ActionEvent e) -> {
-            
+
         });
     }
 
@@ -252,6 +272,18 @@ public class C_Admin {
         viewAdmin.getButton_cancelEditAnimal().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
             card.show(viewAdmin.getPanel_body(), "panel_animal");
+        });
+    }
+
+    private void deleteAnimal() {
+        viewAdmin.getButton_deleteAnimal().addActionListener((ActionEvent e) -> {
+
+        });
+    }
+
+    private void refreshAnimal() {
+        viewAdmin.getButton_refreshAnimal().addActionListener((ActionEvent e) -> {
+            tableAnimal();
         });
     }
     //</editor-fold>
@@ -287,8 +319,8 @@ public class C_Admin {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private void comboBoxAnimalType(){
+
+    private void comboBoxAnimalType() {
         try {
             viewAdmin.getComboBox_animalType().setModel(new DefaultComboBoxModel(connection.getAnimalType().fillComboBox().toArray()));
             viewAdmin.getComboBox_animalType1().setModel(new DefaultComboBoxModel(connection.getAnimalType().fillComboBox().toArray()));
@@ -300,7 +332,7 @@ public class C_Admin {
     private void addAnimalType() {
         viewAdmin.getButton_addAnimalType().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
-            card.show(viewAdmin.getPanel_body(), "panel_addAnimalType");           
+            card.show(viewAdmin.getPanel_body(), "panel_addAnimalType");
         });
     }
 
@@ -336,7 +368,18 @@ public class C_Admin {
             card.show(viewAdmin.getPanel_body(), "panel_animalType");
         });
     }
-    //</editor-fold>
+
+    private void deleteAnimalType() {
+        viewAdmin.getButton_deleteAnimalType().addActionListener((ActionEvent e) -> {
+
+        });
+    }
+
+    private void refreshAnimalType() {
+        viewAdmin.getButton_refreshAnimalType().addActionListener((ActionEvent e) -> {
+            tableAnimalType();
+        });
+    }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Type Pet">
     private void viewTypePet() {
@@ -370,8 +413,7 @@ public class C_Admin {
         }
     }
 
-    
-    private void comboBoxTypePet(){
+    private void comboBoxTypePet() {
         try {
             viewAdmin.getComboBox_typePet().setModel(new DefaultComboBoxModel(connection.getTypePet().fillComboBox().toArray()));
             viewAdmin.getComboBox_typePet1().setModel(new DefaultComboBoxModel(connection.getTypePet().fillComboBox().toArray()));
@@ -379,7 +421,7 @@ public class C_Admin {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void addTypePet() {
         viewAdmin.getButton_addTypePet().addActionListener((ActionEvent e) -> {
             CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
@@ -419,8 +461,19 @@ public class C_Admin {
             card.show(viewAdmin.getPanel_body(), "panel_typePet");
         });
     }
-    //</editor-fold>
 
+    private void deleteTypePet() {
+        viewAdmin.getButton_deleteTypePet().addActionListener((ActionEvent e) -> {
+
+        });
+    }
+
+    private void refreshTypePet() {
+        viewAdmin.getButton_refreshTypePet().addActionListener((ActionEvent e) -> {
+            tableTypePet();
+        });
+    }//</editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
         viewAdmin.getButton_logout().addMouseListener(new MouseListener() {
@@ -457,7 +510,7 @@ public class C_Admin {
             C_Login login = new C_Login();
             viewAdmin.dispose();
         } else {
-            
+
         }
     }//</editor-fold>
 

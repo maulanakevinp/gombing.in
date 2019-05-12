@@ -42,6 +42,7 @@ public class C_Manager {
         viewManager.setVisible(true);
         connection = new config();
         connection.getAnimal().setCon(connection.getConnection());
+        connection.getAnimalCare().setCon(connection.getConnection());
         tableAnimal = new Table_Animal();
         tableAnimalCare = new Table_AnimalCare();
 
@@ -99,18 +100,22 @@ public class C_Manager {
     }
 
     private void tableAnimalCare() {
-        //            tableAnimalCare.setList(connection.getAnimalCare().getAll());
-        viewManager.getTable_animalCare().setModel(tableAnimalCare);
-        viewManager.getTable_animalCare().getTableHeader().setOpaque(false);
-        viewManager.getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
-        viewManager.getTable_animalCare().getTableHeader().setBackground(Color.white);
-        viewManager.getTable_animalCare().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
+        try {
+            tableAnimalCare.setList(connection.getAnimalCare().getAll());
+            viewManager.getTable_animalCare().setModel(tableAnimalCare);
+            viewManager.getTable_animalCare().getTableHeader().setOpaque(false);
+            viewManager.getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            viewManager.getTable_animalCare().getTableHeader().setBackground(Color.white);
+            viewManager.getTable_animalCare().addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    
+                }
                 
-            }
-            
-        });
+            });
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     //</editor-fold>
 
