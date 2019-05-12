@@ -7,6 +7,9 @@ package com.gombing.in.Controllers;
 
 import com.gombing.in.Models.Table_Users;
 import com.gombing.in.DBUtils.config;
+import com.gombing.in.Models.M_Animal;
+import com.gombing.in.Models.M_AnimalType;
+import com.gombing.in.Models.M_TypePet;
 import com.gombing.in.Models.M_Users;
 import com.gombing.in.Models.Table_Animal;
 import com.gombing.in.Models.Table_AnimalType;
@@ -37,7 +40,10 @@ import javax.swing.JOptionPane;
 public class C_Admin {
 
     private final V_Admin viewAdmin;
-    private final M_Users modelUser;
+    private final M_Users modelUsers;
+    private final M_Animal modelAnimal;
+    private final M_AnimalType modelAnimalType;
+    private final M_TypePet modelTypePet;
     private final Table_Users tableUsers;
     private final Table_Animal tableAnimal;
     private final Table_AnimalType tableAnimalType;
@@ -47,7 +53,10 @@ public class C_Admin {
     public C_Admin() {
         viewAdmin = new V_Admin();
         viewAdmin.setVisible(true);
-        modelUser = new M_Users();
+        modelUsers = new M_Users();
+        modelAnimal = new M_Animal();
+        modelAnimalType = new M_AnimalType();
+        modelTypePet = new M_TypePet();
         tableUsers = new Table_Users();
         tableAnimal = new Table_Animal();
         tableAnimalType = new Table_AnimalType();
@@ -127,15 +136,21 @@ public class C_Admin {
         try {
             tableUsers.setList(connection.getUsers().getAll());
             viewAdmin.getTable_users().setModel(tableUsers);
-            viewAdmin.getTableHeader_users().setOpaque(false);
-            viewAdmin.getTableHeader_users().setFont(new Font("Segoe UI", Font.BOLD, 12));
-            viewAdmin.getTableHeader_users().setBackground(Color.white);
+            viewAdmin.getTable_users().getTableHeader().setOpaque(false);
+            viewAdmin.getTable_users().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            viewAdmin.getTable_users().getTableHeader().setBackground(Color.white);
             viewAdmin.getTable_users().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-
+                    int row = viewAdmin.getTable_users().getSelectedRow();
+                    int id = Integer.parseInt(viewAdmin.getTable_users().getValueAt(row, 0).toString());
+                    modelUsers.setId(id);
+                    viewAdmin.getEditText_name1().setText(viewAdmin.getTable_users().getValueAt(row, 1).toString());
+                    viewAdmin.getEditText_email1().setText(viewAdmin.getTable_users().getValueAt(row, 2).toString());
+                    viewAdmin.getEditText_password1().setText(viewAdmin.getTable_users().getValueAt(row, 3).toString());
+                    viewAdmin.getComboBox_level1().setSelectedItem(viewAdmin.getTable_users().getValueAt(row, 4).toString());
+                    viewAdmin.getComboBox_status1().setSelectedItem(viewAdmin.getTable_users().getValueAt(row, 5).toString());
                 }
-
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
@@ -220,13 +235,23 @@ public class C_Admin {
         try {
             tableAnimal.setList(connection.getAnimal().getAll());
             viewAdmin.getTable_animal().setModel(tableAnimal);
-            viewAdmin.getTableHeader_animal().setOpaque(false);
-            viewAdmin.getTableHeader_animal().setFont(new Font("Segoe UI", Font.BOLD, 12));
-            viewAdmin.getTableHeader_animal().setBackground(Color.white);
+            viewAdmin.getTable_animal().getTableHeader().setOpaque(false);
+            viewAdmin.getTable_animal().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            viewAdmin.getTable_animal().getTableHeader().setBackground(Color.white);
             viewAdmin.getTable_animal().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-
+                    int row = viewAdmin.getTable_animal().getSelectedRow();
+                    int id = Integer.parseInt(viewAdmin.getTable_animal().getValueAt(row, 0).toString());
+                    modelAnimal.setId(id);
+                    viewAdmin.getEditText_animalName1().setText(viewAdmin.getTable_animal().getValueAt(row, 1).toString());
+                    viewAdmin.getComboBox_animalType1().setSelectedItem(viewAdmin.getTable_animal().getValueAt(row, 2).toString());
+                    viewAdmin.getComboBox_gender1().setSelectedItem(viewAdmin.getTable_animal().getValueAt(row, 3).toString());
+                    viewAdmin.getEditText_birthdate1().setText(viewAdmin.getTable_animal().getValueAt(row, 4).toString());
+                    viewAdmin.getEditText_animalOwner1().setText(viewAdmin.getTable_animal().getValueAt(row, 5).toString());
+                    viewAdmin.getEditText_skinColor1().setText(viewAdmin.getTable_animal().getValueAt(row, 6).toString());
+                    viewAdmin.getComboBox_earType1().setSelectedItem(viewAdmin.getTable_animal().getValueAt(row, 7).toString());
+                    viewAdmin.getComboBox_typePet1().setSelectedItem(viewAdmin.getTable_animal().getValueAt(row, 8).toString());
                 }
 
             });
@@ -305,15 +330,17 @@ public class C_Admin {
         try {
             tableAnimalType.setList(connection.getAnimalType().getAll());
             viewAdmin.getTable_animalType().setModel(tableAnimalType);
-            viewAdmin.getTableHeader_animalType().setOpaque(false);
-            viewAdmin.getTableHeader_animalType().setFont(new Font("Segoe UI", Font.BOLD, 12));
-            viewAdmin.getTableHeader_animalType().setBackground(Color.white);
+            viewAdmin.getTable_animalType().getTableHeader().setOpaque(false);
+            viewAdmin.getTable_animalType().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            viewAdmin.getTable_animalType().getTableHeader().setBackground(Color.white);
             viewAdmin.getTable_animalType().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-
+                    int row = viewAdmin.getTable_animalType().getSelectedRow();
+                    int id = Integer.parseInt(viewAdmin.getTable_animalType().getValueAt(row, 0).toString());
+                    modelAnimalType.setId(id);
+                    viewAdmin.getEditText_animalType1().setText(viewAdmin.getTable_animalType().getValueAt(row, 1).toString());
                 }
-
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
@@ -398,13 +425,16 @@ public class C_Admin {
         try {
             tableTypePet.setList(connection.getTypePet().getAll());
             viewAdmin.getTable_typePet().setModel(tableTypePet);
-            viewAdmin.getTableHeader_typePet().setOpaque(false);
-            viewAdmin.getTableHeader_typePet().setFont(new Font("Segoe UI", Font.BOLD, 12));
-            viewAdmin.getTableHeader_typePet().setBackground(Color.white);
+            viewAdmin.getTable_typePet().getTableHeader().setOpaque(false);
+            viewAdmin.getTable_typePet().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            viewAdmin.getTable_typePet().getTableHeader().setBackground(Color.white);
             viewAdmin.getTable_typePet().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-
+                    int row = viewAdmin.getTable_typePet().getSelectedRow();
+                    int id = Integer.parseInt(viewAdmin.getTable_typePet().getValueAt(row, 0).toString());
+                    modelTypePet.setId(id);
+                    viewAdmin.getEditText_typePet1().setText(viewAdmin.getTable_typePet().getValueAt(row, 1).toString());
                 }
 
             });
@@ -431,7 +461,18 @@ public class C_Admin {
 
     private void saveAddTypePet() {
         viewAdmin.getButton_saveAddTypePet().addActionListener((ActionEvent e) -> {
-
+            try {
+                modelTypePet.setType_pet(viewAdmin.getEditText_typePet().getText());
+                connection.getTypePet().insert(modelTypePet);
+                tableTypePet();
+                CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
+                card.show(viewAdmin.getPanel_body(), "panel_typePet");
+                viewAdmin.getEditText_typePet().setText("");
+                JOptionPane.showMessageDialog(viewAdmin, "Success to save data");
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(viewAdmin, "Failed to save data");
+            }
         });
     }
 
@@ -451,7 +492,18 @@ public class C_Admin {
 
     private void saveEditTypePet() {
         viewAdmin.getButton_saveEditTypePet().addActionListener((ActionEvent e) -> {
-
+            try {
+                modelTypePet.setType_pet(viewAdmin.getEditText_typePet1().getText());
+                connection.getTypePet().update(modelTypePet);
+                tableTypePet();
+                CardLayout card = (CardLayout) viewAdmin.getPanel_body().getLayout();
+                card.show(viewAdmin.getPanel_body(), "panel_typePet");
+                viewAdmin.getEditText_typePet1().setText("");
+                JOptionPane.showMessageDialog(viewAdmin, "Success to save data");
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(viewAdmin, "Failed to save data");
+            }
         });
     }
 
@@ -464,7 +516,14 @@ public class C_Admin {
 
     private void deleteTypePet() {
         viewAdmin.getButton_deleteTypePet().addActionListener((ActionEvent e) -> {
-
+            try {                
+                connection.getTypePet().delete(modelTypePet);
+                tableTypePet();
+                JOptionPane.showMessageDialog(viewAdmin, "Success to save data");
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(viewAdmin, "Failed to delete data");
+            }
         });
     }
 
@@ -473,7 +532,7 @@ public class C_Admin {
             tableTypePet();
         });
     }//</editor-fold>
-    
+
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
         viewAdmin.getButton_logout().addMouseListener(new MouseListener() {

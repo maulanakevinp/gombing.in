@@ -13,6 +13,8 @@ import com.gombing.in.Services.UsersService;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,18 +38,22 @@ public class config {
     }
 
     public Connection getConnection() {
-        if (con == null) {
-            String database = "d9ek16mludg78a";
-            String username = "ttmzwvmtinzjlp";
-            String password = "03d8bbf4fe174f1f3eb76ed041fc241cf90e4d1d9b158f49169c8e4295042f41";
-            String url = "jdbc:postgresql://ec2-23-23-92-204.compute-1.amazonaws.com:5432/" + database + "?sslmode=require";
-            try {
-                con = (Connection) DriverManager.getConnection(url, username, password);
-                System.out.println("Connection Successful");
-            } catch (SQLException e) {
-                System.out.println("Connection Failed. Error : " + e);
-                e.getMessage();
+        try {
+            if (con == null || con.isClosed()) {
+                String database = "d9ek16mludg78a";
+                String username = "ttmzwvmtinzjlp";
+                String password = "03d8bbf4fe174f1f3eb76ed041fc241cf90e4d1d9b158f49169c8e4295042f41";
+                String url = "jdbc:postgresql://ec2-23-23-92-204.compute-1.amazonaws.com:5432/" + database + "?sslmode=require";
+                try {
+                    con = (Connection) DriverManager.getConnection(url, username, password);
+                    System.out.println("Connection Successful");
+                } catch (SQLException e) {
+                    System.out.println("Connection Failed. Error : " + e);
+                    e.getMessage();
+                }
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(config.class.getName()).log(Level.SEVERE, null, ex);
         }
         return con;
     }
@@ -67,7 +73,7 @@ public class config {
     public AnimalTypeService getAnimalType() {
         return animalType;
     }
-    
+
     public TypePetService getTypePet() {
         return TypePet;
     }

@@ -20,7 +20,10 @@ import java.util.ArrayList;
 public class AnimalTypeService implements AnimalTypeInterface {
 
     private Connection con;
-    private final String sql_select = "SELECT id, animal_type FROM public.animal_type order by id;";
+    private final String sql_select = "SELECT id, animal_type FROM public.animal_type order by id;",
+            sql_insert = "INSERT INTO public.animal_type (animal_type) VALUES (?);",
+            sql_update = "UPDATE public.animal_type SET animal_type=? WHERE id=?",
+            sql_delete = "DELETE FROM public.animal_type WHERE id=?";
 
     public void setCon(Connection con) {
         this.con = con;
@@ -28,17 +31,36 @@ public class AnimalTypeService implements AnimalTypeInterface {
 
     @Override
     public void insert(M_AnimalType m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_insert);
+            st.setString(1, m.getAnimal_type());
+            st.executeUpdate();            
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override
     public void update(M_AnimalType m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_update);
+            st.setString(1, m.getAnimal_type());
+            st.setInt(2, m.getId());
+            st.executeUpdate();            
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override
     public void delete(M_AnimalType m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_delete);
+            st.setInt(1, m.getId());
+            st.executeUpdate();            
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override

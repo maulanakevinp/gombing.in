@@ -20,24 +20,47 @@ import java.util.ArrayList;
 public class TypePetService implements TypePetInterface {
 
     private Connection con;
-    private final String sql_select = "SELECT id, type_pet FROM public.type_pet order by id;";
+    private final String sql_select = "SELECT id, type_pet FROM public.type_pet order by id;",
+            sql_insert = "INSERT INTO public.type_pet (type_pet) VALUES (?);",
+            sql_update = "UPDATE public.type_pet SET type_pet=? WHERE id=?",
+            sql_delete = "DELETE FROM public.type_pet WHERE id=?";
+    
     public void setCon(Connection con) {
         this.con = con;
     }
 
     @Override
     public void insert(M_TypePet m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_insert);
+            st.setString(1, m.getType_pet());
+            st.executeUpdate();            
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override
     public void update(M_TypePet m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_update);
+            st.setString(1, m.getType_pet());
+            st.setInt(2, m.getId());
+            st.executeUpdate();            
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override
     public void delete(M_TypePet m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_delete);
+            st.setInt(1, m.getId());
+            st.executeUpdate();            
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override
@@ -78,5 +101,4 @@ public class TypePetService implements TypePetInterface {
         }
         return list;
     }
-
 }
