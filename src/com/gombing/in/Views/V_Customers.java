@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -43,6 +44,50 @@ public class V_Customers extends javax.swing.JFrame {
         return table_animalCare;
     }//</editor-fold>
 
+    // <editor-fold defaultstate="collapsed" desc="Profile">    
+    public JButton getButton_cancelEditProfile() {
+        return button_cancelEditProfile;
+    }
+
+    public JButton getButton_savelEditProfile() {
+        return button_savelEditProfile;
+    }
+
+    public JTextField getEditText_alamat() {
+        return editText_alamat;
+    }
+
+    public JTextField getEditText_email() {
+        return editText_email;
+    }
+
+    public JTextField getEditText_name() {
+        return editText_name;
+    }
+
+    public JTextField getEditText_noHp() {
+        return editText_noHp;
+    }
+
+    public JLabel getTextView_name() {    
+        return textView_name;
+    }
+
+    public JLabel getButton_editProfile() {
+        return button_editProfile;
+    }
+
+    public JButton getButton_choosePhoto() {
+        return button_choosePhoto;
+    }
+
+    public JLabel getPicture() {
+        return picture;
+    }
+
+    public JLabel getPicture1() {
+        return picture1;
+    }//</editor-fold>    
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
     public JLabel getButton_logout() {
@@ -119,15 +164,31 @@ public class V_Customers extends javax.swing.JFrame {
         textView_user = new javax.swing.JLabel();
         button_logout = new javax.swing.JLabel();
         picture = new javax.swing.JLabel();
-        editText_name = new javax.swing.JLabel();
+        textView_name = new javax.swing.JLabel();
         button_animalCare = new javax.swing.JButton();
         color_animalCare = new javax.swing.JLabel();
+        button_editProfile = new javax.swing.JLabel();
         panel_body = new javax.swing.JPanel();
         panel_animalCare = new javax.swing.JPanel();
         editText_subtitle = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         scrollPane = new javax.swing.JScrollPane();
         table_animalCare = new javax.swing.JTable();
+        panel_profile = new javax.swing.JPanel();
+        textView_profile = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        button_choosePhoto = new javax.swing.JButton();
+        picture1 = new javax.swing.JLabel();
+        textView_nameEdit = new javax.swing.JLabel();
+        editText_name = new javax.swing.JTextField();
+        textView_email = new javax.swing.JLabel();
+        editText_email = new javax.swing.JTextField();
+        textView_alamat = new javax.swing.JLabel();
+        editText_alamat = new javax.swing.JTextField();
+        textView_noHp = new javax.swing.JLabel();
+        editText_noHp = new javax.swing.JTextField();
+        button_savelEditProfile = new javax.swing.JButton();
+        button_cancelEditProfile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1184, 661));
@@ -175,8 +236,8 @@ public class V_Customers extends javax.swing.JFrame {
 
         picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_administrator_male_100px.png"))); // NOI18N
 
-        editText_name.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        editText_name.setText("CUSTOMERS");
+        textView_name.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        textView_name.setText("CUSTOMERS");
 
         button_animalCare.setBackground(new java.awt.Color(255, 255, 255));
         button_animalCare.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -190,6 +251,10 @@ public class V_Customers extends javax.swing.JFrame {
         color_animalCare.setBackground(new java.awt.Color(0, 255, 0));
         color_animalCare.setOpaque(true);
 
+        button_editProfile.setForeground(new java.awt.Color(0, 0, 255));
+        button_editProfile.setText("Edit Profile");
+        button_editProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout panel_headerLayout = new javax.swing.GroupLayout(panel_header);
         panel_header.setLayout(panel_headerLayout);
         panel_headerLayout.setHorizontalGroup(
@@ -200,15 +265,17 @@ public class V_Customers extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(panel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_headerLayout.createSequentialGroup()
-                        .addComponent(editText_name, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textView_name, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(textView_user)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button_logout))
                     .addGroup(panel_headerLayout.createSequentialGroup()
-                        .addGroup(panel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(color_animalCare, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(button_animalCare, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                        .addGroup(panel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(color_animalCare, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button_animalCare, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                            .addComponent(button_editProfile))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -217,11 +284,14 @@ public class V_Customers extends javax.swing.JFrame {
             .addGroup(panel_headerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(picture, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textView_user)
-                        .addComponent(button_logout)
-                        .addComponent(editText_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_headerLayout.createSequentialGroup()
+                        .addGroup(panel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_user)
+                            .addComponent(button_logout)
+                            .addComponent(textView_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_editProfile)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_animalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -283,6 +353,105 @@ public class V_Customers extends javax.swing.JFrame {
 
         panel_body.add(panel_animalCare, "panel_animalCare");
 
+        panel_profile.setBackground(new java.awt.Color(255, 255, 255));
+
+        textView_profile.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        textView_profile.setText("EDIT PROFILE");
+
+        button_choosePhoto.setText("Choose");
+
+        picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_administrator_male_100px.png"))); // NOI18N
+
+        textView_nameEdit.setText("Nama");
+
+        textView_email.setText("E-Mail");
+
+        textView_alamat.setText("Alamat");
+
+        textView_noHp.setText("No. Hp");
+
+        button_savelEditProfile.setText("Save");
+
+        button_cancelEditProfile.setText("Cancel");
+
+        javax.swing.GroupLayout panel_profileLayout = new javax.swing.GroupLayout(panel_profile);
+        panel_profile.setLayout(panel_profileLayout);
+        panel_profileLayout.setHorizontalGroup(
+            panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_profileLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textView_profile)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_profileLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(button_choosePhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(picture1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(56, 56, 56)
+                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(panel_profileLayout.createSequentialGroup()
+                                .addComponent(textView_noHp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panel_profileLayout.createSequentialGroup()
+                                        .addComponent(button_cancelEditProfile)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(button_savelEditProfile))
+                                    .addComponent(editText_noHp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_profileLayout.createSequentialGroup()
+                                .addComponent(textView_alamat)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(editText_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_profileLayout.createSequentialGroup()
+                                .addComponent(textView_nameEdit)
+                                .addGap(63, 63, 63)
+                                .addComponent(editText_name, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_profileLayout.createSequentialGroup()
+                                .addComponent(textView_email)
+                                .addGap(63, 63, 63)
+                                .addComponent(editText_email, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        panel_profileLayout.setVerticalGroup(
+            panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_profileLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(textView_profile)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_profileLayout.createSequentialGroup()
+                        .addComponent(picture1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(button_choosePhoto))
+                    .addGroup(panel_profileLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_nameEdit)
+                            .addComponent(editText_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_email)
+                            .addComponent(editText_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_alamat)
+                            .addComponent(editText_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_noHp)
+                            .addComponent(editText_noHp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(32, 32, 32)
+                .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_savelEditProfile)
+                    .addComponent(button_cancelEditProfile))
+                .addContainerGap(193, Short.MAX_VALUE))
+        );
+
+        panel_body.add(panel_profile, "panel_profile");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -342,21 +511,37 @@ public class V_Customers extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_animalCare;
+    private javax.swing.JButton button_cancelEditProfile;
+    private javax.swing.JButton button_choosePhoto;
+    private javax.swing.JLabel button_editProfile;
     private javax.swing.JLabel button_exit;
     private javax.swing.JLabel button_logout;
     private javax.swing.JLabel button_maximize;
     private javax.swing.JLabel button_minimize;
+    private javax.swing.JButton button_savelEditProfile;
     private javax.swing.JLabel color_animalCare;
-    private javax.swing.JLabel editText_name;
+    private javax.swing.JTextField editText_alamat;
+    private javax.swing.JTextField editText_email;
+    private javax.swing.JTextField editText_name;
+    private javax.swing.JTextField editText_noHp;
     private javax.swing.JLabel editText_subtitle;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel panel_animalCare;
     private javax.swing.JPanel panel_body;
     private javax.swing.JPanel panel_header;
+    private javax.swing.JPanel panel_profile;
     private javax.swing.JPanel panel_undecorated;
     private javax.swing.JLabel picture;
+    private javax.swing.JLabel picture1;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTable table_animalCare;
+    private javax.swing.JLabel textView_alamat;
+    private javax.swing.JLabel textView_email;
+    private javax.swing.JLabel textView_name;
+    private javax.swing.JLabel textView_nameEdit;
+    private javax.swing.JLabel textView_noHp;
+    private javax.swing.JLabel textView_profile;
     private javax.swing.JLabel textView_user;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables

@@ -13,15 +13,19 @@ import java.awt.Color;
 import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -34,6 +38,8 @@ public class C_Customers {
     private final V_Customers viewCustomers;
     private final Table_AnimalCare tableAnimalCare;
     private final config connection;
+    
+    private ImageIcon picture = new ImageIcon();
 
     public C_Customers() {
         viewCustomers = new V_Customers();
@@ -50,12 +56,17 @@ public class C_Customers {
 
         viewAnimalCare();
         tableAnimalCare();
+        
+        viewEditProfile();
+        choosePhoto();
+        cancelEditProfile();
+        saveEditProfile();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Animal Care">
     private void viewAnimalCare() {
         viewCustomers.getButton_animalCare().addActionListener((ActionEvent e) -> {
-            viewCustomers.getColor_animalCare().setBackground(new Color(255, 255, 255));
+            viewCustomers.getColor_animalCare().setBackground(new Color(0, 255, 0));
             CardLayout card = (CardLayout) viewCustomers.getPanel_body().getLayout();
             card.show(viewCustomers.getPanel_body(), "panel_animalCare");
         });
@@ -71,13 +82,76 @@ public class C_Customers {
             viewCustomers.getTable_animalCare().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    
+
                 }
-                
+
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    //</editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc="Profile"
+    private void viewEditProfile() {
+        viewCustomers.getButton_editProfile().addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                viewCustomers.getColor_animalCare().setBackground(new Color(255, 255, 255));
+                CardLayout card = (CardLayout) viewCustomers.getPanel_body().getLayout();
+                card.show(viewCustomers.getPanel_body(), "panel_profile");
+                viewCustomers.getEditText_name().setText(viewCustomers.getTextView_name().getText());
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+    }
+
+    private void choosePhoto() {
+        viewCustomers.getButton_choosePhoto().addActionListener((ActionEvent e) -> {
+            String filename = null;
+            byte[] photo = null;
+            JFileChooser chooser = new JFileChooser();
+            chooser.showOpenDialog(null);
+            File f = chooser.getSelectedFile();
+            filename = f.getAbsolutePath();
+            picture = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(viewCustomers.getPicture1().getWidth(), viewCustomers.getPicture1().getHeight(), Image.SCALE_SMOOTH));
+            viewCustomers.getPicture1().setIcon(picture);
+        });
+    }
+    
+    private void saveEditProfile(){
+        viewCustomers.getButton_savelEditProfile().addActionListener((ActionEvent e) -> {
+            viewCustomers.getTextView_name().setText(viewCustomers.getEditText_name().getText());            
+            viewCustomers.getPicture().setIcon(picture);
+            JOptionPane.showMessageDialog(viewCustomers, "Success to save profile");
+        });
+    }
+    
+    private void cancelEditProfile(){
+        viewCustomers.getButton_cancelEditProfile().addActionListener((ActionEvent e) -> {
+            viewCustomers.getColor_animalCare().setBackground(new Color(0, 255, 0));
+            CardLayout card = (CardLayout) viewCustomers.getPanel_body().getLayout();
+            card.show(viewCustomers.getPanel_body(), "panel_animalCare");
+        });
     }
     //</editor-fold>
 
