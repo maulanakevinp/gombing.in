@@ -24,8 +24,8 @@ public class AnimalCareService implements AnimalCareInterface {
             + "ac.chest_size, ac.height, ac.comment, ac.timestamp "
             + "FROM public.animal_care ac join public.animal on ac.id_animal=animal.id "
             + "join public.users ON users.id = ac.id_user;",
-            sql_insert = "INSERT INTO public.animal_care (id_animal, id_users, weight, body_length, chest_size, height, comment, timestamp) VALUES (?,?,?,?,?,?,?,?)",
-            sql_update = "UPDATE public.animal_care SET id_animal = ?, id_users = ?, weight = ?, body_length = ?, chest_size = ?, height = ?, comment = ?, timestamp = ? WHERE id = ?",
+            sql_insert = "INSERT INTO public.animal_care (id_animal, id_user, weight, body_length, chest_size, height, comment, timestamp) VALUES (?,?,?,?,?,?,?,?)",
+            sql_update = "UPDATE public.animal_care SET id_animal = ?, id_user = ?, weight = ?, body_length = ?, chest_size = ?, height = ?, comment = ?, timestamp = ? WHERE id = ?",
             sql_delete = "DELETE FROM public.animal_care WHERE id = ?";
 
     public void setCon(Connection con) {

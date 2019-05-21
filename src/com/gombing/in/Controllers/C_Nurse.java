@@ -158,7 +158,7 @@ public class C_Nurse {
                 connection.getAnimalCare().insert(modelAnimalCare);
                 tableAnimalCare();
                 CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-                card.show(viewNurse.getPanel_body(), "panel_animal");
+                card.show(viewNurse.getPanel_body(), "panel_animalCare");
                 viewNurse.getEditText_bodyLength().setText("");
                 viewNurse.getEditText_chestSize().setText("");
                 viewNurse.getEditText_comment().setText("");
@@ -189,17 +189,21 @@ public class C_Nurse {
     private void saveEditAnimalCare() {
         viewNurse.getButton_saveEditAnimalCare().addActionListener((ActionEvent e) -> {
             try {
+                double weight = Double.parseDouble(viewNurse.getEditText_weight1().getText());
+                double bodyLength = Double.parseDouble(viewNurse.getEditText_bodyLength1().getText());
+                double chestSize = Double.parseDouble(viewNurse.getEditText_chestSize1().getText());
+                double Height = Double.parseDouble(viewNurse.getEditText_height1().getText());
                 modelAnimalCare.setId_animal(connection.getAnimal().getId( viewNurse.getComboBox_animalName1().getSelectedItem().toString()));
                 modelAnimalCare.setId_user(connection.getUsers().getId(viewNurse.getComboBox_animalOwner1().getSelectedItem().toString()));                
-                modelAnimalCare.setWeight(Double.parseDouble(viewNurse.getEditText_weight1().getText()));
-                modelAnimalCare.setBody_length(Double.parseDouble(viewNurse.getEditText_bodyLength1().getText()));
-                modelAnimalCare.setChest_size(Double.parseDouble(viewNurse.getEditText_chestSize1().getText()));
-                modelAnimalCare.setHeight(Double.parseDouble(viewNurse.getEditText_height().getText()));
-                modelAnimalCare.setComment(viewNurse.getEditText_comment1().getText());
+                modelAnimalCare.setWeight(weight);
+                modelAnimalCare.setBody_length(bodyLength);
+                modelAnimalCare.setChest_size(chestSize);
+                modelAnimalCare.setHeight(Height);
+                modelAnimalCare.setComment(viewNurse.getEditText_comment1().getText());                
                 connection.getAnimalCare().update(modelAnimalCare);
                 tableAnimalCare();
                 CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-                card.show(viewNurse.getPanel_body(), "panel_animal");
+                card.show(viewNurse.getPanel_body(), "panel_animalCare");
                 viewNurse.getEditText_bodyLength1().setText("");
                 viewNurse.getEditText_chestSize1().setText("");
                 viewNurse.getEditText_comment1().setText("");

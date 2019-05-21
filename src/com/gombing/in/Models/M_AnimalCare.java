@@ -112,7 +112,8 @@ public class M_AnimalCare {
     
     public Timestamp getTimestamp1() {
         Date date = new Date();
-        timestamp = new Timestamp(date.getYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getTimezoneOffset());
+        long time = date.getTime();
+        timestamp = new Timestamp(time);
         return timestamp;
     }
     
