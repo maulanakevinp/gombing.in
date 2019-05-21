@@ -17,5 +17,6 @@ public interface AnimalCareInterface {
     public void insert(M_AnimalCare m)throws SQLException;
     public void update(M_AnimalCare m)throws SQLException;
     public void delete(M_AnimalCare m)throws SQLException;
-    public ArrayList<M_AnimalCare> getAll()throws SQLException;
+    public ArrayList<M_AnimalCare> getAll()throws SQLException;    
+    public ArrayList<M_AnimalCare> getAllOwnerHave()throws SQLException;
 }
