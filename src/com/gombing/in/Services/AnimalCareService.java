@@ -40,7 +40,7 @@ public class AnimalCareService implements AnimalCareInterface {
     @Override
     public void insert(M_AnimalCare m) throws SQLException {
         try {
-            PreparedStatement st = con.prepareCall(sql_insert);
+            PreparedStatement st = con.prepareStatement(sql_insert);
             st.setInt(1, m.getId_animal());
             st.setInt(2, m.getId_user());
             st.setDouble(3, m.getWeight());
@@ -58,7 +58,7 @@ public class AnimalCareService implements AnimalCareInterface {
     @Override
     public void update(M_AnimalCare m) throws SQLException {
         try {
-            PreparedStatement st = con.prepareCall(sql_update);
+            PreparedStatement st = con.prepareStatement(sql_update);
             st.setInt(1, m.getId_animal());
             st.setInt(2, m.getId_user());
             st.setDouble(3, m.getWeight());
@@ -77,7 +77,7 @@ public class AnimalCareService implements AnimalCareInterface {
     @Override
     public void delete(M_AnimalCare m) throws SQLException {
         try {
-            PreparedStatement st = con.prepareCall(sql_delete);
+            PreparedStatement st = con.prepareStatement(sql_delete);
             st.setInt(1, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {

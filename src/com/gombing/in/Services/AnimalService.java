@@ -36,8 +36,7 @@ public class AnimalService implements RecordingAnimalInterface {
     }
 
     @Override
-    public void insert(M_Animal m) throws SQLException {        
-        Date date = new Date();
+    public void insert(M_Animal m) throws SQLException {  
         try {
             PreparedStatement st = con.prepareStatement(sql_insert);
             st.setString(1, m.getAnimal_name());

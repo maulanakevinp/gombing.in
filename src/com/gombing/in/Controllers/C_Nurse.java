@@ -148,13 +148,17 @@ public class C_Nurse {
     private void saveAddAnimalCare() {
         viewNurse.getButton_saveAddAnimalCare().addActionListener((ActionEvent e) -> {
             try {
+                double weight = Double.parseDouble(viewNurse.getEditText_weight().getText());
+                double bodyLength = Double.parseDouble(viewNurse.getEditText_bodyLength().getText());
+                double chestSize = Double.parseDouble(viewNurse.getEditText_chestSize().getText());
+                double Height = Double.parseDouble(viewNurse.getEditText_height().getText());
                 modelAnimalCare.setId_animal(connection.getAnimal().getId( viewNurse.getComboBox_animalName().getSelectedItem().toString()));
                 modelAnimalCare.setId_user(connection.getUsers().getId(viewNurse.getComboBox_animalOwner().getSelectedItem().toString()));                
-                modelAnimalCare.setWeight(Double.parseDouble(viewNurse.getEditText_weight().getText()));
-                modelAnimalCare.setBody_length(Double.parseDouble(viewNurse.getEditText_bodyLength().getText()));
-                modelAnimalCare.setChest_size(Double.parseDouble(viewNurse.getEditText_chestSize().getText()));
-                modelAnimalCare.setHeight(Double.parseDouble(viewNurse.getEditText_height1().getText()));
-                modelAnimalCare.setComment(viewNurse.getEditText_comment().getText());
+                modelAnimalCare.setWeight(weight);
+                modelAnimalCare.setBody_length(bodyLength);
+                modelAnimalCare.setChest_size(chestSize);
+                modelAnimalCare.setHeight(Height);
+                modelAnimalCare.setComment(viewNurse.getEditText_comment().getText());                
                 connection.getAnimalCare().insert(modelAnimalCare);
                 tableAnimalCare();
                 CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
@@ -162,7 +166,7 @@ public class C_Nurse {
                 viewNurse.getEditText_bodyLength().setText("");
                 viewNurse.getEditText_chestSize().setText("");
                 viewNurse.getEditText_comment().setText("");
-                viewNurse.getEditText_height1().setText("");
+                viewNurse.getEditText_height().setText("");
                 viewNurse.getEditText_weight().setText("");
                 JOptionPane.showMessageDialog(viewNurse, "Success to save data");
             } catch (SQLException ex) {
