@@ -23,7 +23,10 @@ public class AnimalCareService implements AnimalCareInterface {
     private final String sql_select = "SELECT ac.id, animal.animal_name, users.name , ac.weight, ac.body_length, "
             + "ac.chest_size, ac.height, ac.comment, ac.timestamp "
             + "FROM public.animal_care ac join public.animal on ac.id_animal=animal.id "
-            + "join public.users ON users.id = ac.id_user;";
+            + "join public.users ON users.id = ac.id_user;",
+            sql_insert = "INSERT INTO public.animal_care (id_animal, id_users, weight, body_length, chest_size, height, comment, timestamp) VALUES (?,?,?,?,?,?,?,?)",
+            sql_update = "UPDATE public.animal_care SET id_animal = ?, id_users = ?, weight = ?, body_length = ?, chest_size = ?, height = ?, comment = ?, timestamp = ? WHERE id = ?",
+            sql_delete = "DELETE FROM public.animal_care WHERE id = ?";
 
     public void setCon(Connection con) {
         this.con = con;
@@ -31,17 +34,50 @@ public class AnimalCareService implements AnimalCareInterface {
 
     @Override
     public void insert(M_AnimalCare m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareCall(sql_insert);
+            st.setInt(1, m.getId_animal());
+            st.setInt(2, m.getId_user());
+            st.setDouble(3, m.getWeight());
+            st.setDouble(4, m.getBody_length());
+            st.setDouble(5, m.getChest_size());
+            st.setDouble(6, m.getHeight());
+            st.setString(7, m.getComment());
+            st.setTimestamp(8, m.getTimestamp1());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("ERROR : " + e);
+        }
     }
 
     @Override
     public void update(M_AnimalCare m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareCall(sql_update);
+            st.setInt(1, m.getId_animal());
+            st.setInt(2, m.getId_user());
+            st.setDouble(3, m.getWeight());
+            st.setDouble(4, m.getBody_length());
+            st.setDouble(5, m.getChest_size());
+            st.setDouble(6, m.getHeight());
+            st.setString(7, m.getComment());
+            st.setTimestamp(8, m.getTimestamp1());
+            st.setInt(9, m.getId());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("ERROR : " + e);
+        }
     }
 
     @Override
     public void delete(M_AnimalCare m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareCall(sql_delete);
+            st.setInt(1, m.getId());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("ERROR : "+e);
+        }
     }
 
     @Override

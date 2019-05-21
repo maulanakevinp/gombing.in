@@ -50,9 +50,4 @@ public class Table_TypePet extends AbstractTableModel {
                 return null;
         }
     }
-
-    public void save(M_TypePet m) {
-        list.add(m);
-        fireTableRowsInserted(list.size()-1, list.size()-1);
-    }
 }

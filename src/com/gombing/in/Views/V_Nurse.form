@@ -390,23 +390,27 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="editText_subtitle1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSeparator2" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="editText_subtitle1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSeparator2" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="button_addAnimalCare" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="button_deleteAnimalCare" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="button_editAnimalCare" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="button_refreshAnimalCare" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="button_addAnimalCare" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="button_deleteAnimalCare" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="button_editAnimalCare" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="button_refreshAnimalCare" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="55" pref="55" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -633,9 +637,9 @@
                               <Component id="editText_chestSize" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="editText_animalName" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                                       <Component id="editText_weight" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                                       <Component id="editText_bodyLength" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="comboBox_animalName" min="-2" pref="210" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -648,9 +652,9 @@
                                                   <Component id="textView_skinColor2" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="editText_height2" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                                                  <Component id="editText_animalOwner" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="editText_height" min="-2" pref="210" max="-2" attributes="0"/>
+                                                  <Component id="comboBox_animalOwner" min="-2" pref="210" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
@@ -671,14 +675,14 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="editText_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBox_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBox_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_height2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="editText_height" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_skinColor2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_weight" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="editText_weight" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -744,17 +748,25 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_animalName">
+                <Component class="javax.swing.JComboBox" name="comboBox_animalName">
                   <Properties>
+                    <Property name="editable" type="boolean" value="true"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="Choose"/>
+                        <StringItem index="1" value="Goat"/>
+                        <StringItem index="2" value="Cow"/>
+                      </StringArray>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder/>
                       </Border>
                     </Property>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Text Cursor"/>
-                    </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="textView_weight">
                   <Properties>
@@ -824,17 +836,25 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_animalOwner">
+                <Component class="javax.swing.JComboBox" name="comboBox_animalOwner">
                   <Properties>
+                    <Property name="editable" type="boolean" value="true"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="Choose"/>
+                        <StringItem index="1" value="Goat"/>
+                        <StringItem index="2" value="Cow"/>
+                      </StringArray>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder/>
                       </Border>
                     </Property>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Text Cursor"/>
-                    </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="textView_skinColor2">
                   <Properties>
@@ -844,7 +864,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_height2">
+                <Component class="javax.swing.JTextField" name="editText_height">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -968,9 +988,11 @@
                               <Component id="editText_chestSize1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="editText_animalName1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                                      <Component id="editText_weight1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                                      <Component id="editText_bodyLength1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="editText_weight1" alignment="0" pref="210" max="32767" attributes="0"/>
+                                          <Component id="editText_bodyLength1" alignment="0" pref="210" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="comboBox_animalName1" min="-2" pref="210" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -983,9 +1005,9 @@
                                                   <Component id="textView_skinColor1" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="editText_height1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                                                  <Component id="editText_user1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="editText_height2" min="-2" pref="210" max="-2" attributes="0"/>
+                                                  <Component id="comboBox_animalOwner1" min="-2" pref="210" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
@@ -1006,14 +1028,14 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_user1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="editText_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBox_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBox_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_height1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="editText_height2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_skinColor1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_weight1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="editText_weight1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1079,17 +1101,25 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_animalName1">
+                <Component class="javax.swing.JComboBox" name="comboBox_animalName1">
                   <Properties>
+                    <Property name="editable" type="boolean" value="true"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="Choose"/>
+                        <StringItem index="1" value="Goat"/>
+                        <StringItem index="2" value="Cow"/>
+                      </StringArray>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder/>
                       </Border>
                     </Property>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Text Cursor"/>
-                    </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="textView_weight1">
                   <Properties>
@@ -1159,17 +1189,25 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_user1">
+                <Component class="javax.swing.JComboBox" name="comboBox_animalOwner1">
                   <Properties>
+                    <Property name="editable" type="boolean" value="true"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="Choose"/>
+                        <StringItem index="1" value="Goat"/>
+                        <StringItem index="2" value="Cow"/>
+                      </StringArray>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder/>
                       </Border>
                     </Property>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Text Cursor"/>
-                    </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="textView_skinColor1">
                   <Properties>
@@ -1179,7 +1217,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_height1">
+                <Component class="javax.swing.JTextField" name="editText_height2">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">

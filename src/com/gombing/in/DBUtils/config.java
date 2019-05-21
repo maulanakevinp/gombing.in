@@ -8,6 +8,7 @@ package com.gombing.in.DBUtils;
 import com.gombing.in.Services.AnimalCareService;
 import com.gombing.in.Services.AnimalService;
 import com.gombing.in.Services.AnimalTypeService;
+import com.gombing.in.Services.LevelService;
 import com.gombing.in.Services.TypePetService;
 import com.gombing.in.Services.UsersService;
 import java.sql.Connection;
@@ -27,14 +28,16 @@ public class config {
     private final AnimalService animal;
     private final AnimalCareService animalCare;
     private final AnimalTypeService animalType;
-    private final TypePetService TypePet;
+    private final TypePetService typePet;
+    private final LevelService level;
 
     public config() {
         this.user = new UsersService();
         this.animal = new AnimalService();
         this.animalCare = new AnimalCareService();
         this.animalType = new AnimalTypeService();
-        this.TypePet = new TypePetService();
+        this.typePet = new TypePetService();
+        this.level = new LevelService();
     }
 
     public Connection getConnection() {
@@ -75,6 +78,10 @@ public class config {
     }
 
     public TypePetService getTypePet() {
-        return TypePet;
+        return typePet;
+    }
+        
+    public LevelService getLevel() {
+        return level;
     }
 }

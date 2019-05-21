@@ -18,4 +18,6 @@ public interface RecordingAnimalInterface {
     public void update(M_Animal m)throws SQLException;
     public void delete(M_Animal m)throws SQLException;
     public ArrayList<M_Animal> getAll()throws SQLException;
+    public ArrayList<String> fillComboBox()throws SQLException;
+    public int getId(String name)throws SQLException;
 }

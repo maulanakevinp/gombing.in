@@ -5,7 +5,6 @@
  */
 package com.gombing.in.Interface;
 
-import com.gombing.in.Models.M_TypePet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,11 +12,7 @@ import java.util.ArrayList;
  *
  * @author MaulanaKevinPradana
  */
-public interface TypePetInterface {
-    public void insert(M_TypePet m)throws SQLException;
-    public void update(M_TypePet m)throws SQLException;
-    public void delete(M_TypePet m)throws SQLException;
-    public ArrayList<M_TypePet> getAll()throws SQLException;
-    public ArrayList<String> fillComboBox()throws SQLException;
+public interface LevelInterface {
     public int getId(String name)throws SQLException;
+    public ArrayList<String> fillComboBoxLevel()throws SQLException;    
 }

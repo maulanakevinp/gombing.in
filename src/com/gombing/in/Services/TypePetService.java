@@ -23,7 +23,8 @@ public class TypePetService implements TypePetInterface {
     private final String sql_select = "SELECT id, type_pet FROM public.type_pet order by id;",
             sql_insert = "INSERT INTO public.type_pet (type_pet) VALUES (?);",
             sql_update = "UPDATE public.type_pet SET type_pet=? WHERE id=?",
-            sql_delete = "DELETE FROM public.type_pet WHERE id=?";
+            sql_delete = "DELETE FROM public.type_pet WHERE id=?",
+            sql_getIdTypePet = "SELECT id FROM public.type_pet Where type_pet = ?";
     
     public void setCon(Connection con) {
         this.con = con;
@@ -100,5 +101,21 @@ public class TypePetService implements TypePetInterface {
             System.out.println("Something was wrong. Error: " + e);
         }
         return list;
+    }
+
+    @Override    
+    public int getId(String name) throws SQLException {
+        int hasil = 0;
+        try {
+            PreparedStatement st = con.prepareStatement(sql_getIdTypePet);
+            st.setString(1, name);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                hasil = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return hasil;
     }
 }

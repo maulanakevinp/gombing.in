@@ -1295,13 +1295,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_addAnimal" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator7" min="-2" pref="1077" max="-2" attributes="0"/>
                           <Component id="panel_formAddAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1341,51 +1341,50 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="textView_birthdate" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_gender" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_animalType" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_animalName" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="comboBox_animalType" min="-2" pref="210" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="button_cancelAddAnimal" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="button_saveAddAnimal" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="editText_skinColor" min="-2" pref="210" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Component id="comboBox_gender" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="comboBox_earType" min="-2" pref="210" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="textView_birthdate" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textView_gender" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textView_animalType" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textView_animalName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editText_animalName" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="dateChooser_birthdate" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace pref="46" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="editText_animalName" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <EmptySpace pref="46" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="textView_skinColor" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="textView_animalOwner" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="editText_animalOwner" min="-2" pref="210" max="-2" attributes="0"/>
-                                              </Group>
                                               <Component id="textView_earType" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="textView_typePet" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="comboBox_animalType" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="editText_skinColor" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="button_cancelAddAnimal" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="button_saveAddAnimal" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="editText_birthdate" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="comboBox_typePet" min="-2" pref="210" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="comboBox_gender" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="comboBox_earType" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="comboBox_typePet" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="textView_animalOwner" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="comboBox_animalOwner" min="-2" pref="210" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1399,10 +1398,10 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="editText_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBox_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1419,11 +1418,13 @@
                               <Component id="textView_gender" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_birthdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboBox_typePet" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_typePet" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_birthdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="comboBox_typePet" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textView_typePet" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textView_birthdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="dateChooser_birthdate" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1522,10 +1523,9 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Choose"/>
-                        <StringItem index="1" value="Male"/>
-                        <StringItem index="2" value="Female"/>
+                      <StringArray count="2">
+                        <StringItem index="0" value="Male"/>
+                        <StringItem index="1" value="Female"/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1546,33 +1546,9 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_birthdate">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder/>
-                      </Border>
-                    </Property>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Text Cursor"/>
-                    </Property>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="textView_animalOwner">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Animal Owner"/>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Text Cursor"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="editText_animalOwner">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder/>
-                      </Border>
-                    </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Text Cursor"/>
                     </Property>
@@ -1610,10 +1586,9 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Choose"/>
-                        <StringItem index="1" value="Big"/>
-                        <StringItem index="2" value="Small"/>
+                      <StringArray count="2">
+                        <StringItem index="0" value="Big"/>
+                        <StringItem index="1" value="Small"/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1654,6 +1629,31 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="dateChooser_birthdate">
+                  <Properties>
+                    <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="comboBox_animalOwner">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="true"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="Choose"/>
+                        <StringItem index="1" value="Goat"/>
+                        <StringItem index="2" value="Cow"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -1674,13 +1674,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_editAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator8" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
                           <Component id="panel_formEditAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1720,51 +1720,51 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="textView_birthdate1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_gender1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_animalType1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_animalName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="comboBox_animalType1" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="textView_skinColor1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="button_cancelEditAnimal" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="button_saveEditAnimal" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="editText_skinColor1" min="-2" pref="210" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Component id="comboBox_gender1" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="textView_earType1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="comboBox_earType1" min="-2" pref="210" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="textView_birthdate1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textView_gender1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textView_animalType1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textView_animalName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editText_animalName1" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="dateChooser_birthdate1" min="-2" pref="210" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="editText_animalName1" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="textView_skinColor1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="textView_animalOwner1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="editText_animalOwner1" min="-2" pref="210" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="textView_earType1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="textView_typePet1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="button_cancelEditAnimal" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="button_saveEditAnimal" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="comboBox_animalType1" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="editText_skinColor1" min="-2" pref="210" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="editText_birthdate1" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="textView_typePet1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="comboBox_typePet1" min="-2" pref="210" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="comboBox_gender1" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="comboBox_earType1" min="-2" pref="210" max="-2" attributes="0"/>
+                                          <Component id="textView_animalOwner1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="comboBox_animalOwner1" min="-2" pref="210" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1778,10 +1778,10 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="editText_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBox_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1798,11 +1798,13 @@
                               <Component id="textView_gender1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_birthdate1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboBox_typePet1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_typePet1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_birthdate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="comboBox_typePet1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textView_typePet1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textView_birthdate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="dateChooser_birthdate1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1901,10 +1903,9 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Choose"/>
-                        <StringItem index="1" value="Male"/>
-                        <StringItem index="2" value="Female"/>
+                      <StringArray count="2">
+                        <StringItem index="0" value="Male"/>
+                        <StringItem index="1" value="Female"/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1925,33 +1926,9 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_birthdate1">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder/>
-                      </Border>
-                    </Property>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Text Cursor"/>
-                    </Property>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="textView_animalOwner1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Animal Owner"/>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Text Cursor"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="editText_animalOwner1">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder/>
-                      </Border>
-                    </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Text Cursor"/>
                     </Property>
@@ -1989,10 +1966,9 @@
                   <Properties>
                     <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Choose"/>
-                        <StringItem index="1" value="Big"/>
-                        <StringItem index="2" value="Small"/>
+                      <StringArray count="2">
+                        <StringItem index="0" value="Big"/>
+                        <StringItem index="1" value="Small"/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -2021,6 +1997,28 @@
                         <StringItem index="0" value="Choose"/>
                         <StringItem index="1" value="Boer"/>
                         <StringItem index="2" value="Etawa"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="dateChooser_birthdate1">
+                </Component>
+                <Component class="javax.swing.JComboBox" name="comboBox_animalOwner1">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="true"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="Choose"/>
+                        <StringItem index="1" value="Goat"/>
+                        <StringItem index="2" value="Cow"/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

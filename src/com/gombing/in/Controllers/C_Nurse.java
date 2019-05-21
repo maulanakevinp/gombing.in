@@ -6,6 +6,7 @@
 package com.gombing.in.Controllers;
 
 import com.gombing.in.DBUtils.config;
+import com.gombing.in.Models.M_AnimalCare;
 import com.gombing.in.Models.Table_Animal;
 import com.gombing.in.Models.Table_AnimalCare;
 import com.gombing.in.Views.V_Nurse;
@@ -22,6 +23,7 @@ import java.awt.event.MouseMotionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -34,6 +36,7 @@ public class C_Nurse {
     private final V_Nurse viewNurse;
     private final Table_Animal tableAnimal;
     private final Table_AnimalCare tableAnimalCare;
+    private final M_AnimalCare modelAnimalCare;
     private final config connection;
 
 
@@ -43,9 +46,14 @@ public class C_Nurse {
         connection = new config();
         connection.getAnimal().setCon(connection.getConnection());
         connection.getAnimalCare().setCon(connection.getConnection());
+        connection.getUsers().setCon(connection.getConnection());
         tableAnimal = new Table_Animal();
         tableAnimalCare = new Table_AnimalCare();
-
+        modelAnimalCare = new M_AnimalCare();
+        
+        comboBoxAnimal();
+        comboBoxAnimalOwner();
+        
         buttonLogout();
         buttonMinimize();
         buttonMaximize();
@@ -77,18 +85,13 @@ public class C_Nurse {
     }
 
     private void tableAnimal() {
-        try {
+         try {
             tableAnimal.setList(connection.getAnimal().getAll());
             viewNurse.getTable_animal().setModel(tableAnimal);
             viewNurse.getTable_animal().getTableHeader().setOpaque(false);
             viewNurse.getTable_animal().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             viewNurse.getTable_animal().getTableHeader().setBackground(Color.white);
             viewNurse.getTable_animal().addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-
-                }
-
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
@@ -117,7 +120,16 @@ public class C_Nurse {
             viewNurse.getTable_animalCare().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    
+                    int row = viewNurse.getTable_animalCare().getSelectedRow();
+                    int id = Integer.parseInt(viewNurse.getTable_animalCare().getValueAt(row, 0).toString());
+                    modelAnimalCare.setId(id);
+                    viewNurse.getComboBox_animalName1().setSelectedItem(viewNurse.getTable_animalCare().getValueAt(row, 1).toString());
+                    viewNurse.getComboBox_animalOwner1().setSelectedItem(viewNurse.getTable_animalCare().getValueAt(row, 2).toString());
+                    viewNurse.getEditText_weight1().setText(viewNurse.getTable_animalCare().getValueAt(row, 3).toString());
+                    viewNurse.getEditText_bodyLength1().setText(viewNurse.getTable_animalCare().getValueAt(row, 4).toString());
+                    viewNurse.getEditText_chestSize1().setText(viewNurse.getTable_animalCare().getValueAt(row, 5).toString());
+                    viewNurse.getEditText_height1().setText(viewNurse.getTable_animalCare().getValueAt(row, 6).toString());
+                    viewNurse.getEditText_comment1().setText(viewNurse.getTable_animalCare().getValueAt(row, 7).toString());
                 }
                 
             });
@@ -135,7 +147,28 @@ public class C_Nurse {
 
     private void saveAddAnimalCare() {
         viewNurse.getButton_saveAddAnimalCare().addActionListener((ActionEvent e) -> {
-            
+            try {
+                modelAnimalCare.setId_animal(connection.getAnimal().getId( viewNurse.getComboBox_animalName().getSelectedItem().toString()));
+                modelAnimalCare.setId_user(connection.getUsers().getId(viewNurse.getComboBox_animalOwner().getSelectedItem().toString()));                
+                modelAnimalCare.setWeight(Double.parseDouble(viewNurse.getEditText_weight().getText()));
+                modelAnimalCare.setBody_length(Double.parseDouble(viewNurse.getEditText_bodyLength().getText()));
+                modelAnimalCare.setChest_size(Double.parseDouble(viewNurse.getEditText_chestSize().getText()));
+                modelAnimalCare.setHeight(Double.parseDouble(viewNurse.getEditText_height1().getText()));
+                modelAnimalCare.setComment(viewNurse.getEditText_comment().getText());
+                connection.getAnimalCare().insert(modelAnimalCare);
+                tableAnimalCare();
+                CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
+                card.show(viewNurse.getPanel_body(), "panel_animal");
+                viewNurse.getEditText_bodyLength().setText("");
+                viewNurse.getEditText_chestSize().setText("");
+                viewNurse.getEditText_comment().setText("");
+                viewNurse.getEditText_height1().setText("");
+                viewNurse.getEditText_weight().setText("");
+                JOptionPane.showMessageDialog(viewNurse, "Success to save data");
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(viewNurse, "Failed to save data");
+            }
         });
     }
 
@@ -155,7 +188,28 @@ public class C_Nurse {
 
     private void saveEditAnimalCare() {
         viewNurse.getButton_saveEditAnimalCare().addActionListener((ActionEvent e) -> {
-
+            try {
+                modelAnimalCare.setId_animal(connection.getAnimal().getId( viewNurse.getComboBox_animalName1().getSelectedItem().toString()));
+                modelAnimalCare.setId_user(connection.getUsers().getId(viewNurse.getComboBox_animalOwner1().getSelectedItem().toString()));                
+                modelAnimalCare.setWeight(Double.parseDouble(viewNurse.getEditText_weight1().getText()));
+                modelAnimalCare.setBody_length(Double.parseDouble(viewNurse.getEditText_bodyLength1().getText()));
+                modelAnimalCare.setChest_size(Double.parseDouble(viewNurse.getEditText_chestSize1().getText()));
+                modelAnimalCare.setHeight(Double.parseDouble(viewNurse.getEditText_height().getText()));
+                modelAnimalCare.setComment(viewNurse.getEditText_comment1().getText());
+                connection.getAnimalCare().update(modelAnimalCare);
+                tableAnimalCare();
+                CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
+                card.show(viewNurse.getPanel_body(), "panel_animal");
+                viewNurse.getEditText_bodyLength1().setText("");
+                viewNurse.getEditText_chestSize1().setText("");
+                viewNurse.getEditText_comment1().setText("");
+                viewNurse.getEditText_height().setText("");
+                viewNurse.getEditText_weight1().setText("");
+                JOptionPane.showMessageDialog(viewNurse, "Success to save data");
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(viewNurse, "Failed to save data");
+            }
         });
     }
 
@@ -168,7 +222,14 @@ public class C_Nurse {
     
     private void deleteAnimalCare(){
         viewNurse.getButton_deleteAnimalCare().addActionListener((ActionEvent e) -> {
-            
+            try {
+                connection.getAnimalCare().delete(modelAnimalCare);
+                tableAnimal();
+                JOptionPane.showMessageDialog(viewNurse, "Success to delete data");
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(viewNurse, "Failed to delete data");
+            }
         });
     }
     
@@ -176,6 +237,24 @@ public class C_Nurse {
         viewNurse.getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
             tableAnimalCare();
         });
+    }
+    
+    private void comboBoxAnimalOwner(){
+        try {
+            viewNurse.getComboBox_animalOwner().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBoxUser().toArray()));
+            viewNurse.getComboBox_animalOwner1().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBoxUser().toArray()));
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void comboBoxAnimal(){
+        try {
+            viewNurse.getComboBox_animalName().setModel(new DefaultComboBoxModel(connection.getAnimal().fillComboBox().toArray()));
+            viewNurse.getComboBox_animalName1().setModel(new DefaultComboBoxModel(connection.getAnimal().fillComboBox().toArray()));
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     //</editor-fold>

@@ -23,7 +23,8 @@ public class AnimalTypeService implements AnimalTypeInterface {
     private final String sql_select = "SELECT id, animal_type FROM public.animal_type order by id;",
             sql_insert = "INSERT INTO public.animal_type (animal_type) VALUES (?);",
             sql_update = "UPDATE public.animal_type SET animal_type=? WHERE id=?",
-            sql_delete = "DELETE FROM public.animal_type WHERE id=?";
+            sql_delete = "DELETE FROM public.animal_type WHERE id=?",
+            sql_getIdAnimalType = "SELECT id FROM public.animal_type Where animal_type = ?";
 
     public void setCon(Connection con) {
         this.con = con;
@@ -100,5 +101,21 @@ public class AnimalTypeService implements AnimalTypeInterface {
             System.out.println("Something was wrong. Error: " + e);
         }
         return list;
+    }
+
+    @Override    
+    public int getId(String name) throws SQLException {
+        int hasil = 0;
+        try {
+            PreparedStatement st = con.prepareStatement(sql_getIdAnimalType);
+            st.setString(1, name);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                hasil = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return hasil;
     }
 }

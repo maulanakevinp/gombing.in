@@ -75,20 +75,31 @@ public class M_Users {
         this.status = status;
     }
 
-    public Date getUpdated_at() {
-        return updated_at;
+    public Date getUpdated_at1() {
+        Date date = new Date();
+        return date;
     }
 
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public Date getCreated_at1() {
+        Date date = new Date();
+        return date;
     }
 
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
+
+    public Date getUpdated_at() {
+        return updated_at;
+    }
+
+    public Date getCreated_at() {
+        return created_at;
+    }
+    
     
 }

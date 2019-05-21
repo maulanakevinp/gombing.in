@@ -21,25 +21,59 @@ public class UsersService implements UsersInterface {
 
     private Connection con;
     private final String sql_login = "SELECT id, level FROM public.users WHERE email=? AND password=?;",
-            sql_select = "SELECT u.id, u.name, u.email, u.password, level.level, u.status, u.updated_at, u.created_at FROM public.users u join public.level on u.level = level.id;";
-
+            sql_select = "SELECT u.id, u.name, u.email, u.password, level.level, u.status, u.updated_at, u.created_at FROM public.users u join public.level on u.level = level.id;",
+            sql_insert = "INSERT INTO public.users (name, email, password, level, status, updated_at, created_at) VALUES (?,?,?,?,?,?,?)",
+            sql_update = "UPDATE public.users SET name = ?, email = ?, password = ?, level = ?, status = ?, updated_at = ? WHERE id = ?",
+            sql_delete = "DELETE FROM public.users WHERE id = ?",
+            sql_getIdUser = "SELECT id FROM public.users Where name = ?";
+    
     public void setCon(Connection con) {
         this.con = con;
     }
 
     @Override
     public void insert(M_Users m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_insert);
+            st.setString(1, m.getName());
+            st.setString(2, m.getEmail());
+            st.setString(3, m.getPassword());
+            st.setInt(4, m.getLevelId());
+            st.setInt(5, m.getStatus());
+            st.setDate(6, new java.sql.Date(m.getUpdated_at1().getTime()));
+            st.setDate(7, new java.sql.Date(m.getCreated_at1().getTime()));
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override
     public void update(M_Users m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_update);
+            st.setString(1, m.getName());
+            st.setString(2, m.getEmail());
+            st.setString(3, m.getPassword());
+            st.setInt(4, m.getLevelId());
+            st.setInt(5, m.getStatus());
+            st.setDate(6, new java.sql.Date(m.getUpdated_at1().getTime()));
+            st.setInt(7, m.getId());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override
     public void delete(M_Users m) throws SQLException {
-
+        try {
+            PreparedStatement st = con.prepareStatement(sql_delete);
+            st.setInt(1, m.getId());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
     }
 
     @Override
@@ -85,12 +119,12 @@ public class UsersService implements UsersInterface {
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);
         }
-    }    
+    }
     
     @Override
-    public ArrayList<String> fillComboBox() throws SQLException {
+    public ArrayList<String> fillComboBoxUser() throws SQLException {
         ArrayList<String> list = new ArrayList<>();
-        String query = "SELECT level FROM public.level";
+        String query = "SELECT name FROM public.users where level = 4";
         try {
             list = new ArrayList<>();
             PreparedStatement st = con.prepareStatement(query);
@@ -103,4 +137,21 @@ public class UsersService implements UsersInterface {
         }
         return list;
     }
+
+    @Override
+    public int getId(String name) throws SQLException {
+        int hasil = 0;
+        try {
+            PreparedStatement st = con.prepareStatement(sql_getIdUser);
+            st.setString(1, name);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                hasil = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return hasil;
+    }
+
 }

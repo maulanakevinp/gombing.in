@@ -12,9 +12,10 @@ import java.util.Date;
  * @author MaulanaKevinPradana
  */
 public class M_Animal {
-    private int id,id_animal_type,id_user,id_type_pet;
-    private String animal_name,gender,skin_color,ear_type, animal_owner, animal_type, type_pet;
-    private Date birthdate, updated_at, created_at;
+
+    private int id, id_animal_type, id_user, id_type_pet;
+    private String animal_name, gender, skin_color, ear_type, animal_owner, animal_type, type_pet, updated_at, created_at, birthdate1;
+    private Date updated_at1, created_at1, birthdate;
 
     public M_Animal() {
     }
@@ -107,28 +108,54 @@ public class M_Animal {
         this.type_pet = type_pet;
     }
 
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getBirthdate1() {
+        return birthdate1;
+    }
+
+    public void setBirthdate1(String birthdate1) {
+        this.birthdate1 = birthdate1;
+    }
+
+    public Date getUpdated_at1() {
+        Date date = new Date();
+        return date;
+    }
+
+    public void setUpdated_at1(Date updated_at1) {
+        this.updated_at1 = updated_at1;
+    }
+
+    public Date getCreated_at1() {
+        Date date = new Date();
+        return date;
+    }
+
+    public void setCreated_at1(Date created_at1) {
+        this.created_at1 = created_at1;
+    }
+
     public Date getBirthdate() {
         return birthdate;
     }
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
-    }
-
-    public Date getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(Date updated_at) {
-        this.updated_at = updated_at;
-    }
-
-    public Date getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
     }
     
 }

@@ -6,6 +6,7 @@
 package com.gombing.in.Models;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  *
@@ -107,6 +108,12 @@ public class M_AnimalCare {
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
+    }
+    
+    public Timestamp getTimestamp1() {
+        Date date = new Date();
+        timestamp = new Timestamp(date.getYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getTimezoneOffset());
+        return timestamp;
     }
     
 }
