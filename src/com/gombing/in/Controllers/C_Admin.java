@@ -26,13 +26,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -91,8 +94,6 @@ public class C_Admin extends V_Admin {
         cancelEditUsers();
         deleteUsers();
         refreshUsers();
-        addImageUser();
-        chooseImageUser();
 
         viewAnimal();
         addAnimal();
@@ -271,43 +272,6 @@ public class C_Admin extends V_Admin {
         getButton_refreshUsers().addActionListener((ActionEvent e) -> {
             tableUsers();
         });
-    }
-
-    private void addImageUser() {
-        getImage_user().addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                browseImage(getImage_user());
-                getImage_user().setText("");
-            }
-            // <editor-fold defaultstate="collapsed" desc="Unused">
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }//</editor-fold>
-        });
-    }
-
-    private void chooseImageUser() {
-        getButton_chooseUserPhoto().addActionListener((ActionEvent e) -> {
-            browseImage(getImage_user1());
-            getImage_user1().setText("");
-        });
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Animal">
@@ -344,6 +308,8 @@ public class C_Admin extends V_Admin {
                     getEditText_skinColor1().setText(getTable_animal().getValueAt(row, 6).toString());
                     getComboBox_earType1().setSelectedItem(getTable_animal().getValueAt(row, 7).toString());
                     getComboBox_typePet1().setSelectedItem(getTable_animal().getValueAt(row, 8).toString());
+                    getImage_animal1().setIcon(scaleImage(connection.getAnimal().getPhoto(id), getImage_animal1()));
+                    getImage_animal1().revalidate();
                 }
             });
         } catch (SQLException ex) {
@@ -467,7 +433,6 @@ public class C_Admin extends V_Admin {
             @Override
             public void mouseClicked(MouseEvent e) {
                 browseImage(getImage_animal());
-                getImage_animal().setText("");
             }
             // <editor-fold defaultstate="collapsed" desc="Unused">
             @Override
@@ -492,14 +457,31 @@ public class C_Admin extends V_Admin {
         });
     }
 
+    private ImageIcon scaleImage(InputStream file, JLabel image) {
+        ImageIcon icon = null;
+        try {
+            if (file == null) {
+                image.setIcon(null);
+                image.setText("NO IMAGE");
+            } else {
+                Image im = ImageIO.read(file);
+                Image scaledImage = im.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
+                icon = new ImageIcon(scaledImage);
+                image.setText("");
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return icon;
+    }
+
     private void chooseImageAnimal() {
         getButton_chooseImage().addActionListener((ActionEvent e) -> {
             browseImage(getImage_animal1());
-            getImage_animal().setText("");
         });
     }
 
-    private ImageIcon ResizeImage(String imgPath,JLabel label) {
+    private ImageIcon ResizeImage(String imgPath, JLabel label) {
         ImageIcon MyImage = new ImageIcon(imgPath);
         Image img = MyImage.getImage();
         Image newImage = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
@@ -518,8 +500,9 @@ public class C_Admin extends V_Admin {
             String path = selectedFile.getAbsolutePath();
             label.setIcon(ResizeImage(path, label));
             modelAnimal.setImage(path);
+            label.setText("");
         } else if (result == JFileChooser.CANCEL_OPTION) {
-
+            label.setText("Add Animal Image");
         }
     }//</editor-fold>
 

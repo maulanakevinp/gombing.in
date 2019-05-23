@@ -22,7 +22,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 
-
 /**
  *
  * @author MaulanaKevinPradana
@@ -34,19 +33,24 @@ public class AnimalService implements RecordingAnimalInterface {
             + "users.name, a.skin_color, a.ear_type, type_pet.type_pet, a.updated_at, a.created_at "
             + "From public.animal a join public.animal_type on a.animal_type = animal_type.id "
             + "join public.users on a.id_user = users.id join public.type_pet on a.type_pet = type_pet.id;",
-            sql_insert = "INSERT INTO public.animal (animal_name, animal_type, gender, birth_date, id_user, skin_color, ear_type, type_pet, updated_at, created_at) "
-            + "VALUES (?,?,?,?,?,?,?,?,?,?);",
+            sql_insert = "INSERT INTO public.animal (animal_name, animal_type, gender, birth_date, id_user, skin_color, ear_type, type_pet, updated_at, created_at, animal_photo) "
+            + "VALUES (?,?,?,?,?,?,?,?,?,?,?);",
             sql_update = "UPDATE public.animal SET animal_name=?, animal_type=?, gender=?, birth_date=?, id_user=?, skin_color=?, ear_type=?, type_pet=?, updated_at=?, animal_photo=?  WHERE id=?",
             sql_delete = "DELETE FROM public.animal WHERE id=?",
-            sql_getId = "SELECT id FROM public.animal WHERE animal_name = ?";
+            sql_getId = "SELECT id FROM public.animal WHERE animal_name = ?",
+            sql_getPhoto = "SELECT animal_photo FROM public.animal WHERE id = ?";
 
     public void setCon(Connection con) {
         this.con = con;
     }
 
     @Override
-    public void insert(M_Animal m) throws SQLException {  
+    public void insert(M_Animal m) throws SQLException {
         try {
+            InputStream is = new FileInputStream(new File(m.getImage()));
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            IOUtils.copy(is, output);
+            byte[] filecontent = output.toByteArray();
             PreparedStatement st = con.prepareStatement(sql_insert);
             st.setString(1, m.getAnimal_name());
             st.setInt(2, m.getId_animal_type());
@@ -58,9 +62,14 @@ public class AnimalService implements RecordingAnimalInterface {
             st.setInt(8, m.getId_type_pet());
             st.setDate(9, new java.sql.Date(m.getCreated_at1().getTime()));
             st.setDate(10, new java.sql.Date(m.getUpdated_at1().getTime()));
+            st.setBytes(11, filecontent);
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -135,9 +144,9 @@ public class AnimalService implements RecordingAnimalInterface {
         }
         return list;
     }
-    
+
     @Override
-    public int getId(String name){
+    public int getId(String name) {
         int hasil = 0;
         try {
             PreparedStatement st = con.prepareStatement(sql_getId);
@@ -167,5 +176,20 @@ public class AnimalService implements RecordingAnimalInterface {
         }
         return list;
     }
-    
+
+    public InputStream getPhoto(int id) {
+        InputStream is = null;
+        try {
+            PreparedStatement st = con.prepareStatement(sql_getPhoto);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                M_Animal m = new M_Animal();
+                is = rs.getBinaryStream(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return is;
+    }
 }
