@@ -155,6 +155,10 @@ public class V_Nurse extends javax.swing.JFrame {
 //</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
+    protected void Show(Boolean a){
+        this.setVisible(a);
+    }
+    
     public JLabel getButton_logout() {
         return button_logout;
     }

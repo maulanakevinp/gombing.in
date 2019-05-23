@@ -14,7 +14,7 @@ import java.util.Date;
 public class M_Animal {
 
     private int id, id_animal_type, id_user, id_type_pet;
-    private String animal_name, gender, skin_color, ear_type, animal_owner, animal_type, type_pet, updated_at, created_at, birthdate1;
+    private String animal_name, gender, skin_color, ear_type, animal_owner, animal_type, type_pet, updated_at, created_at, birthdate1, image;
     private Date updated_at1, created_at1, birthdate;
 
     public M_Animal() {
@@ -26,6 +26,14 @@ public class M_Animal {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getId_animal_type() {
@@ -157,5 +165,4 @@ public class M_Animal {
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
-    
 }

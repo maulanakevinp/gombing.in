@@ -7,12 +7,17 @@ package com.gombing.in.Services;
 
 import com.gombing.in.Interface.RecordingAnimalInterface;
 import com.gombing.in.Models.M_Animal;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,7 +32,7 @@ public class AnimalService implements RecordingAnimalInterface {
             + "join public.users on a.id_user = users.id join public.type_pet on a.type_pet = type_pet.id;",
             sql_insert = "INSERT INTO public.animal (animal_name, animal_type, gender, birth_date, id_user, skin_color, ear_type, type_pet, updated_at, created_at) "
             + "VALUES (?,?,?,?,?,?,?,?,?,?);",
-            sql_update = "UPDATE public.animal SET animal_name=?, animal_type=?, gender=?, birth_date=?, id_user=?, skin_color=?, ear_type=?, type_pet=?, updated_at=? WHERE id=?",
+            sql_update = "UPDATE public.animal SET animal_name=?, animal_type=?, gender=?, birth_date=?, id_user=?, skin_color=?, ear_type=?, type_pet=?, updated_at=?, animal_photo=?  WHERE id=?",
             sql_delete = "DELETE FROM public.animal WHERE id=?",
             sql_getId = "SELECT id FROM public.animal WHERE animal_name = ?";
 
@@ -58,6 +63,7 @@ public class AnimalService implements RecordingAnimalInterface {
     @Override
     public void update(M_Animal m) throws SQLException {
         try {
+            InputStream is = new FileInputStream(new File(m.getImage()));
             PreparedStatement st = con.prepareStatement(sql_update);
             st.setString(1, m.getAnimal_name());
             st.setInt(2, m.getId_animal_type());
@@ -68,10 +74,13 @@ public class AnimalService implements RecordingAnimalInterface {
             st.setString(7, m.getEar_type());
             st.setInt(8, m.getId_type_pet());
             st.setDate(9, new java.sql.Date(m.getUpdated_at1().getTime()));
-            st.setInt(10, m.getId());
+            st.setBlob(10, is);
+            st.setInt(11, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

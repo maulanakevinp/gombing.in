@@ -5,6 +5,7 @@
  */
 package com.gombing.in.Models;
 
+import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -12,10 +13,11 @@ import java.util.Date;
  * @author MaulanaKevinPradana
  */
 public class M_Users {
-    private String name, email, password, levelName;
+    private String name, email, password, levelName, phone_number, address;
     private int id, levelId, status;
     private Date updated_at, created_at;
-
+    private Blob user_photo;
+    
     public M_Users() {
     }
 
@@ -100,6 +102,28 @@ public class M_Users {
     public Date getCreated_at() {
         return created_at;
     }
-    
-    
+
+    public Blob getUser_photo() {
+        return user_photo;
+    }
+
+    public void setUser_photo(Blob user_photo) {
+        this.user_photo = user_photo;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

@@ -91,6 +91,10 @@ public class V_Login extends javax.swing.JFrame {
     }//</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
+    protected void Show(Boolean a){
+        this.setVisible(a);
+    }
+    
     public JPanel getPanel_body() {
         return panel_body;
     }

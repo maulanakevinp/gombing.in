@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class UsersService implements UsersInterface {
 
     private Connection con;
-    private final String sql_login = "SELECT id, level FROM public.users WHERE email=? AND password=?;",
+    private final String sql_login = "SELECT id, level, email, password, phone_number, address, user_photo FROM public.users WHERE email=? AND password=?;",
             sql_select = "SELECT u.id, u.name, u.email, u.password, level.level, u.status, u.updated_at, u.created_at FROM public.users u join public.level on u.level = level.id;",
             sql_insert = "INSERT INTO public.users (name, email, password, level, status, updated_at, created_at) VALUES (?,?,?,?,?,?,?)",
             sql_update = "UPDATE public.users SET name = ?, email = ?, password = ?, level = ?, status = ?, updated_at = ? WHERE id = ?",
@@ -115,6 +115,11 @@ public class UsersService implements UsersInterface {
             while (rs.next()) {
                 m.setId(rs.getInt(1));
                 m.setLevelId(rs.getInt(2));
+                m.setEmail(rs.getString(3));
+                m.setPassword(rs.getString(4));
+                m.setPhone_number(rs.getString(5));
+                m.setAddress(rs.getString(6));
+                m.setUser_photo(rs.getBlob(7));
             }
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);

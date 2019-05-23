@@ -581,12 +581,16 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_addUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator5" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
-                          <Component id="panel_formAddUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="panel_formAddUsers" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -600,7 +604,7 @@
                       <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Component id="panel_formAddUsers" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                      <EmptySpace pref="118" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -628,24 +632,49 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="image_user" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="textView_level" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_status" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_password" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_email" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_name" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_phoneNumber" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="editText_phoneNumber" pref="210" max="32767" attributes="0"/>
                               <Component id="editText_name" alignment="0" max="32767" attributes="0"/>
                               <Component id="editText_email" alignment="0" max="32767" attributes="0"/>
                               <Component id="editText_password" alignment="0" max="32767" attributes="0"/>
-                              <Component id="comboBox_level" alignment="0" pref="210" max="32767" attributes="0"/>
-                              <Component id="comboBox_status" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="button_cancelAddUsers" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="button_cancelAddUsers" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="button_saveAddUsers" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="textView_level" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_status" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_address" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane1" min="-2" pref="210" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="comboBox_status" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                              <Component id="comboBox_level" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -654,38 +683,48 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="image_user" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="editText_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="textView_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="textView_address" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="editText_email" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="textView_email" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jScrollPane1" min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="editText_password" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_password" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_level" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBox_level" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="editText_phoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_phoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_status" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBox_status" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_email" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_email" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_password" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_password" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox_level" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_level" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox_status" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_status" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="button_cancelAddUsers" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="button_saveAddUsers" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -820,6 +859,64 @@
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="image_user">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Add User Photo"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="editText_phoneNumber">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="textView_phoneNumber">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Phone Number"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="textView_address">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Address"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="editText_address">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -840,13 +937,19 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_editUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator6" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
-                          <Component id="panel_formEditUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                          <Component id="panel_formEditUsers" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="172" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -857,9 +960,14 @@
                       <Component id="textView_editUsers" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                      <Component id="panel_formEditUsers" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                      <EmptySpace pref="405" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="panel_formEditUsers" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="130" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -886,65 +994,99 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="image_user1" pref="130" max="32767" attributes="0"/>
+                              <Component id="button_chooseUserPhoto" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="textView_level1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_status1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_password1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_email1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_name1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_phoneNumber1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="editText_phoneNumber1" alignment="0" pref="210" max="32767" attributes="0"/>
                               <Component id="editText_name1" alignment="0" max="32767" attributes="0"/>
                               <Component id="editText_email1" alignment="0" max="32767" attributes="0"/>
                               <Component id="editText_password1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="comboBox_status1" alignment="0" pref="210" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="button_cancelEditUsers" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="button_saveEditUsers" min="-2" pref="101" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="comboBox_level1" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="button_cancelEditUsers" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="button_saveEditUsers" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="textView_level1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_status1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_address1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jScrollPane2" min="-2" pref="210" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="comboBox_status1" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="comboBox_level1" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_name1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_name1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="image_user1" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="editText_name1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="textView_name1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="textView_address1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="editText_email1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="textView_email1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jScrollPane2" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="editText_password1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_password1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_level1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBox_level1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="editText_phoneNumber1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_phoneNumber1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_status1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBox_status1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_email1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_email1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_password1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_password1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox_level1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_level1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox_status1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_status1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="button_cancelEditUsers" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="button_saveEditUsers" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button_chooseUserPhoto" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1075,6 +1217,76 @@
                       <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="SAVE"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="focusable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="image_user1">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Default Cursor"/>
+                    </Property>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="editText_phoneNumber1">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="textView_phoneNumber1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Phone Number"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="textView_address1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Address"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="editText_address1">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="button_chooseUserPhoto">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Choose Photo"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
@@ -1295,13 +1507,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_addAnimal" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator7" min="-2" pref="1077" max="-2" attributes="0"/>
                           <Component id="panel_formAddAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1341,7 +1553,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="image_animal" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="textView_birthdate" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_gender" min="-2" max="-2" attributes="0"/>
@@ -1349,43 +1563,39 @@
                               <Component id="textView_animalName" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboBox_animalType" min="-2" pref="210" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="editText_skinColor" min="-2" pref="210" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboBox_gender" min="-2" pref="210" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="editText_animalName" min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="dateChooser_birthdate" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="comboBox_animalType" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="comboBox_gender" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="textView_earType" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Component id="comboBox_earType" min="-2" pref="210" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="editText_animalName" min="-2" pref="210" max="-2" attributes="0"/>
-                                      <Component id="dateChooser_birthdate" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Component id="textView_skinColor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="editText_skinColor" min="-2" pref="210" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="button_cancelAddAnimal" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="button_saveAddAnimal" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="46" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="textView_skinColor" min="-2" max="-2" attributes="0"/>
-                                              <Component id="textView_earType" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="textView_typePet" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="button_cancelAddAnimal" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="button_saveAddAnimal" min="-2" pref="100" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="comboBox_typePet" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="textView_animalOwner" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="comboBox_animalOwner" min="-2" pref="210" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="textView_typePet" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Component id="comboBox_typePet" min="-2" pref="210" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="textView_animalOwner" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="comboBox_animalOwner" min="-2" pref="210" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1397,34 +1607,40 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textView_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="editText_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboBox_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox_animalType" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="editText_skinColor" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_skinColor" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_animalType" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox_gender" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboBox_earType" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_earType" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_gender" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="comboBox_typePet" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textView_typePet" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textView_birthdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="textView_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editText_animalName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBox_animalOwner" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="comboBox_animalType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editText_skinColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_skinColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_animalType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="comboBox_gender" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBox_earType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_earType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_gender" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="comboBox_typePet" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textView_typePet" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textView_birthdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="dateChooser_birthdate" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="dateChooser_birthdate" min="-2" max="-2" attributes="0"/>
+                              <Component id="image_animal" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1654,6 +1870,21 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JLabel" name="image_animal">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Add Animal Image"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -1674,13 +1905,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_editAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator8" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
                           <Component id="panel_formEditAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1720,51 +1951,60 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="textView_birthdate1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_gender1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_animalType1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_animalName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="button_chooseImage" max="32767" attributes="0"/>
+                              <Component id="image_animal1" pref="130" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboBox_animalType1" min="-2" pref="210" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="textView_skinColor1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="editText_skinColor1" min="-2" pref="210" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboBox_gender1" min="-2" pref="210" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="textView_earType1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="comboBox_earType1" min="-2" pref="210" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="editText_animalName1" min="-2" pref="210" max="-2" attributes="0"/>
-                                      <Component id="dateChooser_birthdate1" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="textView_birthdate1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_gender1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_animalType1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_animalName1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="button_cancelEditAnimal" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="button_saveEditAnimal" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="editText_animalName1" min="-2" pref="210" max="-2" attributes="0"/>
+                                          <Component id="dateChooser_birthdate1" min="-2" pref="210" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="textView_typePet1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="comboBox_typePet1" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="comboBox_animalType1" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="comboBox_gender1" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="textView_skinColor1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="editText_skinColor1" min="-2" pref="210" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="textView_animalOwner1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="comboBox_animalOwner1" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="button_cancelEditAnimal" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="button_saveEditAnimal" min="-2" pref="100" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="textView_animalOwner1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="comboBox_animalOwner1" min="-2" pref="210" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="textView_earType1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="textView_typePet1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="comboBox_typePet1" min="-2" pref="210" max="-2" attributes="0"/>
+                                                  <Component id="comboBox_earType1" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1777,39 +2017,45 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textView_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="editText_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboBox_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox_animalType1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="editText_skinColor1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_skinColor1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_animalType1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox_gender1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboBox_earType1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_earType1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_gender1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="comboBox_typePet1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textView_typePet1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textView_birthdate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="textView_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editText_animalName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBox_animalOwner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="comboBox_animalType1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editText_skinColor1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_skinColor1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_animalType1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="comboBox_gender1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBox_earType1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_earType1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textView_gender1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="comboBox_typePet1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textView_typePet1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textView_birthdate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="dateChooser_birthdate1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="dateChooser_birthdate1" min="-2" max="-2" attributes="0"/>
+                              <Component id="image_animal1" min="-2" pref="146" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="button_cancelEditAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="button_saveEditAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button_chooseImage" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -2030,6 +2276,33 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="image_animal1">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Default Cursor"/>
+                    </Property>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="button_chooseImage">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="CHOOSE IMAGE"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="focusable" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

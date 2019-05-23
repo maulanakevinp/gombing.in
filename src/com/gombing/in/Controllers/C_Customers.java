@@ -6,6 +6,7 @@
 package com.gombing.in.Controllers;
 
 import com.gombing.in.DBUtils.config;
+import com.gombing.in.Models.M_Users;
 import com.gombing.in.Models.Table_AnimalCare;
 import com.gombing.in.Views.V_Customers;
 import java.awt.CardLayout;
@@ -15,7 +16,6 @@ import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -32,20 +32,21 @@ import javax.swing.JOptionPane;
  *
  * @author MaulanaKevinPradana
  */
-public class C_Customers {
+public class C_Customers extends V_Customers{
 
-    private final V_Customers viewCustomers;
     private final Table_AnimalCare tableAnimalCare;
+    private final M_Users modelUsers;
     private final config connection;
     
     private ImageIcon picture = new ImageIcon();
 
-    public C_Customers() {
-        viewCustomers = new V_Customers();
-        viewCustomers.setVisible(true);
+    public C_Customers(int id) {
+        Show(true);
         tableAnimalCare = new Table_AnimalCare();
         connection = new config();
-        connection.getAnimalCare().setCon(connection.getConnection());
+        connection.getAnimalCare().setCon(connection.getConnection());  
+        modelUsers = new M_Users();
+        modelUsers.setId(id);
 
         buttonLogout();
         buttonMinimize();
@@ -64,27 +65,20 @@ public class C_Customers {
 
     // <editor-fold defaultstate="collapsed" desc="Animal Care">
     private void viewAnimalCare() {
-        viewCustomers.getButton_animalCare().addActionListener((ActionEvent e) -> {
-            viewCustomers.getColor_animalCare().setBackground(new Color(0, 255, 0));
-            CardLayout card = (CardLayout) viewCustomers.getPanel_body().getLayout();
-            card.show(viewCustomers.getPanel_body(), "panel_animalCare");
+        getButton_animalCare().addActionListener((ActionEvent e) -> {
+            getColor_animalCare().setBackground(new Color(0, 255, 0));
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_animalCare");
         });
     }
 
     private void tableAnimalCare() {
         try {
-            tableAnimalCare.setList(connection.getAnimalCare().getAll());
-            viewCustomers.getTable_animalCare().setModel(tableAnimalCare);
-            viewCustomers.getTable_animalCare().getTableHeader().setOpaque(false);
-            viewCustomers.getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
-            viewCustomers.getTable_animalCare().getTableHeader().setBackground(Color.white);
-            viewCustomers.getTable_animalCare().addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-
-                }
-
-            });
+            tableAnimalCare.setList(connection.getAnimalCare().getAllOwnerHave(modelUsers));
+            getTable_animalCare().setModel(tableAnimalCare);
+            getTable_animalCare().getTableHeader().setOpaque(false);
+            getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            getTable_animalCare().getTableHeader().setBackground(Color.white);            
         } catch (SQLException ex) {
             Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -93,13 +87,13 @@ public class C_Customers {
 
     // <editor-fold defaultstate="collapsed" desc="Profile"
     private void viewEditProfile() {
-        viewCustomers.getButton_editProfile().addMouseListener(new MouseListener() {
+        getButton_editProfile().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                viewCustomers.getColor_animalCare().setBackground(new Color(255, 255, 255));
-                CardLayout card = (CardLayout) viewCustomers.getPanel_body().getLayout();
-                card.show(viewCustomers.getPanel_body(), "panel_profile");
-                viewCustomers.getEditText_name().setText(viewCustomers.getTextView_name().getText());
+                getColor_animalCare().setBackground(new Color(255, 255, 255));
+                CardLayout card = (CardLayout) getPanel_body().getLayout();
+                card.show(getPanel_body(), "panel_profile");
+                getEditText_name().setText(getTextView_name().getText());
             }
 
             @Override
@@ -125,38 +119,38 @@ public class C_Customers {
     }
 
     private void choosePhoto() {
-        viewCustomers.getButton_choosePhoto().addActionListener((ActionEvent e) -> {
+        getButton_choosePhoto().addActionListener((ActionEvent e) -> {
             String filename = null;
             byte[] photo = null;
             JFileChooser chooser = new JFileChooser();
             chooser.showOpenDialog(null);
             File f = chooser.getSelectedFile();
             filename = f.getAbsolutePath();
-            picture = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(viewCustomers.getPicture1().getWidth(), viewCustomers.getPicture1().getHeight(), Image.SCALE_SMOOTH));
-            viewCustomers.getPicture1().setIcon(picture);
+            picture = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(getPicture1().getWidth(), getPicture1().getHeight(), Image.SCALE_SMOOTH));
+            getPicture1().setIcon(picture);
         });
     }
     
     private void saveEditProfile(){
-        viewCustomers.getButton_savelEditProfile().addActionListener((ActionEvent e) -> {
-            viewCustomers.getTextView_name().setText(viewCustomers.getEditText_name().getText());            
-            viewCustomers.getPicture().setIcon(picture);
-            JOptionPane.showMessageDialog(viewCustomers, "Success to save profile");
+        getButton_savelEditProfile().addActionListener((ActionEvent e) -> {
+            getTextView_name().setText(getEditText_name().getText());            
+            getPicture().setIcon(picture);
+            JOptionPane.showMessageDialog(null, "Success to save profile");
         });
     }
     
     private void cancelEditProfile(){
-        viewCustomers.getButton_cancelEditProfile().addActionListener((ActionEvent e) -> {
-            viewCustomers.getColor_animalCare().setBackground(new Color(0, 255, 0));
-            CardLayout card = (CardLayout) viewCustomers.getPanel_body().getLayout();
-            card.show(viewCustomers.getPanel_body(), "panel_animalCare");
+        getButton_cancelEditProfile().addActionListener((ActionEvent e) -> {
+            getColor_animalCare().setBackground(new Color(0, 255, 0));
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_animalCare");
         });
     }
     //</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
-        viewCustomers.getButton_logout().addMouseListener(new MouseListener() {
+        getButton_logout().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 logout();
@@ -164,31 +158,31 @@ public class C_Customers {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewCustomers.getButton_logout().setForeground(new Color(0, 0, 150));
+                getButton_logout().setForeground(new Color(0, 0, 150));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewCustomers.getButton_logout().setForeground(new Color(0, 0, 255));
+                getButton_logout().setForeground(new Color(0, 0, 255));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewCustomers.getButton_logout().setForeground(new Color(0, 255, 0));
+                getButton_logout().setForeground(new Color(0, 255, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewCustomers.getButton_logout().setForeground(new Color(0, 0, 255));
+                getButton_logout().setForeground(new Color(0, 0, 255));
             }
         });
     }
 
     private void logout() {
-        int pilihan = JOptionPane.showConfirmDialog(viewCustomers, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        int pilihan = JOptionPane.showConfirmDialog(null, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
         if (pilihan == JOptionPane.YES_OPTION) {
             C_Login login = new C_Login();
-            viewCustomers.dispose();
+            Show(false);
         } else {
 
         }
@@ -196,45 +190,45 @@ public class C_Customers {
 
     // <editor-fold defaultstate="collapsed" desc="Button Maximize">
     private void buttonMaximize() {
-        viewCustomers.getButton_maximize().addMouseListener(new MouseListener() {
+        getButton_maximize().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (viewCustomers.isMaximized()) {
-                    viewCustomers.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                if (isMaximized()) {
+                    setExtendedState(JFrame.MAXIMIZED_BOTH);
                     GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-                    viewCustomers.setMaximizedBounds(env.getMaximumWindowBounds());
-                    viewCustomers.setMaximized(false);
+                    setMaximizedBounds(env.getMaximumWindowBounds());
+                    setMaximized(false);
                 } else {
-                    viewCustomers.setExtendedState(JFrame.NORMAL);
-                    viewCustomers.setMaximized(true);
+                    setExtendedState(JFrame.NORMAL);
+                    setMaximized(true);
                 }
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewCustomers.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_2.png")));
+                getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewCustomers.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
+                getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewCustomers.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_1.png")));
+                getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_1.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewCustomers.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
+                getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
             }
         });
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Button Exit">
     private void buttonExit() {
-        viewCustomers.getButton_exit().addMouseListener(new MouseListener() {
+        getButton_exit().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 exit();
@@ -242,22 +236,22 @@ public class C_Customers {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewCustomers.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_2.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewCustomers.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewCustomers.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_1.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_1.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewCustomers.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
             }
         });
     }
@@ -268,7 +262,7 @@ public class C_Customers {
 
     // <editor-fold defaultstate="collapsed" desc="Button Minimize">
     private void buttonMinimize() {
-        viewCustomers.getButton_minimize().addMouseListener(new MouseListener() {
+        getButton_minimize().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 minimize();
@@ -276,34 +270,34 @@ public class C_Customers {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewCustomers.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_2.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewCustomers.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewCustomers.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewCustomers.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
             }
         });
     }
 
     private void minimize() {
-        viewCustomers.minimize(ICONIFIED);
+        minimize(ICONIFIED);
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Drag Window">
     private void dragWindow() {
 
-        viewCustomers.getPanel_undecorated().addMouseListener(new MouseListener() {
+        getPanel_undecorated().addMouseListener(new MouseListener() {
             // <editor-fold defaultstate="collapsed" desc="Unused">
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -312,8 +306,8 @@ public class C_Customers {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewCustomers.setxMouse(e.getX());
-                viewCustomers.setyMouse(e.getY());
+                setxMouse(e.getX());
+                setyMouse(e.getY());
             }
 
             // <editor-fold defaultstate="collapsed" desc="Unused">
@@ -333,13 +327,13 @@ public class C_Customers {
             }//</editor-fold>
         });
 
-        viewCustomers.getPanel_undecorated().addMouseMotionListener(new MouseMotionListener() {
+        getPanel_undecorated().addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 int kordinatX = e.getXOnScreen();
                 int kordinatY = e.getYOnScreen();
 
-                viewCustomers.setLocation(kordinatX - viewCustomers.getxMouse(), kordinatY - viewCustomers.getyMouse());
+                setLocation(kordinatX - getxMouse(), kordinatY - getyMouse());
             }
 
             // <editor-fold defaultstate="collapsed" desc="Unused">

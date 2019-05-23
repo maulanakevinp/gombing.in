@@ -28,10 +28,10 @@ public class AnimalCareService implements AnimalCareInterface {
             sql_insert = "INSERT INTO public.animal_care (id_animal, id_user, weight, body_length, chest_size, height, comment, timestamp) VALUES (?,?,?,?,?,?,?,?)",
             sql_update = "UPDATE public.animal_care SET id_animal = ?, id_user = ?, weight = ?, body_length = ?, chest_size = ?, height = ?, comment = ?, timestamp = ? WHERE id = ?",
             sql_delete = "DELETE FROM public.animal_care WHERE id = ?",
-            sql_selectOwnerHave = "ELECT ac.id, animal.animal_name, users.name , ac.weight, ac.body_length, "
+            sql_selectOwnerHave = "SELECT ac.id, animal.animal_name, users.name , ac.weight, ac.body_length, "
             + "ac.chest_size, ac.height, ac.comment, ac.timestamp "
             + "FROM public.animal_care ac join public.animal on ac.id_animal=animal.id "
-            + "join public.users ON users.id = ac.id_user WHERE id_user = ?;";
+            + "join public.users ON users.id = ac.id_user WHERE ac.id_user = ?;";
 
     public void setCon(Connection con) {
         this.con = con;
@@ -117,26 +117,25 @@ public class AnimalCareService implements AnimalCareInterface {
     }
 
     @Override
-    public ArrayList<M_AnimalCare> getAllOwnerHave() throws SQLException {
+    public ArrayList<M_AnimalCare> getAllOwnerHave(M_Users mu) throws SQLException {
         ArrayList<M_AnimalCare> list = null;
         try {
             list = new ArrayList<>();
-            PreparedStatement st = con.prepareStatement(sql_select);
-            M_Users mu = new M_Users();
+            PreparedStatement st = con.prepareStatement(sql_selectOwnerHave);
             st.setInt(1, mu.getId());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 M_AnimalCare m = new M_AnimalCare();
 
-                m.setId(rs.getInt("id"));
-                m.setAnimal_name(rs.getString("animal_name"));
-                m.setAnimal_owner(rs.getString("name"));
-                m.setWeight(rs.getDouble("weight"));
-                m.setBody_length(rs.getDouble("body_length"));
-                m.setChest_size(rs.getDouble("chest_size"));
-                m.setHeight(rs.getDouble("height"));
-                m.setComment(rs.getString("comment"));
-                m.setTimestamp(rs.getTimestamp("timestamp"));
+                m.setId(rs.getInt(1));
+                m.setAnimal_name(rs.getString(2));
+                m.setAnimal_owner(rs.getString(3));
+                m.setWeight(rs.getDouble(4));
+                m.setBody_length(rs.getDouble(5));
+                m.setChest_size(rs.getDouble(6));
+                m.setHeight(rs.getDouble(7));
+                m.setComment(rs.getString(8));
+                m.setTimestamp(rs.getTimestamp(9));
 
                 list.add(m);
 

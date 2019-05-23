@@ -90,6 +90,10 @@ public class V_Customers extends javax.swing.JFrame {
     }//</editor-fold>    
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
+    protected void Show(Boolean a){
+        this.setVisible(a);
+    }
+    
     public JLabel getButton_logout() {
         return button_logout;
     }
@@ -346,9 +350,9 @@ public class V_Customers extends javax.swing.JFrame {
                 .addComponent(editText_subtitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(50, 50, 50)
                 .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_animalCare, "panel_animalCare");

@@ -23,15 +23,13 @@ import javax.swing.JOptionPane;
  *
  * @author MaulanaKevinPradana
  */
-public class C_Login {
+public class C_Login extends V_Login{
 
-    private final V_Login viewLogin;
     private final M_Users modelUser;
     private final config connection;
 
     public C_Login() {
-        viewLogin = new V_Login();
-        viewLogin.setVisible(true);
+        Show(true);
         buttonLogin();
         action_passwordL();
         action_emailL();
@@ -51,7 +49,7 @@ public class C_Login {
     }
 
     private void buttonLogin() {
-        viewLogin.getButton_login().addMouseListener(new MouseListener() {
+        getButton_login().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 login();
@@ -59,30 +57,30 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_login().setBackground(new Color(0, 212, 212));
+                getButton_login().setBackground(new Color(0, 212, 212));
                 
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                 viewLogin.getButton_login().setBackground(new Color(0, 255, 255));
+                 getButton_login().setBackground(new Color(0, 255, 255));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                 viewLogin.getButton_login().setBackground(new Color(0, 255, 255));
+                 getButton_login().setBackground(new Color(0, 255, 255));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                 viewLogin.getButton_login().setBackground(new Color(255, 255, 255));
+                 getButton_login().setBackground(new Color(255, 255, 255));
             }
         });        
     }
 
     private void login() {
-        modelUser.setEmail(viewLogin.getEditText_emailL().getText());
-        modelUser.setPassword(viewLogin.getEditText_passwordL().getText());
+        modelUser.setEmail(getEditText_emailL().getText());
+        modelUser.setPassword(getEditText_passwordL().getText());
         try {
             connection.getUsers().checkLogin(modelUser);
         } catch (SQLException e) {
@@ -92,40 +90,40 @@ public class C_Login {
         switch (level) {
             case 1:
                 C_Admin admin = new C_Admin();
-                viewLogin.dispose();
+                Show(false);
                 break;
             case 2:
                 C_Manager manager = new C_Manager();
-                viewLogin.dispose();
+                Show(false);
                 break;
             case 3:
                 C_Nurse nurse = new C_Nurse();
-                viewLogin.dispose();
+                Show(false);
                 break;
             case 4:
-                C_Customers customers = new C_Customers();
-                viewLogin.dispose();
+                C_Customers customers = new C_Customers(modelUser.getId());
+                Show(false);
                 break;
             default:
-                JOptionPane.showMessageDialog(viewLogin, "Invalid Username or Password");
+                JOptionPane.showMessageDialog(null, "Invalid Username or Password");
                 break;
         }
     }
     
     private void action_emailL(){
-        viewLogin.getEditText_emailL().addActionListener((ActionEvent e) -> {
-            viewLogin.getEditText_passwordL().requestFocusInWindow();
+        getEditText_emailL().addActionListener((ActionEvent e) -> {
+            getEditText_passwordL().requestFocusInWindow();
         });
     }
     
     private void action_passwordL(){
-        viewLogin.getEditText_passwordL().addActionListener(((ActionEvent e) -> {
+        getEditText_passwordL().addActionListener(((ActionEvent e) -> {
             login();
         }));
     }
     
     private void buttonViewLogin() {
-        viewLogin.getButton_viewLoginF().addMouseListener(new MouseListener() {
+        getButton_viewLoginF().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 viewLogin();
@@ -133,26 +131,26 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_viewLoginF().setForeground(new Color(255, 200, 0));
+                getButton_viewLoginF().setForeground(new Color(255, 200, 0));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewLogin.getButton_viewLoginF().setForeground(new Color(255, 255, 0));
+                getButton_viewLoginF().setForeground(new Color(255, 255, 0));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewLogin.getButton_viewLoginF().setForeground(new Color(255, 255, 0));
+                getButton_viewLoginF().setForeground(new Color(255, 255, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewLogin.getButton_viewLoginF().setForeground(new Color(255, 255, 255));
+                getButton_viewLoginF().setForeground(new Color(255, 255, 255));
             }
         });
         
-        viewLogin.getButton_viewLoginR().addMouseListener(new MouseListener() {
+        getButton_viewLoginR().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 viewLogin();
@@ -160,33 +158,33 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_viewLoginR().setForeground(new Color(255, 200, 0));
+                getButton_viewLoginR().setForeground(new Color(255, 200, 0));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewLogin.getButton_viewLoginR().setForeground(new Color(255, 255, 0));
+                getButton_viewLoginR().setForeground(new Color(255, 255, 0));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewLogin.getButton_viewLoginR().setForeground(new Color(255, 255, 0));
+                getButton_viewLoginR().setForeground(new Color(255, 255, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewLogin.getButton_viewLoginR().setForeground(new Color(255, 255, 255));
+                getButton_viewLoginR().setForeground(new Color(255, 255, 255));
             }
         });
     }
 
     private void viewLogin() {
-        CardLayout card = (CardLayout) viewLogin.getPanel_body().getLayout();
-        card.show(viewLogin.getPanel_body(), "panel_login");
+        CardLayout card = (CardLayout) getPanel_body().getLayout();
+        card.show(getPanel_body(), "panel_login");
     }
     
     private void buttonRegister(){
-        viewLogin.getButton_register().addMouseListener(new MouseListener() {
+        getButton_register().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 
@@ -194,29 +192,29 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_register().setBackground(new Color(0, 212, 212));
+                getButton_register().setBackground(new Color(0, 212, 212));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewLogin.getButton_register().setBackground(new Color(0, 255, 255));
+                getButton_register().setBackground(new Color(0, 255, 255));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewLogin.getButton_register().setBackground(new Color(0, 255, 255));
+                getButton_register().setBackground(new Color(0, 255, 255));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewLogin.getButton_register().setBackground(new Color(255, 255, 255));
+                getButton_register().setBackground(new Color(255, 255, 255));
             }
         });
     }
     
     private void buttonViewRegistration() {
         
-        viewLogin.getButton_viewRegister().addMouseListener(new MouseListener() {
+        getButton_viewRegister().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 viewRegistration();
@@ -224,33 +222,33 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_viewRegister().setForeground(new Color(255, 200, 0));
+                getButton_viewRegister().setForeground(new Color(255, 200, 0));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewLogin.getButton_viewRegister().setForeground(new Color(255, 255, 0));
+                getButton_viewRegister().setForeground(new Color(255, 255, 0));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewLogin.getButton_viewRegister().setForeground(new Color(255, 255, 0));
+                getButton_viewRegister().setForeground(new Color(255, 255, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewLogin.getButton_viewRegister().setForeground(new Color(255, 255, 255));
+                getButton_viewRegister().setForeground(new Color(255, 255, 255));
             }
         });
     }
 
     private void viewRegistration() {
-        CardLayout card = (CardLayout) viewLogin.getPanel_body().getLayout();
-        card.show(viewLogin.getPanel_body(), "panel_registration");
+        CardLayout card = (CardLayout) getPanel_body().getLayout();
+        card.show(getPanel_body(), "panel_registration");
     }
     
     private void buttonSend(){
-        viewLogin.getButton_send().addMouseListener(new MouseListener() {
+        getButton_send().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 
@@ -258,28 +256,28 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_send().setBackground(new Color(0, 212, 212));
+                getButton_send().setBackground(new Color(0, 212, 212));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewLogin.getButton_send().setBackground(new Color(0, 255, 255));
+                getButton_send().setBackground(new Color(0, 255, 255));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewLogin.getButton_send().setBackground(new Color(0, 255, 255));
+                getButton_send().setBackground(new Color(0, 255, 255));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewLogin.getButton_send().setBackground(new Color(255, 255, 255));
+                getButton_send().setBackground(new Color(255, 255, 255));
             }
         });
     }
 
     private void buttonViewForgotPassword() {
-        viewLogin.getButton_viewForgotPassword().addMouseListener(new MouseListener() {
+        getButton_viewForgotPassword().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 viewForgotPassword();
@@ -287,34 +285,34 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_viewForgotPassword().setForeground(new Color(255, 200, 0));
+                getButton_viewForgotPassword().setForeground(new Color(255, 200, 0));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewLogin.getButton_viewForgotPassword().setForeground(new Color(255, 255, 0));
+                getButton_viewForgotPassword().setForeground(new Color(255, 255, 0));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewLogin.getButton_viewForgotPassword().setForeground(new Color(255, 255, 0));
+                getButton_viewForgotPassword().setForeground(new Color(255, 255, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewLogin.getButton_viewForgotPassword().setForeground(new Color(0, 0, 0));
+                getButton_viewForgotPassword().setForeground(new Color(0, 0, 0));
             }
         });
     }
 
     private void viewForgotPassword() {
-        CardLayout card = (CardLayout) viewLogin.getPanel_body().getLayout();
-        card.show(viewLogin.getPanel_body(), "panel_forgotPassword");
+        CardLayout card = (CardLayout) getPanel_body().getLayout();
+        card.show(getPanel_body(), "panel_forgotPassword");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Button Exit">
     private void buttonExit() {
-        viewLogin.getButton_exit().addMouseListener(new MouseListener() {
+        getButton_exit().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 exit();
@@ -322,22 +320,22 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_2.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewLogin.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewLogin.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_1.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_1.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewLogin.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
             }
         });
     }
@@ -348,7 +346,7 @@ public class C_Login {
 
     // <editor-fold defaultstate="collapsed" desc="Button Minimize">
     private void buttonMinimize() {
-        viewLogin.getButton_minimize().addMouseListener(new MouseListener() {
+        getButton_minimize().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 minimze();
@@ -356,34 +354,34 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_2.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewLogin.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewLogin.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewLogin.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
             }
         });
     }
 
     private void minimze() {
-        viewLogin.minimize(ICONIFIED);
+        minimize(ICONIFIED);
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Drag Window">
     private void dragWindow() {
 
-        viewLogin.getPanel_undecorated().addMouseListener(new MouseListener() {
+        getPanel_undecorated().addMouseListener(new MouseListener() {
             // <editor-fold defaultstate="collapsed" desc="Unused">
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -392,8 +390,8 @@ public class C_Login {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewLogin.setxMouse(e.getX());
-                viewLogin.setyMouse(e.getY());
+                setxMouse(e.getX());
+                setyMouse(e.getY());
             }
 
             // <editor-fold defaultstate="collapsed" desc="Unused">
@@ -413,13 +411,13 @@ public class C_Login {
             }//</editor-fold>
         });
 
-        viewLogin.getPanel_undecorated().addMouseMotionListener(new MouseMotionListener() {
+        getPanel_undecorated().addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 int kordinatX = e.getXOnScreen();
                 int kordinatY = e.getYOnScreen();
 
-                viewLogin.setLocation(kordinatX - viewLogin.getxMouse(), kordinatY - viewLogin.getyMouse());
+                setLocation(kordinatX - getxMouse(), kordinatY - getyMouse());
             }
 
             // <editor-fold defaultstate="collapsed" desc="Unused">

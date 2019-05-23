@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -49,6 +50,58 @@ public class V_Admin extends javax.swing.JFrame {
 
     public JComboBox<String> getComboBox_status1() {
         return comboBox_status1;
+    }
+
+    public JTextArea getEditText_address() {
+        return editText_address;
+    }
+
+    public void setEditText_address(JTextArea editText_address) {
+        this.editText_address = editText_address;
+    }
+
+    public JTextArea getEditText_address1() {
+        return editText_address1;
+    }
+
+    public void setEditText_address1(JTextArea editText_address1) {
+        this.editText_address1 = editText_address1;
+    }
+
+    public JTextField getEditText_phoneNumber() {
+        return editText_phoneNumber;
+    }
+
+    public void setEditText_phoneNumber(JTextField editText_phoneNumber) {
+        this.editText_phoneNumber = editText_phoneNumber;
+    }
+
+    public JTextField getEditText_phoneNumber1() {
+        return editText_phoneNumber1;
+    }
+
+    public void setEditText_phoneNumber1(JTextField editText_phoneNumber1) {
+        this.editText_phoneNumber1 = editText_phoneNumber1;
+    }
+
+    public JLabel getImage_user() {
+        return image_user;
+    }
+
+    public void setImage_user(JLabel image_user) {
+        this.image_user = image_user;
+    }
+
+    public JLabel getImage_user1() {
+        return image_user1;
+    }
+
+    public JButton getButton_chooseUserPhoto() {
+        return button_chooseUserPhoto;
+    }
+
+    public void setImage_user1(JLabel image_user1) {
+        this.image_user1 = image_user1;
     }
 
     public JTextField getEditText_email() {
@@ -118,6 +171,18 @@ public class V_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="ANIMAL">   
     public JTable getTable_animal() {
         return table_animal;
+    }
+
+    public JButton getButton_chooseImage() {
+        return button_chooseImage;
+    }    
+
+    public JLabel getImage_animal() {
+        return image_animal;
+    }
+
+    public JLabel getImage_animal1() {
+        return image_animal1;
     }
 
     public JComboBox<String> getComboBox_animalOwner() {
@@ -331,7 +396,10 @@ public class V_Admin extends javax.swing.JFrame {
     }//</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
-
+    protected void Show(Boolean a){
+        this.setVisible(a);
+    }
+    
     public JLabel getButton_logout() {
         return button_logout;
     }
@@ -441,6 +509,12 @@ public class V_Admin extends javax.swing.JFrame {
         comboBox_status = new javax.swing.JComboBox<>();
         button_cancelAddUsers = new javax.swing.JButton();
         button_saveAddUsers = new javax.swing.JButton();
+        image_user = new javax.swing.JLabel();
+        editText_phoneNumber = new javax.swing.JTextField();
+        textView_phoneNumber = new javax.swing.JLabel();
+        textView_address = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        editText_address = new javax.swing.JTextArea();
         panel_editUsers = new javax.swing.JPanel();
         textView_editUsers = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
@@ -457,6 +531,13 @@ public class V_Admin extends javax.swing.JFrame {
         comboBox_status1 = new javax.swing.JComboBox<>();
         button_cancelEditUsers = new javax.swing.JButton();
         button_saveEditUsers = new javax.swing.JButton();
+        image_user1 = new javax.swing.JLabel();
+        editText_phoneNumber1 = new javax.swing.JTextField();
+        textView_phoneNumber1 = new javax.swing.JLabel();
+        textView_address1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        editText_address1 = new javax.swing.JTextArea();
+        button_chooseUserPhoto = new javax.swing.JButton();
         panel_animal = new javax.swing.JPanel();
         textView_animal = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -488,6 +569,7 @@ public class V_Admin extends javax.swing.JFrame {
         comboBox_typePet = new javax.swing.JComboBox<>();
         dateChooser_birthdate = new com.toedter.calendar.JDateChooser();
         comboBox_animalOwner = new javax.swing.JComboBox<>();
+        image_animal = new javax.swing.JLabel();
         panel_editAnimal = new javax.swing.JPanel();
         textView_editAnimal = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -510,6 +592,8 @@ public class V_Admin extends javax.swing.JFrame {
         comboBox_typePet1 = new javax.swing.JComboBox<>();
         dateChooser_birthdate1 = new com.toedter.calendar.JDateChooser();
         comboBox_animalOwner1 = new javax.swing.JComboBox<>();
+        image_animal1 = new javax.swing.JLabel();
+        button_chooseImage = new javax.swing.JButton();
         panel_animalType = new javax.swing.JPanel();
         textView_subAnimalType = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -876,59 +960,103 @@ public class V_Admin extends javax.swing.JFrame {
         button_saveAddUsers.setContentAreaFilled(false);
         button_saveAddUsers.setFocusable(false);
 
+        image_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        image_user.setText("Add User Photo");
+        image_user.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        image_user.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        image_user.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        editText_phoneNumber.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_phoneNumber.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_phoneNumber.setText("Phone Number");
+        textView_phoneNumber.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_address.setText("Address");
+        textView_address.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_address.setColumns(20);
+        editText_address.setRows(5);
+        jScrollPane1.setViewportView(editText_address);
+
         javax.swing.GroupLayout panel_formAddUsersLayout = new javax.swing.GroupLayout(panel_formAddUsers);
         panel_formAddUsers.setLayout(panel_formAddUsersLayout);
         panel_formAddUsersLayout.setHorizontalGroup(
             panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_formAddUsersLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(image_user, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textView_level)
-                    .addComponent(textView_status)
                     .addComponent(textView_password)
                     .addComponent(textView_email)
-                    .addComponent(textView_name))
-                .addGap(47, 47, 47)
+                    .addComponent(textView_name)
+                    .addComponent(textView_phoneNumber))
+                .addGap(46, 46, 46)
                 .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(editText_phoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                     .addComponent(editText_name)
                     .addComponent(editText_email)
-                    .addComponent(editText_password)
-                    .addComponent(comboBox_level, 0, 210, Short.MAX_VALUE)
-                    .addComponent(comboBox_status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panel_formAddUsersLayout.createSequentialGroup()
-                        .addComponent(button_cancelAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editText_password))
+                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddUsersLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button_saveAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(button_cancelAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(button_saveAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_formAddUsersLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textView_level)
+                            .addComponent(textView_status)
+                            .addComponent(textView_address))
+                        .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_formAddUsersLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddUsersLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboBox_status, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBox_level, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         panel_formAddUsersLayout.setVerticalGroup(
             panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddUsersLayout.createSequentialGroup()
+            .addGroup(panel_formAddUsersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editText_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_name))
+                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(image_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panel_formAddUsersLayout.createSequentialGroup()
+                        .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_formAddUsersLayout.createSequentialGroup()
+                                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editText_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textView_name)
+                                    .addComponent(textView_address))
+                                .addGap(20, 20, 20)
+                                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editText_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textView_email)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editText_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_password)
+                            .addComponent(textView_level)
+                            .addComponent(comboBox_level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editText_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_phoneNumber)
+                            .addComponent(textView_status)
+                            .addComponent(comboBox_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20)
-                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editText_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_email))
-                .addGap(20, 20, 20)
-                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editText_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_password))
-                .addGap(19, 19, 19)
-                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox_level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_level))
-                .addGap(18, 18, 18)
-                .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_status))
-                .addGap(18, 18, 18)
                 .addGroup(panel_formAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancelAddUsers)
                     .addComponent(button_saveAddUsers))
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panel_addUsersLayout = new javax.swing.GroupLayout(panel_addUsers);
@@ -936,11 +1064,14 @@ public class V_Admin extends javax.swing.JFrame {
         panel_addUsersLayout.setHorizontalGroup(
             panel_addUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_addUsersLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(panel_addUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textView_addUsers)
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel_formAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_addUsersLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel_formAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_addUsersLayout.setVerticalGroup(
@@ -952,7 +1083,7 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(panel_formAddUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_addUsers, "panel_addUsers");
@@ -1005,59 +1136,108 @@ public class V_Admin extends javax.swing.JFrame {
         button_saveEditUsers.setContentAreaFilled(false);
         button_saveEditUsers.setFocusable(false);
 
+        image_user1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        image_user1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        image_user1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        image_user1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        editText_phoneNumber1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_phoneNumber1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_phoneNumber1.setText("Phone Number");
+        textView_phoneNumber1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        textView_address1.setText("Address");
+        textView_address1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        editText_address1.setColumns(20);
+        editText_address1.setRows(5);
+        jScrollPane2.setViewportView(editText_address1);
+
+        button_chooseUserPhoto.setBackground(new java.awt.Color(255, 255, 255));
+        button_chooseUserPhoto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        button_chooseUserPhoto.setText("Choose Photo");
+        button_chooseUserPhoto.setContentAreaFilled(false);
+        button_chooseUserPhoto.setFocusable(false);
+
         javax.swing.GroupLayout panel_formEditUsersLayout = new javax.swing.GroupLayout(panel_formEditUsers);
         panel_formEditUsers.setLayout(panel_formEditUsersLayout);
         panel_formEditUsersLayout.setHorizontalGroup(
             panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_formEditUsersLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(image_user1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(button_chooseUserPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
                 .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textView_level1)
-                    .addComponent(textView_status1)
                     .addComponent(textView_password1)
                     .addComponent(textView_email1)
-                    .addComponent(textView_name1))
-                .addGap(45, 45, 45)
+                    .addComponent(textView_name1)
+                    .addComponent(textView_phoneNumber1))
+                .addGap(46, 46, 46)
                 .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(editText_phoneNumber1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                     .addComponent(editText_name1)
                     .addComponent(editText_email1)
-                    .addComponent(editText_password1)
-                    .addComponent(comboBox_status1, 0, 210, Short.MAX_VALUE)
+                    .addComponent(editText_password1))
+                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditUsersLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button_cancelEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(button_saveEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_formEditUsersLayout.createSequentialGroup()
-                        .addComponent(button_cancelEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button_saveEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboBox_level1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textView_level1)
+                            .addComponent(textView_status1)
+                            .addComponent(textView_address1))
+                        .addGap(46, 46, 46)
+                        .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_formEditUsersLayout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(comboBox_status1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBox_level1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         panel_formEditUsersLayout.setVerticalGroup(
             panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditUsersLayout.createSequentialGroup()
+            .addGroup(panel_formEditUsersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editText_name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_name1))
+                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(image_user1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panel_formEditUsersLayout.createSequentialGroup()
+                        .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_formEditUsersLayout.createSequentialGroup()
+                                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editText_name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textView_name1)
+                                    .addComponent(textView_address1))
+                                .addGap(20, 20, 20)
+                                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editText_email1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textView_email1)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editText_password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_password1)
+                            .addComponent(textView_level1)
+                            .addComponent(comboBox_level1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editText_phoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_phoneNumber1)
+                            .addComponent(textView_status1)
+                            .addComponent(comboBox_status1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20)
-                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editText_email1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_email1))
-                .addGap(20, 20, 20)
-                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editText_password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_password1))
-                .addGap(19, 19, 19)
-                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox_level1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_level1))
-                .addGap(18, 18, 18)
-                .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox_status1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_status1))
-                .addGap(18, 18, 18)
                 .addGroup(panel_formEditUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancelEditUsers)
-                    .addComponent(button_saveEditUsers))
-                .addGap(20, 20, 20))
+                    .addComponent(button_saveEditUsers)
+                    .addComponent(button_chooseUserPhoto))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panel_editUsersLayout = new javax.swing.GroupLayout(panel_editUsers);
@@ -1065,12 +1245,16 @@ public class V_Admin extends javax.swing.JFrame {
         panel_editUsersLayout.setHorizontalGroup(
             panel_editUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_editUsersLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(panel_editUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textView_editUsers)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel_formEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_editUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_editUsersLayout.createSequentialGroup()
+                    .addGap(171, 171, 171)
+                    .addComponent(panel_formEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(172, Short.MAX_VALUE)))
         );
         panel_editUsersLayout.setVerticalGroup(
             panel_editUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1079,9 +1263,12 @@ public class V_Admin extends javax.swing.JFrame {
                 .addComponent(textView_editUsers)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(panel_formEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
+            .addGroup(panel_editUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_editUsersLayout.createSequentialGroup()
+                    .addGap(129, 129, 129)
+                    .addComponent(panel_formEditUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(130, Short.MAX_VALUE)))
         );
 
         panel_body.add(panel_editUsers, "panel_editUsers");
@@ -1253,78 +1440,88 @@ public class V_Admin extends javax.swing.JFrame {
         comboBox_animalOwner.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Goat", "Cow" }));
         comboBox_animalOwner.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        image_animal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        image_animal.setText("Add Animal Image");
+        image_animal.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        image_animal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        image_animal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout panel_formAddAnimalLayout = new javax.swing.GroupLayout(panel_formAddAnimal);
         panel_formAddAnimal.setLayout(panel_formAddAnimalLayout);
         panel_formAddAnimalLayout.setHorizontalGroup(
             panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddAnimalLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addContainerGap()
+                .addComponent(image_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textView_birthdate)
                     .addComponent(textView_gender)
                     .addComponent(textView_animalType)
                     .addComponent(textView_animalName))
                 .addGap(18, 18, 18)
-                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_formAddAnimalLayout.createSequentialGroup()
-                        .addComponent(comboBox_animalType, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editText_skinColor, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_formAddAnimalLayout.createSequentialGroup()
-                        .addComponent(comboBox_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editText_animalName, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateChooser_birthdate, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBox_animalType, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBox_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_formAddAnimalLayout.createSequentialGroup()
+                        .addComponent(textView_earType)
+                        .addGap(41, 41, 41)
                         .addComponent(comboBox_earType, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_formAddAnimalLayout.createSequentialGroup()
-                        .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editText_animalName, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateChooser_birthdate, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddAnimalLayout.createSequentialGroup()
-                                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textView_skinColor)
-                                    .addComponent(textView_earType)
-                                    .addComponent(textView_typePet))
-                                .addGap(228, 228, 228))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddAnimalLayout.createSequentialGroup()
-                                .addComponent(button_cancelAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_saveAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(comboBox_typePet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel_formAddAnimalLayout.createSequentialGroup()
-                                .addComponent(textView_animalOwner)
-                                .addGap(18, 18, 18)
-                                .addComponent(comboBox_animalOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(textView_skinColor)
+                        .addGap(37, 37, 37)
+                        .addComponent(editText_skinColor, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddAnimalLayout.createSequentialGroup()
+                            .addComponent(button_cancelAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(button_saveAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddAnimalLayout.createSequentialGroup()
+                            .addComponent(textView_typePet)
+                            .addGap(41, 41, 41)
+                            .addComponent(comboBox_typePet, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_formAddAnimalLayout.createSequentialGroup()
+                            .addComponent(textView_animalOwner)
+                            .addGap(18, 18, 18)
+                            .addComponent(comboBox_animalOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         panel_formAddAnimalLayout.setVerticalGroup(
             panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formAddAnimalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textView_animalName)
-                    .addComponent(textView_animalOwner)
-                    .addComponent(editText_animalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBox_animalOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox_animalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editText_skinColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_skinColor)
-                    .addComponent(textView_animalType))
-                .addGap(18, 18, 18)
-                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBox_earType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_earType)
-                    .addComponent(textView_gender))
-                .addGap(18, 18, 18)
-                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(comboBox_typePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(textView_typePet)
-                        .addComponent(textView_birthdate))
-                    .addComponent(dateChooser_birthdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_formAddAnimalLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_animalName)
+                            .addComponent(textView_animalOwner)
+                            .addComponent(editText_animalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBox_animalOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBox_animalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editText_skinColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_skinColor)
+                            .addComponent(textView_animalType))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBox_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBox_earType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_earType)
+                            .addComponent(textView_gender))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(comboBox_typePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textView_typePet)
+                                .addComponent(textView_birthdate))
+                            .addComponent(dateChooser_birthdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(image_animal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panel_formAddAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancelAddAnimal)
@@ -1337,12 +1534,12 @@ public class V_Admin extends javax.swing.JFrame {
         panel_addAnimalLayout.setHorizontalGroup(
             panel_addAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_addAnimalLayout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_addAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textView_addAnimal)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel_formAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_addAnimalLayout.setVerticalGroup(
             panel_addAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1427,84 +1624,103 @@ public class V_Admin extends javax.swing.JFrame {
         comboBox_animalOwner1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Goat", "Cow" }));
         comboBox_animalOwner1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        image_animal1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        image_animal1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        image_animal1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        image_animal1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        button_chooseImage.setBackground(new java.awt.Color(255, 255, 255));
+        button_chooseImage.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        button_chooseImage.setText("CHOOSE IMAGE");
+        button_chooseImage.setContentAreaFilled(false);
+        button_chooseImage.setFocusable(false);
+
         javax.swing.GroupLayout panel_formEditAnimalLayout = new javax.swing.GroupLayout(panel_formEditAnimal);
         panel_formEditAnimal.setLayout(panel_formEditAnimalLayout);
         panel_formEditAnimalLayout.setHorizontalGroup(
             panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addContainerGap()
+                .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(button_chooseImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(image_animal1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
                 .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textView_birthdate1)
-                    .addComponent(textView_gender1)
-                    .addComponent(textView_animalType1)
-                    .addComponent(textView_animalName1))
-                .addGap(18, 18, 18)
-                .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_formEditAnimalLayout.createSequentialGroup()
-                        .addComponent(comboBox_animalType1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(textView_skinColor1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editText_skinColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_formEditAnimalLayout.createSequentialGroup()
-                        .addComponent(comboBox_gender1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(textView_earType1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboBox_earType1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_formEditAnimalLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(46, 46, 46)
                         .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editText_animalName1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateChooser_birthdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textView_birthdate1)
+                            .addComponent(textView_gender1)
+                            .addComponent(textView_animalType1)
+                            .addComponent(textView_animalName1))
                         .addGap(18, 18, 18)
-                        .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalLayout.createSequentialGroup()
-                                .addComponent(button_cancelEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_saveEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalLayout.createSequentialGroup()
-                                .addComponent(textView_typePet1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comboBox_typePet1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(editText_animalName1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dateChooser_birthdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBox_animalType1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBox_gender1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalLayout.createSequentialGroup()
+                        .addGap(381, 381, 381)
+                        .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel_formEditAnimalLayout.createSequentialGroup()
-                                .addComponent(textView_animalOwner1)
-                                .addGap(18, 18, 18)
-                                .addComponent(comboBox_animalOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(textView_skinColor1)
+                                .addGap(37, 37, 37)
+                                .addComponent(editText_skinColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalLayout.createSequentialGroup()
+                                    .addComponent(button_cancelEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(button_saveEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panel_formEditAnimalLayout.createSequentialGroup()
+                                    .addComponent(textView_animalOwner1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(comboBox_animalOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalLayout.createSequentialGroup()
+                                    .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(textView_earType1)
+                                        .addComponent(textView_typePet1))
+                                    .addGap(41, 41, 41)
+                                    .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(comboBox_typePet1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(comboBox_earType1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap())
         );
         panel_formEditAnimalLayout.setVerticalGroup(
             panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_formEditAnimalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textView_animalName1)
-                    .addComponent(textView_animalOwner1)
-                    .addComponent(editText_animalName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBox_animalOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox_animalType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editText_skinColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_skinColor1)
-                    .addComponent(textView_animalType1))
-                .addGap(18, 18, 18)
-                .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox_gender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBox_earType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_earType1)
-                    .addComponent(textView_gender1))
-                .addGap(18, 18, 18)
                 .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(comboBox_typePet1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(textView_typePet1)
-                        .addComponent(textView_birthdate1))
-                    .addComponent(dateChooser_birthdate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_formEditAnimalLayout.createSequentialGroup()
+                        .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textView_animalName1)
+                            .addComponent(textView_animalOwner1)
+                            .addComponent(editText_animalName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBox_animalOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBox_animalType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editText_skinColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_skinColor1)
+                            .addComponent(textView_animalType1))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBox_gender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBox_earType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_earType1)
+                            .addComponent(textView_gender1))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(comboBox_typePet1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textView_typePet1)
+                                .addComponent(textView_birthdate1))
+                            .addComponent(dateChooser_birthdate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(image_animal1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panel_formEditAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancelEditAnimal)
-                    .addComponent(button_saveEditAnimal))
+                    .addComponent(button_saveEditAnimal)
+                    .addComponent(button_chooseImage))
                 .addContainerGap())
         );
 
@@ -1513,12 +1729,12 @@ public class V_Admin extends javax.swing.JFrame {
         panel_editAnimalLayout.setHorizontalGroup(
             panel_editAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_editAnimalLayout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_editAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textView_editAnimal)
                     .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel_formEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_editAnimalLayout.setVerticalGroup(
             panel_editAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2123,6 +2339,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JButton button_cancelEditAnimalType;
     private javax.swing.JButton button_cancelEditTypePet;
     private javax.swing.JButton button_cancelEditUsers;
+    private javax.swing.JButton button_chooseImage;
+    private javax.swing.JButton button_chooseUserPhoto;
     private javax.swing.JButton button_deleteAnimal;
     private javax.swing.JButton button_deleteAnimalType;
     private javax.swing.JButton button_deleteTypePet;
@@ -2169,6 +2387,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBox_typePet1;
     private com.toedter.calendar.JDateChooser dateChooser_birthdate;
     private com.toedter.calendar.JDateChooser dateChooser_birthdate1;
+    private javax.swing.JTextArea editText_address;
+    private javax.swing.JTextArea editText_address1;
     private javax.swing.JTextField editText_animalName;
     private javax.swing.JTextField editText_animalName1;
     private javax.swing.JTextField editText_animalType;
@@ -2179,10 +2399,18 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JTextField editText_name1;
     private javax.swing.JPasswordField editText_password;
     private javax.swing.JPasswordField editText_password1;
+    private javax.swing.JTextField editText_phoneNumber;
+    private javax.swing.JTextField editText_phoneNumber1;
     private javax.swing.JTextField editText_skinColor;
     private javax.swing.JTextField editText_skinColor1;
     private javax.swing.JTextField editText_typePet;
     private javax.swing.JTextField editText_typePet1;
+    private javax.swing.JLabel image_animal;
+    private javax.swing.JLabel image_animal1;
+    private javax.swing.JLabel image_user;
+    private javax.swing.JLabel image_user1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -2232,6 +2460,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel textView_addAnimalType;
     private javax.swing.JLabel textView_addTypePet;
     private javax.swing.JLabel textView_addUsers;
+    private javax.swing.JLabel textView_address;
+    private javax.swing.JLabel textView_address1;
     private javax.swing.JLabel textView_animaType;
     private javax.swing.JLabel textView_animaType1;
     private javax.swing.JLabel textView_animal;
@@ -2259,6 +2489,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel textView_name1;
     private javax.swing.JLabel textView_password;
     private javax.swing.JLabel textView_password1;
+    private javax.swing.JLabel textView_phoneNumber;
+    private javax.swing.JLabel textView_phoneNumber1;
     private javax.swing.JLabel textView_skinColor;
     private javax.swing.JLabel textView_skinColor1;
     private javax.swing.JLabel textView_status;

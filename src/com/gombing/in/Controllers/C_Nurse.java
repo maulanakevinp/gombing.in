@@ -32,17 +32,15 @@ import javax.swing.JOptionPane;
  *
  * @author MaulanaKevinPradana
  */
-public class C_Nurse {
-    private final V_Nurse viewNurse;
+public class C_Nurse extends V_Nurse{
+    
     private final Table_Animal tableAnimal;
     private final Table_AnimalCare tableAnimalCare;
     private final M_AnimalCare modelAnimalCare;
     private final config connection;
 
-
     public C_Nurse() {
-        viewNurse = new V_Nurse();
-        viewNurse.setVisible(true);
+        Show(true);
         connection = new config();
         connection.getAnimal().setCon(connection.getConnection());
         connection.getAnimalCare().setCon(connection.getConnection());
@@ -75,11 +73,11 @@ public class C_Nurse {
 
     // <editor-fold defaultstate="collapsed" desc="Animal">
     private void viewAnimal() {
-        viewNurse.getButton_animal().addActionListener((ActionEvent e) -> {
-            viewNurse.getColor_animal().setBackground(new Color(0, 255, 0));
-            viewNurse.getColor_animalCare().setBackground(new Color(255, 255, 255));
-            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-            card.show(viewNurse.getPanel_body(), "panel_animal");
+        getButton_animal().addActionListener((ActionEvent e) -> {
+            getColor_animal().setBackground(new Color(0, 255, 0));
+            getColor_animalCare().setBackground(new Color(255, 255, 255));
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_animal");
             tableAnimal();
         });
     }
@@ -87,11 +85,11 @@ public class C_Nurse {
     private void tableAnimal() {
          try {
             tableAnimal.setList(connection.getAnimal().getAll());
-            viewNurse.getTable_animal().setModel(tableAnimal);
-            viewNurse.getTable_animal().getTableHeader().setOpaque(false);
-            viewNurse.getTable_animal().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
-            viewNurse.getTable_animal().getTableHeader().setBackground(Color.white);
-            viewNurse.getTable_animal().addMouseListener(new MouseAdapter() {
+            getTable_animal().setModel(tableAnimal);
+            getTable_animal().getTableHeader().setOpaque(false);
+            getTable_animal().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            getTable_animal().getTableHeader().setBackground(Color.white);
+            getTable_animal().addMouseListener(new MouseAdapter() {
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
@@ -101,11 +99,11 @@ public class C_Nurse {
 
     // <editor-fold defaultstate="collapsed" desc="Animal Care">
     private void viewAnimalCare() {
-        viewNurse.getButton_animalCare().addActionListener((ActionEvent e) -> {
-            viewNurse.getColor_animalCare().setBackground(new Color(0, 255, 0));
-            viewNurse.getColor_animal().setBackground(new Color(255, 255, 255));
-            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-            card.show(viewNurse.getPanel_body(), "panel_animalCare");
+        getButton_animalCare().addActionListener((ActionEvent e) -> {
+            getColor_animalCare().setBackground(new Color(0, 255, 0));
+            getColor_animal().setBackground(new Color(255, 255, 255));
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_animalCare");
             tableAnimalCare();
         });
     }
@@ -113,23 +111,23 @@ public class C_Nurse {
     private void tableAnimalCare() {
         try {
             tableAnimalCare.setList(connection.getAnimalCare().getAll());
-            viewNurse.getTable_animalCare().setModel(tableAnimalCare);
-            viewNurse.getTable_animalCare().getTableHeader().setOpaque(false);
-            viewNurse.getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
-            viewNurse.getTable_animalCare().getTableHeader().setBackground(Color.white);
-            viewNurse.getTable_animalCare().addMouseListener(new MouseAdapter() {
+            getTable_animalCare().setModel(tableAnimalCare);
+            getTable_animalCare().getTableHeader().setOpaque(false);
+            getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+            getTable_animalCare().getTableHeader().setBackground(Color.white);
+            getTable_animalCare().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    int row = viewNurse.getTable_animalCare().getSelectedRow();
-                    int id = Integer.parseInt(viewNurse.getTable_animalCare().getValueAt(row, 0).toString());
+                    int row = getTable_animalCare().getSelectedRow();
+                    int id = Integer.parseInt(getTable_animalCare().getValueAt(row, 0).toString());
                     modelAnimalCare.setId(id);
-                    viewNurse.getComboBox_animalName1().setSelectedItem(viewNurse.getTable_animalCare().getValueAt(row, 1).toString());
-                    viewNurse.getComboBox_animalOwner1().setSelectedItem(viewNurse.getTable_animalCare().getValueAt(row, 2).toString());
-                    viewNurse.getEditText_weight1().setText(viewNurse.getTable_animalCare().getValueAt(row, 3).toString());
-                    viewNurse.getEditText_bodyLength1().setText(viewNurse.getTable_animalCare().getValueAt(row, 4).toString());
-                    viewNurse.getEditText_chestSize1().setText(viewNurse.getTable_animalCare().getValueAt(row, 5).toString());
-                    viewNurse.getEditText_height1().setText(viewNurse.getTable_animalCare().getValueAt(row, 6).toString());
-                    viewNurse.getEditText_comment1().setText(viewNurse.getTable_animalCare().getValueAt(row, 7).toString());
+                    getComboBox_animalName1().setSelectedItem(getTable_animalCare().getValueAt(row, 1).toString());
+                    getComboBox_animalOwner1().setSelectedItem(getTable_animalCare().getValueAt(row, 2).toString());
+                    getEditText_weight1().setText(getTable_animalCare().getValueAt(row, 3).toString());
+                    getEditText_bodyLength1().setText(getTable_animalCare().getValueAt(row, 4).toString());
+                    getEditText_chestSize1().setText(getTable_animalCare().getValueAt(row, 5).toString());
+                    getEditText_height1().setText(getTable_animalCare().getValueAt(row, 6).toString());
+                    getEditText_comment1().setText(getTable_animalCare().getValueAt(row, 7).toString());
                 }
                 
             });
@@ -139,118 +137,119 @@ public class C_Nurse {
     }
 
     private void addAnimalCare() {
-        viewNurse.getButton_addAnimalCare().addActionListener((ActionEvent e) -> {
-            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-            card.show(viewNurse.getPanel_body(), "panel_addAnimalCare");
+        getButton_addAnimalCare().addActionListener((ActionEvent e) -> {
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_addAnimalCare");
         });
     }
 
     private void saveAddAnimalCare() {
-        viewNurse.getButton_saveAddAnimalCare().addActionListener((ActionEvent e) -> {
+        getButton_saveAddAnimalCare().addActionListener((ActionEvent e) -> {
             try {
-                double weight = Double.parseDouble(viewNurse.getEditText_weight().getText());
-                double bodyLength = Double.parseDouble(viewNurse.getEditText_bodyLength().getText());
-                double chestSize = Double.parseDouble(viewNurse.getEditText_chestSize().getText());
-                double Height = Double.parseDouble(viewNurse.getEditText_height().getText());
-                modelAnimalCare.setId_animal(connection.getAnimal().getId( viewNurse.getComboBox_animalName().getSelectedItem().toString()));
-                modelAnimalCare.setId_user(connection.getUsers().getId(viewNurse.getComboBox_animalOwner().getSelectedItem().toString()));                
+                double weight = Double.parseDouble(getEditText_weight().getText());
+                double bodyLength = Double.parseDouble(getEditText_bodyLength().getText());
+                double chestSize = Double.parseDouble(getEditText_chestSize().getText());
+                double Height = Double.parseDouble(getEditText_height().getText());
+                modelAnimalCare.setId_animal(connection.getAnimal().getId(getComboBox_animalName().getSelectedItem().toString()));
+                modelAnimalCare.setId_user(connection.getUsers().getId(getComboBox_animalOwner().getSelectedItem().toString()));                
                 modelAnimalCare.setWeight(weight);
                 modelAnimalCare.setBody_length(bodyLength);
                 modelAnimalCare.setChest_size(chestSize);
                 modelAnimalCare.setHeight(Height);
-                modelAnimalCare.setComment(viewNurse.getEditText_comment().getText());                
+                modelAnimalCare.setComment(getEditText_comment().getText());                
                 connection.getAnimalCare().insert(modelAnimalCare);
                 tableAnimalCare();
-                CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-                card.show(viewNurse.getPanel_body(), "panel_animalCare");
-                viewNurse.getEditText_bodyLength().setText("");
-                viewNurse.getEditText_chestSize().setText("");
-                viewNurse.getEditText_comment().setText("");
-                viewNurse.getEditText_height().setText("");
-                viewNurse.getEditText_weight().setText("");
-                JOptionPane.showMessageDialog(viewNurse, "Success to save data");
+                CardLayout card = (CardLayout) getPanel_body().getLayout();
+                card.show(getPanel_body(), "panel_animalCare");
+                getEditText_bodyLength().setText("");
+                getEditText_chestSize().setText("");
+                getEditText_comment().setText("");
+                getEditText_height().setText("");
+                getEditText_weight().setText("");
+                JOptionPane.showMessageDialog(null, "Success to save data");
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(viewNurse, "Failed to save data");
+                JOptionPane.showMessageDialog(null, "Failed to save data");
             }
         });
     }
 
     private void cancelAddAnimalCare() {
-        viewNurse.getButton_cancelAddAnimalCare().addActionListener((ActionEvent e) -> {
-            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-            card.show(viewNurse.getPanel_body(), "panel_animalCare");
+        getButton_cancelAddAnimalCare().addActionListener((ActionEvent e) -> {
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_animalCare");
         });
     }
 
     private void editAnimalCare() {
-        viewNurse.getButton_editAnimalCare().addActionListener((ActionEvent e) -> {
-            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-            card.show(viewNurse.getPanel_body(), "panel_editAnimalCare");
+        getButton_editAnimalCare().addActionListener((ActionEvent e) -> {
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_editAnimalCare");
         });
     }
 
     private void saveEditAnimalCare() {
-        viewNurse.getButton_saveEditAnimalCare().addActionListener((ActionEvent e) -> {
+        getButton_saveEditAnimalCare().addActionListener((ActionEvent e) -> {
             try {
-                double weight = Double.parseDouble(viewNurse.getEditText_weight1().getText());
-                double bodyLength = Double.parseDouble(viewNurse.getEditText_bodyLength1().getText());
-                double chestSize = Double.parseDouble(viewNurse.getEditText_chestSize1().getText());
-                double Height = Double.parseDouble(viewNurse.getEditText_height1().getText());
-                modelAnimalCare.setId_animal(connection.getAnimal().getId( viewNurse.getComboBox_animalName1().getSelectedItem().toString()));
-                modelAnimalCare.setId_user(connection.getUsers().getId(viewNurse.getComboBox_animalOwner1().getSelectedItem().toString()));                
+                double weight = Double.parseDouble(getEditText_weight1().getText());
+                double bodyLength = Double.parseDouble(getEditText_bodyLength1().getText());
+                double chestSize = Double.parseDouble(getEditText_chestSize1().getText());
+                double Height = Double.parseDouble(getEditText_height1().getText());
+                
+                modelAnimalCare.setId_animal(connection.getAnimal().getId( getComboBox_animalName1().getSelectedItem().toString()));
+                modelAnimalCare.setId_user(connection.getUsers().getId(getComboBox_animalOwner1().getSelectedItem().toString()));                
                 modelAnimalCare.setWeight(weight);
                 modelAnimalCare.setBody_length(bodyLength);
                 modelAnimalCare.setChest_size(chestSize);
                 modelAnimalCare.setHeight(Height);
-                modelAnimalCare.setComment(viewNurse.getEditText_comment1().getText());                
+                modelAnimalCare.setComment(getEditText_comment1().getText());                
                 connection.getAnimalCare().update(modelAnimalCare);
                 tableAnimalCare();
-                CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-                card.show(viewNurse.getPanel_body(), "panel_animalCare");
-                viewNurse.getEditText_bodyLength1().setText("");
-                viewNurse.getEditText_chestSize1().setText("");
-                viewNurse.getEditText_comment1().setText("");
-                viewNurse.getEditText_height().setText("");
-                viewNurse.getEditText_weight1().setText("");
-                JOptionPane.showMessageDialog(viewNurse, "Success to save data");
+                CardLayout card = (CardLayout) getPanel_body().getLayout();
+                card.show(getPanel_body(), "panel_animalCare");
+                getEditText_bodyLength1().setText("");
+                getEditText_chestSize1().setText("");
+                getEditText_comment1().setText("");
+                getEditText_height().setText("");
+                getEditText_weight1().setText("");
+                JOptionPane.showMessageDialog(null, "Success to save data");
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(viewNurse, "Failed to save data");
+                JOptionPane.showMessageDialog(null, "Failed to save data");
             }
         });
     }
 
     private void cancelEditAnimalCare() {
-        viewNurse.getButton_cancelEditAnimalCare().addActionListener((ActionEvent e) -> {
-            CardLayout card = (CardLayout) viewNurse.getPanel_body().getLayout();
-            card.show(viewNurse.getPanel_body(), "panel_animalCare");
+        getButton_cancelEditAnimalCare().addActionListener((ActionEvent e) -> {
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_animalCare");
         });
     }
     
     private void deleteAnimalCare(){
-        viewNurse.getButton_deleteAnimalCare().addActionListener((ActionEvent e) -> {
+        getButton_deleteAnimalCare().addActionListener((ActionEvent e) -> {
             try {
                 connection.getAnimalCare().delete(modelAnimalCare);
                 tableAnimal();
-                JOptionPane.showMessageDialog(viewNurse, "Success to delete data");
+                JOptionPane.showMessageDialog(null, "Success to delete data");
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(viewNurse, "Failed to delete data");
+                JOptionPane.showMessageDialog(null, "Failed to delete data");
             }
         });
     }
     
     private void refreshAnimalCare(){
-        viewNurse.getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
+        getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
             tableAnimalCare();
         });
     }
     
     private void comboBoxAnimalOwner(){
         try {
-            viewNurse.getComboBox_animalOwner().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBoxUser().toArray()));
-            viewNurse.getComboBox_animalOwner1().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBoxUser().toArray()));
+            getComboBox_animalOwner().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBoxUser().toArray()));
+            getComboBox_animalOwner1().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBoxUser().toArray()));
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -258,18 +257,18 @@ public class C_Nurse {
     
     private void comboBoxAnimal(){
         try {
-            viewNurse.getComboBox_animalName().setModel(new DefaultComboBoxModel(connection.getAnimal().fillComboBox().toArray()));
-            viewNurse.getComboBox_animalName1().setModel(new DefaultComboBoxModel(connection.getAnimal().fillComboBox().toArray()));
+            getComboBox_animalName().setModel(new DefaultComboBoxModel(connection.getAnimal().fillComboBox().toArray()));
+            getComboBox_animalName1().setModel(new DefaultComboBoxModel(connection.getAnimal().fillComboBox().toArray()));
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     //</editor-fold>
-    
+
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
-        viewNurse.getButton_logout().addMouseListener(new MouseListener() {
+        getButton_logout().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 logout();
@@ -277,77 +276,77 @@ public class C_Nurse {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewNurse.getButton_logout().setForeground(new Color(0, 0, 150));
+                getButton_logout().setForeground(new Color(0, 0, 150));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewNurse.getButton_logout().setForeground(new Color(0, 0, 255));
+                getButton_logout().setForeground(new Color(0, 0, 255));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewNurse.getButton_logout().setForeground(new Color(0, 255, 0));
+                getButton_logout().setForeground(new Color(0, 255, 0));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewNurse.getButton_logout().setForeground(new Color(0, 0, 255));
+                getButton_logout().setForeground(new Color(0, 0, 255));
             }
         });
     }
 
     private void logout() {
-        int pilihan = JOptionPane.showConfirmDialog(viewNurse, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        int pilihan = JOptionPane.showConfirmDialog(null, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
         if (pilihan == JOptionPane.YES_OPTION) {
             C_Login login = new C_Login();
-            viewNurse.dispose();
+            dispose();
         } else {
-            
+
         }
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Button Maximize">
     private void buttonMaximize() {
-        viewNurse.getButton_maximize().addMouseListener(new MouseListener() {
+        getButton_maximize().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (viewNurse.isMaximized()) {
-                    viewNurse.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                if (isMaximized()) {
+                    setExtendedState(JFrame.MAXIMIZED_BOTH);
                     GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-                    viewNurse.setMaximizedBounds(env.getMaximumWindowBounds());
-                    viewNurse.setMaximized(false);
+                    setMaximizedBounds(env.getMaximumWindowBounds());
+                    setMaximized(false);
                 } else {
-                    viewNurse.setExtendedState(JFrame.NORMAL);
-                    viewNurse.setMaximized(true);
+                    setExtendedState(JFrame.NORMAL);
+                    setMaximized(true);
                 }
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewNurse.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_2.png")));
+                getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewNurse.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
+                getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewNurse.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_1.png")));
+                getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px_1.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewNurse.getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
+                getButton_maximize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_maximize_window_30px.png")));
             }
         });
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Button Exit">
     private void buttonExit() {
-        viewNurse.getButton_exit().addMouseListener(new MouseListener() {
+        getButton_exit().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 exit();
@@ -355,22 +354,22 @@ public class C_Nurse {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewNurse.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_2.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewNurse.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewNurse.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_1.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px_1.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewNurse.getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
+                getButton_exit().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_close_window_30px.png")));
             }
         });
     }
@@ -381,7 +380,7 @@ public class C_Nurse {
 
     // <editor-fold defaultstate="collapsed" desc="Button Minimize">
     private void buttonMinimize() {
-        viewNurse.getButton_minimize().addMouseListener(new MouseListener() {
+        getButton_minimize().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 minimize();
@@ -389,34 +388,34 @@ public class C_Nurse {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewNurse.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_2.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_2.png")));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                viewNurse.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                viewNurse.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px.png")));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                viewNurse.getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
+                getButton_minimize().setIcon(new ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png")));
             }
         });
     }
 
     private void minimize() {
-        viewNurse.minimize(ICONIFIED);
+        minimize(ICONIFIED);
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Drag Window">
     private void dragWindow() {
 
-        viewNurse.getPanel_undecorated().addMouseListener(new MouseListener() {
+        getPanel_undecorated().addMouseListener(new MouseListener() {
             // <editor-fold defaultstate="collapsed" desc="Unused">
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -425,8 +424,8 @@ public class C_Nurse {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                viewNurse.setxMouse(e.getX());
-                viewNurse.setyMouse(e.getY());
+                setxMouse(e.getX());
+                setyMouse(e.getY());
             }
 
             // <editor-fold defaultstate="collapsed" desc="Unused">
@@ -446,13 +445,13 @@ public class C_Nurse {
             }//</editor-fold>
         });
 
-        viewNurse.getPanel_undecorated().addMouseMotionListener(new MouseMotionListener() {
+        getPanel_undecorated().addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 int kordinatX = e.getXOnScreen();
                 int kordinatY = e.getYOnScreen();
 
-                viewNurse.setLocation(kordinatX - viewNurse.getxMouse(), kordinatY - viewNurse.getyMouse());
+                setLocation(kordinatX - getxMouse(), kordinatY - getyMouse());
             }
 
             // <editor-fold defaultstate="collapsed" desc="Unused">
