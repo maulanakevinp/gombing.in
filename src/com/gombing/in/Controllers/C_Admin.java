@@ -278,7 +278,7 @@ public class C_Admin extends V_Admin {
             @Override
             public void mouseClicked(MouseEvent e) {
                 browseImage(getImage_user());
-                getImage_animal().setText("");
+                getImage_user().setText("");
             }
             // <editor-fold defaultstate="collapsed" desc="Unused">
             @Override
@@ -306,7 +306,7 @@ public class C_Admin extends V_Admin {
     private void chooseImageUser() {
         getButton_chooseUserPhoto().addActionListener((ActionEvent e) -> {
             browseImage(getImage_user1());
-            getImage_animal().setText("");
+            getImage_user1().setText("");
         });
     }//</editor-fold>
 

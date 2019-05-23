@@ -7,9 +7,11 @@ package com.gombing.in.Services;
 
 import com.gombing.in.Interface.RecordingAnimalInterface;
 import com.gombing.in.Models.M_Animal;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +20,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+
 
 /**
  *
@@ -64,6 +68,9 @@ public class AnimalService implements RecordingAnimalInterface {
     public void update(M_Animal m) throws SQLException {
         try {
             InputStream is = new FileInputStream(new File(m.getImage()));
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            IOUtils.copy(is, output);
+            byte[] filecontent = output.toByteArray();
             PreparedStatement st = con.prepareStatement(sql_update);
             st.setString(1, m.getAnimal_name());
             st.setInt(2, m.getId_animal_type());
@@ -74,12 +81,14 @@ public class AnimalService implements RecordingAnimalInterface {
             st.setString(7, m.getEar_type());
             st.setInt(8, m.getId_type_pet());
             st.setDate(9, new java.sql.Date(m.getUpdated_at1().getTime()));
-            st.setBlob(10, is);
+            st.setBytes(10, filecontent);
             st.setInt(11, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);
         } catch (FileNotFoundException ex) {
+            Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
