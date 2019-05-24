@@ -6,7 +6,6 @@
 package com.gombing.in.Services;
 
 import com.gombing.in.Interface.UsersInterface;
-import com.gombing.in.Models.M_Animal;
 import com.gombing.in.Models.M_Users;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -30,7 +29,7 @@ import org.apache.tomcat.util.http.fileupload.IOUtils;
 public class UsersService implements UsersInterface {
 
     private Connection con;
-    private final String sql_login = "SELECT id, level, email, password, phone_number, address, user_photo FROM public.users WHERE email=? AND password=?;",
+    private final String sql_login = "SELECT id, level, name, email, password, phone_number, address, user_photo FROM public.users WHERE email=? AND password=?;",
             sql_select = "SELECT u.id, u.name, u.email, u.password, level.level, u.status, u.updated_at, u.created_at, u.phone_number, u.address, u.user_photo FROM public.users u join public.level on u.level = level.id;",
             sql_insert = "INSERT INTO public.users (name, email, password, level, status, updated_at, created_at, phone_number, address, user_photo) VALUES (?,?,?,?,?,?,?,?,?,?)",
             sql_update = "UPDATE public.users SET name = ?, email = ?, password = ?, level = ?, status = ?, updated_at = ?, phone_number = ?, address = ?, user_photo = ? WHERE id = ?",
@@ -151,11 +150,12 @@ public class UsersService implements UsersInterface {
             while (rs.next()) {
                 m.setId(rs.getInt(1));
                 m.setLevelId(rs.getInt(2));
-                m.setEmail(rs.getString(3));
-                m.setPassword(rs.getString(4));
-                m.setPhone_number(rs.getString(5));
-                m.setAddress(rs.getString(6));
-                m.setFileFromDB(rs.getBinaryStream(7));
+                m.setName(rs.getString(3));
+                m.setEmail(rs.getString(4));
+                m.setPassword(rs.getString(5));
+                m.setPhone_number(rs.getString(6));
+                m.setAddress(rs.getString(7));
+                m.setFileFromDB(rs.getBinaryStream(8));
             }
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);

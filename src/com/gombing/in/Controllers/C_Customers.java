@@ -20,34 +20,51 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author MaulanaKevinPradana
  */
-public class C_Customers extends V_Customers{
+public class C_Customers extends V_Customers {
 
     private final Table_AnimalCare tableAnimalCare;
     private final M_Users modelUsers;
     private final config connection;
-    
-    private ImageIcon picture = new ImageIcon();
 
-    public C_Customers(int id) {
+    public C_Customers(int id, int levelId, int status, String name, String email, String phone_number, String Password, String address, InputStream file) {
         Show(true);
         tableAnimalCare = new Table_AnimalCare();
+        
         connection = new config();
-        connection.getAnimalCare().setCon(connection.getConnection());  
+        connection.getAnimalCare().setCon(connection.getConnection());
+        connection.getUsers().setCon(connection.getConnection());
+        
         modelUsers = new M_Users();
         modelUsers.setId(id);
+        modelUsers.setName(name);
+        modelUsers.setEmail(email);
+        modelUsers.setPhone_number(phone_number);
+        modelUsers.setAddress(address);
+        modelUsers.setLevelId(levelId);
+        modelUsers.setPassword(Password);
+        modelUsers.setStatus(status);
+        modelUsers.setFileFromDB(file);
 
+        getTextView_name().setText(modelUsers.getName());
+        getPicture().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture()));
+        
         buttonLogout();
         buttonMinimize();
         buttonMaximize();
@@ -56,7 +73,7 @@ public class C_Customers extends V_Customers{
 
         viewAnimalCare();
         tableAnimalCare();
-        
+
         viewEditProfile();
         choosePhoto();
         cancelEditProfile();
@@ -78,7 +95,7 @@ public class C_Customers extends V_Customers{
             getTable_animalCare().setModel(tableAnimalCare);
             getTable_animalCare().getTableHeader().setOpaque(false);
             getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
-            getTable_animalCare().getTableHeader().setBackground(Color.white);            
+            getTable_animalCare().getTableHeader().setBackground(Color.white);
         } catch (SQLException ex) {
             Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -93,7 +110,11 @@ public class C_Customers extends V_Customers{
                 getColor_animalCare().setBackground(new Color(255, 255, 255));
                 CardLayout card = (CardLayout) getPanel_body().getLayout();
                 card.show(getPanel_body(), "panel_profile");
-                getEditText_name().setText(getTextView_name().getText());
+                getEditText_name().setText(modelUsers.getName());
+                getEditText_email().setText(modelUsers.getEmail());
+                getEditText_phoneNumber().setText(modelUsers.getPhone_number());
+                getEditText_address().setText(modelUsers.getAddress());
+                getPicture1().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture1()));
             }
 
             @Override
@@ -120,31 +141,74 @@ public class C_Customers extends V_Customers{
 
     private void choosePhoto() {
         getButton_choosePhoto().addActionListener((ActionEvent e) -> {
-            String filename = null;
-            byte[] photo = null;
-            JFileChooser chooser = new JFileChooser();
-            chooser.showOpenDialog(null);
-            File f = chooser.getSelectedFile();
-            filename = f.getAbsolutePath();
-            picture = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(getPicture1().getWidth(), getPicture1().getHeight(), Image.SCALE_SMOOTH));
-            getPicture1().setIcon(picture);
+            browseImageUser(getPicture1());
         });
     }
-    
-    private void saveEditProfile(){
-        getButton_savelEditProfile().addActionListener((ActionEvent e) -> {
-            getTextView_name().setText(getEditText_name().getText());            
-            getPicture().setIcon(picture);
-            JOptionPane.showMessageDialog(null, "Success to save profile");
+
+    private ImageIcon ResizeImage(String imgPath, JLabel label) {
+        ImageIcon MyImage = new ImageIcon(imgPath);
+        Image img = MyImage.getImage();
+        Image newImage = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImage);
+        return image;
+    }
+
+    private void browseImageUser(JLabel label) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg", "gif", "png");
+        fileChooser.addChoosableFileFilter(filter);
+        int result = fileChooser.showSaveDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String path = selectedFile.getAbsolutePath();
+            label.setIcon(ResizeImage(path, label));
+            modelUsers.setPath(path);
+            label.setText("");
+        } else if (result == JFileChooser.CANCEL_OPTION) {
+        }
+    }
+
+    private void saveEditProfile() {
+        getButton_saveEditProfile().addActionListener((ActionEvent e) -> {
+            try {
+                getTextView_name().setText(getEditText_name().getText());
+                JOptionPane.showMessageDialog(null, "Success to save profile");
+                modelUsers.setName(getEditText_name().getText());
+                modelUsers.setEmail(getEditText_email().getText());
+                modelUsers.setPhone_number(getEditText_phoneNumber().getText());
+                modelUsers.setAddress(getEditText_address().getText());
+                connection.getUsers().update(modelUsers);
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
-    
-    private void cancelEditProfile(){
+
+    private void cancelEditProfile() {
         getButton_cancelEditProfile().addActionListener((ActionEvent e) -> {
             getColor_animalCare().setBackground(new Color(0, 255, 0));
             CardLayout card = (CardLayout) getPanel_body().getLayout();
             card.show(getPanel_body(), "panel_animalCare");
         });
+    }
+
+    private ImageIcon scaleImage(InputStream file, JLabel image) {
+        ImageIcon icon = null;
+        try {
+            if (file == null) {
+                image.setIcon(null);
+                image.setText("NO IMAGE");
+            } else {
+                Image im = ImageIO.read(file);
+                Image scaledImage = im.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
+                icon = new ImageIcon(scaledImage);
+                image.setText("");
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return icon;
     }
     //</editor-fold>
 
