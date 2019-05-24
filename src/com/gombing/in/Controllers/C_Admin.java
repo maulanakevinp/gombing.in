@@ -26,9 +26,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -94,6 +92,8 @@ public class C_Admin extends V_Admin {
         cancelEditUsers();
         deleteUsers();
         refreshUsers();
+        addImageUser();
+        chooseImageUser();
 
         viewAnimal();
         addAnimal();
@@ -165,6 +165,10 @@ public class C_Admin extends V_Admin {
                     getEditText_password1().setText(getTable_users().getValueAt(row, 3).toString());
                     getComboBox_level1().setSelectedItem(getTable_users().getValueAt(row, 4).toString());
                     getComboBox_status1().setSelectedItem(getTable_users().getValueAt(row, 5).toString());
+                    getEditText_phoneNumber1().setText(getTable_users().getValueAt(row, 6).toString());
+                    getEditText_address1().setText(getTable_users().getValueAt(row, 7).toString());
+                    getImage_user1().setIcon(scaleImage(connection.getUsers().getPhoto(id), getImage_user1()));
+                    getImage_user1().revalidate();
                 }
             });
         } catch (SQLException ex) {
@@ -196,6 +200,8 @@ public class C_Admin extends V_Admin {
                 modelUsers.setPassword(getEditText_password().getText());
                 modelUsers.setLevelId(connection.getLevel().getId(getComboBox_level().getSelectedItem().toString()));
                 modelUsers.setStatus(getComboBox_status().getSelectedIndex());
+                modelUsers.setPhone_number(getEditText_phoneNumber().getText());
+                modelUsers.setAddress(getEditText_address().getText());
                 connection.getUsers().insert(modelUsers);
                 tableUsers();
                 CardLayout card = (CardLayout) getPanel_body().getLayout();
@@ -203,6 +209,8 @@ public class C_Admin extends V_Admin {
                 getEditText_name().setText("");
                 getEditText_email().setText("");
                 getEditText_password().setText("");
+                getEditText_phoneNumber().setText("");
+                getEditText_address().setText("");
                 JOptionPane.showMessageDialog(null, "Success to save data");
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
@@ -233,6 +241,8 @@ public class C_Admin extends V_Admin {
                 modelUsers.setPassword(getEditText_password1().getText());
                 modelUsers.setLevelId(connection.getLevel().getId(getComboBox_level1().getSelectedItem().toString()));
                 modelUsers.setStatus(getComboBox_status1().getSelectedIndex());
+                modelUsers.setPhone_number(getEditText_phoneNumber1().getText());
+                modelUsers.setAddress(getEditText_address1().getText());
                 connection.getUsers().update(modelUsers);
                 tableUsers();
                 CardLayout card = (CardLayout) getPanel_body().getLayout();
@@ -271,6 +281,42 @@ public class C_Admin extends V_Admin {
     private void refreshUsers() {
         getButton_refreshUsers().addActionListener((ActionEvent e) -> {
             tableUsers();
+        });
+    }
+
+    private void addImageUser() {
+        getImage_user().addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                browseImageUser(getImage_user());
+            }
+
+            // <editor-fold defaultstate="collapsed" desc="Unused">
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }//</editor-fold>
+        });
+    }
+
+    private void chooseImageUser() {
+        getButton_chooseUserPhoto().addActionListener((ActionEvent e) -> {
+            browseImageUser(getImage_user1());
         });
     }//</editor-fold>
 
@@ -432,8 +478,9 @@ public class C_Admin extends V_Admin {
         getImage_animal().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                browseImage(getImage_animal());
+                browseImageAnimal(getImage_animal());
             }
+
             // <editor-fold defaultstate="collapsed" desc="Unused">
             @Override
             public void mousePressed(MouseEvent e) {
@@ -457,6 +504,12 @@ public class C_Admin extends V_Admin {
         });
     }
 
+    private void chooseImageAnimal() {
+        getButton_chooseImageAnimal().addActionListener((ActionEvent e) -> {
+            browseImageAnimal(getImage_animal1());
+        });
+    }
+
     private ImageIcon scaleImage(InputStream file, JLabel image) {
         ImageIcon icon = null;
         try {
@@ -475,12 +528,6 @@ public class C_Admin extends V_Admin {
         return icon;
     }
 
-    private void chooseImageAnimal() {
-        getButton_chooseImage().addActionListener((ActionEvent e) -> {
-            browseImage(getImage_animal1());
-        });
-    }
-
     private ImageIcon ResizeImage(String imgPath, JLabel label) {
         ImageIcon MyImage = new ImageIcon(imgPath);
         Image img = MyImage.getImage();
@@ -489,7 +536,7 @@ public class C_Admin extends V_Admin {
         return image;
     }
 
-    private void browseImage(JLabel label) {
+    private void browseImageUser(JLabel label) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg", "gif", "png");
@@ -499,10 +546,27 @@ public class C_Admin extends V_Admin {
             File selectedFile = fileChooser.getSelectedFile();
             String path = selectedFile.getAbsolutePath();
             label.setIcon(ResizeImage(path, label));
-            modelAnimal.setImage(path);
+            modelUsers.setPath(path);
             label.setText("");
         } else if (result == JFileChooser.CANCEL_OPTION) {
-            label.setText("Add Animal Image");
+            label.setText("Add Image");
+        }
+    }
+
+    private void browseImageAnimal(JLabel label) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg", "gif", "png");
+        fileChooser.addChoosableFileFilter(filter);
+        int result = fileChooser.showSaveDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String path = selectedFile.getAbsolutePath();
+            label.setIcon(ResizeImage(path, label));
+            modelAnimal.setPath(path);
+            label.setText("");
+        } else if (result == JFileChooser.CANCEL_OPTION) {
+            label.setText("Add Image");
         }
     }//</editor-fold>
 

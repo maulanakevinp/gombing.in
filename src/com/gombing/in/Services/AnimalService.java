@@ -47,7 +47,7 @@ public class AnimalService implements RecordingAnimalInterface {
     @Override
     public void insert(M_Animal m) throws SQLException {
         try {
-            InputStream is = new FileInputStream(new File(m.getImage()));
+            InputStream is = new FileInputStream(new File(m.getPath()));
             ByteArrayOutputStream output = new ByteArrayOutputStream();
             IOUtils.copy(is, output);
             byte[] filecontent = output.toByteArray();
@@ -76,7 +76,7 @@ public class AnimalService implements RecordingAnimalInterface {
     @Override
     public void update(M_Animal m) throws SQLException {
         try {
-            InputStream is = new FileInputStream(new File(m.getImage()));
+            InputStream is = new FileInputStream(new File(m.getPath()));
             ByteArrayOutputStream output = new ByteArrayOutputStream();
             IOUtils.copy(is, output);
             byte[] filecontent = output.toByteArray();
@@ -184,7 +184,6 @@ public class AnimalService implements RecordingAnimalInterface {
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                M_Animal m = new M_Animal();
                 is = rs.getBinaryStream(1);
             }
         } catch (SQLException e) {

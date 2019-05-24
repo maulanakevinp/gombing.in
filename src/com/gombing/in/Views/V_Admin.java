@@ -173,7 +173,7 @@ public class V_Admin extends javax.swing.JFrame {
         return table_animal;
     }
 
-    public JButton getButton_chooseImage() {
+    public JButton getButton_chooseImageAnimal() {
         return button_chooseImage;
     }    
 

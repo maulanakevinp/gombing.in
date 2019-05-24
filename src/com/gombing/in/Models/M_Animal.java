@@ -5,14 +5,8 @@
  */
 package com.gombing.in.Models;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,9 +15,10 @@ import javax.swing.ImageIcon;
 public class M_Animal {
 
     private int id, id_animal_type, id_user, id_type_pet;
-    private String animal_name, gender, skin_color, ear_type, animal_owner, animal_type, type_pet, updated_at, created_at, birthdate1, image;
+    private String animal_name, gender, skin_color, ear_type, animal_owner, animal_type, type_pet, updated_at, created_at, birthdate1, path;
     private Date updated_at1, created_at1, birthdate;
     private InputStream fileFromDB;
+    
 
     public M_Animal() {
     }
@@ -44,12 +39,12 @@ public class M_Animal {
         this.fileFromDB = fileFromDB;
     }
     
-    public String getImage() {
-        return image;
+    public String getPath() {
+        return path;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public int getId_animal_type() {

@@ -6,12 +6,22 @@
 package com.gombing.in.Services;
 
 import com.gombing.in.Interface.UsersInterface;
+import com.gombing.in.Models.M_Animal;
 import com.gombing.in.Models.M_Users;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 /**
  *
@@ -21,11 +31,12 @@ public class UsersService implements UsersInterface {
 
     private Connection con;
     private final String sql_login = "SELECT id, level, email, password, phone_number, address, user_photo FROM public.users WHERE email=? AND password=?;",
-            sql_select = "SELECT u.id, u.name, u.email, u.password, level.level, u.status, u.updated_at, u.created_at FROM public.users u join public.level on u.level = level.id;",
-            sql_insert = "INSERT INTO public.users (name, email, password, level, status, updated_at, created_at) VALUES (?,?,?,?,?,?,?)",
-            sql_update = "UPDATE public.users SET name = ?, email = ?, password = ?, level = ?, status = ?, updated_at = ? WHERE id = ?",
+            sql_select = "SELECT u.id, u.name, u.email, u.password, level.level, u.status, u.updated_at, u.created_at, u.phone_number, u.address, u.user_photo FROM public.users u join public.level on u.level = level.id;",
+            sql_insert = "INSERT INTO public.users (name, email, password, level, status, updated_at, created_at, phone_number, address, user_photo) VALUES (?,?,?,?,?,?,?,?,?,?)",
+            sql_update = "UPDATE public.users SET name = ?, email = ?, password = ?, level = ?, status = ?, updated_at = ?, phone_number = ?, address = ?, user_photo = ? WHERE id = ?",
             sql_delete = "DELETE FROM public.users WHERE id = ?",
-            sql_getIdUser = "SELECT id FROM public.users Where name = ?";
+            sql_getIdUser = "SELECT id FROM public.users Where name = ?",
+            sql_getPhoto = "SELECT user_photo FROM public.users WHERE id = ?";
     
     public void setCon(Connection con) {
         this.con = con;
@@ -34,6 +45,10 @@ public class UsersService implements UsersInterface {
     @Override
     public void insert(M_Users m) throws SQLException {
         try {
+            InputStream is = new FileInputStream(new File(m.getPath()));
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            IOUtils.copy(is, output);
+            byte[] filecontent = output.toByteArray();
             PreparedStatement st = con.prepareStatement(sql_insert);
             st.setString(1, m.getName());
             st.setString(2, m.getEmail());
@@ -42,15 +57,26 @@ public class UsersService implements UsersInterface {
             st.setInt(5, m.getStatus());
             st.setDate(6, new java.sql.Date(m.getUpdated_at1().getTime()));
             st.setDate(7, new java.sql.Date(m.getCreated_at1().getTime()));
+            st.setString(8, m.getPhone_number());
+            st.setString(9, m.getAddress());
+            st.setBytes(10, filecontent);
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
     public void update(M_Users m) throws SQLException {
         try {
+            InputStream is = new FileInputStream(new File(m.getPath()));
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            IOUtils.copy(is, output);
+            byte[] filecontent = output.toByteArray();
             PreparedStatement st = con.prepareStatement(sql_update);
             st.setString(1, m.getName());
             st.setString(2, m.getEmail());
@@ -58,10 +84,17 @@ public class UsersService implements UsersInterface {
             st.setInt(4, m.getLevelId());
             st.setInt(5, m.getStatus());
             st.setDate(6, new java.sql.Date(m.getUpdated_at1().getTime()));
-            st.setInt(7, m.getId());
+            st.setString(7, m.getPhone_number());
+            st.setString(8, m.getAddress());
+            st.setBytes(9, filecontent);
+            st.setInt(10, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -96,6 +129,9 @@ public class UsersService implements UsersInterface {
                 user.setStatus(rs.getInt(6));
                 user.setUpdated_at(rs.getDate(7));
                 user.setCreated_at(rs.getDate(8));
+                user.setPhone_number(rs.getString(9));
+                user.setAddress(rs.getString(10));
+                user.setFileFromDB(rs.getBinaryStream(11));
 
                 list.add(user);
             }
@@ -119,13 +155,13 @@ public class UsersService implements UsersInterface {
                 m.setPassword(rs.getString(4));
                 m.setPhone_number(rs.getString(5));
                 m.setAddress(rs.getString(6));
-                m.setUser_photo(rs.getBlob(7));
+                m.setFileFromDB(rs.getBinaryStream(7));
             }
         } catch (SQLException e) {
             System.out.println("Something was wrong. Error: " + e);
         }
     }
-    
+
     @Override
     public ArrayList<String> fillComboBoxUser() throws SQLException {
         ArrayList<String> list = new ArrayList<>();
@@ -159,4 +195,18 @@ public class UsersService implements UsersInterface {
         return hasil;
     }
 
+    public InputStream getPhoto(int id) {
+        InputStream is = null;
+        try {
+            PreparedStatement st = con.prepareStatement(sql_getPhoto);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                is = rs.getBinaryStream(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return is;
+    }
 }

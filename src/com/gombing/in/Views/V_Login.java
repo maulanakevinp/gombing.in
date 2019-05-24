@@ -5,11 +5,6 @@
  */
 package com.gombing.in.Views;
 
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -82,9 +77,29 @@ public class V_Login extends javax.swing.JFrame {
         return editText_confirmPassword;
     }
 
+    public JPanel getButton_next() {
+        return button_next;
+    }
+
+    public JLabel getButton_back() {
+        return button_back;
+    }
+
     public JPanel getButton_register() {
         return button_register;
     }
+
+    public JTextField getEditText_address() {
+        return editText_address;
+    }
+
+    public JTextField getEditText_phoneNumber() {
+        return editText_phoneNumber;
+    }
+
+    public JLabel getImage_user() {
+        return image_user;
+    }    
 
     public JLabel getButton_viewLoginR() {
         return button_viewLoginR;
@@ -174,8 +189,21 @@ public class V_Login extends javax.swing.JFrame {
         editText_confirmPassword = new javax.swing.JPasswordField();
         separator_confirmPassword = new javax.swing.JSeparator();
         button_viewLoginR = new javax.swing.JLabel();
+        button_next = new javax.swing.JPanel();
+        next = new javax.swing.JLabel();
+        panel_register1 = new javax.swing.JPanel();
+        textView_registration1 = new javax.swing.JLabel();
+        textView_phoneNumber = new javax.swing.JLabel();
+        separator_phoneNumber = new javax.swing.JSeparator();
+        editText_phoneNumber = new javax.swing.JTextField();
+        textView_address = new javax.swing.JLabel();
+        editText_address = new javax.swing.JTextField();
+        separator_address = new javax.swing.JSeparator();
+        textView_photo = new javax.swing.JLabel();
+        button_back = new javax.swing.JLabel();
         button_register = new javax.swing.JPanel();
-        register = new javax.swing.JLabel();
+        register1 = new javax.swing.JLabel();
+        image_user = new javax.swing.JLabel();
         panel_forgotPassword = new javax.swing.JPanel();
         textView_forgotPassword = new javax.swing.JLabel();
         textView_emailF = new javax.swing.JLabel();
@@ -406,25 +434,25 @@ public class V_Login extends javax.swing.JFrame {
         button_viewLoginR.setText("Back To Login");
         button_viewLoginR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        button_register.setBackground(new java.awt.Color(255, 255, 255));
+        button_next.setBackground(new java.awt.Color(255, 255, 255));
 
-        register.setBackground(new java.awt.Color(255, 255, 255));
-        register.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        register.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        register.setText("REGISTER");
-        register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        register.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        next.setBackground(new java.awt.Color(255, 255, 255));
+        next.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        next.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        next.setText("Next");
+        next.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        next.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout button_registerLayout = new javax.swing.GroupLayout(button_register);
-        button_register.setLayout(button_registerLayout);
-        button_registerLayout.setHorizontalGroup(
-            button_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout button_nextLayout = new javax.swing.GroupLayout(button_next);
+        button_next.setLayout(button_nextLayout);
+        button_nextLayout.setHorizontalGroup(
+            button_nextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        button_registerLayout.setVerticalGroup(
-            button_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, button_registerLayout.createSequentialGroup()
-                .addComponent(register, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        button_nextLayout.setVerticalGroup(
+            button_nextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, button_nextLayout.createSequentialGroup()
+                .addComponent(next, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -473,7 +501,7 @@ public class V_Login extends javax.swing.JFrame {
                 .addGap(0, 10, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_registerLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(button_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_next, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
         panel_registerLayout.setVerticalGroup(
@@ -512,12 +540,143 @@ public class V_Login extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addComponent(separator_confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(button_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_next, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(button_viewLoginR))
         );
 
         panel_body.add(panel_register, "panel_registration");
+
+        panel_register1.setBackground(new java.awt.Color(102, 153, 255));
+        panel_register1.setPreferredSize(new java.awt.Dimension(330, 398));
+
+        textView_registration1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        textView_registration1.setForeground(new java.awt.Color(255, 255, 255));
+        textView_registration1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textView_registration1.setText("REGISTRATION");
+
+        textView_phoneNumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textView_phoneNumber.setForeground(new java.awt.Color(255, 255, 255));
+        textView_phoneNumber.setText("Phone Number");
+
+        separator_phoneNumber.setForeground(new java.awt.Color(255, 255, 255));
+        separator_phoneNumber.setToolTipText("");
+
+        editText_phoneNumber.setForeground(new java.awt.Color(255, 255, 255));
+        editText_phoneNumber.setBorder(null);
+        editText_phoneNumber.setOpaque(false);
+
+        textView_address.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textView_address.setForeground(new java.awt.Color(255, 255, 255));
+        textView_address.setText("Address");
+
+        editText_address.setForeground(new java.awt.Color(255, 255, 255));
+        editText_address.setBorder(null);
+        editText_address.setNextFocusableComponent(button_login);
+        editText_address.setOpaque(false);
+
+        separator_address.setForeground(new java.awt.Color(255, 255, 255));
+
+        textView_photo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textView_photo.setForeground(new java.awt.Color(255, 255, 255));
+        textView_photo.setText("Photo");
+
+        button_back.setForeground(new java.awt.Color(255, 255, 255));
+        button_back.setText("Back");
+        button_back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        button_register.setBackground(new java.awt.Color(255, 255, 255));
+
+        register1.setBackground(new java.awt.Color(255, 255, 255));
+        register1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        register1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        register1.setText("Register");
+        register1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        register1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout button_registerLayout = new javax.swing.GroupLayout(button_register);
+        button_register.setLayout(button_registerLayout);
+        button_registerLayout.setHorizontalGroup(
+            button_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(register1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        button_registerLayout.setVerticalGroup(
+            button_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, button_registerLayout.createSequentialGroup()
+                .addComponent(register1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
+
+        image_user.setForeground(new java.awt.Color(255, 255, 255));
+        image_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        image_user.setText("Add Photo");
+        image_user.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        image_user.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        image_user.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout panel_register1Layout = new javax.swing.GroupLayout(panel_register1);
+        panel_register1.setLayout(panel_register1Layout);
+        panel_register1Layout.setHorizontalGroup(
+            panel_register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_register1Layout.createSequentialGroup()
+                .addGroup(panel_register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textView_registration1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_register1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(panel_register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textView_phoneNumber)
+                            .addComponent(separator_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editText_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textView_address)
+                            .addComponent(editText_address, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(separator_address, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel_register1Layout.createSequentialGroup()
+                                .addComponent(textView_photo)
+                                .addGap(28, 28, 28)
+                                .addComponent(image_user, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 10, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_register1Layout.createSequentialGroup()
+                .addGap(0, 56, Short.MAX_VALUE)
+                .addComponent(button_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+            .addGroup(panel_register1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_back)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panel_register1Layout.setVerticalGroup(
+            panel_register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_register1Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(textView_registration1)
+                .addGap(14, 14, 14)
+                .addComponent(textView_phoneNumber)
+                .addGap(13, 13, 13)
+                .addGroup(panel_register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_register1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(separator_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editText_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(textView_address)
+                .addGap(13, 13, 13)
+                .addGroup(panel_register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editText_address, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_register1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(separator_address, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addGroup(panel_register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textView_photo)
+                    .addComponent(image_user, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(button_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(button_back)
+                .addContainerGap())
+        );
+
+        panel_body.add(panel_register1, "panel_registration1");
 
         panel_forgotPassword.setBackground(new java.awt.Color(102, 153, 255));
         panel_forgotPassword.setPreferredSize(new java.awt.Dimension(330, 398));
@@ -666,39 +825,49 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel button_back;
     private javax.swing.JLabel button_exit;
     private javax.swing.JPanel button_login;
     private javax.swing.JLabel button_minimize;
+    private javax.swing.JPanel button_next;
     private javax.swing.JPanel button_register;
     private javax.swing.JPanel button_send;
     private javax.swing.JLabel button_viewForgotPassword;
     private javax.swing.JLabel button_viewLoginF;
     private javax.swing.JLabel button_viewLoginR;
     private javax.swing.JLabel button_viewRegister;
+    private javax.swing.JTextField editText_address;
     private javax.swing.JPasswordField editText_confirmPassword;
     private javax.swing.JTextField editText_emailF;
     private javax.swing.JTextField editText_emailL;
     private javax.swing.JTextField editText_emailR;
     private javax.swing.JPasswordField editText_passwordL;
     private javax.swing.JPasswordField editText_passwordR;
+    private javax.swing.JTextField editText_phoneNumber;
     private javax.swing.JTextField editText_usernameR;
+    private javax.swing.JLabel image_user;
     private javax.swing.JLabel login;
     private javax.swing.JLabel logo;
+    private javax.swing.JLabel next;
     private javax.swing.JPanel panel_body;
     private javax.swing.JPanel panel_forgotPassword;
     private javax.swing.JPanel panel_login;
     private javax.swing.JPanel panel_logo;
     private javax.swing.JPanel panel_register;
+    private javax.swing.JPanel panel_register1;
     private javax.swing.JPanel panel_undecorated;
-    private javax.swing.JLabel register;
+    private javax.swing.JLabel register1;
     private javax.swing.JLabel send;
+    private javax.swing.JSeparator separator_address;
     private javax.swing.JSeparator separator_confirmPassword;
     private javax.swing.JSeparator separator_emailF;
     private javax.swing.JSeparator separator_emailL;
     private javax.swing.JSeparator separator_emailR;
     private javax.swing.JSeparator separator_passwordL;
     private javax.swing.JSeparator separator_passwordR;
+    private javax.swing.JSeparator separator_phoneNumber;
     private javax.swing.JSeparator separator_usernameR;
+    private javax.swing.JLabel textView_address;
     private javax.swing.JLabel textView_confirmPassword;
     private javax.swing.JLabel textView_emailF;
     private javax.swing.JLabel textView_emailL;
@@ -707,7 +876,10 @@ public class V_Login extends javax.swing.JFrame {
     private javax.swing.JLabel textView_login;
     private javax.swing.JLabel textView_passwordL;
     private javax.swing.JLabel textView_passwordR;
+    private javax.swing.JLabel textView_phoneNumber;
+    private javax.swing.JLabel textView_photo;
     private javax.swing.JLabel textView_registration;
+    private javax.swing.JLabel textView_registration1;
     private javax.swing.JLabel textView_usernameR;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables

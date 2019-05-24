@@ -11,28 +11,44 @@ import com.gombing.in.Views.V_Login;
 import java.awt.CardLayout;
 import java.awt.Color;
 import static java.awt.Frame.ICONIFIED;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author MaulanaKevinPradana
  */
-public class C_Login extends V_Login{
+public class C_Login extends V_Login {
 
     private final M_Users modelUser;
     private final config connection;
 
     public C_Login() {
         Show(true);
-        buttonLogin();
         action_passwordL();
         action_emailL();
+        action_usernameR();
+        action_emailR();
+        action_passwordR();
+        action_cpasswordR();
+        action_phoneNumber();
+                
+        addImageUser();
+        
+        buttonLogin();
+        buttonNext();
         buttonRegister();
         buttonSend();
         buttonViewRegistration();
@@ -41,9 +57,9 @@ public class C_Login extends V_Login{
         buttonExit();
         dragWindow();
         buttonViewLogin();
-        
+
         modelUser = new M_Users();
-        
+
         connection = new config();
         connection.getUsers().setCon(connection.getConnection());
     }
@@ -58,24 +74,24 @@ public class C_Login extends V_Login{
             @Override
             public void mousePressed(MouseEvent e) {
                 getButton_login().setBackground(new Color(0, 212, 212));
-                
+
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                 getButton_login().setBackground(new Color(0, 255, 255));
+                getButton_login().setBackground(new Color(0, 255, 255));
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                 getButton_login().setBackground(new Color(0, 255, 255));
+                getButton_login().setBackground(new Color(0, 255, 255));                
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                 getButton_login().setBackground(new Color(255, 255, 255));
+                getButton_login().setBackground(new Color(255, 255, 255));
             }
-        });        
+        });
     }
 
     private void login() {
@@ -84,7 +100,7 @@ public class C_Login extends V_Login{
         try {
             connection.getUsers().checkLogin(modelUser);
         } catch (SQLException e) {
-            System.out.println("Error : " +e);
+            System.out.println("Error : " + e);
         }
         int level = modelUser.getLevelId();
         switch (level) {
@@ -109,19 +125,50 @@ public class C_Login extends V_Login{
                 break;
         }
     }
-    
-    private void action_emailL(){
+
+    private void action_emailL() {
         getEditText_emailL().addActionListener((ActionEvent e) -> {
             getEditText_passwordL().requestFocusInWindow();
         });
     }
-    
-    private void action_passwordL(){
+
+    private void action_passwordL() {
         getEditText_passwordL().addActionListener(((ActionEvent e) -> {
+            getButton_login().setBackground(new Color(0, 255, 255));
             login();
         }));
     }
     
+    private void action_usernameR() {
+        getEditText_usernameR().addActionListener((ActionEvent e) -> {
+            getEditText_emailR().requestFocusInWindow();
+        });
+    }
+    
+    private void action_emailR() {
+        getEditText_emailR().addActionListener((ActionEvent e) -> {
+            getEditText_passwordR().requestFocusInWindow();
+        });
+    }
+    
+    private void action_passwordR() {
+        getEditText_passwordR().addActionListener((ActionEvent e) -> {
+            getEditText_confirmPassword().requestFocusInWindow();
+        });
+    }
+    
+    private void action_cpasswordR() {
+        getEditText_confirmPassword().addActionListener((ActionEvent e) -> {
+            buttonNext();
+        });
+    }
+    
+    private void action_phoneNumber() {
+        getEditText_phoneNumber().addActionListener((ActionEvent e) -> {
+            getEditText_address().requestFocusInWindow();
+        });
+    }
+
     private void buttonViewLogin() {
         getButton_viewLoginF().addMouseListener(new MouseListener() {
             @Override
@@ -149,7 +196,7 @@ public class C_Login extends V_Login{
                 getButton_viewLoginF().setForeground(new Color(255, 255, 255));
             }
         });
-        
+
         getButton_viewLoginR().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -182,12 +229,14 @@ public class C_Login extends V_Login{
         CardLayout card = (CardLayout) getPanel_body().getLayout();
         card.show(getPanel_body(), "panel_login");
     }
-    
-    private void buttonRegister(){
+
+    private void buttonRegister() {
         getButton_register().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                
+                register();
+                CardLayout card = (CardLayout) getPanel_body().getLayout();
+                card.show(getPanel_body(), "panel_login");
             }
 
             @Override
@@ -211,13 +260,75 @@ public class C_Login extends V_Login{
             }
         });
     }
-    
+
+    private void register() {
+        try {
+            modelUser.setPhone_number(getEditText_phoneNumber().getText());
+            modelUser.setAddress(getEditText_address().getText());
+            connection.getUsers().insert(modelUser);
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_users");
+            getEditText_usernameR().setText("");
+            getEditText_emailR().setText("");
+            getEditText_passwordR().setText("");
+            getEditText_phoneNumber().setText("");
+            getEditText_address().setText("");
+            JOptionPane.showMessageDialog(null, "Registration Success");
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void buttonNext() {
+        getButton_next().addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (getEditText_usernameR().getText().isEmpty()
+                        && getEditText_emailR().getText().isEmpty()
+                        && getEditText_passwordR().getText().isEmpty()
+                        && getEditText_confirmPassword().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Data must be filled");
+                } else if (!getEditText_passwordR().getText().equals(getEditText_confirmPassword().getText())) {
+                    JOptionPane.showMessageDialog(null, "Invalid Password");
+                } else {
+                    modelUser.setName(getEditText_usernameR().getText());
+                    modelUser.setEmail(getEditText_emailR().getText());
+                    modelUser.setPassword(getEditText_passwordR().getText());
+                    modelUser.setLevelId(4);
+                    modelUser.setStatus(1);
+                    CardLayout card = (CardLayout) getPanel_body().getLayout();
+                    card.show(getPanel_body(), "panel_registration1");
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                getButton_next().setBackground(new Color(0, 212, 212));
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                getButton_next().setBackground(new Color(0, 255, 255));
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                getButton_next().setBackground(new Color(0, 255, 255));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                getButton_next().setBackground(new Color(255, 255, 255));
+            }
+        });
+    }
+
     private void buttonViewRegistration() {
-        
         getButton_viewRegister().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 viewRegistration();
+                getEditText_usernameR().requestFocusInWindow();
             }
 
             @Override
@@ -240,18 +351,44 @@ public class C_Login extends V_Login{
                 getButton_viewRegister().setForeground(new Color(255, 255, 255));
             }
         });
+        getButton_back().addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                viewRegistration();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                getButton_back().setForeground(new Color(255, 200, 0));
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                getButton_back().setForeground(new Color(255, 255, 0));
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                getButton_back().setForeground(new Color(255, 255, 0));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                getButton_back().setForeground(new Color(255, 255, 255));
+            }
+        });
     }
 
     private void viewRegistration() {
         CardLayout card = (CardLayout) getPanel_body().getLayout();
         card.show(getPanel_body(), "panel_registration");
     }
-    
-    private void buttonSend(){
+
+    private void buttonSend() {
         getButton_send().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                
+
             }
 
             @Override
@@ -308,6 +445,61 @@ public class C_Login extends V_Login{
     private void viewForgotPassword() {
         CardLayout card = (CardLayout) getPanel_body().getLayout();
         card.show(getPanel_body(), "panel_forgotPassword");
+    }
+
+    private void addImageUser() {
+        getImage_user().addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                browseImageUser(getImage_user());
+            }
+
+            // <editor-fold defaultstate="collapsed" desc="Unused">
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }//</editor-fold>
+        });
+    }
+
+    private ImageIcon ResizeImage(String imgPath, JLabel label) {
+        ImageIcon MyImage = new ImageIcon(imgPath);
+        Image img = MyImage.getImage();
+        Image newImage = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImage);
+        return image;
+    }
+
+    private void browseImageUser(JLabel label) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg", "gif", "png");
+        fileChooser.addChoosableFileFilter(filter);
+        int result = fileChooser.showSaveDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String path = selectedFile.getAbsolutePath();
+            label.setIcon(ResizeImage(path, label));
+            modelUser.setPath(path);
+            label.setText("");
+        } else if (result == JFileChooser.CANCEL_OPTION) {
+            label.setText("Add Image");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="Button Exit">

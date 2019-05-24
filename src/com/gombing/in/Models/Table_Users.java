@@ -17,7 +17,7 @@ public class Table_Users extends AbstractTableModel {
     private ArrayList<M_Users> list = new ArrayList<>();
     
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
-    private final String[] header = {"ID", "Name", "Email", "Password", "Level", "Status", "Update at", "Created at"};
+    private final String[] header = {"ID", "Name", "Email", "Password", "Level", "Status", "Phone Number", "Address", "Update at", "Created at"};
 
     public void setList(ArrayList<M_Users> list) {
         this.list = list;
@@ -48,8 +48,10 @@ public class Table_Users extends AbstractTableModel {
             case 3: return m.getPassword();
             case 4: return m.getLevelName();
             case 5: return m.getStatus();
-            case 6: return m.getUpdated_at();
-            case 7: return m.getCreated_at();
+            case 6: return m.getPhone_number();
+            case 7: return m.getAddress();
+            case 8: return m.getUpdated_at();
+            case 9: return m.getCreated_at();
             default: return null;
         }
 
