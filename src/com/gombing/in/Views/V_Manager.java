@@ -199,7 +199,7 @@ public class V_Manager extends javax.swing.JFrame {
         button_logout.setText("Logout?");
         button_logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_administrator_male_100px.png"))); // NOI18N
+        picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_donald_trump_100px.png"))); // NOI18N
 
         editText_name.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         editText_name.setText("MANAGER");
@@ -369,11 +369,11 @@ public class V_Manager extends javax.swing.JFrame {
         panel_animalCareLayout.setHorizontalGroup(
             panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_animalCareLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editText_subtitle1)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_animalCareLayout.createSequentialGroup()
                     .addGap(53, 53, 53)

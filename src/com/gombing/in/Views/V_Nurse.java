@@ -340,7 +340,7 @@ public class V_Nurse extends javax.swing.JFrame {
         button_logout.setText("Logout?");
         button_logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_administrator_male_100px.png"))); // NOI18N
+        picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/icons8_nurse_female_100px.png"))); // NOI18N
 
         editText_name.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         editText_name.setText("NURSE");
@@ -428,6 +428,7 @@ public class V_Nurse extends javax.swing.JFrame {
 
         scrollPane_animal.setBackground(new java.awt.Color(255, 255, 255));
         scrollPane_animal.setBorder(null);
+        scrollPane_animal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         table_animal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -451,12 +452,12 @@ public class V_Nurse extends javax.swing.JFrame {
         panel_animalLayout.setHorizontalGroup(
             panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_animalLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(scrollPane_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editText_subtitle2)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         panel_animalLayout.setVerticalGroup(
             panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,9 +466,9 @@ public class V_Nurse extends javax.swing.JFrame {
                 .addComponent(editText_subtitle2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(41, 41, 41)
                 .addComponent(scrollPane_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_animal, "panel_animal");
@@ -528,7 +529,7 @@ public class V_Nurse extends javax.swing.JFrame {
             .addGroup(panel_animalCareLayout.createSequentialGroup()
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_animalCareLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
+                        .addContainerGap(52, Short.MAX_VALUE)
                         .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(editText_subtitle1)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -542,7 +543,7 @@ public class V_Nurse extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(button_refreshAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(55, 55, 55))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_animalCareLayout.createSequentialGroup()
                     .addGap(53, 53, 53)
@@ -556,7 +557,7 @@ public class V_Nurse extends javax.swing.JFrame {
                 .addComponent(editText_subtitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_addAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button_deleteAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)

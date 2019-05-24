@@ -35,7 +35,8 @@ public class UsersService implements UsersInterface {
             sql_update = "UPDATE public.users SET name = ?, email = ?, password = ?, level = ?, status = ?, updated_at = ?, phone_number = ?, address = ?, user_photo = ? WHERE id = ?",
             sql_delete = "DELETE FROM public.users WHERE id = ?",
             sql_getIdUser = "SELECT id FROM public.users Where name = ?",
-            sql_getPhoto = "SELECT user_photo FROM public.users WHERE id = ?";
+            sql_getPhoto = "SELECT user_photo FROM public.users WHERE id = ?",
+            sql_getPass = "SELECT password FROM public.users WHERE email = ?";
     
     public void setCon(Connection con) {
         this.con = con;
@@ -208,5 +209,20 @@ public class UsersService implements UsersInterface {
             System.out.println("Something was wrong. Error: " + e);
         }
         return is;
+    }
+    
+    public String getPass(String email){
+        String em = null;
+        try {
+            PreparedStatement st = con.prepareStatement(sql_getPass);
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                em = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Something was wrong. Error: " + e);
+        }
+        return em;
     }
 }

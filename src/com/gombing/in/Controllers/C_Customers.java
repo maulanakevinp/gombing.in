@@ -179,6 +179,7 @@ public class C_Customers extends V_Customers {
                 modelUsers.setPhone_number(getEditText_phoneNumber().getText());
                 modelUsers.setAddress(getEditText_address().getText());
                 connection.getUsers().update(modelUsers);
+                getPicture().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture()));
             } catch (SQLException ex) {
                 Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
             }

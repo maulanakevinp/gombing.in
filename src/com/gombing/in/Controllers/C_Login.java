@@ -44,9 +44,9 @@ public class C_Login extends V_Login {
         action_passwordR();
         action_cpasswordR();
         action_phoneNumber();
-                
+
         addImageUser();
-        
+
         buttonLogin();
         buttonNext();
         buttonRegister();
@@ -84,7 +84,7 @@ public class C_Login extends V_Login {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                getButton_login().setBackground(new Color(0, 255, 255));                
+                getButton_login().setBackground(new Color(0, 255, 255));
             }
 
             @Override
@@ -138,31 +138,31 @@ public class C_Login extends V_Login {
             login();
         }));
     }
-    
+
     private void action_usernameR() {
         getEditText_usernameR().addActionListener((ActionEvent e) -> {
             getEditText_emailR().requestFocusInWindow();
         });
     }
-    
+
     private void action_emailR() {
         getEditText_emailR().addActionListener((ActionEvent e) -> {
             getEditText_passwordR().requestFocusInWindow();
         });
     }
-    
+
     private void action_passwordR() {
         getEditText_passwordR().addActionListener((ActionEvent e) -> {
             getEditText_confirmPassword().requestFocusInWindow();
         });
     }
-    
+
     private void action_cpasswordR() {
         getEditText_confirmPassword().addActionListener((ActionEvent e) -> {
             buttonNext();
         });
     }
-    
+
     private void action_phoneNumber() {
         getEditText_phoneNumber().addActionListener((ActionEvent e) -> {
             getEditText_address().requestFocusInWindow();
@@ -388,7 +388,16 @@ public class C_Login extends V_Login {
         getButton_send().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                if (getEditText_emailF().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Email must be filled");
+                } else {
+                    String pass = connection.getUsers().getPass(getEditText_emailF().getText());
+                    if (pass == null) {
+                        JOptionPane.showMessageDialog(null, "Sorry you not member");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Password has been send to your email");
+                    }
+                }
             }
 
             @Override
