@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,7 +38,7 @@ public class LevelService implements LevelInterface{
                 hasil = rs.getInt(1);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return hasil;
     }
@@ -45,16 +46,15 @@ public class LevelService implements LevelInterface{
     @Override
     public ArrayList<String> fillComboBoxLevel() throws SQLException {
         ArrayList<String> list = new ArrayList<>();
-        String query = "SELECT level FROM public.level";
         try {
             list = new ArrayList<>();
-            PreparedStatement st = con.prepareStatement(query);
+            PreparedStatement st = con.prepareStatement(sql_getLevel);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(rs.getString(1));
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }

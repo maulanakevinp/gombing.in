@@ -11,11 +11,13 @@ import com.gombing.in.Services.AnimalTypeService;
 import com.gombing.in.Services.LevelService;
 import com.gombing.in.Services.TypePetService;
 import com.gombing.in.Services.UsersService;
+import java.awt.Frame;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,6 +43,7 @@ public class config {
     }
 
     public Connection getConnection() {
+        JOptionPane.setRootFrame(new Frame());
         try {
             if (con == null || con.isClosed()) {
                 String database = "d9ek16mludg78a";
@@ -51,8 +54,8 @@ public class config {
                     con = (Connection) DriverManager.getConnection(url, username, password);
                     System.out.println("Connection Successful");
                 } catch (SQLException e) {
-                    System.out.println("Connection Failed. Error : " + e);
-                    e.getMessage();
+                    JOptionPane.showMessageDialog(null, "Connection Failed","Error",JOptionPane.ERROR_MESSAGE);
+                    System.exit(0);
                 }
             }
         } catch (SQLException ex) {

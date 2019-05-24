@@ -82,6 +82,7 @@ public class C_Manager extends V_Manager{
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     //</editor-fold>
@@ -113,6 +114,7 @@ public class C_Manager extends V_Manager{
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     //</editor-fold>

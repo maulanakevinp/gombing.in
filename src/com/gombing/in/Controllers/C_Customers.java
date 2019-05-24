@@ -46,11 +46,11 @@ public class C_Customers extends V_Customers {
     public C_Customers(int id, int levelId, int status, String name, String email, String phone_number, String Password, String address, InputStream file) {
         Show(true);
         tableAnimalCare = new Table_AnimalCare();
-        
+
         connection = new config();
         connection.getAnimalCare().setCon(connection.getConnection());
         connection.getUsers().setCon(connection.getConnection());
-        
+
         modelUsers = new M_Users();
         modelUsers.setId(id);
         modelUsers.setName(name);
@@ -64,7 +64,7 @@ public class C_Customers extends V_Customers {
 
         getTextView_name().setText(modelUsers.getName());
         getPicture().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture()));
-        
+
         buttonLogout();
         buttonMinimize();
         buttonMaximize();
@@ -182,6 +182,7 @@ public class C_Customers extends V_Customers {
                 getPicture().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture()));
             } catch (SQLException ex) {
                 Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -208,6 +209,7 @@ public class C_Customers extends V_Customers {
             }
         } catch (IOException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
         return icon;
     }

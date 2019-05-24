@@ -93,6 +93,7 @@ public class C_Nurse extends V_Nurse{
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     //</editor-fold>
@@ -133,6 +134,7 @@ public class C_Nurse extends V_Nurse{
             });
         } catch (SQLException ex) {
             Logger.getLogger(C_Nurse.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -166,10 +168,10 @@ public class C_Nurse extends V_Nurse{
                 getEditText_comment().setText("");
                 getEditText_height().setText("");
                 getEditText_weight().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data");
+                JOptionPane.showMessageDialog(null, "Success to save data","Success",JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data");
+                JOptionPane.showMessageDialog(null, "Failed to save data","Failed",JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -212,10 +214,10 @@ public class C_Nurse extends V_Nurse{
                 getEditText_comment1().setText("");
                 getEditText_height().setText("");
                 getEditText_weight1().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data");
+                JOptionPane.showMessageDialog(null, "Success to save data","Success",JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data");
+                JOptionPane.showMessageDialog(null, "Failed to save data","Failed",JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -232,10 +234,10 @@ public class C_Nurse extends V_Nurse{
             try {
                 connection.getAnimalCare().delete(modelAnimalCare);
                 tableAnimal();
-                JOptionPane.showMessageDialog(null, "Success to delete data");
+                JOptionPane.showMessageDialog(null, "Success to delete data","Success",JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to delete data");
+                JOptionPane.showMessageDialog(null, "Failed to delete data","Failed",JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -252,6 +254,7 @@ public class C_Nurse extends V_Nurse{
             getComboBox_animalOwner1().setModel(new DefaultComboBoxModel(connection.getUsers().fillComboBoxUser().toArray()));
         } catch (SQLException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -260,7 +263,8 @@ public class C_Nurse extends V_Nurse{
             getComboBox_animalName().setModel(new DefaultComboBoxModel(connection.getAnimal().fillComboBox().toArray()));
             getComboBox_animalName1().setModel(new DefaultComboBoxModel(connection.getAnimal().fillComboBox().toArray()));
         } catch (SQLException ex) {
-            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);            
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     

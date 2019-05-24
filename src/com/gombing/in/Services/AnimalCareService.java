@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -51,7 +52,7 @@ public class AnimalCareService implements AnimalCareInterface {
             st.setTimestamp(8, m.getTimestamp1());
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("ERROR : " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -70,7 +71,7 @@ public class AnimalCareService implements AnimalCareInterface {
             st.setInt(9, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("ERROR : " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -81,7 +82,7 @@ public class AnimalCareService implements AnimalCareInterface {
             st.setInt(1, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("ERROR : "+e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -111,7 +112,7 @@ public class AnimalCareService implements AnimalCareInterface {
 
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }
@@ -141,7 +142,7 @@ public class AnimalCareService implements AnimalCareInterface {
 
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }

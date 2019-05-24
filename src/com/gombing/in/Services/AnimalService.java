@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 /**
@@ -65,11 +66,13 @@ public class AnimalService implements RecordingAnimalInterface {
             st.setBytes(11, filecontent);
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (IOException ex) {
             Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -94,11 +97,13 @@ public class AnimalService implements RecordingAnimalInterface {
             st.setInt(11, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (IOException ex) {
             Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -109,7 +114,7 @@ public class AnimalService implements RecordingAnimalInterface {
             st.setInt(1, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -140,7 +145,7 @@ public class AnimalService implements RecordingAnimalInterface {
                 list.add(m);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }
@@ -156,7 +161,7 @@ public class AnimalService implements RecordingAnimalInterface {
                 hasil = rs.getInt(1);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return hasil;
     }
@@ -172,7 +177,7 @@ public class AnimalService implements RecordingAnimalInterface {
                 list.add(rs.getString(2));
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }
@@ -187,7 +192,7 @@ public class AnimalService implements RecordingAnimalInterface {
                 is = rs.getBinaryStream(1);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return is;
     }

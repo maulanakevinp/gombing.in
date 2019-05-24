@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 /**
@@ -62,11 +63,13 @@ public class UsersService implements UsersInterface {
             st.setBytes(10, filecontent);
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (IOException ex) {
             Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -90,11 +93,13 @@ public class UsersService implements UsersInterface {
             st.setInt(10, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (IOException ex) {
             Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -105,7 +110,7 @@ public class UsersService implements UsersInterface {
             st.setInt(1, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -136,7 +141,7 @@ public class UsersService implements UsersInterface {
                 list.add(user);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }
@@ -158,8 +163,8 @@ public class UsersService implements UsersInterface {
                 m.setAddress(rs.getString(7));
                 m.setFileFromDB(rs.getBinaryStream(8));
             }
-        } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+        } catch (SQLException | NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -175,7 +180,7 @@ public class UsersService implements UsersInterface {
                 list.add(rs.getString(1));
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }
@@ -191,7 +196,7 @@ public class UsersService implements UsersInterface {
                 hasil = rs.getInt(1);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return hasil;
     }
@@ -206,7 +211,7 @@ public class UsersService implements UsersInterface {
                 is = rs.getBinaryStream(1);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return is;
     }
@@ -221,7 +226,7 @@ public class UsersService implements UsersInterface {
                 em = rs.getString(1);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return em;
     }

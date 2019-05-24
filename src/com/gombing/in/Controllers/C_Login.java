@@ -10,6 +10,7 @@ import com.gombing.in.Models.M_Users;
 import com.gombing.in.Views.V_Login;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -17,13 +18,18 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
+import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -60,8 +66,41 @@ public class C_Login extends V_Login {
 
         modelUser = new M_Users();
 
-        connection = new config();
-        connection.getUsers().setCon(connection.getConnection());
+        connection = new config();        
+        connecting();
+    }
+    
+    private void connecting(){
+        JFrame frame = new JFrame("Connection");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+        frame.setLocationRelativeTo(null);
+
+        final JProgressBar jProgressBar = new JProgressBar();
+        final JLabel status = new JLabel("Connecting...");
+        frame.add(status);
+        frame.add("jProgressBar", jProgressBar);
+
+        frame.pack();
+        frame.setVisible(true);
+
+        SwingWorker sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                jProgressBar.setIndeterminate(true);
+                connection.getUsers().setCon(connection.getConnection());
+                return null;
+            }
+
+            @Override
+            public void done() {
+                jProgressBar.setIndeterminate(false);
+                status.setText("Successful");
+                jProgressBar.setValue(100); // 100%
+                frame.dispose();
+            }
+        };
+        sw.execute();
     }
 
     private void buttonLogin() {
@@ -100,7 +139,7 @@ public class C_Login extends V_Login {
         try {
             connection.getUsers().checkLogin(modelUser);
         } catch (SQLException e) {
-            System.out.println("Error : " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e, "Error", JOptionPane.ERROR_MESSAGE);
         }
         int level = modelUser.getLevelId();
         switch (level) {
@@ -121,7 +160,7 @@ public class C_Login extends V_Login {
                 Show(false);
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                JOptionPane.showMessageDialog(null, "Invalid Username or Password","Error",JOptionPane.ERROR_MESSAGE);
                 break;
         }
     }
@@ -276,6 +315,7 @@ public class C_Login extends V_Login {
             JOptionPane.showMessageDialog(null, "Registration Success");
         } catch (SQLException ex) {
             Logger.getLogger(C_Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

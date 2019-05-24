@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,7 +38,7 @@ public class AnimalTypeService implements AnimalTypeInterface {
             st.setString(1, m.getAnimal_type());
             st.executeUpdate();            
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -49,7 +50,7 @@ public class AnimalTypeService implements AnimalTypeInterface {
             st.setInt(2, m.getId());
             st.executeUpdate();            
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -60,7 +61,7 @@ public class AnimalTypeService implements AnimalTypeInterface {
             st.setInt(1, m.getId());
             st.executeUpdate();            
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -82,7 +83,7 @@ public class AnimalTypeService implements AnimalTypeInterface {
                 list.add(m);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }    
@@ -98,7 +99,7 @@ public class AnimalTypeService implements AnimalTypeInterface {
                 list.add(rs.getString(2));
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }
@@ -114,7 +115,7 @@ public class AnimalTypeService implements AnimalTypeInterface {
                 hasil = rs.getInt(1);
             }
         } catch (SQLException e) {
-            System.out.println("Something was wrong. Error: " + e);
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return hasil;
     }
