@@ -201,6 +201,7 @@ public class UsersService implements UsersInterface {
         return hasil;
     }
 
+    @Override
     public InputStream getPhoto(int id) {
         InputStream is = null;
         try {
@@ -216,6 +217,7 @@ public class UsersService implements UsersInterface {
         return is;
     }
     
+    @Override
     public String getPass(String email){
         String em = null;
         try {

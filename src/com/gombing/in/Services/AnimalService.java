@@ -182,7 +182,8 @@ public class AnimalService implements RecordingAnimalInterface {
         return list;
     }
 
-    public InputStream getPhoto(int id) {
+    @Override
+    public InputStream getPhoto(int id) throws SQLException{
         InputStream is = null;
         try {
             PreparedStatement st = con.prepareStatement(sql_getPhoto);

@@ -6,6 +6,7 @@
 package com.gombing.in.Interface;
 
 import com.gombing.in.Models.M_Animal;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -20,4 +21,5 @@ public interface RecordingAnimalInterface {
     public ArrayList<M_Animal> getAll()throws SQLException;
     public ArrayList<String> fillComboBox()throws SQLException;
     public int getId(String name)throws SQLException;
+    public InputStream getPhoto(int id)throws SQLException;
 }
