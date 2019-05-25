@@ -43,7 +43,6 @@ public class config {
     }
 
     public Connection getConnection() {
-        JOptionPane.setRootFrame(new Frame());
         try {
             if (con == null || con.isClosed()) {
                 String database = "d9ek16mludg78a";

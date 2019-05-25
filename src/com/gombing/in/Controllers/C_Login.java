@@ -72,9 +72,11 @@ public class C_Login extends V_Login {
     
     private void connecting(){
         JFrame frame = new JFrame("Connection");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new FlowLayout());
+        frame.setAlwaysOnTop(true);
+        frame.setUndecorated(true);
         frame.setLocationRelativeTo(null);
+        frame.setBackground(Color.WHITE);
 
         final JProgressBar jProgressBar = new JProgressBar();
         final JLabel status = new JLabel("Connecting...");
@@ -327,7 +329,7 @@ public class C_Login extends V_Login {
                         && getEditText_emailR().getText().isEmpty()
                         && getEditText_passwordR().getText().isEmpty()
                         && getEditText_confirmPassword().getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Data must be filled");
+                    JOptionPane.showMessageDialog(null, "Data must be filled","Warning",JOptionPane.WARNING_MESSAGE);
                 } else if (!getEditText_passwordR().getText().equals(getEditText_confirmPassword().getText())) {
                     JOptionPane.showMessageDialog(null, "Invalid Password");
                 } else {
@@ -429,11 +431,11 @@ public class C_Login extends V_Login {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (getEditText_emailF().getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Email must be filled");
+                    JOptionPane.showMessageDialog(null, "Email must be filled","Warning",JOptionPane.WARNING_MESSAGE);
                 } else {
                     String pass = connection.getUsers().getPass(getEditText_emailF().getText());
                     if (pass == null) {
-                        JOptionPane.showMessageDialog(null, "Sorry you not member");
+                        JOptionPane.showMessageDialog(null, "Sorry you not member","Error",JOptionPane.ERROR_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(null, "Password has been send to your email");
                     }
