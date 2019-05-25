@@ -345,19 +345,24 @@ public class C_Admin extends V_Admin {
             getTable_animal().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    int row = getTable_animal().getSelectedRow();
-                    int id = Integer.parseInt(getTable_animal().getValueAt(row, 0).toString());
-                    modelAnimal.setId(id);
-                    getEditText_animalName1().setText(getTable_animal().getValueAt(row, 1).toString());
-                    getComboBox_animalType1().setSelectedItem(getTable_animal().getValueAt(row, 2).toString());
-                    getComboBox_gender1().setSelectedItem(getTable_animal().getValueAt(row, 3).toString());
-                    getDateChooser_birthdate1().setDate((Date) getTable_animal().getValueAt(row, 4));
-                    getComboBox_animalOwner1().setSelectedItem(getTable_animal().getValueAt(row, 5).toString());
-                    getEditText_skinColor1().setText(getTable_animal().getValueAt(row, 6).toString());
-                    getComboBox_earType1().setSelectedItem(getTable_animal().getValueAt(row, 7).toString());
-                    getComboBox_typePet1().setSelectedItem(getTable_animal().getValueAt(row, 8).toString());
-                    getImage_animal1().setIcon(scaleImage(connection.getAnimal().getPhoto(id), getImage_animal1()));
-                    getImage_animal1().revalidate();
+                    try {
+                        int row = getTable_animal().getSelectedRow();
+                        int id = Integer.parseInt(getTable_animal().getValueAt(row, 0).toString());
+                        modelAnimal.setId(id);
+                        getEditText_animalName1().setText(getTable_animal().getValueAt(row, 1).toString());
+                        getComboBox_animalType1().setSelectedItem(getTable_animal().getValueAt(row, 2).toString());
+                        getComboBox_gender1().setSelectedItem(getTable_animal().getValueAt(row, 3).toString());
+                        getDateChooser_birthdate1().setDate((Date) getTable_animal().getValueAt(row, 4));
+                        getComboBox_animalOwner1().setSelectedItem(getTable_animal().getValueAt(row, 5).toString());
+                        getEditText_skinColor1().setText(getTable_animal().getValueAt(row, 6).toString());
+                        getComboBox_earType1().setSelectedItem(getTable_animal().getValueAt(row, 7).toString());
+                        getComboBox_typePet1().setSelectedItem(getTable_animal().getValueAt(row, 8).toString());
+                        getImage_animal1().setIcon(scaleImage(connection.getAnimal().getPhoto(id), getImage_animal1()));
+                        getImage_animal1().revalidate();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             });
         } catch (SQLException ex) {
@@ -408,7 +413,7 @@ public class C_Admin extends V_Admin {
                     JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Data must be filled!!!","Error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Data must be filled!!!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -444,10 +449,10 @@ public class C_Admin extends V_Admin {
                 card.show(getPanel_body(), "panel_animal");
                 getEditText_animalName1().setText("");
                 getEditText_skinColor1().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data","Failed",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -464,10 +469,10 @@ public class C_Admin extends V_Admin {
             try {
                 connection.getAnimal().delete(modelAnimal);
                 tableAnimal();
-                JOptionPane.showMessageDialog(null, "Success to delete data","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Success to delete data", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to delete data","Failed",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Failed to delete data", "Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -636,10 +641,10 @@ public class C_Admin extends V_Admin {
                 CardLayout card = (CardLayout) getPanel_body().getLayout();
                 card.show(getPanel_body(), "panel_animalType");
                 getEditText_animalType().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data","Failed",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -667,10 +672,10 @@ public class C_Admin extends V_Admin {
                 CardLayout card = (CardLayout) getPanel_body().getLayout();
                 card.show(getPanel_body(), "panel_animalType");
                 getEditText_animalType().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data","Failed",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -687,10 +692,10 @@ public class C_Admin extends V_Admin {
             try {
                 connection.getAnimalType().delete(modelAnimalType);
                 tableAnimalType();
-                JOptionPane.showMessageDialog(null, "Success to delete data","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Success to delete data", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to delete data","Failed",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Failed to delete data", "Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -763,10 +768,10 @@ public class C_Admin extends V_Admin {
                 CardLayout card = (CardLayout) getPanel_body().getLayout();
                 card.show(getPanel_body(), "panel_typePet");
                 getEditText_typePet().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data","Failed",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -794,10 +799,10 @@ public class C_Admin extends V_Admin {
                 CardLayout card = (CardLayout) getPanel_body().getLayout();
                 card.show(getPanel_body(), "panel_typePet");
                 getEditText_typePet1().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data","Failed",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -814,10 +819,10 @@ public class C_Admin extends V_Admin {
             try {
                 connection.getTypePet().delete(modelTypePet);
                 tableTypePet();
-                JOptionPane.showMessageDialog(null, "Success to delete data","Success",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Success to delete data", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to delete data","Failed",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Failed to delete data", "Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
