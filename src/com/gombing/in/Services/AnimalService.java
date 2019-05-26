@@ -36,7 +36,7 @@ public class AnimalService implements RecordingAnimalInterface {
             + "join public.users on a.id_user = users.id join public.type_pet on a.type_pet = type_pet.id;",
             sql_insert = "INSERT INTO public.animal (animal_name, animal_type, gender, birth_date, id_user, skin_color, ear_type, type_pet, updated_at, created_at, animal_photo) "
             + "VALUES (?,?,?,?,?,?,?,?,?,?,?);",
-            sql_update = "UPDATE public.animal SET animal_name=?, animal_type=?, gender=?, birth_date=?, id_user=?, skin_color=?, ear_type=?, type_pet=?, updated_at=?, animal_photo=?  WHERE id=?",
+            sql_update = "UPDATE public.animal SET animal_name=?, animal_type=?, gender=?, birth_date=?, id_user=?, skin_color=?, ear_type=?, type_pet=?, updated_at=? WHERE id=?",
             sql_delete = "DELETE FROM public.animal WHERE id=?",
             sql_getId = "SELECT id FROM public.animal WHERE animal_name = ?",
             sql_getPhoto = "SELECT animal_photo FROM public.animal WHERE id = ?",
@@ -80,10 +80,6 @@ public class AnimalService implements RecordingAnimalInterface {
     @Override
     public void update(M_Animal m) throws SQLException {
         try {
-            InputStream is = new FileInputStream(new File(m.getPath()));
-            ByteArrayOutputStream output = new ByteArrayOutputStream();
-            IOUtils.copy(is, output);
-            byte[] filecontent = output.toByteArray();
             PreparedStatement st = con.prepareStatement(sql_update);
             st.setString(1, m.getAnimal_name());
             st.setInt(2, m.getId_animal_type());
@@ -94,18 +90,11 @@ public class AnimalService implements RecordingAnimalInterface {
             st.setString(7, m.getEar_type());
             st.setInt(8, m.getId_type_pet());
             st.setDate(9, new java.sql.Date(m.getUpdated_at1().getTime()));
-            st.setBytes(10, filecontent);
-            st.setInt(11, m.getId());
+            st.setInt(10, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex) {
-            Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
-        }
+        } 
     }
 
     @Override
@@ -152,19 +141,17 @@ public class AnimalService implements RecordingAnimalInterface {
     }
 
     @Override
-    public int getId(String name) {
-        int hasil = 0;
+    public void getId(M_Animal m) {
         try {
             PreparedStatement st = con.prepareStatement(sql_getId);
-            st.setString(1, name);
+            st.setString(1, m.getAnimal_name());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                hasil = rs.getInt(1);
+                m.setId(rs.getInt(1));                        
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
-        return hasil;
     }
 
     @Override
@@ -184,19 +171,17 @@ public class AnimalService implements RecordingAnimalInterface {
     }
 
     @Override
-    public InputStream getPhoto(int id) throws SQLException{
-        InputStream is = null;
+    public void getPhoto(M_Animal m) throws SQLException{
         try {
             PreparedStatement st = con.prepareStatement(sql_getPhoto);
-            st.setInt(1, id);
+            st.setInt(1, m.getId());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                is = rs.getBinaryStream(1);
+                m.setFileFromDB(rs.getBinaryStream(1));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
-        return is;
     }
 
     @Override

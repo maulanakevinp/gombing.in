@@ -20,7 +20,7 @@ public interface RecordingAnimalInterface {
     public void delete(M_Animal m)throws SQLException;
     public ArrayList<M_Animal> getAll()throws SQLException;
     public ArrayList<String> fillComboBox()throws SQLException;
-    public int getId(String name)throws SQLException;
-    public InputStream getPhoto(int id)throws SQLException;
+    public void getId(M_Animal m)throws SQLException;
+    public void getPhoto(M_Animal m)throws SQLException;
     public void updatePhoto(M_Animal m)throws SQLException;
 }

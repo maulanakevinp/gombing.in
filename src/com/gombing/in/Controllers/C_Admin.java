@@ -9,6 +9,7 @@ import com.gombing.in.Models.Table_Users;
 import com.gombing.in.DBUtils.config;
 import com.gombing.in.Models.M_Animal;
 import com.gombing.in.Models.M_AnimalType;
+import com.gombing.in.Models.M_Level;
 import com.gombing.in.Models.M_TypePet;
 import com.gombing.in.Models.M_Users;
 import com.gombing.in.Models.Table_Animal;
@@ -52,6 +53,7 @@ public class C_Admin extends V_Admin {
     private final M_Animal modelAnimal;
     private final M_AnimalType modelAnimalType;
     private final M_TypePet modelTypePet;
+    private final M_Level modelLevel;
     private final Table_Users tableUsers;
     private final Table_Animal tableAnimal;
     private final Table_AnimalType tableAnimalType;
@@ -64,6 +66,7 @@ public class C_Admin extends V_Admin {
         modelAnimal = new M_Animal();
         modelAnimalType = new M_AnimalType();
         modelTypePet = new M_TypePet();
+        modelLevel = new M_Level();
 
         tableUsers = new Table_Users();
         tableAnimal = new Table_Animal();
@@ -157,18 +160,23 @@ public class C_Admin extends V_Admin {
             getTable_users().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    int row = getTable_users().getSelectedRow();
-                    int id = Integer.parseInt(getTable_users().getValueAt(row, 0).toString());
-                    modelUsers.setId(id);
-                    getEditText_name1().setText(getTable_users().getValueAt(row, 1).toString());
-                    getEditText_email1().setText(getTable_users().getValueAt(row, 2).toString());
-                    getEditText_password1().setText(getTable_users().getValueAt(row, 3).toString());
-                    getComboBox_level1().setSelectedItem(getTable_users().getValueAt(row, 4).toString());
-                    getComboBox_status1().setSelectedIndex((int) getTable_users().getValueAt(row, 5));
-                    getEditText_phoneNumber1().setText(getTable_users().getValueAt(row, 6).toString());
-                    getEditText_address1().setText(getTable_users().getValueAt(row, 7).toString());
-                    getImage_user1().setIcon(scaleImage(connection.getUsers().getPhoto(id), getImage_user1()));
-                    getImage_user1().revalidate();
+                    try {
+                        int row = getTable_users().getSelectedRow();
+                        int id = Integer.parseInt(getTable_users().getValueAt(row, 0).toString());
+                        modelUsers.setId(id);
+                        getEditText_name1().setText(getTable_users().getValueAt(row, 1).toString());
+                        getEditText_email1().setText(getTable_users().getValueAt(row, 2).toString());
+                        getEditText_password1().setText(getTable_users().getValueAt(row, 3).toString());
+                        getComboBox_level1().setSelectedItem(getTable_users().getValueAt(row, 4).toString());
+                        getComboBox_status1().setSelectedIndex((int) getTable_users().getValueAt(row, 5));
+                        getEditText_phoneNumber1().setText(getTable_users().getValueAt(row, 6).toString());
+                        getEditText_address1().setText(getTable_users().getValueAt(row, 7).toString());
+                        connection.getUsers().getPhoto(modelUsers);
+                        getImage_user1().setIcon(scaleImage(modelUsers.getFile(), getImage_user1()));
+                        getImage_user1().revalidate();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             });
         } catch (SQLException ex) {
@@ -200,7 +208,9 @@ public class C_Admin extends V_Admin {
                 modelUsers.setName(getEditText_name().getText());
                 modelUsers.setEmail(getEditText_email().getText());
                 modelUsers.setPassword(getEditText_password().getText());
-                modelUsers.setLevelId(connection.getLevel().getId(getComboBox_level().getSelectedItem().toString()));
+                modelLevel.setLevel(getComboBox_level().getSelectedItem().toString());
+                connection.getLevel().getId(modelLevel);
+                modelUsers.setLevelId(modelLevel.getId());
                 modelUsers.setStatus(getComboBox_status().getSelectedIndex());
                 modelUsers.setPhone_number(getEditText_phoneNumber().getText());
                 modelUsers.setAddress(getEditText_address().getText());
@@ -241,7 +251,9 @@ public class C_Admin extends V_Admin {
                 modelUsers.setName(getEditText_name1().getText());
                 modelUsers.setEmail(getEditText_email1().getText());
                 modelUsers.setPassword(getEditText_password1().getText());
-                modelUsers.setLevelId(connection.getLevel().getId(getComboBox_level1().getSelectedItem().toString()));
+                modelLevel.setLevel(getComboBox_level1().getSelectedItem().toString());
+                connection.getLevel().getId(modelLevel);
+                modelUsers.setLevelId(modelLevel.getId());
                 modelUsers.setStatus(getComboBox_status1().getSelectedIndex());
                 modelUsers.setPhone_number(getEditText_phoneNumber1().getText());
                 modelUsers.setAddress(getEditText_address1().getText());
@@ -364,7 +376,8 @@ public class C_Admin extends V_Admin {
                         getEditText_skinColor1().setText(getTable_animal().getValueAt(row, 6).toString());
                         getComboBox_earType1().setSelectedItem(getTable_animal().getValueAt(row, 7).toString());
                         getComboBox_typePet1().setSelectedItem(getTable_animal().getValueAt(row, 8).toString());
-                        getImage_animal1().setIcon(scaleImage(connection.getAnimal().getPhoto(id), getImage_animal1()));
+                        connection.getAnimal().getPhoto(modelAnimal);
+                        getImage_animal1().setIcon(scaleImage(modelAnimal.getFileFromDB(), getImage_animal1()));
                         getImage_animal1().revalidate();
                     } catch (SQLException ex) {
                         Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
@@ -401,13 +414,19 @@ public class C_Admin extends V_Admin {
                     && getEditText_skinColor().getText() != null) {
                 try {
                     modelAnimal.setAnimal_name(getEditText_animalName().getText());
-                    modelAnimal.setId_animal_type(connection.getAnimalType().getId(getComboBox_animalType().getSelectedItem().toString()));
+                    modelAnimalType.setAnimal_type(getComboBox_animalType().getSelectedItem().toString());
+                    connection.getAnimalType().getId(modelAnimalType);
+                    modelAnimal.setId_animal_type(modelAnimalType.getId());
                     modelAnimal.setGender(getComboBox_gender().getSelectedItem().toString());
                     modelAnimal.setBirthdate(getDateChooser_birthdate().getDate());
-                    modelAnimal.setId_user(connection.getUsers().getId(getComboBox_animalOwner().getSelectedItem().toString()));
+                    modelUsers.setName(getComboBox_animalOwner1().getSelectedItem().toString());
+                    connection.getUsers().getId(modelUsers);
+                    modelAnimal.setId_user(modelUsers.getId());
                     modelAnimal.setSkin_color(getEditText_skinColor().getText());
                     modelAnimal.setEar_type(getComboBox_earType().getSelectedItem().toString());
-                    modelAnimal.setId_type_pet(connection.getTypePet().getId(getComboBox_typePet().getSelectedItem().toString()));
+                    modelTypePet.setType_pet(getComboBox_typePet().getSelectedItem().toString());
+                    connection.getTypePet().getId(modelTypePet);
+                    modelAnimal.setId_type_pet(modelTypePet.getId());
                     connection.getAnimal().insert(modelAnimal);
                     tableAnimal();
                     CardLayout card = (CardLayout) getPanel_body().getLayout();
@@ -443,13 +462,19 @@ public class C_Admin extends V_Admin {
         getButton_saveEditAnimal().addActionListener((ActionEvent e) -> {
             try {
                 modelAnimal.setAnimal_name(getEditText_animalName1().getText());
-                modelAnimal.setId_animal_type(connection.getAnimalType().getId(getComboBox_animalType1().getSelectedItem().toString()));
+                modelAnimalType.setAnimal_type(getComboBox_animalType1().getSelectedItem().toString());
+                connection.getAnimalType().getId(modelAnimalType);
+                modelAnimal.setId_animal_type(modelAnimalType.getId());
                 modelAnimal.setGender(getComboBox_gender1().getSelectedItem().toString());
                 modelAnimal.setBirthdate(getDateChooser_birthdate1().getDate());
-                modelAnimal.setId_user(connection.getUsers().getId(getComboBox_animalOwner1().getSelectedItem().toString()));
+                modelUsers.setName(getComboBox_animalOwner1().getSelectedItem().toString());
+                connection.getUsers().getId(modelUsers);
+                modelAnimal.setId_user(modelUsers.getId());
                 modelAnimal.setSkin_color(getEditText_skinColor1().getText());
                 modelAnimal.setEar_type(getComboBox_earType1().getSelectedItem().toString());
-                modelAnimal.setId_type_pet(connection.getTypePet().getId(getComboBox_typePet1().getSelectedItem().toString()));
+                modelTypePet.setType_pet(getComboBox_typePet1().getSelectedItem().toString());
+                connection.getTypePet().getId(modelTypePet);
+                modelAnimal.setId_type_pet(modelTypePet.getId());
                 connection.getAnimal().update(modelAnimal);
                 tableAnimal();
                 CardLayout card = (CardLayout) getPanel_body().getLayout();

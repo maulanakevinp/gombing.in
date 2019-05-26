@@ -5,6 +5,7 @@
  */
 package com.gombing.in.Interface;
 
+import com.gombing.in.Models.M_Level;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,6 +14,6 @@ import java.util.ArrayList;
  * @author MaulanaKevinPradana
  */
 public interface LevelInterface {
-    public int getId(String name)throws SQLException;
+    public void getId(M_Level m)throws SQLException;
     public ArrayList<String> fillComboBoxLevel()throws SQLException;    
 }

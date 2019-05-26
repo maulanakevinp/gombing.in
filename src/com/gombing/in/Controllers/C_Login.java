@@ -433,11 +433,17 @@ public class C_Login extends V_Login {
                 if (getEditText_emailF().getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Email must be filled","Warning",JOptionPane.WARNING_MESSAGE);
                 } else {
-                    String pass = connection.getUsers().getPass(getEditText_emailF().getText());
-                    if (pass == null) {
-                        JOptionPane.showMessageDialog(null, "Sorry you not member","Error",JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Password has been send to your email");
+                    try {
+                        modelUser.setEmail(getEditText_emailF().getText());
+                        connection.getUsers().getPass(modelUser);
+                        if (modelUser.getPassword() == null) {
+                            JOptionPane.showMessageDialog(null, "Sorry you not member","Error",JOptionPane.ERROR_MESSAGE);                            
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Password has been send to your email");
+                            modelUser.setPassword(null);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(C_Login.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }

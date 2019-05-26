@@ -61,9 +61,8 @@ public class C_Customers extends V_Customers {
         modelUsers.setPassword(Password);
         modelUsers.setStatus(status);
         modelUsers.setFile(file);
-        
-        getTextView_name().setText(modelUsers.getName());
-        getPicture().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture()));
+
+        profilHeader();
 
         buttonLogout();
         buttonMinimize();
@@ -78,6 +77,16 @@ public class C_Customers extends V_Customers {
         choosePhoto();
         cancelEditProfile();
         saveEditProfile();
+    }
+
+    private void profilHeader() {
+        try {
+            getTextView_name().setText(modelUsers.getName());
+            connection.getUsers().getPhoto(modelUsers);
+            getPicture().setIcon(scaleImage(modelUsers.getFile(), getPicture()));
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="Animal Care">
@@ -102,19 +111,25 @@ public class C_Customers extends V_Customers {
     }
     //</editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Profile"
+    // <editor-fold defaultstate="collapsed" desc="Profile">
     private void viewEditProfile() {
         getButton_editProfile().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                getColor_animalCare().setBackground(new Color(255, 255, 255));
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_profile");
-                getEditText_name().setText(modelUsers.getName());
-                getEditText_email().setText(modelUsers.getEmail());
-                getEditText_phoneNumber().setText(modelUsers.getPhone_number());
-                getEditText_address().setText(modelUsers.getAddress());
-                getPicture1().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture1()));
+                try {
+                    getColor_animalCare().setBackground(new Color(255, 255, 255));
+                    CardLayout card = (CardLayout) getPanel_body().getLayout();
+                    card.show(getPanel_body(), "panel_profile");
+                    getEditText_name().setText(modelUsers.getName());
+                    getEditText_email().setText(modelUsers.getEmail());
+                    getEditText_phoneNumber().setText(modelUsers.getPhone_number());
+                    getEditText_address().setText(modelUsers.getAddress());
+                    connection.getUsers().getPhoto(modelUsers);
+                    getPicture1().setIcon(scaleImage(modelUsers.getFile(), getPicture1()));
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
 
             @Override
@@ -148,6 +163,7 @@ public class C_Customers extends V_Customers {
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -186,7 +202,8 @@ public class C_Customers extends V_Customers {
                 modelUsers.setPhone_number(getEditText_phoneNumber().getText());
                 modelUsers.setAddress(getEditText_address().getText());
                 connection.getUsers().update(modelUsers);
-                getPicture().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture()));
+                connection.getUsers().getPhoto(modelUsers);
+                getPicture().setIcon(scaleImage(modelUsers.getFile(), getPicture()));
             } catch (SQLException ex) {
                 Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
@@ -219,8 +236,7 @@ public class C_Customers extends V_Customers {
             JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
         return icon;
-    }
-    //</editor-fold>
+    } //</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {

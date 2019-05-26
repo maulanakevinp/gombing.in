@@ -6,7 +6,6 @@
 package com.gombing.in.Interface;
 
 import com.gombing.in.Models.M_Users;
-import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -21,8 +20,8 @@ public interface UsersInterface {
     public void checkLogin(M_Users m)throws SQLException;
     public ArrayList<M_Users> getAll()throws SQLException;
     public ArrayList<String> fillComboBoxUser()throws SQLException;
-    public int getId(String name) throws SQLException;
-    public InputStream getPhoto(int id) throws SQLException;
+    public void getId(M_Users m) throws SQLException;
+    public void getPhoto(M_Users m) throws SQLException;
     public void updatePhoto(M_Users m)throws SQLException;
-    public String getPass(String email) throws SQLException;
+    public void getPass(M_Users m) throws SQLException;
 }

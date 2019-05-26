@@ -19,5 +19,5 @@ public interface TypePetInterface {
     public void delete(M_TypePet m)throws SQLException;
     public ArrayList<M_TypePet> getAll()throws SQLException;
     public ArrayList<String> fillComboBox()throws SQLException;
-    public int getId(String name)throws SQLException;
+    public void getId(M_TypePet m)throws SQLException;
 }

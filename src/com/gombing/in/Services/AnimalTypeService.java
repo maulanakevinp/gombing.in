@@ -105,18 +105,16 @@ public class AnimalTypeService implements AnimalTypeInterface {
     }
 
     @Override    
-    public int getId(String name) throws SQLException {
-        int hasil = 0;
+    public void getId(M_AnimalType m) throws SQLException {
         try {
             PreparedStatement st = con.prepareStatement(sql_getIdAnimalType);
-            st.setString(1, name);
+            st.setString(1, m.getAnimal_type());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                hasil = rs.getInt(1);
+                m.setId(rs.getInt(1));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
-        return hasil;
     }
 }

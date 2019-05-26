@@ -177,51 +177,45 @@ public class UsersService implements UsersInterface {
     }
 
     @Override
-    public int getId(String name) throws SQLException {
-        int hasil = 0;
+    public void getId(M_Users m) throws SQLException {
         try {
             PreparedStatement st = con.prepareStatement(sql_getIdUser);
-            st.setString(1, name);
+            st.setString(1, m.getName());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                hasil = rs.getInt(1);
+                m.setId(rs.getInt(1)); 
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
-        return hasil;
     }
 
     @Override
-    public InputStream getPhoto(int id) {
-        InputStream is = null;
+    public void getPhoto(M_Users m)throws SQLException{
         try {
             PreparedStatement st = con.prepareStatement(sql_getPhoto);
-            st.setInt(1, id);
+            st.setInt(1, m.getId());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                is = rs.getBinaryStream(1);
+                m.setFile(rs.getBinaryStream(1));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
-        return is;
     }
     
     @Override
-    public String getPass(String email){
-        String em = null;
+    public void getPass(M_Users m)throws SQLException{
         try {
             PreparedStatement st = con.prepareStatement(sql_getPass);
-            st.setString(1, email);
+            st.setString(1, m.getEmail());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                em = rs.getString(1);
+                m.setPassword(rs.getString(1));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
-        return em;
     }
 
     @Override
