@@ -60,8 +60,8 @@ public class C_Customers extends V_Customers {
         modelUsers.setLevelId(levelId);
         modelUsers.setPassword(Password);
         modelUsers.setStatus(status);
-        modelUsers.setFileFromDB(file);
-
+        modelUsers.setFile(file);
+        
         getTextView_name().setText(modelUsers.getName());
         getPicture().setIcon(scaleImage(connection.getUsers().getPhoto(modelUsers.getId()), getPicture()));
 
@@ -141,7 +141,14 @@ public class C_Customers extends V_Customers {
 
     private void choosePhoto() {
         getButton_choosePhoto().addActionListener((ActionEvent e) -> {
-            browseImageUser(getPicture1());
+            try {
+                browseImageUser(getPicture1());
+                if (modelUsers.getPath() != null) {
+                    connection.getUsers().updatePhoto(modelUsers);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 

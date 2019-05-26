@@ -22,4 +22,5 @@ public interface RecordingAnimalInterface {
     public ArrayList<String> fillComboBox()throws SQLException;
     public int getId(String name)throws SQLException;
     public InputStream getPhoto(int id)throws SQLException;
+    public void updatePhoto(M_Animal m)throws SQLException;
 }

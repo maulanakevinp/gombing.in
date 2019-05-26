@@ -158,7 +158,7 @@ public class C_Login extends V_Login {
                 Show(false);
                 break;
             case 4:
-                C_Customers customers = new C_Customers(modelUser.getId(), modelUser.getLevelId(), modelUser.getStatus(), modelUser.getName(), modelUser.getEmail(), modelUser.getPhone_number(), modelUser.getPassword(), modelUser.getAddress(), modelUser.getFileFromDB());
+                C_Customers customers = new C_Customers(modelUser.getId(), modelUser.getLevelId(), modelUser.getStatus(), modelUser.getName(), modelUser.getEmail(), modelUser.getPhone_number(), modelUser.getPassword(), modelUser.getAddress(), modelUser.getFile());
                 Show(false);
                 break;
             default:

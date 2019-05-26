@@ -16,7 +16,7 @@ public class M_Users {
     private String name, email, password, levelName, phone_number, address, path;
     private int id, levelId, status;
     private Date updated_at, created_at;
-    private InputStream fileFromDB;
+    private InputStream file;
     
     public M_Users() {
     }
@@ -127,12 +127,12 @@ public class M_Users {
         this.path = path;
     }
 
-    public InputStream getFileFromDB() {
-        return fileFromDB;
+    public InputStream getFile() {
+        return file;
     }
 
-    public void setFileFromDB(InputStream fileFromDB) {
-        this.fileFromDB = fileFromDB;
+    public void setFile(InputStream file) {
+        this.file = file;
     }
     
 }

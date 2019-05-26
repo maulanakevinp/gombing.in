@@ -23,5 +23,6 @@ public interface UsersInterface {
     public ArrayList<String> fillComboBoxUser()throws SQLException;
     public int getId(String name) throws SQLException;
     public InputStream getPhoto(int id) throws SQLException;
+    public void updatePhoto(M_Users m)throws SQLException;
     public String getPass(String email) throws SQLException;
 }

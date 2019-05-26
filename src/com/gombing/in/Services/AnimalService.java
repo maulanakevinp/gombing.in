@@ -39,7 +39,8 @@ public class AnimalService implements RecordingAnimalInterface {
             sql_update = "UPDATE public.animal SET animal_name=?, animal_type=?, gender=?, birth_date=?, id_user=?, skin_color=?, ear_type=?, type_pet=?, updated_at=?, animal_photo=?  WHERE id=?",
             sql_delete = "DELETE FROM public.animal WHERE id=?",
             sql_getId = "SELECT id FROM public.animal WHERE animal_name = ?",
-            sql_getPhoto = "SELECT animal_photo FROM public.animal WHERE id = ?";
+            sql_getPhoto = "SELECT animal_photo FROM public.animal WHERE id = ?",
+            sql_updatePhoto = "UPDATE public.animal SET animal_photo = ? WHERE id = ?";
 
     public void setCon(Connection con) {
         this.con = con;
@@ -196,5 +197,27 @@ public class AnimalService implements RecordingAnimalInterface {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return is;
+    }
+
+    @Override
+    public void updatePhoto(M_Animal m) throws SQLException {
+        try {
+            InputStream is = new FileInputStream(new File(m.getPath()));
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            IOUtils.copy(is, output);
+            byte[] filecontent = output.toByteArray();
+            PreparedStatement st = con.prepareStatement(sql_updatePhoto);
+            st.setBytes(1, filecontent);
+            st.setInt(2, m.getId());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
+        } catch (IOException ex) {
+            Logger.getLogger(AnimalService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

@@ -30,14 +30,15 @@ import org.apache.tomcat.util.http.fileupload.IOUtils;
 public class UsersService implements UsersInterface {
 
     private Connection con;
-    private final String sql_login = "SELECT id, level, name, email, password, phone_number, address, user_photo FROM public.users WHERE email=? AND password=?;",
+    private final String sql_login = "SELECT id, level, name, email, password, phone_number, address, user_photo, status FROM public.users WHERE email=? AND password=?;",
             sql_select = "SELECT u.id, u.name, u.email, u.password, level.level, u.status, u.updated_at, u.created_at, u.phone_number, u.address, u.user_photo FROM public.users u join public.level on u.level = level.id;",
             sql_insert = "INSERT INTO public.users (name, email, password, level, status, updated_at, created_at, phone_number, address, user_photo) VALUES (?,?,?,?,?,?,?,?,?,?)",
-            sql_update = "UPDATE public.users SET name = ?, email = ?, password = ?, level = ?, status = ?, updated_at = ?, phone_number = ?, address = ?, user_photo = ? WHERE id = ?",
+            sql_update = "UPDATE public.users SET name = ?, email = ?, password = ?, level = ?, status = ?, updated_at = ?, phone_number = ?, address = ? WHERE id = ?",
             sql_delete = "DELETE FROM public.users WHERE id = ?",
             sql_getIdUser = "SELECT id FROM public.users Where name = ?",
             sql_getPhoto = "SELECT user_photo FROM public.users WHERE id = ?",
-            sql_getPass = "SELECT password FROM public.users WHERE email = ?";
+            sql_getPass = "SELECT password FROM public.users WHERE email = ?",
+            sql_updatePhoto = "UPDATE public.users SET user_photo = ? WHERE id = ?";
     
     public void setCon(Connection con) {
         this.con = con;
@@ -76,10 +77,6 @@ public class UsersService implements UsersInterface {
     @Override
     public void update(M_Users m) throws SQLException {
         try {
-            InputStream is = new FileInputStream(new File(m.getPath()));
-            ByteArrayOutputStream output = new ByteArrayOutputStream();
-            IOUtils.copy(is, output);
-            byte[] filecontent = output.toByteArray();
             PreparedStatement st = con.prepareStatement(sql_update);
             st.setString(1, m.getName());
             st.setString(2, m.getEmail());
@@ -89,17 +86,10 @@ public class UsersService implements UsersInterface {
             st.setDate(6, new java.sql.Date(m.getUpdated_at1().getTime()));
             st.setString(7, m.getPhone_number());
             st.setString(8, m.getAddress());
-            st.setBytes(9, filecontent);
-            st.setInt(10, m.getId());
+            st.setInt(9, m.getId());
             st.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex) {
-            Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -136,7 +126,7 @@ public class UsersService implements UsersInterface {
                 user.setCreated_at(rs.getDate(8));
                 user.setPhone_number(rs.getString(9));
                 user.setAddress(rs.getString(10));
-                user.setFileFromDB(rs.getBinaryStream(11));
+                user.setFile(rs.getBinaryStream(11));
 
                 list.add(user);
             }
@@ -161,7 +151,8 @@ public class UsersService implements UsersInterface {
                 m.setPassword(rs.getString(5));
                 m.setPhone_number(rs.getString(6));
                 m.setAddress(rs.getString(7));
-                m.setFileFromDB(rs.getBinaryStream(8));
+                m.setFile(rs.getBinaryStream(8));
+                m.setStatus(rs.getInt(9));
             }
         } catch (SQLException | NullPointerException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
@@ -231,5 +222,27 @@ public class UsersService implements UsersInterface {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return em;
+    }
+
+    @Override
+    public void updatePhoto(M_Users m) throws SQLException {
+        try {
+            InputStream is = new FileInputStream(new File(m.getPath()));
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            IOUtils.copy(is, output);
+            byte[] filecontent = output.toByteArray();
+            PreparedStatement st = con.prepareStatement(sql_updatePhoto);            
+            st.setBytes(1, filecontent);
+            st.setInt(2, m.getId());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
+        } catch (IOException ex) {
+            Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

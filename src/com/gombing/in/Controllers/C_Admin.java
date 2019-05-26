@@ -164,7 +164,7 @@ public class C_Admin extends V_Admin {
                     getEditText_email1().setText(getTable_users().getValueAt(row, 2).toString());
                     getEditText_password1().setText(getTable_users().getValueAt(row, 3).toString());
                     getComboBox_level1().setSelectedItem(getTable_users().getValueAt(row, 4).toString());
-                    getComboBox_status1().setSelectedItem(getTable_users().getValueAt(row, 5).toString());
+                    getComboBox_status1().setSelectedIndex((int) getTable_users().getValueAt(row, 5));
                     getEditText_phoneNumber1().setText(getTable_users().getValueAt(row, 6).toString());
                     getEditText_address1().setText(getTable_users().getValueAt(row, 7).toString());
                     getImage_user1().setIcon(scaleImage(connection.getUsers().getPhoto(id), getImage_user1()));
@@ -318,7 +318,14 @@ public class C_Admin extends V_Admin {
 
     private void chooseImageUser() {
         getButton_chooseUserPhoto().addActionListener((ActionEvent e) -> {
-            browseImageUser(getImage_user1());
+            try {
+                browseImageUser(getImage_user1());
+                if (modelUsers.getPath() != null) {
+                    connection.getUsers().updatePhoto(modelUsers);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }//</editor-fold>
 
@@ -515,7 +522,14 @@ public class C_Admin extends V_Admin {
 
     private void chooseImageAnimal() {
         getButton_chooseImageAnimal().addActionListener((ActionEvent e) -> {
-            browseImageAnimal(getImage_animal1());
+            try {
+                browseImageAnimal(getImage_animal1());
+                if (modelAnimal.getPath() != null) {
+                    connection.getAnimal().updatePhoto(modelAnimal);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
