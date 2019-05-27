@@ -53,8 +53,10 @@ public class config {
                     con = (Connection) DriverManager.getConnection(url, username, password);
                     System.out.println("Connection Successful");
                 } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Connection Failed","Error",JOptionPane.ERROR_MESSAGE);
-                    System.exit(0);
+                    int n = JOptionPane.showConfirmDialog(null, "Connection Failed \n Connect again?","Error",JOptionPane.YES_NO_OPTION);
+                    if (n == JOptionPane.YES_OPTION) {
+                        getConnection();
+                    }
                 }
             }
         } catch (SQLException ex) {

@@ -5,6 +5,7 @@
  */
 package com.gombing.in.Views;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -106,6 +107,15 @@ public class V_Login extends javax.swing.JFrame {
     }//</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
+    
+    public JLabel getConnection(){
+        return connection;
+    }
+
+    protected JFrame frame() {
+        return this;
+    }
+    
     protected void Show(Boolean a){
         this.setVisible(a);
     }
@@ -159,6 +169,7 @@ public class V_Login extends javax.swing.JFrame {
         title = new javax.swing.JLabel();
         button_exit = new javax.swing.JLabel();
         button_minimize = new javax.swing.JLabel();
+        connection = new javax.swing.JLabel();
         panel_logo = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         panel_body = new javax.swing.JPanel();
@@ -233,7 +244,8 @@ public class V_Login extends javax.swing.JFrame {
         panel_undecoratedLayout.setHorizontalGroup(
             panel_undecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_undecoratedLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(connection, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(title)
                 .addGap(224, 224, 224)
                 .addComponent(button_minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,6 +257,7 @@ public class V_Login extends javax.swing.JFrame {
             .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_minimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(connection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/logo.png"))); // NOI18N
@@ -671,7 +684,7 @@ public class V_Login extends javax.swing.JFrame {
                     .addComponent(image_user, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(button_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(button_back)
                 .addContainerGap())
         );
@@ -836,6 +849,7 @@ public class V_Login extends javax.swing.JFrame {
     private javax.swing.JLabel button_viewLoginF;
     private javax.swing.JLabel button_viewLoginR;
     private javax.swing.JLabel button_viewRegister;
+    private javax.swing.JLabel connection;
     private javax.swing.JTextField editText_address;
     private javax.swing.JPasswordField editText_confirmPassword;
     private javax.swing.JTextField editText_emailF;

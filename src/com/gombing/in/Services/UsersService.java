@@ -155,7 +155,7 @@ public class UsersService implements UsersInterface {
                 m.setStatus(rs.getInt(9));
             }
         } catch (SQLException | NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERROR : No Connection","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 

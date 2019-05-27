@@ -66,6 +66,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <Component id="connection" min="-2" pref="120" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="title" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
@@ -80,6 +81,7 @@
               <Component id="title" max="32767" attributes="0"/>
               <Component id="button_exit" alignment="0" max="32767" attributes="0"/>
               <Component id="button_minimize" alignment="0" max="32767" attributes="0"/>
+              <Component id="connection" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -107,6 +109,8 @@
               <Image iconType="3" name="/com/gombing/in/resources/images/icons8_minimize_window_30px_1.png"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="connection">
         </Component>
       </SubComponents>
     </Container>
@@ -759,7 +763,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="button_register" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Component id="button_back" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>

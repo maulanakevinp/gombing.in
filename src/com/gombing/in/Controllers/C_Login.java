@@ -18,8 +18,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,6 +40,7 @@ public class C_Login extends V_Login {
     private final config connection;
 
     public C_Login() {
+
         Show(true);
         action_passwordL();
         action_emailL();
@@ -66,40 +65,23 @@ public class C_Login extends V_Login {
 
         modelUser = new M_Users();
 
-        connection = new config();        
+        connection = new config();
         connecting();
     }
-    
-    private void connecting(){
-        JFrame frame = new JFrame("Connection");
-        frame.setLayout(new FlowLayout());
-        frame.setAlwaysOnTop(true);
-        frame.setUndecorated(true);
-        frame.setLocationRelativeTo(null);
-        frame.setBackground(Color.WHITE);
 
-        final JProgressBar jProgressBar = new JProgressBar();
-        final JLabel status = new JLabel("Connecting...");
-        frame.add(status);
-        frame.add("jProgressBar", jProgressBar);
-
-        frame.pack();
-        frame.setVisible(true);
-
+    private void connecting() {
         SwingWorker sw = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
-                jProgressBar.setIndeterminate(true);
+                getConnection().setText("Connecting...");
                 connection.getUsers().setCon(connection.getConnection());
                 return null;
             }
 
             @Override
             public void done() {
-                jProgressBar.setIndeterminate(false);
-                status.setText("Successful");
-                jProgressBar.setValue(100); // 100%
-                frame.dispose();
+                getConnection().setText("[Connected]");
+                getConnection().setForeground(new Color(200, 200, 200));
             }
         };
         sw.execute();
@@ -162,7 +144,7 @@ public class C_Login extends V_Login {
                 Show(false);
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Invalid Username or Password","Error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid Username or Password", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
         }
     }
@@ -329,7 +311,7 @@ public class C_Login extends V_Login {
                         && getEditText_emailR().getText().isEmpty()
                         && getEditText_passwordR().getText().isEmpty()
                         && getEditText_confirmPassword().getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Data must be filled","Warning",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Data must be filled", "Warning", JOptionPane.WARNING_MESSAGE);
                 } else if (!getEditText_passwordR().getText().equals(getEditText_confirmPassword().getText())) {
                     JOptionPane.showMessageDialog(null, "Invalid Password");
                 } else {
@@ -431,13 +413,13 @@ public class C_Login extends V_Login {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (getEditText_emailF().getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Email must be filled","Warning",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Email must be filled", "Warning", JOptionPane.WARNING_MESSAGE);
                 } else {
                     try {
                         modelUser.setEmail(getEditText_emailF().getText());
                         connection.getUsers().getPass(modelUser);
                         if (modelUser.getPassword() == null) {
-                            JOptionPane.showMessageDialog(null, "Sorry you not member","Error",JOptionPane.ERROR_MESSAGE);                            
+                            JOptionPane.showMessageDialog(null, "Sorry you not member", "Error", JOptionPane.ERROR_MESSAGE);
                         } else {
                             JOptionPane.showMessageDialog(null, "Password has been send to your email");
                             modelUser.setPassword(null);
