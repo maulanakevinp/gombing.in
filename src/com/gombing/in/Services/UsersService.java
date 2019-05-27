@@ -38,7 +38,8 @@ public class UsersService implements UsersInterface {
             sql_getIdUser = "SELECT id FROM public.users Where name = ?",
             sql_getPhoto = "SELECT user_photo FROM public.users WHERE id = ?",
             sql_getPass = "SELECT password FROM public.users WHERE email = ?",
-            sql_updatePhoto = "UPDATE public.users SET user_photo = ? WHERE id = ?";
+            sql_updatePhoto = "UPDATE public.users SET user_photo = ? WHERE id = ?",
+            sql_getUser = "SELECT level, name, email, password, phone_number, address, user_photo, status FROM public.users WHERE id=?;";
     
     public void setCon(Connection con) {
         this.con = con;
@@ -237,6 +238,27 @@ public class UsersService implements UsersInterface {
         } catch (IOException ex) {
             Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "ERROR : " + ex,"Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    @Override
+    public void getUser(M_Users m) throws SQLException {
+        try {
+            PreparedStatement st = con.prepareStatement(sql_getUser);
+            st.setInt(1, m.getId());
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                m.setLevelId(rs.getInt(1));
+                m.setName(rs.getString(2));
+                m.setEmail(rs.getString(3));
+                m.setPassword(rs.getString(4));
+                m.setPhone_number(rs.getString(5));
+                m.setAddress(rs.getString(6));
+                m.setFile(rs.getBinaryStream(7));
+                m.setStatus(rs.getInt(8));
+            }
+        } catch (SQLException | NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "ERROR : No Connection","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 }

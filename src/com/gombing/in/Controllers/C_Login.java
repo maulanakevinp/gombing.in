@@ -203,7 +203,7 @@ public class C_Login extends V_Login {
                         getSplashScreen().setLocationRelativeTo(null);
                         getSplashScreen().setVisible(true);
                         getProgressBar().setIndeterminate(true);
-                        C_Customers customers = new C_Customers(modelUser.getId(), modelUser.getLevelId(), modelUser.getStatus(), modelUser.getName(), modelUser.getEmail(), modelUser.getPhone_number(), modelUser.getPassword(), modelUser.getAddress(), modelUser.getFile());
+                        C_Customers customers = new C_Customers(modelUser.getId());
                         return null;
                     }
 

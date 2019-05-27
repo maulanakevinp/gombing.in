@@ -21,6 +21,7 @@ public interface UsersInterface {
     public ArrayList<M_Users> getAll()throws SQLException;
     public ArrayList<String> fillComboBoxUser()throws SQLException;
     public void getId(M_Users m) throws SQLException;
+    public void getUser(M_Users m) throws SQLException;
     public void getPhoto(M_Users m) throws SQLException;
     public void updatePhoto(M_Users m)throws SQLException;
     public void getPass(M_Users m) throws SQLException;

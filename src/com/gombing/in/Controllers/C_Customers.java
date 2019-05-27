@@ -44,7 +44,7 @@ public class C_Customers extends V_Customers {
     private final M_Users modelUsers;
     private final config connection;
 
-    public C_Customers(int id, int levelId, int status, String name, String email, String phone_number, String Password, String address, InputStream file) {
+    public C_Customers(int id) {
         SwingWorker sw = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
@@ -72,14 +72,11 @@ public class C_Customers extends V_Customers {
 
         modelUsers = new M_Users();
         modelUsers.setId(id);
-        modelUsers.setName(name);
-        modelUsers.setEmail(email);
-        modelUsers.setPhone_number(phone_number);
-        modelUsers.setAddress(address);
-        modelUsers.setLevelId(levelId);
-        modelUsers.setPassword(Password);
-        modelUsers.setStatus(status);
-        modelUsers.setFile(file);
+        try {
+            connection.getUsers().getUser(modelUsers);
+        } catch (SQLException ex) {
+            Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         profilHeader();
 
