@@ -52,7 +52,7 @@ public class C_Customers extends V_Customers {
                 getSplashScreen().setLocationRelativeTo(null);
                 getSplashScreen().setVisible(true);
                 getProgressBar().setIndeterminate(true);
-                Thread.sleep(3000);
+                Thread.sleep(6000);
                 return null;
             }
 

@@ -35,6 +35,7 @@ public class C_Login extends V_Login {
 
     private final M_Users modelUser;
     private final config connection;
+    private SwingWorker sw;
 
     public C_Login() {
 
@@ -67,7 +68,7 @@ public class C_Login extends V_Login {
     }
 
     private void connecting() {
-        SwingWorker sw = new SwingWorker() {
+        sw = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 getSplashScreen().pack();
@@ -129,7 +130,7 @@ public class C_Login extends V_Login {
         int level = modelUser.getLevelId();
         switch (level) {
             case 1:
-                SwingWorker sw = new SwingWorker() {
+                sw = new SwingWorker() {
                     @Override
                     protected Object doInBackground() throws Exception {
                         frame().setVisible(false);
@@ -151,7 +152,7 @@ public class C_Login extends V_Login {
 
                 break;
             case 2:
-                SwingWorker sw2 = new SwingWorker() {
+                sw = new SwingWorker() {
                     @Override
                     protected Object doInBackground() throws Exception {
                         frame().setVisible(false);
@@ -169,11 +170,11 @@ public class C_Login extends V_Login {
                         getProgressBar().setIndeterminate(false);
                     }
                 };
-                sw2.execute();
+                sw.execute();
 
                 break;
             case 3:
-                SwingWorker sw3 = new SwingWorker() {
+                sw = new SwingWorker() {
                     @Override
                     protected Object doInBackground() throws Exception {
                         frame().setVisible(false);
@@ -191,11 +192,11 @@ public class C_Login extends V_Login {
                         getProgressBar().setIndeterminate(false);
                     }
                 };
-                sw3.execute();
+                sw.execute();
 
                 break;
             case 4:
-                SwingWorker sw4 = new SwingWorker() {
+                sw = new SwingWorker() {
                     @Override
                     protected Object doInBackground() throws Exception {
                         frame().setVisible(false);
@@ -213,7 +214,7 @@ public class C_Login extends V_Login {
                         getProgressBar().setIndeterminate(false);
                     }
                 };
-                sw4.execute();
+                sw.execute();
 
                 break;
             default:
