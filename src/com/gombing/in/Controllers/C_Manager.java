@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -37,7 +38,6 @@ public class C_Manager extends V_Manager{
     private final config connection;
 
     public C_Manager() {
-        Show(true);
         connection = new config();
         connection.getAnimal().setCon(connection.getConnection());
         connection.getAnimalCare().setCon(connection.getConnection());
@@ -53,6 +53,26 @@ public class C_Manager extends V_Manager{
         viewAnimal();
         tableAnimal();
         viewAnimalCare();
+        
+        SwingWorker sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                Thread.sleep(100);
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
+                frame().setVisible(true);
+            }
+        };
+        sw.execute();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Animal">
@@ -153,7 +173,7 @@ public class C_Manager extends V_Manager{
         int pilihan = JOptionPane.showConfirmDialog(null, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
         if (pilihan == JOptionPane.YES_OPTION) {
             C_Login login = new C_Login();
-            dispose();
+            frame().setVisible(false);
         } else {
 
         }

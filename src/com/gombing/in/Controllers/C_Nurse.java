@@ -29,6 +29,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -44,7 +45,6 @@ public class C_Nurse extends V_Nurse {
     private final config connection;
 
     public C_Nurse() {
-        Show(true);
         connection = new config();
         connection.getAnimal().setCon(connection.getConnection());
         connection.getAnimalCare().setCon(connection.getConnection());
@@ -75,6 +75,26 @@ public class C_Nurse extends V_Nurse {
         saveEditAnimalCare();
         cancelEditAnimalCare();
         refreshAnimalCare();
+        
+        SwingWorker sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                Thread.sleep(100);
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
+                frame().setVisible(true);
+            }
+        };
+        sw.execute();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Animal">
@@ -280,6 +300,7 @@ public class C_Nurse extends V_Nurse {
     }
 
     //</editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
         getButton_logout().addMouseListener(new MouseListener() {
@@ -314,7 +335,7 @@ public class C_Nurse extends V_Nurse {
         int pilihan = JOptionPane.showConfirmDialog(null, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
         if (pilihan == JOptionPane.YES_OPTION) {
             C_Login login = new C_Login();
-            dispose();
+            frame().setVisible(false);
         } else {
 
         }

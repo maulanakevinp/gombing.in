@@ -12,8 +12,11 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -155,8 +158,16 @@ public class V_Nurse extends javax.swing.JFrame {
 //</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
-    protected void Show(Boolean a){
-        this.setVisible(a);
+    public JDialog getSplashScreen() {
+        return splashScreen;
+    }
+
+    public JProgressBar getProgressBar() {
+        return progressBar;
+    }        
+    
+    protected JFrame frame(){
+        return this;
     }
     
     public JLabel getButton_logout() {
@@ -224,6 +235,11 @@ public class V_Nurse extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        splashScreen = new javax.swing.JDialog();
+        base = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        progressBar = new javax.swing.JProgressBar();
+        bg = new javax.swing.JLabel();
         panel_undecorated = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         button_exit = new javax.swing.JLabel();
@@ -295,6 +311,58 @@ public class V_Nurse extends javax.swing.JFrame {
         textView_comment1 = new javax.swing.JLabel();
         scrollPane_comment1 = new javax.swing.JScrollPane();
         editText_comment1 = new javax.swing.JTextArea();
+
+        splashScreen.setMaximumSize(new java.awt.Dimension(370, 460));
+        splashScreen.setMinimumSize(new java.awt.Dimension(370, 460));
+        splashScreen.setUndecorated(true);
+        splashScreen.setPreferredSize(new java.awt.Dimension(370, 460));
+
+        base.setBackground(new java.awt.Color(255, 255, 255));
+        base.setMinimumSize(new java.awt.Dimension(370, 460));
+
+        jLabel1.setText("LOADING...");
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/logo.png"))); // NOI18N
+
+        javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
+        base.setLayout(baseLayout);
+        baseLayout.setHorizontalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(baseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, baseLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        baseLayout.setVerticalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseLayout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout splashScreenLayout = new javax.swing.GroupLayout(splashScreen.getContentPane());
+        splashScreen.getContentPane().setLayout(splashScreenLayout);
+        splashScreenLayout.setHorizontalGroup(
+            splashScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(base, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        splashScreenLayout.setVerticalGroup(
+            splashScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splashScreenLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(base, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1184, 661));
@@ -970,6 +1038,8 @@ public class V_Nurse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel base;
+    private javax.swing.JLabel bg;
     private javax.swing.JButton button_addAnimalCare;
     private javax.swing.JButton button_animal;
     private javax.swing.JButton button_animalCare;
@@ -1005,6 +1075,7 @@ public class V_Nurse extends javax.swing.JFrame {
     private javax.swing.JLabel editText_subtitle7;
     private javax.swing.JTextField editText_weight;
     private javax.swing.JTextField editText_weight1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator7;
@@ -1019,10 +1090,12 @@ public class V_Nurse extends javax.swing.JFrame {
     private javax.swing.JPanel panel_header;
     private javax.swing.JPanel panel_undecorated;
     private javax.swing.JLabel picture;
+    private javax.swing.JProgressBar progressBar;
     private javax.swing.JScrollPane scrollPane_animal;
     private javax.swing.JScrollPane scrollPane_animalCare;
     private javax.swing.JScrollPane scrollPane_comment;
     private javax.swing.JScrollPane scrollPane_comment1;
+    private javax.swing.JDialog splashScreen;
     private javax.swing.JTable table_animal;
     private javax.swing.JTable table_animalCare;
     private javax.swing.JLabel textView_animalName;

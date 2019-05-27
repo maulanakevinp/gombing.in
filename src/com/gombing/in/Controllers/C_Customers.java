@@ -31,6 +31,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -44,7 +45,25 @@ public class C_Customers extends V_Customers {
     private final config connection;
 
     public C_Customers(int id, int levelId, int status, String name, String email, String phone_number, String Password, String address, InputStream file) {
-        Show(true);
+        SwingWorker sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                Thread.sleep(3000);
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
+                frame().setVisible(true);
+            }
+        };
+        sw.execute();
         tableAnimalCare = new Table_AnimalCare();
 
         connection = new config();
@@ -77,6 +96,7 @@ public class C_Customers extends V_Customers {
         choosePhoto();
         cancelEditProfile();
         saveEditProfile();
+
     }
 
     private void profilHeader() {
@@ -272,7 +292,7 @@ public class C_Customers extends V_Customers {
         int pilihan = JOptionPane.showConfirmDialog(null, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
         if (pilihan == JOptionPane.YES_OPTION) {
             C_Login login = new C_Login();
-            Show(false);
+            frame().setVisible(false);
         } else {
 
         }

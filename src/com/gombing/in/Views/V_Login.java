@@ -5,10 +5,12 @@
  */
 package com.gombing.in.Views;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 
 /**
@@ -106,18 +108,19 @@ public class V_Login extends javax.swing.JFrame {
         return button_viewLoginR;
     }//</editor-fold>
     
+
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
-    
-    public JLabel getConnection(){
-        return connection;
+
+    public JDialog getSplashScreen() {
+        return splashScreen;
+    }
+
+    public JProgressBar getProgressBar() {
+        return progressBar;
     }
 
     protected JFrame frame() {
         return this;
-    }
-    
-    protected void Show(Boolean a){
-        this.setVisible(a);
     }
     
     public JPanel getPanel_body() {
@@ -165,11 +168,15 @@ public class V_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        splashScreen = new javax.swing.JDialog();
+        base = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        progressBar = new javax.swing.JProgressBar();
+        bg = new javax.swing.JLabel();
         panel_undecorated = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         button_exit = new javax.swing.JLabel();
         button_minimize = new javax.swing.JLabel();
-        connection = new javax.swing.JLabel();
         panel_logo = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         panel_body = new javax.swing.JPanel();
@@ -224,6 +231,57 @@ public class V_Login extends javax.swing.JFrame {
         button_send = new javax.swing.JPanel();
         send = new javax.swing.JLabel();
 
+        splashScreen.setMinimumSize(new java.awt.Dimension(370, 460));
+        splashScreen.setUndecorated(true);
+
+        base.setBackground(new java.awt.Color(255, 255, 255));
+        base.setMinimumSize(new java.awt.Dimension(370, 460));
+        base.setPreferredSize(new java.awt.Dimension(370, 460));
+
+        jLabel1.setText("LOADING...");
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/logo.png"))); // NOI18N
+
+        javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
+        base.setLayout(baseLayout);
+        baseLayout.setHorizontalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(baseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, baseLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        baseLayout.setVerticalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseLayout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout splashScreenLayout = new javax.swing.GroupLayout(splashScreen.getContentPane());
+        splashScreen.getContentPane().setLayout(splashScreenLayout);
+        splashScreenLayout.setHorizontalGroup(
+            splashScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(base, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        splashScreenLayout.setVerticalGroup(
+            splashScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splashScreenLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(base, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GOMBING");
         setMinimumSize(new java.awt.Dimension(700, 428));
@@ -244,8 +302,7 @@ public class V_Login extends javax.swing.JFrame {
         panel_undecoratedLayout.setHorizontalGroup(
             panel_undecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_undecoratedLayout.createSequentialGroup()
-                .addComponent(connection, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(title)
                 .addGap(224, 224, 224)
                 .addComponent(button_minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,7 +314,6 @@ public class V_Login extends javax.swing.JFrame {
             .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_minimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(connection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/logo.png"))); // NOI18N
@@ -838,6 +894,8 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel base;
+    private javax.swing.JLabel bg;
     private javax.swing.JLabel button_back;
     private javax.swing.JLabel button_exit;
     private javax.swing.JPanel button_login;
@@ -849,7 +907,6 @@ public class V_Login extends javax.swing.JFrame {
     private javax.swing.JLabel button_viewLoginF;
     private javax.swing.JLabel button_viewLoginR;
     private javax.swing.JLabel button_viewRegister;
-    private javax.swing.JLabel connection;
     private javax.swing.JTextField editText_address;
     private javax.swing.JPasswordField editText_confirmPassword;
     private javax.swing.JTextField editText_emailF;
@@ -860,6 +917,7 @@ public class V_Login extends javax.swing.JFrame {
     private javax.swing.JTextField editText_phoneNumber;
     private javax.swing.JTextField editText_usernameR;
     private javax.swing.JLabel image_user;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel login;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel next;
@@ -870,6 +928,7 @@ public class V_Login extends javax.swing.JFrame {
     private javax.swing.JPanel panel_register;
     private javax.swing.JPanel panel_register1;
     private javax.swing.JPanel panel_undecorated;
+    private javax.swing.JProgressBar progressBar;
     private javax.swing.JLabel register1;
     private javax.swing.JLabel send;
     private javax.swing.JSeparator separator_address;
@@ -881,6 +940,7 @@ public class V_Login extends javax.swing.JFrame {
     private javax.swing.JSeparator separator_passwordR;
     private javax.swing.JSeparator separator_phoneNumber;
     private javax.swing.JSeparator separator_usernameR;
+    private javax.swing.JDialog splashScreen;
     private javax.swing.JLabel textView_address;
     private javax.swing.JLabel textView_confirmPassword;
     private javax.swing.JLabel textView_emailF;

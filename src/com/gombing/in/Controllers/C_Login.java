@@ -10,7 +10,6 @@ import com.gombing.in.Models.M_Users;
 import com.gombing.in.Views.V_Login;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -23,10 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -41,7 +38,6 @@ public class C_Login extends V_Login {
 
     public C_Login() {
 
-        Show(true);
         action_passwordL();
         action_emailL();
         action_usernameR();
@@ -49,6 +45,7 @@ public class C_Login extends V_Login {
         action_passwordR();
         action_cpasswordR();
         action_phoneNumber();
+        action_emailF();
 
         addImageUser();
 
@@ -73,15 +70,19 @@ public class C_Login extends V_Login {
         SwingWorker sw = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
-                getConnection().setText("Connecting...");
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
                 connection.getUsers().setCon(connection.getConnection());
                 return null;
             }
 
             @Override
             public void done() {
-                getConnection().setText("[Connected]");
-                getConnection().setForeground(new Color(200, 200, 200));
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
+                frame().setVisible(true);
             }
         };
         sw.execute();
@@ -128,20 +129,92 @@ public class C_Login extends V_Login {
         int level = modelUser.getLevelId();
         switch (level) {
             case 1:
-                C_Admin admin = new C_Admin();
-                Show(false);
+                SwingWorker sw = new SwingWorker() {
+                    @Override
+                    protected Object doInBackground() throws Exception {
+                        frame().setVisible(false);
+                        getSplashScreen().pack();
+                        getSplashScreen().setLocationRelativeTo(null);
+                        getSplashScreen().setVisible(true);
+                        getProgressBar().setIndeterminate(true);
+                        C_Admin admin = new C_Admin();
+                        return null;
+                    }
+
+                    @Override
+                    public void done() {
+                        getSplashScreen().setVisible(false);
+                        getProgressBar().setIndeterminate(false);
+                    }
+                };
+                sw.execute();
+
                 break;
             case 2:
-                C_Manager manager = new C_Manager();
-                Show(false);
+                SwingWorker sw2 = new SwingWorker() {
+                    @Override
+                    protected Object doInBackground() throws Exception {
+                        frame().setVisible(false);
+                        getSplashScreen().pack();
+                        getSplashScreen().setLocationRelativeTo(null);
+                        getSplashScreen().setVisible(true);
+                        getProgressBar().setIndeterminate(true);
+                        C_Manager manager = new C_Manager();
+                        return null;
+                    }
+
+                    @Override
+                    public void done() {
+                        getSplashScreen().setVisible(false);
+                        getProgressBar().setIndeterminate(false);
+                    }
+                };
+                sw2.execute();
+
                 break;
             case 3:
-                C_Nurse nurse = new C_Nurse();
-                Show(false);
+                SwingWorker sw3 = new SwingWorker() {
+                    @Override
+                    protected Object doInBackground() throws Exception {
+                        frame().setVisible(false);
+                        getSplashScreen().pack();
+                        getSplashScreen().setLocationRelativeTo(null);
+                        getSplashScreen().setVisible(true);
+                        getProgressBar().setIndeterminate(true);
+                        C_Nurse nurse = new C_Nurse();
+                        return null;
+                    }
+
+                    @Override
+                    public void done() {
+                        getSplashScreen().setVisible(false);
+                        getProgressBar().setIndeterminate(false);
+                    }
+                };
+                sw3.execute();
+
                 break;
             case 4:
-                C_Customers customers = new C_Customers(modelUser.getId(), modelUser.getLevelId(), modelUser.getStatus(), modelUser.getName(), modelUser.getEmail(), modelUser.getPhone_number(), modelUser.getPassword(), modelUser.getAddress(), modelUser.getFile());
-                Show(false);
+                SwingWorker sw4 = new SwingWorker() {
+                    @Override
+                    protected Object doInBackground() throws Exception {
+                        frame().setVisible(false);
+                        getSplashScreen().pack();
+                        getSplashScreen().setLocationRelativeTo(null);
+                        getSplashScreen().setVisible(true);
+                        getProgressBar().setIndeterminate(true);
+                        C_Customers customers = new C_Customers(modelUser.getId(), modelUser.getLevelId(), modelUser.getStatus(), modelUser.getName(), modelUser.getEmail(), modelUser.getPhone_number(), modelUser.getPassword(), modelUser.getAddress(), modelUser.getFile());
+                        return null;
+                    }
+
+                    @Override
+                    public void done() {
+                        getSplashScreen().setVisible(false);
+                        getProgressBar().setIndeterminate(false);
+                    }
+                };
+                sw4.execute();
+
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Invalid Username or Password", "Error", JOptionPane.ERROR_MESSAGE);
@@ -189,6 +262,12 @@ public class C_Login extends V_Login {
     private void action_phoneNumber() {
         getEditText_phoneNumber().addActionListener((ActionEvent e) -> {
             getEditText_address().requestFocusInWindow();
+        });
+    }
+
+    private void action_emailF() {
+        getEditText_emailF().addActionListener((ActionEvent e) -> {
+            buttonSend();
         });
     }
 

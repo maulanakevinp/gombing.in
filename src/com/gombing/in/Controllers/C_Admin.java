@@ -41,6 +41,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -61,7 +62,6 @@ public class C_Admin extends V_Admin {
     private final config connection;
 
     public C_Admin() {
-        Show(true);
         modelUsers = new M_Users();
         modelAnimal = new M_Animal();
         modelAnimalType = new M_AnimalType();
@@ -135,6 +135,26 @@ public class C_Admin extends V_Admin {
         buttonExit();
         dragWindow();
         buttonLogout();
+
+        SwingWorker sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                Thread.sleep(100);
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
+                frame().setVisible(true);
+            }
+        };
+        sw.execute();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Users">
