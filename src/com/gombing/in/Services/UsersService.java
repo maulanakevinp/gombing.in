@@ -64,7 +64,8 @@ public class UsersService implements UsersInterface {
             st.setString(9, m.getAddress());
             st.setBytes(10, filecontent);
             st.executeUpdate();
-        } catch (SQLException e) {
+            
+        } catch (SQLException | NullPointerException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(UsersService.class.getName()).log(Level.SEVERE, null, ex);

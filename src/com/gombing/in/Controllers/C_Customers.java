@@ -43,29 +43,11 @@ public class C_Customers extends V_Customers {
     private final Table_AnimalCare tableAnimalCare;
     private final M_Users modelUsers;
     private final config connection;
+    private SwingWorker sw;
 
     public C_Customers(int id) {
-        SwingWorker sw = new SwingWorker() {
-            @Override
-            protected Object doInBackground() throws Exception {
-                getSplashScreen().pack();
-                getSplashScreen().setLocationRelativeTo(null);
-                getSplashScreen().setVisible(true);
-                getProgressBar().setIndeterminate(true);
-                Thread.sleep(6000);
-                return null;
-            }
 
-            @Override
-            public void done() {
-                getSplashScreen().setVisible(false);
-                getProgressBar().setIndeterminate(false);
-                frame().setVisible(true);
-            }
-        };
-        sw.execute();
-        tableAnimalCare = new Table_AnimalCare();
-
+        showFrame();
         connection = new config();
         connection.getAnimalCare().setCon(connection.getConnection());
         connection.getUsers().setCon(connection.getConnection());
@@ -77,6 +59,8 @@ public class C_Customers extends V_Customers {
         } catch (SQLException ex) {
             Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        tableAnimalCare = new Table_AnimalCare();
 
         profilHeader();
 
@@ -93,9 +77,53 @@ public class C_Customers extends V_Customers {
         choosePhoto();
         cancelEditProfile();
         saveEditProfile();
-
     }
 
+    private void showFrame() {
+        SwingWorker sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                Thread.sleep(3000);
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
+                frame().setVisible(true);
+            }
+        };
+        sw.execute();
+    }
+
+    private void refresh() {
+        this.dispose();
+        sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                frame().setVisible(false);
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                C_Customers customer = new C_Customers(WIDTH);
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
+            }
+        };
+        sw.execute();
+    }
+    
     private void profilHeader() {
         try {
             getTextView_name().setText(modelUsers.getName());
@@ -211,19 +239,26 @@ public class C_Customers extends V_Customers {
 
     private void saveEditProfile() {
         getButton_saveEditProfile().addActionListener((ActionEvent e) -> {
-            try {
-                getTextView_name().setText(getEditText_name().getText());
-                JOptionPane.showMessageDialog(null, "Success to save profile");
-                modelUsers.setName(getEditText_name().getText());
-                modelUsers.setEmail(getEditText_email().getText());
-                modelUsers.setPhone_number(getEditText_phoneNumber().getText());
-                modelUsers.setAddress(getEditText_address().getText());
-                connection.getUsers().update(modelUsers);
-                connection.getUsers().getPhoto(modelUsers);
-                getPicture().setIcon(scaleImage(modelUsers.getFile(), getPicture()));
-            } catch (SQLException ex) {
-                Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
+            if (getEditText_name().getText().isEmpty()
+                    && getEditText_email().getText().isEmpty()
+                    && getEditText_phoneNumber().getText().isEmpty()
+                    && getEditText_address().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data must be filled", "Failed", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    getTextView_name().setText(getEditText_name().getText());
+                    JOptionPane.showMessageDialog(null, "Success to save profile");
+                    modelUsers.setName(getEditText_name().getText());
+                    modelUsers.setEmail(getEditText_email().getText());
+                    modelUsers.setPhone_number(getEditText_phoneNumber().getText());
+                    modelUsers.setAddress(getEditText_address().getText());
+                    connection.getUsers().update(modelUsers);
+                    connection.getUsers().getPhoto(modelUsers);
+                    getPicture().setIcon(scaleImage(modelUsers.getFile(), getPicture()));
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }

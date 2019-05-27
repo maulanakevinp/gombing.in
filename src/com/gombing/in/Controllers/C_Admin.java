@@ -60,6 +60,7 @@ public class C_Admin extends V_Admin {
     private final Table_AnimalType tableAnimalType;
     private final Table_TypePet tableTypePet;
     private final config connection;
+    private SwingWorker sw;
 
     public C_Admin() {
         modelUsers = new M_Users();
@@ -136,7 +137,11 @@ public class C_Admin extends V_Admin {
         dragWindow();
         buttonLogout();
 
-        SwingWorker sw = new SwingWorker() {
+        showFrame();
+    }
+
+    private void showFrame() {
+        sw = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 getSplashScreen().pack();
@@ -152,6 +157,29 @@ public class C_Admin extends V_Admin {
                 getSplashScreen().setVisible(false);
                 getProgressBar().setIndeterminate(false);
                 frame().setVisible(true);
+            }
+        };
+        sw.execute();
+    }
+
+    private void refresh() {
+        this.dispose();
+        sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                frame().setVisible(false);
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                C_Admin admin = new C_Admin();
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
             }
         };
         sw.execute();
@@ -225,25 +253,27 @@ public class C_Admin extends V_Admin {
     private void saveAddUsers() {
         getButton_saveAddUsers().addActionListener((ActionEvent e) -> {
             try {
-                modelUsers.setName(getEditText_name().getText());
-                modelUsers.setEmail(getEditText_email().getText());
-                modelUsers.setPassword(getEditText_password().getText());
-                modelLevel.setLevel(getComboBox_level().getSelectedItem().toString());
-                connection.getLevel().getId(modelLevel);
-                modelUsers.setLevelId(modelLevel.getId());
-                modelUsers.setStatus(getComboBox_status().getSelectedIndex());
-                modelUsers.setPhone_number(getEditText_phoneNumber().getText());
-                modelUsers.setAddress(getEditText_address().getText());
-                connection.getUsers().insert(modelUsers);
-                tableUsers();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_users");
-                getEditText_name().setText("");
-                getEditText_email().setText("");
-                getEditText_password().setText("");
-                getEditText_phoneNumber().setText("");
-                getEditText_address().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                if (getEditText_name().getText().isEmpty()
+                        && getEditText_email().getText().isEmpty()
+                        && getEditText_password().getText().isEmpty()
+                        && getEditText_phoneNumber().getText().isEmpty()
+                        && getEditText_address().getText().isEmpty()
+                        && modelUsers.getPath().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Data must be filled", "Failed", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    modelUsers.setName(getEditText_name().getText());
+                    modelUsers.setEmail(getEditText_email().getText());
+                    modelUsers.setPassword(getEditText_password().getText());
+                    modelLevel.setLevel(getComboBox_level().getSelectedItem().toString());
+                    connection.getLevel().getId(modelLevel);
+                    modelUsers.setLevelId(modelLevel.getId());
+                    modelUsers.setStatus(getComboBox_status().getSelectedIndex());
+                    modelUsers.setPhone_number(getEditText_phoneNumber().getText());
+                    modelUsers.setAddress(getEditText_address().getText());
+                    connection.getUsers().insert(modelUsers);
+                    refresh();
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
@@ -268,23 +298,27 @@ public class C_Admin extends V_Admin {
     private void saveEditUsers() {
         getButton_saveEditUsers().addActionListener((ActionEvent e) -> {
             try {
-                modelUsers.setName(getEditText_name1().getText());
-                modelUsers.setEmail(getEditText_email1().getText());
-                modelUsers.setPassword(getEditText_password1().getText());
-                modelLevel.setLevel(getComboBox_level1().getSelectedItem().toString());
-                connection.getLevel().getId(modelLevel);
-                modelUsers.setLevelId(modelLevel.getId());
-                modelUsers.setStatus(getComboBox_status1().getSelectedIndex());
-                modelUsers.setPhone_number(getEditText_phoneNumber1().getText());
-                modelUsers.setAddress(getEditText_address1().getText());
-                connection.getUsers().update(modelUsers);
-                tableUsers();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_users");
-                getEditText_name1().setText("");
-                getEditText_email1().setText("");
-                getEditText_password1().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                if (getEditText_name1().getText().isEmpty()
+                        && getEditText_email1().getText().isEmpty()
+                        && getEditText_password1().getText().isEmpty()
+                        && getEditText_phoneNumber1().getText().isEmpty()
+                        && getEditText_address1().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Data must be filled", "Failed", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    modelUsers.setName(getEditText_name1().getText());
+                    modelUsers.setEmail(getEditText_email1().getText());
+                    modelUsers.setPassword(getEditText_password1().getText());
+                    modelLevel.setLevel(getComboBox_level1().getSelectedItem().toString());
+                    connection.getLevel().getId(modelLevel);
+                    modelUsers.setLevelId(modelLevel.getId());
+                    modelUsers.setStatus(getComboBox_status1().getSelectedIndex());
+                    modelUsers.setPhone_number(getEditText_phoneNumber1().getText());
+                    modelUsers.setAddress(getEditText_address1().getText());
+                    connection.getUsers().update(modelUsers);
+                    refresh();
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                }
+
             } catch (SQLException ex) {
                 Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
@@ -314,7 +348,9 @@ public class C_Admin extends V_Admin {
 
     private void refreshUsers() {
         getButton_refreshUsers().addActionListener((ActionEvent e) -> {
-            tableUsers();
+            refresh();
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_users");
         });
     }
 
@@ -431,7 +467,7 @@ public class C_Admin extends V_Admin {
     private void saveAddAnimal() {
         getButton_saveAddAnimal().addActionListener((ActionEvent e) -> {
             if (getDateChooser_birthdate().getDate() != null && getEditText_animalName().getText() != null
-                    && getEditText_skinColor().getText() != null) {
+                    && getEditText_skinColor().getText() != null && modelAnimal.getPath() != null) {
                 try {
                     modelAnimal.setAnimal_name(getEditText_animalName().getText());
                     modelAnimalType.setAnimal_type(getComboBox_animalType().getSelectedItem().toString());
@@ -448,11 +484,7 @@ public class C_Admin extends V_Admin {
                     connection.getTypePet().getId(modelTypePet);
                     modelAnimal.setId_type_pet(modelTypePet.getId());
                     connection.getAnimal().insert(modelAnimal);
-                    tableAnimal();
-                    CardLayout card = (CardLayout) getPanel_body().getLayout();
-                    card.show(getPanel_body(), "panel_animal");
-                    getEditText_animalName().setText("");
-                    getEditText_skinColor().setText("");
+                    refresh();
                     JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
                 } catch (SQLException ex) {
                     Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
@@ -480,32 +512,35 @@ public class C_Admin extends V_Admin {
 
     private void saveEditAnimal() {
         getButton_saveEditAnimal().addActionListener((ActionEvent e) -> {
-            try {
-                modelAnimal.setAnimal_name(getEditText_animalName1().getText());
-                modelAnimalType.setAnimal_type(getComboBox_animalType1().getSelectedItem().toString());
-                connection.getAnimalType().getId(modelAnimalType);
-                modelAnimal.setId_animal_type(modelAnimalType.getId());
-                modelAnimal.setGender(getComboBox_gender1().getSelectedItem().toString());
-                modelAnimal.setBirthdate(getDateChooser_birthdate1().getDate());
-                modelUsers.setName(getComboBox_animalOwner1().getSelectedItem().toString());
-                connection.getUsers().getId(modelUsers);
-                modelAnimal.setId_user(modelUsers.getId());
-                modelAnimal.setSkin_color(getEditText_skinColor1().getText());
-                modelAnimal.setEar_type(getComboBox_earType1().getSelectedItem().toString());
-                modelTypePet.setType_pet(getComboBox_typePet1().getSelectedItem().toString());
-                connection.getTypePet().getId(modelTypePet);
-                modelAnimal.setId_type_pet(modelTypePet.getId());
-                connection.getAnimal().update(modelAnimal);
-                tableAnimal();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_animal");
-                getEditText_animalName1().setText("");
-                getEditText_skinColor1().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+            if (getDateChooser_birthdate1().getDate() != null
+                    && getEditText_animalName1().getText() != null
+                    && getEditText_skinColor1().getText() != null) {
+                try {
+                    modelAnimal.setAnimal_name(getEditText_animalName1().getText());
+                    modelAnimalType.setAnimal_type(getComboBox_animalType1().getSelectedItem().toString());
+                    connection.getAnimalType().getId(modelAnimalType);
+                    modelAnimal.setId_animal_type(modelAnimalType.getId());
+                    modelAnimal.setGender(getComboBox_gender1().getSelectedItem().toString());
+                    modelAnimal.setBirthdate(getDateChooser_birthdate1().getDate());
+                    modelUsers.setName(getComboBox_animalOwner1().getSelectedItem().toString());
+                    connection.getUsers().getId(modelUsers);
+                    modelAnimal.setId_user(modelUsers.getId());
+                    modelAnimal.setSkin_color(getEditText_skinColor1().getText());
+                    modelAnimal.setEar_type(getComboBox_earType1().getSelectedItem().toString());
+                    modelTypePet.setType_pet(getComboBox_typePet1().getSelectedItem().toString());
+                    connection.getTypePet().getId(modelTypePet);
+                    modelAnimal.setId_type_pet(modelTypePet.getId());
+                    connection.getAnimal().update(modelAnimal);
+                    refresh();
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Data must be filled!!!", "Error", JOptionPane.ERROR_MESSAGE);
             }
+
         });
     }
 
@@ -531,7 +566,9 @@ public class C_Admin extends V_Admin {
 
     private void refreshAnimal() {
         getButton_refreshAnimal().addActionListener((ActionEvent e) -> {
-            tableAnimal();
+            refresh();
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_animal");
         });
     }
 
@@ -693,17 +730,18 @@ public class C_Admin extends V_Admin {
 
     private void saveAddAnimalType() {
         getButton_saveAddAnimalType().addActionListener((ActionEvent e) -> {
-            try {
-                modelAnimalType.setAnimal_type(getEditText_animalType().getText());
-                connection.getAnimalType().insert(modelAnimalType);
-                tableAnimalType();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_animalType");
-                getEditText_animalType().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+            if (getEditText_animalType().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data must be filled!!!", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    modelAnimalType.setAnimal_type(getEditText_animalType().getText());
+                    connection.getAnimalType().insert(modelAnimalType);
+                    refresh();
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
@@ -724,17 +762,18 @@ public class C_Admin extends V_Admin {
 
     private void saveEditAnimalType() {
         getButton_saveEditAnimalType().addActionListener((ActionEvent e) -> {
-            try {
-                modelAnimalType.setAnimal_type(getEditText_animalType1().getText());
-                connection.getAnimalType().update(modelAnimalType);
-                tableAnimalType();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_animalType");
-                getEditText_animalType().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+            if (getEditText_animalType1().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data must be filled!!!", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    modelAnimalType.setAnimal_type(getEditText_animalType1().getText());
+                    connection.getAnimalType().update(modelAnimalType);
+                    refresh();
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
@@ -761,7 +800,9 @@ public class C_Admin extends V_Admin {
 
     private void refreshAnimalType() {
         getButton_refreshAnimalType().addActionListener((ActionEvent e) -> {
-            tableAnimalType();
+            refresh();
+            CardLayout card = (CardLayout) getPanel_body().getLayout();
+            card.show(getPanel_body(), "panel_animalType");
         });
     }//</editor-fold>
 
@@ -820,17 +861,18 @@ public class C_Admin extends V_Admin {
 
     private void saveAddTypePet() {
         getButton_saveAddTypePet().addActionListener((ActionEvent e) -> {
-            try {
-                modelTypePet.setType_pet(getEditText_typePet().getText());
-                connection.getTypePet().insert(modelTypePet);
-                tableTypePet();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_typePet");
-                getEditText_typePet().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+            if (getEditText_typePet().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data must be filled!!!", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    modelTypePet.setType_pet(getEditText_typePet().getText());
+                    connection.getTypePet().insert(modelTypePet);
+                    refresh();
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
@@ -851,17 +893,21 @@ public class C_Admin extends V_Admin {
 
     private void saveEditTypePet() {
         getButton_saveEditTypePet().addActionListener((ActionEvent e) -> {
-            try {
-                modelTypePet.setType_pet(getEditText_typePet1().getText());
-                connection.getTypePet().update(modelTypePet);
-                tableTypePet();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_typePet");
-                getEditText_typePet1().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+            if (getEditText_typePet1().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data must be filled!!!", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    modelTypePet.setType_pet(getEditText_typePet1().getText());
+                    connection.getTypePet().update(modelTypePet);
+                    tableTypePet();
+                    CardLayout card = (CardLayout) getPanel_body().getLayout();
+                    card.show(getPanel_body(), "panel_typePet");
+                    getEditText_typePet1().setText("");
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
@@ -888,7 +934,7 @@ public class C_Admin extends V_Admin {
 
     private void refreshTypePet() {
         getButton_refreshTypePet().addActionListener((ActionEvent e) -> {
-            tableTypePet();
+            refresh();
         });
     }//</editor-fold>
 

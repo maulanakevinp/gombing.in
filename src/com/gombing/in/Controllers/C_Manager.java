@@ -36,6 +36,7 @@ public class C_Manager extends V_Manager{
     private final Table_Animal tableAnimal;
     private final Table_AnimalCare tableAnimalCare;
     private final config connection;
+    private SwingWorker sw;
 
     public C_Manager() {
         connection = new config();
@@ -54,7 +55,11 @@ public class C_Manager extends V_Manager{
         tableAnimal();
         viewAnimalCare();
         
-        SwingWorker sw = new SwingWorker() {
+        showFrame();
+    }
+    
+    private void showFrame(){
+        sw = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 getSplashScreen().pack();
@@ -75,6 +80,29 @@ public class C_Manager extends V_Manager{
         sw.execute();
     }
 
+    private void refresh() {
+        this.dispose();
+        sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                frame().setVisible(false);
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                C_Manager manager = new C_Manager();
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
+            }
+        };
+        sw.execute();
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Animal">
     private void viewAnimal() {
         getButton_animal().addActionListener((ActionEvent e) -> {

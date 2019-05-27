@@ -43,6 +43,7 @@ public class C_Nurse extends V_Nurse {
     private final M_Animal modelAnimal;
     private final M_Users modelUsers;
     private final config connection;
+    private SwingWorker sw;
 
     public C_Nurse() {
         connection = new config();
@@ -75,8 +76,12 @@ public class C_Nurse extends V_Nurse {
         saveEditAnimalCare();
         cancelEditAnimalCare();
         refreshAnimalCare();
-        
-        SwingWorker sw = new SwingWorker() {
+
+        showFrame();
+    }
+
+    private void showFrame() {
+        sw = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 getSplashScreen().pack();
@@ -92,6 +97,29 @@ public class C_Nurse extends V_Nurse {
                 getSplashScreen().setVisible(false);
                 getProgressBar().setIndeterminate(false);
                 frame().setVisible(true);
+            }
+        };
+        sw.execute();
+    }
+
+    private void refresh() {
+        this.dispose();
+        sw = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                frame().setVisible(false);
+                getSplashScreen().pack();
+                getSplashScreen().setLocationRelativeTo(null);
+                getSplashScreen().setVisible(true);
+                getProgressBar().setIndeterminate(true);
+                C_Nurse nurse = new C_Nurse();
+                return null;
+            }
+
+            @Override
+            public void done() {
+                getSplashScreen().setVisible(false);
+                getProgressBar().setIndeterminate(false);
             }
         };
         sw.execute();
@@ -173,36 +201,44 @@ public class C_Nurse extends V_Nurse {
 
     private void saveAddAnimalCare() {
         getButton_saveAddAnimalCare().addActionListener((ActionEvent e) -> {
-            try {
-                double weight = Double.parseDouble(getEditText_weight().getText());
-                double bodyLength = Double.parseDouble(getEditText_bodyLength().getText());
-                double chestSize = Double.parseDouble(getEditText_chestSize().getText());
-                double Height = Double.parseDouble(getEditText_height().getText());
-                
-                modelAnimal.setAnimal_name(getComboBox_animalName().getSelectedItem().toString());
-                connection.getAnimal().getId(modelAnimal);
-                modelAnimalCare.setId_animal(modelAnimal.getId());
-                modelUsers.setName(getComboBox_animalOwner().getSelectedItem().toString());
-                connection.getUsers().getId(modelUsers);
-                modelAnimalCare.setId_user(modelUsers.getId());
-                modelAnimalCare.setWeight(weight);
-                modelAnimalCare.setBody_length(bodyLength);
-                modelAnimalCare.setChest_size(chestSize);
-                modelAnimalCare.setHeight(Height);
-                modelAnimalCare.setComment(getEditText_comment().getText());
-                connection.getAnimalCare().insert(modelAnimalCare);
-                tableAnimalCare();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_animalCare");
-                getEditText_bodyLength().setText("");
-                getEditText_chestSize().setText("");
-                getEditText_comment().setText("");
-                getEditText_height().setText("");
-                getEditText_weight().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+            if (getEditText_weight().getText().isEmpty()
+                    && getEditText_bodyLength().getText().isEmpty()
+                    && getEditText_chestSize().getText().isEmpty()
+                    && getEditText_height().getText().isEmpty()
+                    && getEditText_comment().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data must be filled", "Failed", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    double weight = Double.parseDouble(getEditText_weight().getText());
+                    double bodyLength = Double.parseDouble(getEditText_bodyLength().getText());
+                    double chestSize = Double.parseDouble(getEditText_chestSize().getText());
+                    double Height = Double.parseDouble(getEditText_height().getText());
+
+                    modelAnimal.setAnimal_name(getComboBox_animalName().getSelectedItem().toString());
+                    connection.getAnimal().getId(modelAnimal);
+                    modelAnimalCare.setId_animal(modelAnimal.getId());
+                    modelUsers.setName(getComboBox_animalOwner().getSelectedItem().toString());
+                    connection.getUsers().getId(modelUsers);
+                    modelAnimalCare.setId_user(modelUsers.getId());
+                    modelAnimalCare.setWeight(weight);
+                    modelAnimalCare.setBody_length(bodyLength);
+                    modelAnimalCare.setChest_size(chestSize);
+                    modelAnimalCare.setHeight(Height);
+                    modelAnimalCare.setComment(getEditText_comment().getText());
+                    connection.getAnimalCare().insert(modelAnimalCare);
+                    tableAnimalCare();
+                    CardLayout card = (CardLayout) getPanel_body().getLayout();
+                    card.show(getPanel_body(), "panel_animalCare");
+                    getEditText_bodyLength().setText("");
+                    getEditText_chestSize().setText("");
+                    getEditText_comment().setText("");
+                    getEditText_height().setText("");
+                    getEditText_weight().setText("");
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
@@ -223,32 +259,40 @@ public class C_Nurse extends V_Nurse {
 
     private void saveEditAnimalCare() {
         getButton_saveEditAnimalCare().addActionListener((ActionEvent e) -> {
-            try {
-                double weight = Double.parseDouble(getEditText_weight1().getText());
-                double bodyLength = Double.parseDouble(getEditText_bodyLength1().getText());
-                double chestSize = Double.parseDouble(getEditText_chestSize1().getText());
-                double Height = Double.parseDouble(getEditText_height1().getText());
+            if (getEditText_weight1().getText().isEmpty()
+                    && getEditText_bodyLength1().getText().isEmpty()
+                    && getEditText_chestSize1().getText().isEmpty()
+                    && getEditText_height1().getText().isEmpty()
+                    && getEditText_comment1().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data must be filled", "Failed", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    double weight = Double.parseDouble(getEditText_weight1().getText());
+                    double bodyLength = Double.parseDouble(getEditText_bodyLength1().getText());
+                    double chestSize = Double.parseDouble(getEditText_chestSize1().getText());
+                    double Height = Double.parseDouble(getEditText_height1().getText());
 
-                modelUsers.setName(getComboBox_animalOwner1().getSelectedItem().toString());
-                connection.getUsers().getId(modelUsers);
-                modelAnimalCare.setWeight(weight);
-                modelAnimalCare.setBody_length(bodyLength);
-                modelAnimalCare.setChest_size(chestSize);
-                modelAnimalCare.setHeight(Height);
-                modelAnimalCare.setComment(getEditText_comment1().getText());
-                connection.getAnimalCare().update(modelAnimalCare);
-                tableAnimalCare();
-                CardLayout card = (CardLayout) getPanel_body().getLayout();
-                card.show(getPanel_body(), "panel_animalCare");
-                getEditText_bodyLength1().setText("");
-                getEditText_chestSize1().setText("");
-                getEditText_comment1().setText("");
-                getEditText_height().setText("");
-                getEditText_weight1().setText("");
-                JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+                    modelUsers.setName(getComboBox_animalOwner1().getSelectedItem().toString());
+                    connection.getUsers().getId(modelUsers);
+                    modelAnimalCare.setWeight(weight);
+                    modelAnimalCare.setBody_length(bodyLength);
+                    modelAnimalCare.setChest_size(chestSize);
+                    modelAnimalCare.setHeight(Height);
+                    modelAnimalCare.setComment(getEditText_comment1().getText());
+                    connection.getAnimalCare().update(modelAnimalCare);
+                    tableAnimalCare();
+                    CardLayout card = (CardLayout) getPanel_body().getLayout();
+                    card.show(getPanel_body(), "panel_animalCare");
+                    getEditText_bodyLength1().setText("");
+                    getEditText_chestSize1().setText("");
+                    getEditText_comment1().setText("");
+                    getEditText_height().setText("");
+                    getEditText_weight1().setText("");
+                    JOptionPane.showMessageDialog(null, "Success to save data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Failed to save data", "Failed", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
@@ -275,7 +319,7 @@ public class C_Nurse extends V_Nurse {
 
     private void refreshAnimalCare() {
         getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
-            tableAnimalCare();
+            refresh();
         });
     }
 
@@ -300,7 +344,6 @@ public class C_Nurse extends V_Nurse {
     }
 
     //</editor-fold>
-    
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
         getButton_logout().addMouseListener(new MouseListener() {
