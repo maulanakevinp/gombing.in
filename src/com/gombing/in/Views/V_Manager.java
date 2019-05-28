@@ -5,11 +5,6 @@
  */
 package com.gombing.in.Views;
 
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -37,6 +32,10 @@ public class V_Manager extends javax.swing.JFrame {
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL">
 
+    public JButton getButton_refreshAnimal() {
+        return button_refreshAnimal;
+    }    
+
     public JTable getTable_animal() {
         return table_animal;
     }    
@@ -49,7 +48,12 @@ public class V_Manager extends javax.swing.JFrame {
         return color_animal;
     }//</editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">    
+    // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">  
+    
+    public JButton getButton_refreshAnimalCare() {
+        return button_refreshAnimalCare;
+    }
+
     public JTable getTable_animalCare() {
         return table_animalCare;
     }
@@ -163,6 +167,7 @@ public class V_Manager extends javax.swing.JFrame {
         panel_animal = new javax.swing.JPanel();
         editText_subtitle2 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
+        button_refreshAnimal = new javax.swing.JButton();
         scrollPane_animal = new javax.swing.JScrollPane();
         table_animal = new javax.swing.JTable();
         panel_animalCare = new javax.swing.JPanel();
@@ -170,11 +175,10 @@ public class V_Manager extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         scrollPane_animal1 = new javax.swing.JScrollPane();
         table_animalCare = new javax.swing.JTable();
+        button_refreshAnimalCare = new javax.swing.JButton();
 
-        splashScreen.setMaximumSize(new java.awt.Dimension(370, 460));
         splashScreen.setMinimumSize(new java.awt.Dimension(370, 460));
         splashScreen.setUndecorated(true);
-        splashScreen.setPreferredSize(new java.awt.Dimension(370, 460));
 
         base.setBackground(new java.awt.Color(255, 255, 255));
         base.setMinimumSize(new java.awt.Dimension(370, 460));
@@ -354,6 +358,12 @@ public class V_Manager extends javax.swing.JFrame {
         editText_subtitle2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         editText_subtitle2.setText("ANIMAL");
 
+        button_refreshAnimal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_refreshAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/refresh.png"))); // NOI18N
+        button_refreshAnimal.setText("Refresh");
+        button_refreshAnimal.setContentAreaFilled(false);
+        button_refreshAnimal.setFocusable(false);
+
         scrollPane_animal.setBackground(new java.awt.Color(255, 255, 255));
         scrollPane_animal.setBorder(null);
 
@@ -380,15 +390,15 @@ public class V_Manager extends javax.swing.JFrame {
             panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_animalLayout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editText_subtitle2)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(scrollPane_animal)
+                    .addComponent(editText_subtitle2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE))
                 .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_animalLayout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addComponent(scrollPane_animal, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
-                    .addGap(54, 54, 54)))
+            .addGroup(panel_animalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_refreshAnimal)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_animalLayout.setVerticalGroup(
             panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,12 +407,11 @@ public class V_Manager extends javax.swing.JFrame {
                 .addComponent(editText_subtitle2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(405, Short.MAX_VALUE))
-            .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_animalLayout.createSequentialGroup()
-                    .addGap(112, 112, 112)
-                    .addComponent(scrollPane_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(113, Short.MAX_VALUE)))
+                .addGap(30, 30, 30)
+                .addComponent(scrollPane_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_refreshAnimal)
+                .addGap(75, 75, 75))
         );
 
         panel_body.add(panel_animal, "panel_animal");
@@ -432,21 +441,29 @@ public class V_Manager extends javax.swing.JFrame {
         table_animalCare.getTableHeader().setReorderingAllowed(false);
         scrollPane_animal1.setViewportView(table_animalCare);
 
+        button_refreshAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_refreshAnimalCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/refresh.png"))); // NOI18N
+        button_refreshAnimalCare.setText("Refresh");
+        button_refreshAnimalCare.setContentAreaFilled(false);
+        button_refreshAnimalCare.setFocusable(false);
+
         javax.swing.GroupLayout panel_animalCareLayout = new javax.swing.GroupLayout(panel_animalCare);
         panel_animalCare.setLayout(panel_animalCareLayout);
         panel_animalCareLayout.setHorizontalGroup(
             panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_animalCareLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_refreshAnimalCare)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panel_animalCareLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editText_subtitle1)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
-            .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_animalCareLayout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addComponent(scrollPane_animal1, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
-                    .addGap(54, 54, 54)))
+                    .addComponent(scrollPane_animal1, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
+                    .addGroup(panel_animalCareLayout.createSequentialGroup()
+                        .addComponent(editText_subtitle1)
+                        .addGap(0, 997, Short.MAX_VALUE))
+                    .addComponent(jSeparator2))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         panel_animalCareLayout.setVerticalGroup(
             panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,12 +472,11 @@ public class V_Manager extends javax.swing.JFrame {
                 .addComponent(editText_subtitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(405, Short.MAX_VALUE))
-            .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_animalCareLayout.createSequentialGroup()
-                    .addGap(112, 112, 112)
-                    .addComponent(scrollPane_animal1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(113, Short.MAX_VALUE)))
+                .addGap(30, 30, 30)
+                .addComponent(scrollPane_animal1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(button_refreshAnimalCare)
+                .addGap(75, 75, 75))
         );
 
         panel_body.add(panel_animalCare, "panel_animalCare");
@@ -531,6 +547,8 @@ public class V_Manager extends javax.swing.JFrame {
     private javax.swing.JLabel button_logout;
     private javax.swing.JLabel button_maximize;
     private javax.swing.JLabel button_minimize;
+    private javax.swing.JButton button_refreshAnimal;
+    private javax.swing.JButton button_refreshAnimalCare;
     private javax.swing.JLabel color_animal;
     private javax.swing.JLabel color_animalCare;
     private javax.swing.JLabel editText_name;

@@ -47,7 +47,7 @@ public class C_Customers extends V_Customers {
 
     public C_Customers(int id) {
 
-        showFrame();
+        frame().setVisible(true);
         connection = new config();
         connection.getAnimalCare().setCon(connection.getConnection());
         connection.getUsers().setCon(connection.getConnection());
@@ -87,7 +87,7 @@ public class C_Customers extends V_Customers {
                 getSplashScreen().setLocationRelativeTo(null);
                 getSplashScreen().setVisible(true);
                 getProgressBar().setIndeterminate(true);
-                Thread.sleep(3000);
+                Thread.sleep(6000);
                 return null;
             }
 
@@ -95,7 +95,7 @@ public class C_Customers extends V_Customers {
             public void done() {
                 getSplashScreen().setVisible(false);
                 getProgressBar().setIndeterminate(false);
-                frame().setVisible(true);
+                
             }
         };
         sw.execute();

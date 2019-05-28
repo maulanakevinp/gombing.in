@@ -40,6 +40,9 @@ public class V_Nurse extends javax.swing.JFrame {
 
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL">
+    public JButton getButton_refreshAnimal() {
+        return button_refreshAnimal;
+    }    
 
     public JTable getTable_animal() {
         return table_animal;
@@ -260,6 +263,7 @@ public class V_Nurse extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         scrollPane_animal = new javax.swing.JScrollPane();
         table_animal = new javax.swing.JTable();
+        button_refreshAnimal = new javax.swing.JButton();
         panel_animalCare = new javax.swing.JPanel();
         editText_subtitle1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -312,10 +316,8 @@ public class V_Nurse extends javax.swing.JFrame {
         scrollPane_comment1 = new javax.swing.JScrollPane();
         editText_comment1 = new javax.swing.JTextArea();
 
-        splashScreen.setMaximumSize(new java.awt.Dimension(370, 460));
         splashScreen.setMinimumSize(new java.awt.Dimension(370, 460));
         splashScreen.setUndecorated(true);
-        splashScreen.setPreferredSize(new java.awt.Dimension(370, 460));
 
         base.setBackground(new java.awt.Color(255, 255, 255));
         base.setMinimumSize(new java.awt.Dimension(370, 460));
@@ -515,6 +517,12 @@ public class V_Nurse extends javax.swing.JFrame {
         table_animal.getTableHeader().setReorderingAllowed(false);
         scrollPane_animal.setViewportView(table_animal);
 
+        button_refreshAnimal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_refreshAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/refresh.png"))); // NOI18N
+        button_refreshAnimal.setText("Refresh");
+        button_refreshAnimal.setContentAreaFilled(false);
+        button_refreshAnimal.setFocusable(false);
+
         javax.swing.GroupLayout panel_animalLayout = new javax.swing.GroupLayout(panel_animal);
         panel_animal.setLayout(panel_animalLayout);
         panel_animalLayout.setHorizontalGroup(
@@ -526,6 +534,10 @@ public class V_Nurse extends javax.swing.JFrame {
                     .addComponent(editText_subtitle2)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
+            .addGroup(panel_animalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_refreshAnimal)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_animalLayout.setVerticalGroup(
             panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,7 +548,9 @@ public class V_Nurse extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(scrollPane_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(button_refreshAnimal)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_animal, "panel_animal");
@@ -1051,6 +1065,7 @@ public class V_Nurse extends javax.swing.JFrame {
     private javax.swing.JLabel button_logout;
     private javax.swing.JLabel button_maximize;
     private javax.swing.JLabel button_minimize;
+    private javax.swing.JButton button_refreshAnimal;
     private javax.swing.JButton button_refreshAnimalCare;
     private javax.swing.JButton button_saveAddAnimalCare;
     private javax.swing.JButton button_saveEditAnimalCare;

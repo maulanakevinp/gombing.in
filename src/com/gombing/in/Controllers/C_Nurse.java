@@ -18,6 +18,7 @@ import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -67,6 +68,8 @@ public class C_Nurse extends V_Nurse {
 
         viewAnimal();
         tableAnimal();
+        refreshAnimal();
+        
         viewAnimalCare();
         addAnimalCare();
         saveAddAnimalCare();
@@ -149,6 +152,11 @@ public class C_Nurse extends V_Nurse {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    private void refreshAnimal(){
+        getButton_refreshAnimal().addActionListener((ActionEvent e) -> {
+            refresh();
+        });
     }
     //</editor-fold>
 
@@ -344,6 +352,7 @@ public class C_Nurse extends V_Nurse {
     }
 
     //</editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Button Logout">
     private void buttonLogout() {
         getButton_logout().addMouseListener(new MouseListener() {

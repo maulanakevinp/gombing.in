@@ -53,7 +53,9 @@ public class C_Manager extends V_Manager{
 
         viewAnimal();
         tableAnimal();
+        refreshAnimal();
         viewAnimalCare();
+        refreshAnimalCare();
         
         showFrame();
     }
@@ -133,6 +135,12 @@ public class C_Manager extends V_Manager{
             JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    private void refreshAnimal(){
+        getButton_refreshAnimal().addActionListener((ActionEvent e) -> {
+            refresh();
+        });
+    }
+    
     //</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Animal Care">
@@ -153,17 +161,16 @@ public class C_Manager extends V_Manager{
             getTable_animalCare().getTableHeader().setOpaque(false);
             getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animalCare().getTableHeader().setBackground(Color.white);
-            getTable_animalCare().addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    
-                }
-                
-            });
         } catch (SQLException ex) {
             Logger.getLogger(C_Manager.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "ERROR : " + ex, "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    private void refreshAnimalCare(){
+        getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
+            refresh();
+        });
     }
     //</editor-fold>
 

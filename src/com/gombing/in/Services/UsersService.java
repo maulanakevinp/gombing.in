@@ -63,8 +63,7 @@ public class UsersService implements UsersInterface {
             st.setString(8, m.getPhone_number());
             st.setString(9, m.getAddress());
             st.setBytes(10, filecontent);
-            st.executeUpdate();
-            
+            st.executeUpdate();            
         } catch (SQLException | NullPointerException e) {
             JOptionPane.showMessageDialog(null, "ERROR : " + e,"Error",JOptionPane.ERROR_MESSAGE);
         } catch (FileNotFoundException ex) {
