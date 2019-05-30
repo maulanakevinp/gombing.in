@@ -31,132 +31,143 @@ public class V_Customers extends javax.swing.JFrame {
     public V_Customers() {
         initComponents();
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">
-    public JButton getButton_animalCare() {
+    
+    protected JButton getButton_printAnimalCare() {
+        return button_printAnimalCare;
+    }
+    protected JButton getButton_refreshAnimalCare() {    
+        return button_refreshAnimalCare;
+    }
+
+    protected JButton getButton_animalCare() {
         return button_animalCare;
     }
     
-    public JLabel getColor_animalCare() {
+    protected JLabel getColor_animalCare() {
         return color_animalCare;
     }
     
-    public JTable getTable_animalCare() {
+    protected JTable getTable_animalCare() {
         return table_animalCare;
     }//</editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Profile">    
-    public JButton getButton_cancelEditProfile() {
+    // <editor-fold defaultstate="collapsed" desc="PROFIL">    
+    protected JButton getButton_cancelEditProfile() {
         return button_cancelEditProfile;
     }
 
-    public JButton getButton_saveEditProfile() {
+    protected JButton getButton_saveEditProfile() {
         return button_saveEditProfile;
-    }
-    
+    }   
 
-    public JTextArea getEditText_address() {
+    protected JTextArea getEditText_address() {
         return editText_address;
     }
 
-    public JTextField getEditText_email() {
+    protected JTextField getEditText_email() {
         return editText_email;
     }
 
-    public JTextField getEditText_name() {
+    protected JTextField getEditText_name() {
         return editText_name;
     }
 
-    public JTextField getEditText_phoneNumber() {
+    protected JTextField getEditText_phoneNumber() {
         return editText_phoneNumber;
     }
 
-    public JLabel getTextView_name() {    
+    protected JLabel getTextView_name() {    
         return textView_name;
     }
 
-    public JLabel getButton_editProfile() {
+    protected JLabel getButton_editProfile() {
         return button_editProfile;
     }
 
-    public JButton getButton_choosePhoto() {
+    protected JButton getButton_choosePhoto() {
         return button_choosePhoto;
     }
 
-    public JLabel getPicture() {
+    protected JLabel getPicture() {
         return picture;
     }
 
-    public JLabel getPicture1() {
+    protected JLabel getPicture1() {
         return picture1;
     }//</editor-fold>    
-    
+
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
-    public JDialog getSplashScreen() {
+    protected JDialog getSplashScreen() {
         return splashScreen;
     }
 
-    public JProgressBar getProgressBar() {
+    protected JProgressBar getProgressBar() {
         return progressBar;
-    }        
-    
-    protected JFrame frame(){
+    }
+
+    protected JFrame frame() {
         return this;
     }
-    
-    public JLabel getButton_logout() {
+
+    protected void Show(Boolean a) {
+        this.setVisible(a);
+    }
+
+    protected JLabel getButton_logout() {
         return button_logout;
     }
-        
-    public JPanel getPanel_body() {
+
+    protected JPanel getPanel_body() {
         return panel_body;
     }
 
-    public int getxMouse() {
+    protected int getxMouse() {
         return xMouse;
     }
 
-    public void setxMouse(int xMouse) {
+    protected void setxMouse(int xMouse) {
         this.xMouse = xMouse;
     }
 
-    public int getyMouse() {
+    protected int getyMouse() {
         return yMouse;
     }
 
-    public void setyMouse(int yMouse) {
+    protected void setyMouse(int yMouse) {
         this.yMouse = yMouse;
     }
 
-    public JLabel getButton_minimize() {
+    protected JLabel getButton_minimize() {
         return button_minimize;
-    }    
+    }
 
-    public void minimize(int State) {
+    protected void minimize(int State) {
         this.setState(State);
     }
 
-    public JLabel getButton_maximize() {
+    protected JLabel getButton_maximize() {
         return button_maximize;
     }
-    
-    public void naximize(int State) {
+
+    protected void naximize(int State) {
         this.setState(State);
     }
 
-    public boolean isMaximized() {
+    protected boolean isMaximized() {
         return maximized;
     }
 
-    public void setMaximized(boolean maximized) {
+    protected void setMaximized(boolean maximized) {
         V_Admin.maximized = maximized;
     }
 
-    public JLabel getButton_exit() {
+    protected JLabel getButton_exit() {
         return button_exit;
-    } 
+    }
 
-    public JPanel getPanel_undecorated() {
+    protected JPanel getPanel_undecorated() {
         return panel_undecorated;
     }//</editor-fold>
 
@@ -193,6 +204,8 @@ public class V_Customers extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         scrollPane = new javax.swing.JScrollPane();
         table_animalCare = new javax.swing.JTable();
+        button_refreshAnimalCare = new javax.swing.JButton();
+        button_printAnimalCare = new javax.swing.JButton();
         panel_profile = new javax.swing.JPanel();
         textView_profile = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -210,10 +223,8 @@ public class V_Customers extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         editText_address = new javax.swing.JTextArea();
 
-        splashScreen.setMaximumSize(new java.awt.Dimension(370, 460));
         splashScreen.setMinimumSize(new java.awt.Dimension(370, 460));
         splashScreen.setUndecorated(true);
-        splashScreen.setPreferredSize(new java.awt.Dimension(370, 460));
 
         base.setBackground(new java.awt.Color(255, 255, 255));
         base.setMinimumSize(new java.awt.Dimension(370, 460));
@@ -381,36 +392,53 @@ public class V_Customers extends javax.swing.JFrame {
         editText_subtitle.setText("ANIMAL CARE");
 
         scrollPane.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        scrollPane.setBorder(null);
 
         table_animalCare.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        table_animalCare.setFocusable(false);
         table_animalCare.setGridColor(new java.awt.Color(255, 255, 255));
+        table_animalCare.setIntercellSpacing(new java.awt.Dimension(0, 0));
         table_animalCare.setSelectionBackground(new java.awt.Color(0, 255, 0));
         table_animalCare.getTableHeader().setResizingAllowed(false);
         table_animalCare.getTableHeader().setReorderingAllowed(false);
         scrollPane.setViewportView(table_animalCare);
+
+        button_refreshAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_refreshAnimalCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/refresh.png"))); // NOI18N
+        button_refreshAnimalCare.setText("Refresh");
+        button_refreshAnimalCare.setContentAreaFilled(false);
+        button_refreshAnimalCare.setFocusable(false);
+
+        button_printAnimalCare.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        button_printAnimalCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gombing/in/resources/images/Print.png"))); // NOI18N
+        button_printAnimalCare.setText("Print");
+        button_printAnimalCare.setContentAreaFilled(false);
+        button_printAnimalCare.setFocusable(false);
 
         javax.swing.GroupLayout panel_animalCareLayout = new javax.swing.GroupLayout(panel_animalCare);
         panel_animalCare.setLayout(panel_animalCareLayout);
         panel_animalCareLayout.setHorizontalGroup(
             panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_animalCareLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(scrollPane)
                     .addComponent(editText_subtitle)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE))
-                .addGap(55, 55, 55))
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_animalCareLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_refreshAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(button_printAnimalCare)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_animalCareLayout.setVerticalGroup(
             panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,9 +447,13 @@ public class V_Customers extends javax.swing.JFrame {
                 .addComponent(editText_subtitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(32, 32, 32)
                 .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_refreshAnimalCare)
+                    .addComponent(button_printAnimalCare))
+                .addGap(50, 50, 50))
         );
 
         panel_body.add(panel_animalCare, "panel_animalCare");
@@ -469,38 +501,40 @@ public class V_Customers extends javax.swing.JFrame {
         panel_profileLayout.setHorizontalGroup(
             panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_profileLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_profileLayout.createSequentialGroup()
-                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(button_choosePhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(picture1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(21, 21, 21)
-                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(panel_profileLayout.createSequentialGroup()
-                                .addComponent(textView_phoneNumber)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(editText_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_profileLayout.createSequentialGroup()
-                                .addComponent(textView_nameEdit)
-                                .addGap(63, 63, 63)
-                                .addComponent(editText_name, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_profileLayout.createSequentialGroup()
-                                .addComponent(textView_email)
-                                .addGap(63, 63, 63)
-                                .addComponent(editText_email, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(48, 48, 48)
-                        .addComponent(textView_address)
-                        .addGap(27, 27, 27)
-                        .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_profileLayout.createSequentialGroup()
-                                .addComponent(button_cancelEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_saveEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(textView_profile)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(panel_profileLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(button_choosePhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(picture1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_profileLayout.createSequentialGroup()
+                        .addComponent(textView_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(editText_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_profileLayout.createSequentialGroup()
+                        .addComponent(textView_nameEdit)
+                        .addGap(63, 63, 63)
+                        .addComponent(editText_name, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_profileLayout.createSequentialGroup()
+                        .addComponent(textView_email)
+                        .addGap(63, 63, 63)
+                        .addComponent(editText_email, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
+                .addComponent(textView_address)
+                .addGap(27, 27, 27)
+                .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_profileLayout.createSequentialGroup()
+                        .addComponent(button_cancelEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_saveEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_profileLayout.setVerticalGroup(
             panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,7 +543,7 @@ public class V_Customers extends javax.swing.JFrame {
                 .addComponent(textView_profile)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(75, 75, 75)
                 .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_profileLayout.createSequentialGroup()
                         .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,7 +567,7 @@ public class V_Customers extends javax.swing.JFrame {
                             .addComponent(button_saveEditProfile)
                             .addComponent(button_choosePhoto)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         panel_body.add(panel_profile, "panel_profile");
@@ -606,6 +640,8 @@ public class V_Customers extends javax.swing.JFrame {
     private javax.swing.JLabel button_logout;
     private javax.swing.JLabel button_maximize;
     private javax.swing.JLabel button_minimize;
+    private javax.swing.JButton button_printAnimalCare;
+    private javax.swing.JButton button_refreshAnimalCare;
     private javax.swing.JButton button_saveEditProfile;
     private javax.swing.JLabel color_animalCare;
     private javax.swing.JTextArea editText_address;

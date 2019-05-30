@@ -11,6 +11,7 @@ import com.gombing.in.Models.Table_AnimalCare;
 import com.gombing.in.Views.V_Customers;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
@@ -31,8 +32,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -46,19 +50,13 @@ public class C_Customers extends V_Customers {
     private SwingWorker sw;
 
     public C_Customers(int id) {
-
-        frame().setVisible(true);
+        showFrame();
         connection = new config();
         connection.getAnimalCare().setCon(connection.getConnection());
         connection.getUsers().setCon(connection.getConnection());
 
         modelUsers = new M_Users();
         modelUsers.setId(id);
-        try {
-            connection.getUsers().getUser(modelUsers);
-        } catch (SQLException ex) {
-            Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
         tableAnimalCare = new Table_AnimalCare();
 
@@ -72,15 +70,17 @@ public class C_Customers extends V_Customers {
 
         viewAnimalCare();
         tableAnimalCare();
+        refreshAnimalCare();
 
         viewEditProfile();
         choosePhoto();
         cancelEditProfile();
         saveEditProfile();
+
     }
 
     private void showFrame() {
-        SwingWorker sw = new SwingWorker() {
+        sw = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 getSplashScreen().pack();
@@ -95,7 +95,7 @@ public class C_Customers extends V_Customers {
             public void done() {
                 getSplashScreen().setVisible(false);
                 getProgressBar().setIndeterminate(false);
-                
+                frame().setVisible(true);
             }
         };
         sw.execute();
@@ -123,14 +123,31 @@ public class C_Customers extends V_Customers {
         };
         sw.execute();
     }
-    
+
     private void profilHeader() {
         try {
+            connection.getUsers().getUser(modelUsers);
             getTextView_name().setText(modelUsers.getName());
             connection.getUsers().getPhoto(modelUsers);
             getPicture().setIcon(scaleImage(modelUsers.getFile(), getPicture()));
         } catch (SQLException ex) {
             Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void resizeColumnWidth(JTable table) {
+        final TableColumnModel columnModel = table.getColumnModel();
+        for (int column = 0; column < table.getColumnCount(); column++) {
+            int width = 15; // Min width
+            for (int row = 0; row < table.getRowCount(); row++) {
+                TableCellRenderer renderer = table.getCellRenderer(row, column);
+                Component comp = table.prepareRenderer(renderer, row, column);
+                width = Math.max(comp.getPreferredSize().width + 1, width);
+            }
+            if (width > 300) {
+                width = 300;
+            }
+            columnModel.getColumn(column).setPreferredWidth(width);
         }
     }
 
@@ -147,12 +164,19 @@ public class C_Customers extends V_Customers {
         try {
             tableAnimalCare.setList(connection.getAnimalCare().getAllOwnerHave(modelUsers));
             getTable_animalCare().setModel(tableAnimalCare);
+            resizeColumnWidth(getTable_animalCare());
             getTable_animalCare().getTableHeader().setOpaque(false);
             getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animalCare().getTableHeader().setBackground(Color.white);
         } catch (SQLException ex) {
             Logger.getLogger(C_Customers.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void refreshAnimalCare() {
+        getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
+            refresh();
+        });
     }
     //</editor-fold>
 

@@ -472,15 +472,16 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textUsers_subtitle" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSeparator1" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="textUsers_subtitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSeparator1" alignment="0" pref="1077" max="32767" attributes="0"/>
+                          <Component id="scrollPane_users" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="304" max="32767" attributes="0"/>
                       <Component id="button_addUsers" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="button_deleteUsers" min="-2" pref="120" max="-2" attributes="0"/>
@@ -488,14 +489,9 @@
                       <Component id="button_editUsers" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="button_refreshUsers" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                          <Component id="scrollPane_users" pref="1077" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="button_printUsers" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="305" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -506,21 +502,17 @@
                       <Component id="textUsers_subtitle" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace pref="318" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="scrollPane_users" min="-2" pref="251" max="-2" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="button_addUsers" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_deleteUsers" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_editUsers" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_refreshUsers" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="button_printUsers" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                          <Component id="scrollPane_users" min="-2" pref="251" max="-2" attributes="0"/>
-                          <EmptySpace pref="113" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -652,6 +644,19 @@
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="button_printUsers">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/gombing/in/resources/images/Print.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Print"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="focusable" type="boolean" value="false"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_addUsers">
@@ -670,16 +675,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_addUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator5" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Component id="panel_formAddUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="panel_formAddUsers" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1397,6 +1398,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace pref="53" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="scrollPane_animal" min="-2" pref="1077" max="-2" attributes="0"/>
                           <Component id="textView_animal" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator2" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
                       </Group>
@@ -1411,14 +1413,9 @@
                       <Component id="button_editAnimal" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="button_refreshAnimal" min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="button_printAnimal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                          <Component id="scrollPane_animal" pref="1077" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1429,21 +1426,17 @@
                       <Component id="textView_animal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace pref="318" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="scrollPane_animal" min="-2" pref="251" max="-2" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="button_addAnimal" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_deleteAnimal" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_editAnimal" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_refreshAnimal" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="button_printAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                          <Component id="scrollPane_animal" min="-2" pref="251" max="-2" attributes="0"/>
-                          <EmptySpace pref="113" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1575,6 +1568,19 @@
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="button_printAnimal">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/gombing/in/resources/images/Print.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Print"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="focusable" type="boolean" value="false"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_addAnimal">
@@ -1593,16 +1599,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_addAnimal" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator7" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Component id="panel_formAddAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="panel_formAddAnimal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1995,16 +1997,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_editAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator8" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Component id="panel_formEditAnimal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="panel_formEditAnimal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -2047,7 +2045,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="button_chooseImage" max="32767" attributes="0"/>
+                              <Component id="button_chooseAnimalPhoto" max="32767" attributes="0"/>
                               <Component id="image_animal1" pref="130" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -2149,7 +2147,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="button_cancelEditAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="button_saveEditAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="button_chooseImage" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button_chooseAnimalPhoto" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -2385,7 +2383,7 @@
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="button_chooseImage">
+                <Component class="javax.swing.JButton" name="button_chooseAnimalPhoto">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2418,15 +2416,16 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="textView_subAnimalType" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSeparator3" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Component id="jSeparator3" alignment="0" pref="1077" max="32767" attributes="0"/>
+                          <Component id="scrollPane_animalType" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="304" max="32767" attributes="0"/>
                       <Component id="button_addAnimalType" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="button_deleteAnimalType" min="-2" pref="120" max="-2" attributes="0"/>
@@ -2434,14 +2433,9 @@
                       <Component id="button_editAnimalType" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="button_refreshAnimalType" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                          <Component id="scrollPane_animalType" pref="1077" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="button_printAnimalType" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="305" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2452,21 +2446,17 @@
                       <Component id="textView_subAnimalType" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace pref="318" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="scrollPane_animalType" min="-2" pref="251" max="-2" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="button_addAnimalType" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_deleteAnimalType" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_editAnimalType" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_refreshAnimalType" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="button_printAnimalType" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                          <Component id="scrollPane_animalType" min="-2" pref="251" max="-2" attributes="0"/>
-                          <EmptySpace pref="113" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2598,6 +2588,19 @@
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="button_printAnimalType">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/gombing/in/resources/images/Print.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Print"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="focusable" type="boolean" value="false"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_addAnimalType">
@@ -2616,16 +2619,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_addAnimalType" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator9" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Component id="panel_formAddAnimalType" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="panel_formAddAnimalType" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -2766,16 +2765,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_editAnimalType" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator10" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Component id="panel_formEditAnimalType" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="panel_formEditAnimalType" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -2916,15 +2911,16 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="textView_subTypePet" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSeparator4" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Component id="jSeparator4" alignment="0" pref="1077" max="32767" attributes="0"/>
+                          <Component id="scrollPane_typePet" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="304" max="32767" attributes="0"/>
                       <Component id="button_addTypePet" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="button_deleteTypePet" min="-2" pref="120" max="-2" attributes="0"/>
@@ -2932,14 +2928,9 @@
                       <Component id="button_editTypePet" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="button_refreshTypePet" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                          <Component id="scrollPane_typePet" pref="1077" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="button_printTypePet" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="305" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2950,21 +2941,17 @@
                       <Component id="textView_subTypePet" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace pref="318" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="scrollPane_typePet" min="-2" pref="251" max="-2" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="button_addTypePet" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_deleteTypePet" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_editTypePet" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="button_refreshTypePet" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="button_printTypePet" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                          <Component id="scrollPane_typePet" min="-2" pref="251" max="-2" attributes="0"/>
-                          <EmptySpace pref="113" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3096,6 +3083,19 @@
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="button_printTypePet">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/gombing/in/resources/images/Print.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Print"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="focusable" type="boolean" value="false"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_addTypePet">
@@ -3114,16 +3114,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textView_addTypePet" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator11" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Component id="panel_formAddTypePet" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="panel_formAddTypePet" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>

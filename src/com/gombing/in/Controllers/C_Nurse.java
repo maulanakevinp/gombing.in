@@ -14,11 +14,11 @@ import com.gombing.in.Models.Table_AnimalCare;
 import com.gombing.in.Views.V_Nurse;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -30,7 +30,10 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingWorker;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -128,6 +131,22 @@ public class C_Nurse extends V_Nurse {
         sw.execute();
     }
 
+    public void resizeColumnWidth(JTable table) {
+        final TableColumnModel columnModel = table.getColumnModel();
+        for (int column = 0; column < table.getColumnCount(); column++) {
+            int width = 15; // Min width
+            for (int row = 0; row < table.getRowCount(); row++) {
+                TableCellRenderer renderer = table.getCellRenderer(row, column);
+                Component comp = table.prepareRenderer(renderer, row, column);
+                width = Math.max(comp.getPreferredSize().width + 1, width);
+            }
+            if (width > 300) {
+                width = 300;
+            }
+            columnModel.getColumn(column).setPreferredWidth(width);
+        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Animal">
     private void viewAnimal() {
         getButton_animal().addActionListener((ActionEvent e) -> {
@@ -143,6 +162,7 @@ public class C_Nurse extends V_Nurse {
         try {
             tableAnimal.setList(connection.getAnimal().getAll());
             getTable_animal().setModel(tableAnimal);
+            resizeColumnWidth(getTable_animal());
             getTable_animal().getTableHeader().setOpaque(false);
             getTable_animal().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animal().getTableHeader().setBackground(Color.white);
@@ -175,6 +195,7 @@ public class C_Nurse extends V_Nurse {
         try {
             tableAnimalCare.setList(connection.getAnimalCare().getAll());
             getTable_animalCare().setModel(tableAnimalCare);
+            resizeColumnWidth(getTable_animalCare());
             getTable_animalCare().getTableHeader().setOpaque(false);
             getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animalCare().getTableHeader().setBackground(Color.white);

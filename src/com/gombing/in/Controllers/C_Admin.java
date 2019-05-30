@@ -18,6 +18,7 @@ import com.gombing.in.Models.Table_TypePet;
 import com.gombing.in.Views.V_Admin;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
@@ -41,8 +42,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -108,8 +112,8 @@ public class C_Admin extends V_Admin {
         cancelEditAnimal();
         deleteAnimal();
         refreshAnimal();
-        addImageAnimal();
-        chooseImageAnimal();
+        addAnimalPhoto();
+        chooseAnimalPhoto();
 
         viewAnimalType();
         addAnimalType();
@@ -185,6 +189,22 @@ public class C_Admin extends V_Admin {
         sw.execute();
     }
 
+    public void resizeColumnWidth(JTable table) {
+        final TableColumnModel columnModel = table.getColumnModel();
+        for (int column = 0; column < table.getColumnCount(); column++) {
+            int width = 15; // Min width
+            for (int row = 0; row < table.getRowCount(); row++) {
+                TableCellRenderer renderer = table.getCellRenderer(row, column);
+                Component comp = table.prepareRenderer(renderer, row, column);
+                width = Math.max(comp.getPreferredSize().width + 1, width);
+            }
+            if (width > 300) {
+                width = 300;
+            }
+            columnModel.getColumn(column).setPreferredWidth(width);
+        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Users">
     private void viewUsers() {
         getButton_users().addActionListener((ActionEvent e) -> {
@@ -202,6 +222,7 @@ public class C_Admin extends V_Admin {
         try {
             tableUsers.setList(connection.getUsers().getAll());
             getTable_users().setModel(tableUsers);
+            resizeColumnWidth(getTable_users());
             getTable_users().getTableHeader().setOpaque(false);
             getTable_users().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_users().getTableHeader().setBackground(Color.white);
@@ -414,6 +435,7 @@ public class C_Admin extends V_Admin {
         try {
             tableAnimal.setList(connection.getAnimal().getAll());
             getTable_animal().setModel(tableAnimal);
+            resizeColumnWidth(getTable_animal());
             getTable_animal().getTableHeader().setOpaque(false);
             getTable_animal().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animal().getTableHeader().setBackground(Color.white);
@@ -572,7 +594,7 @@ public class C_Admin extends V_Admin {
         });
     }
 
-    private void addImageAnimal() {
+    private void addAnimalPhoto() {
         getImage_animal().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -602,8 +624,8 @@ public class C_Admin extends V_Admin {
         });
     }
 
-    private void chooseImageAnimal() {
-        getButton_chooseImageAnimal().addActionListener((ActionEvent e) -> {
+    private void chooseAnimalPhoto() {
+        getButton_chooseAnimalPhoto().addActionListener((ActionEvent e) -> {
             try {
                 browseImageAnimal(getImage_animal1());
                 if (modelAnimal.getPath() != null) {
@@ -693,6 +715,7 @@ public class C_Admin extends V_Admin {
         try {
             tableAnimalType.setList(connection.getAnimalType().getAll());
             getTable_animalType().setModel(tableAnimalType);
+            resizeColumnWidth(getTable_animalType());
             getTable_animalType().getTableHeader().setOpaque(false);
             getTable_animalType().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animalType().getTableHeader().setBackground(Color.white);
@@ -823,6 +846,7 @@ public class C_Admin extends V_Admin {
         try {
             tableTypePet.setList(connection.getTypePet().getAll());
             getTable_typePet().setModel(tableTypePet);
+            resizeColumnWidth(getTable_typePet());
             getTable_typePet().getTableHeader().setOpaque(false);
             getTable_typePet().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_typePet().getTableHeader().setBackground(Color.white);
