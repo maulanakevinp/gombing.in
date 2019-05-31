@@ -17,6 +17,8 @@ import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -35,10 +37,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -52,7 +57,9 @@ public class C_Customers extends V_Customers {
     private SwingWorker sw;
 
     public C_Customers(int id) {
-        showFrame();
+        
+        frame().setVisible(true);
+        
         connection = new config();
         connection.getAnimalCare().setCon(connection.getConnection());
         connection.getUsers().setCon(connection.getConnection());
@@ -74,12 +81,14 @@ public class C_Customers extends V_Customers {
         tableAnimalCare();
         refreshAnimalCare();
         printAnimalCare();
+        searchAnimalCare();
 
         viewEditProfile();
         choosePhoto();
         cancelEditProfile();
         saveEditProfile();
-
+        
+//        showFrame();
     }
 
     private void showFrame() {
@@ -114,7 +123,7 @@ public class C_Customers extends V_Customers {
                 getSplashScreen().setLocationRelativeTo(null);
                 getSplashScreen().setVisible(true);
                 getProgressBar().setIndeterminate(true);
-                C_Customers customer = new C_Customers(WIDTH);
+                C_Customers customer = new C_Customers(modelUsers.getId());
                 return null;
             }
 
@@ -126,12 +135,23 @@ public class C_Customers extends V_Customers {
         };
         sw.execute();
     }
-    
-    private void print(JTable tabel, String judul){
+
+    private void print(JTable tabel, String judul) {
         try {
-            tabel.print(JTable.PrintMode.FIT_WIDTH, new MessageFormat(judul),null);
+            tabel.print(JTable.PrintMode.FIT_WIDTH, new MessageFormat(judul), null);
         } catch (PrinterException ex) {
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void search(JTable tabel, String search) {
+        try {
+            AbstractTableModel table = (AbstractTableModel) tabel.getModel();
+            TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(table);
+            tabel.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter(search));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Not Found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -176,6 +196,7 @@ public class C_Customers extends V_Customers {
             tableAnimalCare.setList(connection.getAnimalCare().getAllOwnerHave(modelUsers));
             getTable_animalCare().setModel(tableAnimalCare);
             resizeColumnWidth(getTable_animalCare());
+            getTable_animalCare().setAutoCreateRowSorter(true);
             getTable_animalCare().getTableHeader().setOpaque(false);
             getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animalCare().getTableHeader().setBackground(Color.white);
@@ -189,10 +210,30 @@ public class C_Customers extends V_Customers {
             refresh();
         });
     }
-    
-    private void printAnimalCare(){
+
+    private void printAnimalCare() {
         getButton_printAnimalCare().addActionListener((ActionEvent e) -> {
-            print(getTable_animalCare(),"Animal Care Report");
+            print(getTable_animalCare(), "Animal Care Report");
+        });
+    }
+
+    private void searchAnimalCare() {
+        getEditText_searchAnimalCare().addKeyListener(new KeyListener() {
+            // <editor-fold defaultstate="collapsed" desc="UNUSED">
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }//</editor-fold>
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                search(getTable_animalCare(), getEditText_searchAnimalCare().getText());
+            }
         });
     }
     //</editor-fold>

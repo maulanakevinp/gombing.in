@@ -5,11 +5,6 @@
  */
 package com.gombing.in.Views;
 
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -38,8 +33,11 @@ public class V_Nurse extends javax.swing.JFrame {
         initComponents();
     }
 
-    
     // <editor-fold defaultstate="collapsed" desc="ANIMAL">
+    
+    public JTextField getEditText_searchAnimal() {
+        return editText_searchAnimal;
+    }    
     
     protected JButton getButton_printAnimal() {
         return button_printAnimal;
@@ -63,112 +61,114 @@ public class V_Nurse extends javax.swing.JFrame {
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">    
     
-    public JButton getButton_printAnimalCare() {
+    public JTextField getEditText_searchAnimalCare() {    
+        return editText_searchAnimalCare;
+    }
+
+    protected JButton getButton_printAnimalCare() {
         return button_printAnimalCare;
     }
 
-    public JTable getTable_animalCare() {
+    protected JTable getTable_animalCare() {
         return table_animalCare;
     }
 
-    public JButton getButton_animalCare() {
+    protected JButton getButton_animalCare() {
         return button_animalCare;
     }
     
-    public JLabel getColor_animalCare() {
+    protected JLabel getColor_animalCare() {
         return color_animalCare;
     }
 
-    public JComboBox<String> getComboBox_animalName() {
+    protected JComboBox<String> getComboBox_animalName() {
         return comboBox_animalName;
     }
 
-    public JComboBox<String> getComboBox_animalName1() {
+    protected JComboBox<String> getComboBox_animalName1() {
         return comboBox_animalName1;
     }
 
-    public JComboBox<String> getComboBox_animalOwner() {
+    protected JComboBox<String> getComboBox_animalOwner() {
         return comboBox_animalOwner;
     }
 
-    public JComboBox<String> getComboBox_animalOwner1() {
+    protected JComboBox<String> getComboBox_animalOwner1() {
         return comboBox_animalOwner1;
     }
     
 
-    public JButton getButton_addAnimalCare() {
+    protected JButton getButton_addAnimalCare() {
         return button_addAnimalCare;
     }
 
-    public JButton getButton_cancelAddAnimalCare() {
+    protected JButton getButton_cancelAddAnimalCare() {
         return button_cancelAddAnimalCare;
     }
 
-    public JButton getButton_cancelEditAnimalCare() {
+    protected JButton getButton_cancelEditAnimalCare() {
         return button_cancelEditAnimalCare;
     }
 
-    public JButton getButton_deleteAnimalCare() {
+    protected JButton getButton_deleteAnimalCare() {
         return button_deleteAnimalCare;
     }
 
-    public JButton getButton_editAnimalCare() {
+    protected JButton getButton_editAnimalCare() {
         return button_editAnimalCare;
     }
 
-    public JButton getButton_refreshAnimalCare() {
+    protected JButton getButton_refreshAnimalCare() {
         return button_refreshAnimalCare;
     }
 
-    public JButton getButton_saveAddAnimalCare() {
+    protected JButton getButton_saveAddAnimalCare() {
         return button_saveAddAnimalCare;
     }
 
-    public JButton getButton_saveEditAnimalCare() {
+    protected JButton getButton_saveEditAnimalCare() {
         return button_saveEditAnimalCare;
     }
 
-    public JTextField getEditText_bodyLength() {
+    protected JTextField getEditText_bodyLength() {
         return editText_bodyLength;
     }
 
-    public JTextField getEditText_bodyLength1() {
+    protected JTextField getEditText_bodyLength1() {
         return editText_bodyLength1;
     }
 
-    public JTextField getEditText_chestSize() {
+    protected JTextField getEditText_chestSize() {
         return editText_chestSize;
     }
 
-    public JTextField getEditText_chestSize1() {
+    protected JTextField getEditText_chestSize1() {
         return editText_chestSize1;
     }
 
-    public JTextArea getEditText_comment() {
+    protected JTextArea getEditText_comment() {
         return editText_comment;
     }
 
-    public JTextArea getEditText_comment1() {
+    protected JTextArea getEditText_comment1() {
         return editText_comment1;
     }
 
-    public JTextField getEditText_height1() {
-        return editText_height2;
+    protected JTextField getEditText_height1() {
+        return editText_height1;
     }
 
-    public JTextField getEditText_height() {
+    protected JTextField getEditText_height() {
         return editText_height;
     }
 
-    public JTextField getEditText_weight() {
+    protected JTextField getEditText_weight() {
         return editText_weight;
     }
 
-    public JTextField getEditText_weight1() {
+    protected JTextField getEditText_weight1() {
         return editText_weight1;
-    }
-    
-//</editor-fold>
+    }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
     protected JDialog getSplashScreen() {
@@ -279,6 +279,8 @@ public class V_Nurse extends javax.swing.JFrame {
         table_animal = new javax.swing.JTable();
         button_refreshAnimal = new javax.swing.JButton();
         button_printAnimal = new javax.swing.JButton();
+        editText_searchAnimal = new javax.swing.JTextField();
+        textView_searchAnimal = new javax.swing.JLabel();
         panel_animalCare = new javax.swing.JPanel();
         editText_subtitle1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -289,6 +291,8 @@ public class V_Nurse extends javax.swing.JFrame {
         button_editAnimalCare = new javax.swing.JButton();
         button_refreshAnimalCare = new javax.swing.JButton();
         button_printAnimalCare = new javax.swing.JButton();
+        editText_searchAnimalCare = new javax.swing.JTextField();
+        textView_searchAnimalCare = new javax.swing.JLabel();
         panel_addAnimalCare = new javax.swing.JPanel();
         editText_subtitle6 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
@@ -305,7 +309,7 @@ public class V_Nurse extends javax.swing.JFrame {
         editText_chestSize = new javax.swing.JTextField();
         textView_animalOwner = new javax.swing.JLabel();
         comboBox_animalOwner = new javax.swing.JComboBox<>();
-        textView_skinColor2 = new javax.swing.JLabel();
+        textView_height = new javax.swing.JLabel();
         editText_height = new javax.swing.JTextField();
         textView_comment = new javax.swing.JLabel();
         scrollPane_comment = new javax.swing.JScrollPane();
@@ -326,8 +330,8 @@ public class V_Nurse extends javax.swing.JFrame {
         editText_chestSize1 = new javax.swing.JTextField();
         textView_animalOwner1 = new javax.swing.JLabel();
         comboBox_animalOwner1 = new javax.swing.JComboBox<>();
-        textView_skinColor1 = new javax.swing.JLabel();
-        editText_height2 = new javax.swing.JTextField();
+        textView_height1 = new javax.swing.JLabel();
+        editText_height1 = new javax.swing.JTextField();
         textView_comment1 = new javax.swing.JLabel();
         scrollPane_comment1 = new javax.swing.JScrollPane();
         editText_comment1 = new javax.swing.JTextArea();
@@ -547,18 +551,24 @@ public class V_Nurse extends javax.swing.JFrame {
         button_printAnimal.setContentAreaFilled(false);
         button_printAnimal.setFocusable(false);
 
+        textView_searchAnimal.setText("Search");
+
         javax.swing.GroupLayout panel_animalLayout = new javax.swing.GroupLayout(panel_animal);
         panel_animal.setLayout(panel_animalLayout);
         panel_animalLayout.setHorizontalGroup(
             panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_animalLayout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollPane_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(scrollPane_animal, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
                     .addComponent(editText_subtitle2)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_animalLayout.createSequentialGroup()
+                        .addComponent(textView_searchAnimal)
+                        .addGap(18, 18, 18)
+                        .addComponent(editText_searchAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_animalLayout.createSequentialGroup()
+            .addGroup(panel_animalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(button_refreshAnimal)
                 .addGap(0, 0, 0)
@@ -572,7 +582,11 @@ public class V_Nurse extends javax.swing.JFrame {
                 .addComponent(editText_subtitle2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_searchAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_searchAnimal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -638,6 +652,8 @@ public class V_Nurse extends javax.swing.JFrame {
         button_printAnimalCare.setContentAreaFilled(false);
         button_printAnimalCare.setFocusable(false);
 
+        textView_searchAnimalCare.setText("Search");
+
         javax.swing.GroupLayout panel_animalCareLayout = new javax.swing.GroupLayout(panel_animalCare);
         panel_animalCare.setLayout(panel_animalCareLayout);
         panel_animalCareLayout.setHorizontalGroup(
@@ -645,14 +661,19 @@ public class V_Nurse extends javax.swing.JFrame {
             .addGroup(panel_animalCareLayout.createSequentialGroup()
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panel_animalCareLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 53, Short.MAX_VALUE)
                         .addComponent(scrollPane_animalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 1078, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_animalCareLayout.createSequentialGroup()
-                        .addContainerGap(53, Short.MAX_VALUE)
-                        .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editText_subtitle1)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addGroup(panel_animalCareLayout.createSequentialGroup()
+                        .addContainerGap(54, Short.MAX_VALUE)
+                        .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(editText_subtitle1)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_animalCareLayout.createSequentialGroup()
+                                .addComponent(textView_searchAnimalCare)
+                                .addGap(18, 18, 18)
+                                .addComponent(editText_searchAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(panel_animalCareLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(button_addAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -673,7 +694,11 @@ public class V_Nurse extends javax.swing.JFrame {
                 .addComponent(editText_subtitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_searchAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_searchAnimalCare))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane_animalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -738,8 +763,8 @@ public class V_Nurse extends javax.swing.JFrame {
         comboBox_animalOwner.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Goat", "Cow" }));
         comboBox_animalOwner.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        textView_skinColor2.setText("Height");
-        textView_skinColor2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textView_height.setText("Height");
+        textView_height.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         editText_height.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         editText_height.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -778,7 +803,7 @@ public class V_Nurse extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_formAddAnimalCareLayout.createSequentialGroup()
                                     .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(textView_animalOwner)
-                                        .addComponent(textView_skinColor2))
+                                        .addComponent(textView_height))
                                     .addGap(18, 18, 18)
                                     .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(editText_height, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -801,7 +826,7 @@ public class V_Nurse extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panel_formAddAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editText_height, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_skinColor2)
+                    .addComponent(textView_height)
                     .addComponent(textView_weight)
                     .addComponent(editText_weight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -907,11 +932,11 @@ public class V_Nurse extends javax.swing.JFrame {
         comboBox_animalOwner1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Goat", "Cow" }));
         comboBox_animalOwner1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        textView_skinColor1.setText("Height");
-        textView_skinColor1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textView_height1.setText("Height");
+        textView_height1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        editText_height2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        editText_height2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        editText_height1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        editText_height1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         textView_comment1.setText("Comment");
         textView_comment1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -948,10 +973,10 @@ public class V_Nurse extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_formEditAnimalCareLayout.createSequentialGroup()
                                     .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(textView_animalOwner1)
-                                        .addComponent(textView_skinColor1))
+                                        .addComponent(textView_height1))
                                     .addGap(18, 18, 18)
                                     .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(editText_height2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(editText_height1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(comboBox_animalOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(panel_formEditAnimalCareLayout.createSequentialGroup()
                                     .addComponent(button_cancelEditAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -970,8 +995,8 @@ public class V_Nurse extends javax.swing.JFrame {
                     .addComponent(comboBox_animalName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panel_formEditAnimalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editText_height2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textView_skinColor1)
+                    .addComponent(editText_height1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_height1)
                     .addComponent(textView_weight1)
                     .addComponent(editText_weight1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -1116,8 +1141,10 @@ public class V_Nurse extends javax.swing.JFrame {
     private javax.swing.JTextArea editText_comment;
     private javax.swing.JTextArea editText_comment1;
     private javax.swing.JTextField editText_height;
-    private javax.swing.JTextField editText_height2;
+    private javax.swing.JTextField editText_height1;
     private javax.swing.JLabel editText_name;
+    private javax.swing.JTextField editText_searchAnimal;
+    private javax.swing.JTextField editText_searchAnimalCare;
     private javax.swing.JLabel editText_subtitle1;
     private javax.swing.JLabel editText_subtitle2;
     private javax.swing.JLabel editText_subtitle6;
@@ -1157,8 +1184,10 @@ public class V_Nurse extends javax.swing.JFrame {
     private javax.swing.JLabel textView_chestSize1;
     private javax.swing.JLabel textView_comment;
     private javax.swing.JLabel textView_comment1;
-    private javax.swing.JLabel textView_skinColor1;
-    private javax.swing.JLabel textView_skinColor2;
+    private javax.swing.JLabel textView_height;
+    private javax.swing.JLabel textView_height1;
+    private javax.swing.JLabel textView_searchAnimal;
+    private javax.swing.JLabel textView_searchAnimalCare;
     private javax.swing.JLabel textView_user;
     private javax.swing.JLabel textView_weight;
     private javax.swing.JLabel textView_weight1;

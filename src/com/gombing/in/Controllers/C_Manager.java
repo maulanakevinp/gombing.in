@@ -16,6 +16,8 @@ import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -29,9 +31,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.SwingWorker;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -61,10 +66,12 @@ public class C_Manager extends V_Manager{
         tableAnimal();
         refreshAnimal();
         printAnimal();
+        searchAnimal();
         
         viewAnimalCare();
         refreshAnimalCare();
         printAnimalCare();
+        searchAnimalCare();
         
         showFrame();
     }
@@ -137,6 +144,17 @@ public class C_Manager extends V_Manager{
             Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    private void search(JTable tabel, String search) {
+        try {
+            AbstractTableModel table = (AbstractTableModel) tabel.getModel();
+            TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(table);
+            tabel.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter(search));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Not Found", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     
     // <editor-fold defaultstate="collapsed" desc="Animal">
     private void viewAnimal() {
@@ -154,6 +172,7 @@ public class C_Manager extends V_Manager{
             tableAnimal.setList(connection.getAnimal().getAll());
             getTable_animal().setModel(tableAnimal);
             resizeColumnWidth(getTable_animal());
+            getTable_animal().setAutoCreateRowSorter(true);
             getTable_animal().getTableHeader().setOpaque(false);
             getTable_animal().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animal().getTableHeader().setBackground(Color.white);
@@ -179,8 +198,27 @@ public class C_Manager extends V_Manager{
         getButton_printAnimal().addActionListener((ActionEvent e) -> {
             print(getTable_animal(),"Animal Report");
         });
+    }    
+
+    private void searchAnimal() {
+        getEditText_searchAnimal().addKeyListener(new KeyListener() {
+            // <editor-fold defaultstate="collapsed" desc="UNUSED">
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }//</editor-fold>
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                search(getTable_animal(), getEditText_searchAnimal().getText());
+            }
+        });
     }
-    
     //</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Animal Care">
@@ -199,6 +237,7 @@ public class C_Manager extends V_Manager{
             tableAnimalCare.setList(connection.getAnimalCare().getAll());
             getTable_animalCare().setModel(tableAnimalCare);
             resizeColumnWidth(getTable_animalCare());
+            getTable_animalCare().setAutoCreateRowSorter(true);
             getTable_animalCare().getTableHeader().setOpaque(false);
             getTable_animalCare().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animalCare().getTableHeader().setBackground(Color.white);
@@ -217,6 +256,26 @@ public class C_Manager extends V_Manager{
     private void printAnimalCare(){
         getButton_printAnimalCare().addActionListener((ActionEvent e) -> {
             print(getTable_animalCare(),"Animal Care Report");
+        });
+    }
+
+    private void searchAnimalCare() {
+        getEditText_searchAnimalCare().addKeyListener(new KeyListener() {
+            // <editor-fold defaultstate="collapsed" desc="UNUSED">
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }//</editor-fold>
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                search(getTable_animalCare(), getEditText_searchAnimalCare().getText());
+            }
         });
     }
     //</editor-fold>

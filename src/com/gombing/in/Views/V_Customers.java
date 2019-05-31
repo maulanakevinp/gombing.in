@@ -34,6 +34,10 @@ public class V_Customers extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">
     
+    public JTextField getEditText_searchAnimalCare() {
+        return editText_searchAnimalCare;
+    }
+
     protected JButton getButton_printAnimalCare() {
         return button_printAnimalCare;
     }
@@ -206,6 +210,8 @@ public class V_Customers extends javax.swing.JFrame {
         table_animalCare = new javax.swing.JTable();
         button_refreshAnimalCare = new javax.swing.JButton();
         button_printAnimalCare = new javax.swing.JButton();
+        editText_searchAnimalCare = new javax.swing.JTextField();
+        textView_searchAnimalCare = new javax.swing.JLabel();
         panel_profile = new javax.swing.JPanel();
         textView_profile = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -422,16 +428,23 @@ public class V_Customers extends javax.swing.JFrame {
         button_printAnimalCare.setContentAreaFilled(false);
         button_printAnimalCare.setFocusable(false);
 
+        textView_searchAnimalCare.setText("Search");
+
         javax.swing.GroupLayout panel_animalCareLayout = new javax.swing.GroupLayout(panel_animalCare);
         panel_animalCare.setLayout(panel_animalCareLayout);
         panel_animalCareLayout.setHorizontalGroup(
             panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_animalCareLayout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(scrollPane)
-                    .addComponent(editText_subtitle)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE))
+                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_animalCareLayout.createSequentialGroup()
+                        .addComponent(textView_searchAnimalCare)
+                        .addGap(18, 18, 18)
+                        .addComponent(editText_searchAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(scrollPane)
+                        .addComponent(editText_subtitle)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)))
                 .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(panel_animalCareLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -447,7 +460,11 @@ public class V_Customers extends javax.swing.JFrame {
                 .addComponent(editText_subtitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_searchAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_searchAnimalCare))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -506,7 +523,7 @@ public class V_Customers extends javax.swing.JFrame {
                     .addComponent(textView_profile)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(panel_profileLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_profileLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(button_choosePhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -648,6 +665,7 @@ public class V_Customers extends javax.swing.JFrame {
     private javax.swing.JTextField editText_email;
     private javax.swing.JTextField editText_name;
     private javax.swing.JTextField editText_phoneNumber;
+    private javax.swing.JTextField editText_searchAnimalCare;
     private javax.swing.JLabel editText_subtitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -670,6 +688,7 @@ public class V_Customers extends javax.swing.JFrame {
     private javax.swing.JLabel textView_nameEdit;
     private javax.swing.JLabel textView_phoneNumber;
     private javax.swing.JLabel textView_profile;
+    private javax.swing.JLabel textView_searchAnimalCare;
     private javax.swing.JLabel textView_user;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables

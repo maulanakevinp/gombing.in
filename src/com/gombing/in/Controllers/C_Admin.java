@@ -24,6 +24,8 @@ import static java.awt.Frame.ICONIFIED;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -46,10 +48,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTable.PrintMode;
+import javax.swing.RowFilter;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -104,6 +109,7 @@ public class C_Admin extends V_Admin {
         deleteUsers();
         refreshUsers();
         printUsers();
+        searchUsers();
         addImageUser();
         chooseImageUser();
 
@@ -117,6 +123,7 @@ public class C_Admin extends V_Admin {
         deleteAnimal();
         refreshAnimal();
         printAnimal();
+        searchAnimal();
         addAnimalPhoto();
         chooseAnimalPhoto();
 
@@ -130,6 +137,7 @@ public class C_Admin extends V_Admin {
         deleteAnimalType();
         refreshAnimalType();
         printAnimalType();
+        searchAnimalType();
 
         viewTypePet();
         addTypePet();
@@ -141,6 +149,7 @@ public class C_Admin extends V_Admin {
         deleteTypePet();
         refreshTypePet();
         printTypePet();
+        searchTypePet();
 
         buttonMinimize();
         buttonMaximize();
@@ -220,6 +229,17 @@ public class C_Admin extends V_Admin {
         }
     }
 
+    private void search(JTable tabel, String search) {
+        try {
+            AbstractTableModel table = (AbstractTableModel) tabel.getModel();
+            TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(table);
+            tabel.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter(search));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Not Found", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Users">
     private void viewUsers() {
         getButton_users().addActionListener((ActionEvent e) -> {
@@ -238,6 +258,7 @@ public class C_Admin extends V_Admin {
             tableUsers.setList(connection.getUsers().getAll());
             getTable_users().setModel(tableUsers);
             resizeColumnWidth(getTable_users());
+            getTable_users().setAutoCreateRowSorter(true);
             getTable_users().getTableHeader().setOpaque(false);
             getTable_users().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_users().getTableHeader().setBackground(Color.white);
@@ -396,6 +417,26 @@ public class C_Admin extends V_Admin {
         });
     }
 
+    private void searchUsers() {
+        getEditText_searchUsers().addKeyListener(new KeyListener() {
+            // <editor-fold defaultstate="collapsed" desc="UNUSED">
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }//</editor-fold>
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                search(getTable_users(), getEditText_searchUsers().getText());
+            }
+        });
+    }
+
     private void addImageUser() {
         getImage_user().addMouseListener(new MouseListener() {
             @Override
@@ -457,6 +498,7 @@ public class C_Admin extends V_Admin {
             tableAnimal.setList(connection.getAnimal().getAll());
             getTable_animal().setModel(tableAnimal);
             resizeColumnWidth(getTable_animal());
+            getTable_animal().setAutoCreateRowSorter(true);
             getTable_animal().getTableHeader().setOpaque(false);
             getTable_animal().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animal().getTableHeader().setBackground(Color.white);
@@ -621,6 +663,26 @@ public class C_Admin extends V_Admin {
         });
     }
 
+    private void searchAnimal() {
+        getEditText_searchAnimal().addKeyListener(new KeyListener() {
+            // <editor-fold defaultstate="collapsed" desc="UNUSED">
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }//</editor-fold>
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                search(getTable_animal(), getEditText_searchAnimal().getText());
+            }
+        });
+    }
+
     private void addAnimalPhoto() {
         getImage_animal().addMouseListener(new MouseListener() {
             @Override
@@ -743,6 +805,7 @@ public class C_Admin extends V_Admin {
             tableAnimalType.setList(connection.getAnimalType().getAll());
             getTable_animalType().setModel(tableAnimalType);
             resizeColumnWidth(getTable_animalType());
+            getTable_animalType().setAutoCreateRowSorter(true);
             getTable_animalType().getTableHeader().setOpaque(false);
             getTable_animalType().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_animalType().getTableHeader().setBackground(Color.white);
@@ -860,6 +923,26 @@ public class C_Admin extends V_Admin {
         getButton_printAnimalType().addActionListener((ActionEvent e) -> {
             print(getTable_animalType(),"Animal Type Report");
         });
+    }
+
+    private void searchAnimalType() {
+        getEditText_searchAnimalType().addKeyListener(new KeyListener() {
+            // <editor-fold defaultstate="collapsed" desc="UNUSED">
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }//</editor-fold>
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                search(getTable_animalType(), getEditText_searchAnimalType().getText());
+            }
+        });
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Type Pet">
@@ -880,6 +963,7 @@ public class C_Admin extends V_Admin {
             tableTypePet.setList(connection.getTypePet().getAll());
             getTable_typePet().setModel(tableTypePet);
             resizeColumnWidth(getTable_typePet());
+            getTable_typePet().setAutoCreateRowSorter(true);
             getTable_typePet().getTableHeader().setOpaque(false);
             getTable_typePet().getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
             getTable_typePet().getTableHeader().setBackground(Color.white);
@@ -998,6 +1082,26 @@ public class C_Admin extends V_Admin {
     private void printTypePet(){
         getButton_printTypePet().addActionListener((ActionEvent e) -> {
             print(getTable_typePet(),"Type Pet Report");
+        });
+    }
+
+    private void searchTypePet() {
+        getEditText_searchTypePet().addKeyListener(new KeyListener() {
+            // <editor-fold defaultstate="collapsed" desc="UNUSED">
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }//</editor-fold>
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                search(getTable_typePet(), getEditText_searchTypePet().getText());
+            }
         });
     }//</editor-fold>
 

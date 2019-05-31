@@ -52,9 +52,11 @@ public class config {
                     con = (Connection) DriverManager.getConnection(url, username, password);
                     System.out.println("Connection Successful");
                 } catch (SQLException e) {
-                    int n = JOptionPane.showConfirmDialog(null, "Connection Failed \n Connect again?","Error",JOptionPane.YES_NO_OPTION);
+                    int n = JOptionPane.showConfirmDialog(null, "Connection Failed \n Connect again?","Error",JOptionPane.YES_NO_OPTION,JOptionPane.ERROR_MESSAGE);
                     if (n == JOptionPane.YES_OPTION) {
                         getConnection();
+                    } else if(n == JOptionPane.NO_OPTION){
+                        System.exit(0);
                     }
                 }
             }

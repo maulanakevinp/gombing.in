@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -31,6 +32,10 @@ public class V_Manager extends javax.swing.JFrame {
     }
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL">
+
+    public JTextField getEditText_searchAnimal() {
+        return editText_searchAnimal;
+    }    
 
     protected JButton getButton_printAnimal() {
         return button_printAnimal;
@@ -54,6 +59,10 @@ public class V_Manager extends javax.swing.JFrame {
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">  
     
+    public JTextField getEditText_searchAnimalCare() {
+        return editText_searchAnimalCare;
+    }
+
     protected JButton getButton_printAnimalCare() {
         return button_printAnimalCare;
     }
@@ -183,6 +192,8 @@ public class V_Manager extends javax.swing.JFrame {
         scrollPane_animal = new javax.swing.JScrollPane();
         table_animal = new javax.swing.JTable();
         button_printAnimal = new javax.swing.JButton();
+        editText_searchAnimal = new javax.swing.JTextField();
+        textView_searchAnimal = new javax.swing.JLabel();
         panel_animalCare = new javax.swing.JPanel();
         editText_subtitle1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -190,6 +201,8 @@ public class V_Manager extends javax.swing.JFrame {
         table_animalCare = new javax.swing.JTable();
         button_refreshAnimalCare = new javax.swing.JButton();
         button_printAnimalCare = new javax.swing.JButton();
+        editText_searchAnimalCare = new javax.swing.JTextField();
+        textView_searchAnimalCare = new javax.swing.JLabel();
 
         splashScreen.setMinimumSize(new java.awt.Dimension(370, 460));
         splashScreen.setUndecorated(true);
@@ -404,23 +417,28 @@ public class V_Manager extends javax.swing.JFrame {
         button_printAnimal.setContentAreaFilled(false);
         button_printAnimal.setFocusable(false);
 
+        textView_searchAnimal.setText("Search");
+
         javax.swing.GroupLayout panel_animalLayout = new javax.swing.GroupLayout(panel_animal);
         panel_animal.setLayout(panel_animalLayout);
         panel_animalLayout.setHorizontalGroup(
             panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_animalLayout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(scrollPane_animal)
-                    .addComponent(editText_subtitle2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE))
+                .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_animalLayout.createSequentialGroup()
+                        .addComponent(button_refreshAnimal)
+                        .addGap(0, 0, 0)
+                        .addComponent(button_printAnimal))
+                    .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(scrollPane_animal)
+                        .addComponent(editText_subtitle2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_animalLayout.createSequentialGroup()
+                        .addComponent(textView_searchAnimal)
+                        .addGap(18, 18, 18)
+                        .addComponent(editText_searchAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(panel_animalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(button_refreshAnimal)
-                .addGap(0, 0, 0)
-                .addComponent(button_printAnimal)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_animalLayout.setVerticalGroup(
             panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -429,7 +447,11 @@ public class V_Manager extends javax.swing.JFrame {
                 .addComponent(editText_subtitle2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_searchAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_searchAnimal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 35, Short.MAX_VALUE)
                 .addGroup(panel_animalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -477,25 +499,34 @@ public class V_Manager extends javax.swing.JFrame {
         button_printAnimalCare.setContentAreaFilled(false);
         button_printAnimalCare.setFocusable(false);
 
+        textView_searchAnimalCare.setText("Search");
+
         javax.swing.GroupLayout panel_animalCareLayout = new javax.swing.GroupLayout(panel_animalCare);
         panel_animalCare.setLayout(panel_animalCareLayout);
         panel_animalCareLayout.setHorizontalGroup(
             panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_animalCareLayout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollPane_animal1, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
-                    .addGroup(panel_animalCareLayout.createSequentialGroup()
-                        .addComponent(editText_subtitle1)
-                        .addGap(0, 986, Short.MAX_VALUE))
-                    .addComponent(jSeparator2))
-                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(panel_animalCareLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(button_refreshAnimalCare)
                 .addGap(0, 0, 0)
                 .addComponent(button_printAnimalCare)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel_animalCareLayout.createSequentialGroup()
+                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_animalCareLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(textView_searchAnimalCare)
+                        .addGap(18, 18, 18)
+                        .addComponent(editText_searchAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_animalCareLayout.createSequentialGroup()
+                        .addContainerGap(53, Short.MAX_VALUE)
+                        .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(scrollPane_animal1, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
+                            .addGroup(panel_animalCareLayout.createSequentialGroup()
+                                .addComponent(editText_subtitle1)
+                                .addGap(0, 986, Short.MAX_VALUE))
+                            .addComponent(jSeparator2))))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         panel_animalCareLayout.setVerticalGroup(
             panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -504,7 +535,11 @@ public class V_Manager extends javax.swing.JFrame {
                 .addComponent(editText_subtitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editText_searchAnimalCare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textView_searchAnimalCare))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane_animal1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(panel_animalCareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -588,6 +623,8 @@ public class V_Manager extends javax.swing.JFrame {
     private javax.swing.JLabel color_animal;
     private javax.swing.JLabel color_animalCare;
     private javax.swing.JLabel editText_name;
+    private javax.swing.JTextField editText_searchAnimal;
+    private javax.swing.JTextField editText_searchAnimalCare;
     private javax.swing.JLabel editText_subtitle1;
     private javax.swing.JLabel editText_subtitle2;
     private javax.swing.JLabel jLabel1;
@@ -605,6 +642,8 @@ public class V_Manager extends javax.swing.JFrame {
     private javax.swing.JDialog splashScreen;
     private javax.swing.JTable table_animal;
     private javax.swing.JTable table_animalCare;
+    private javax.swing.JLabel textView_searchAnimal;
+    private javax.swing.JLabel textView_searchAnimalCare;
     private javax.swing.JLabel textView_user;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables

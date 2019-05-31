@@ -386,17 +386,24 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="scrollPane_animal" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="scrollPane_animal" alignment="0" pref="1077" max="32767" attributes="0"/>
                           <Component id="editText_subtitle2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSeparator3" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="button_refreshAnimal" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              <Component id="button_printAnimal" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSeparator3" alignment="0" pref="1077" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="textView_searchAnimal" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="editText_searchAnimal" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="button_refreshAnimal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="button_printAnimal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -408,7 +415,12 @@
                       <Component id="editText_subtitle2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="editText_searchAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textView_searchAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="scrollPane_animal" min="-2" pref="251" max="-2" attributes="0"/>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -500,6 +512,13 @@
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JTextField" name="editText_searchAnimal">
+            </Component>
+            <Component class="javax.swing.JLabel" name="textView_searchAnimal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Search"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_animalCare">
@@ -520,18 +539,25 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
                               <Component id="scrollPane_animalCare" min="-2" pref="1078" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="53" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="editText_subtitle1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSeparator2" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace pref="54" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="editText_subtitle1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jSeparator2" alignment="0" min="-2" pref="1077" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="textView_searchAnimalCare" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="editText_searchAnimalCare" min="-2" pref="200" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -555,7 +581,12 @@
                       <Component id="editText_subtitle1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="editText_searchAnimalCare" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textView_searchAnimalCare" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="scrollPane_animalCare" min="-2" pref="251" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -686,6 +717,13 @@
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JTextField" name="editText_searchAnimalCare">
+            </Component>
+            <Component class="javax.swing.JLabel" name="textView_searchAnimalCare">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Search"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_addAnimalCare">
@@ -785,7 +823,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="textView_animalOwner" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="textView_skinColor2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="textView_height" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -819,7 +857,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="editText_height" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_skinColor2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_height" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_weight" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="editText_weight" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -992,7 +1030,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="textView_skinColor2">
+                <Component class="javax.swing.JLabel" name="textView_height">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Height"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1138,11 +1176,11 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="textView_animalOwner1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="textView_skinColor1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="textView_height1" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="editText_height2" min="-2" pref="210" max="-2" attributes="0"/>
+                                                  <Component id="editText_height1" min="-2" pref="210" max="-2" attributes="0"/>
                                                   <Component id="comboBox_animalOwner1" min="-2" pref="210" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -1171,8 +1209,8 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editText_height2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textView_skinColor1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="editText_height1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textView_height1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textView_weight1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="editText_weight1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1345,7 +1383,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="textView_skinColor1">
+                <Component class="javax.swing.JLabel" name="textView_height1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Height"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1353,7 +1391,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="editText_height2">
+                <Component class="javax.swing.JTextField" name="editText_height1">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
