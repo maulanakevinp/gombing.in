@@ -28,10 +28,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +45,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTable.PrintMode;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableCellRenderer;
@@ -100,6 +103,7 @@ public class C_Admin extends V_Admin {
         cancelEditUsers();
         deleteUsers();
         refreshUsers();
+        printUsers();
         addImageUser();
         chooseImageUser();
 
@@ -112,6 +116,7 @@ public class C_Admin extends V_Admin {
         cancelEditAnimal();
         deleteAnimal();
         refreshAnimal();
+        printAnimal();
         addAnimalPhoto();
         chooseAnimalPhoto();
 
@@ -124,6 +129,7 @@ public class C_Admin extends V_Admin {
         cancelEditAnimalType();
         deleteAnimalType();
         refreshAnimalType();
+        printAnimalType();
 
         viewTypePet();
         addTypePet();
@@ -134,6 +140,7 @@ public class C_Admin extends V_Admin {
         cancelEditTypePet();
         deleteTypePet();
         refreshTypePet();
+        printTypePet();
 
         buttonMinimize();
         buttonMaximize();
@@ -202,6 +209,14 @@ public class C_Admin extends V_Admin {
                 width = 300;
             }
             columnModel.getColumn(column).setPreferredWidth(width);
+        }
+    }
+    
+    private void print(JTable tabel, String judul){
+        try {
+            tabel.print(PrintMode.FIT_WIDTH, new MessageFormat(judul),null);
+        } catch (PrinterException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -372,6 +387,12 @@ public class C_Admin extends V_Admin {
             refresh();
             CardLayout card = (CardLayout) getPanel_body().getLayout();
             card.show(getPanel_body(), "panel_users");
+        });
+    }
+    
+    private void printUsers(){
+        getButton_printUsers().addActionListener((ActionEvent e) -> {
+            print(getTable_users(),"Users Report");
         });
     }
 
@@ -591,6 +612,12 @@ public class C_Admin extends V_Admin {
             refresh();
             CardLayout card = (CardLayout) getPanel_body().getLayout();
             card.show(getPanel_body(), "panel_animal");
+        });
+    }
+    
+    private void printAnimal(){
+        getButton_printAnimal().addActionListener((ActionEvent e) -> {
+            print(getTable_animal(),"Animal Report");
         });
     }
 
@@ -827,6 +854,12 @@ public class C_Admin extends V_Admin {
             CardLayout card = (CardLayout) getPanel_body().getLayout();
             card.show(getPanel_body(), "panel_animalType");
         });
+    }
+    
+    private void printAnimalType(){
+        getButton_printAnimalType().addActionListener((ActionEvent e) -> {
+            print(getTable_animalType(),"Animal Type Report");
+        });
     }//</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Type Pet">
@@ -959,6 +992,12 @@ public class C_Admin extends V_Admin {
     private void refreshTypePet() {
         getButton_refreshTypePet().addActionListener((ActionEvent e) -> {
             refresh();
+        });
+    }
+    
+    private void printTypePet(){
+        getButton_printTypePet().addActionListener((ActionEvent e) -> {
+            print(getTable_typePet(),"Type Pet Report");
         });
     }//</editor-fold>
 

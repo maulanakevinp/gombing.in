@@ -20,10 +20,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -71,6 +73,7 @@ public class C_Customers extends V_Customers {
         viewAnimalCare();
         tableAnimalCare();
         refreshAnimalCare();
+        printAnimalCare();
 
         viewEditProfile();
         choosePhoto();
@@ -122,6 +125,14 @@ public class C_Customers extends V_Customers {
             }
         };
         sw.execute();
+    }
+    
+    private void print(JTable tabel, String judul){
+        try {
+            tabel.print(JTable.PrintMode.FIT_WIDTH, new MessageFormat(judul),null);
+        } catch (PrinterException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void profilHeader() {
@@ -176,6 +187,12 @@ public class C_Customers extends V_Customers {
     private void refreshAnimalCare() {
         getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
             refresh();
+        });
+    }
+    
+    private void printAnimalCare(){
+        getButton_printAnimalCare().addActionListener((ActionEvent e) -> {
+            print(getTable_animalCare(),"Animal Care Report");
         });
     }
     //</editor-fold>

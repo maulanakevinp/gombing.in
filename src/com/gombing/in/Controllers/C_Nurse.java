@@ -23,7 +23,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.print.PrinterException;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -72,6 +74,7 @@ public class C_Nurse extends V_Nurse {
         viewAnimal();
         tableAnimal();
         refreshAnimal();
+        printAnimal();
         
         viewAnimalCare();
         addAnimalCare();
@@ -82,6 +85,7 @@ public class C_Nurse extends V_Nurse {
         saveEditAnimalCare();
         cancelEditAnimalCare();
         refreshAnimalCare();
+        printAnimalCare();
 
         showFrame();
     }
@@ -146,6 +150,14 @@ public class C_Nurse extends V_Nurse {
             columnModel.getColumn(column).setPreferredWidth(width);
         }
     }
+    
+    private void print(JTable tabel, String judul){
+        try {
+            tabel.print(JTable.PrintMode.FIT_WIDTH, new MessageFormat(judul),null);
+        } catch (PrinterException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Animal">
     private void viewAnimal() {
@@ -176,6 +188,12 @@ public class C_Nurse extends V_Nurse {
     private void refreshAnimal(){
         getButton_refreshAnimal().addActionListener((ActionEvent e) -> {
             refresh();
+        });
+    }
+    
+    private void printAnimal(){
+        getButton_printAnimal().addActionListener((ActionEvent e) -> {
+            print(getTable_animal(),"Animal Report");
         });
     }
     //</editor-fold>
@@ -349,6 +367,12 @@ public class C_Nurse extends V_Nurse {
     private void refreshAnimalCare() {
         getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
             refresh();
+        });
+    }
+    
+    private void printAnimalCare(){
+        getButton_printAnimalCare().addActionListener((ActionEvent e) -> {
+            print(getTable_animalCare(),"Animal Care Report");
         });
     }
 

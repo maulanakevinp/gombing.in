@@ -20,7 +20,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.print.PrinterException;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -58,8 +60,11 @@ public class C_Manager extends V_Manager{
         viewAnimal();
         tableAnimal();
         refreshAnimal();
+        printAnimal();
+        
         viewAnimalCare();
         refreshAnimalCare();
+        printAnimalCare();
         
         showFrame();
     }
@@ -125,6 +130,14 @@ public class C_Manager extends V_Manager{
         }
     }
     
+    private void print(JTable tabel, String judul){
+        try {
+            tabel.print(JTable.PrintMode.FIT_WIDTH, new MessageFormat(judul),null);
+        } catch (PrinterException ex) {
+            Logger.getLogger(C_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Animal">
     private void viewAnimal() {
         getButton_animal().addActionListener((ActionEvent e) -> {
@@ -162,6 +175,12 @@ public class C_Manager extends V_Manager{
         });
     }
     
+    private void printAnimal(){
+        getButton_printAnimal().addActionListener((ActionEvent e) -> {
+            print(getTable_animal(),"Animal Report");
+        });
+    }
+    
     //</editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Animal Care">
@@ -192,6 +211,12 @@ public class C_Manager extends V_Manager{
     private void refreshAnimalCare(){
         getButton_refreshAnimalCare().addActionListener((ActionEvent e) -> {
             refresh();
+        });
+    }
+    
+    private void printAnimalCare(){
+        getButton_printAnimalCare().addActionListener((ActionEvent e) -> {
+            print(getTable_animalCare(),"Animal Care Report");
         });
     }
     //</editor-fold>
