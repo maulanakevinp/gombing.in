@@ -33,7 +33,7 @@ public class V_Manager extends javax.swing.JFrame {
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL">
 
-    public JTextField getEditText_searchAnimal() {
+    protected JTextField getEditText_searchAnimal() {
         return editText_searchAnimal;
     }    
 
@@ -59,7 +59,7 @@ public class V_Manager extends javax.swing.JFrame {
     
     // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">  
     
-    public JTextField getEditText_searchAnimalCare() {
+    protected JTextField getEditText_searchAnimalCare() {
         return editText_searchAnimalCare;
     }
 

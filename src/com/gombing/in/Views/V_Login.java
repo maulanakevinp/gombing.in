@@ -30,92 +30,92 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     // <editor-fold defaultstate="collapsed" desc="LOGIN PAGE">
-    public JTextField getEditText_emailL() {
+    protected JTextField getEditText_emailL() {
         return editText_emailL;
     }
 
-    public JPasswordField getEditText_passwordL() {
+    protected JPasswordField getEditText_passwordL() {
         return editText_passwordL;
     }
 
-    public JPanel getButton_login() {
+    protected JPanel getButton_login() {
         return button_login;
     }
 
-    public JLabel getButton_viewForgotPassword() {
+    protected JLabel getButton_viewForgotPassword() {
         return button_viewForgotPassword;
     }
 
-    public JLabel getButton_viewRegister() {
+    protected JLabel getButton_viewRegister() {
         return button_viewRegister;
     }//</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="FORGOT PASSWORD PAGE">
-    public JTextField getEditText_emailF() {
+    protected JTextField getEditText_emailF() {
         return editText_emailF;
     }
 
-    public JPanel getButton_send() {
+    protected JPanel getButton_send() {
         return button_send;
     }
 
-    public JLabel getButton_viewLoginF() {
+    protected JLabel getButton_viewLoginF() {
         return button_viewLoginF;
     }//</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="REGISTRER PAGE">
-    public JTextField getEditText_usernameR() {
+    protected JTextField getEditText_usernameR() {
         return editText_usernameR;
     }
 
-    public JTextField getEditText_emailR() {
+    protected JTextField getEditText_emailR() {
         return editText_emailR;
     }
 
-    public JPasswordField getEditText_passwordR() {
+    protected JPasswordField getEditText_passwordR() {
         return editText_passwordR;
     }
 
-    public JPasswordField getEditText_confirmPassword() {
+    protected JPasswordField getEditText_confirmPassword() {
         return editText_confirmPassword;
     }
 
-    public JPanel getButton_next() {
+    protected JPanel getButton_next() {
         return button_next;
     }
 
-    public JLabel getButton_back() {
+    protected JLabel getButton_back() {
         return button_back;
     }
 
-    public JPanel getButton_register() {
+    protected JPanel getButton_register() {
         return button_register;
     }
 
-    public JTextField getEditText_address() {
+    protected JTextField getEditText_address() {
         return editText_address;
     }
 
-    public JTextField getEditText_phoneNumber() {
+    protected JTextField getEditText_phoneNumber() {
         return editText_phoneNumber;
     }
 
-    public JLabel getImage_user() {
+    protected JLabel getImage_user() {
         return image_user;
     }    
 
-    public JLabel getButton_viewLoginR() {
+    protected JLabel getButton_viewLoginR() {
         return button_viewLoginR;
     }//</editor-fold>
     
 
     // <editor-fold defaultstate="collapsed" desc="WINDOW">
 
-    public JDialog getSplashScreen() {
+    protected JDialog getSplashScreen() {
         return splashScreen;
     }
 
-    public JProgressBar getProgressBar() {
+    protected JProgressBar getProgressBar() {
         return progressBar;
     }
 
@@ -123,39 +123,39 @@ public class V_Login extends javax.swing.JFrame {
         return this;
     }
     
-    public JPanel getPanel_body() {
+    protected JPanel getPanel_body() {
         return panel_body;
     }
 
-    public int getxMouse() {
+    protected int getxMouse() {
         return xMouse;
     }
 
-    public void setxMouse(int xMouse) {
+    protected void setxMouse(int xMouse) {
         this.xMouse = xMouse;
     }
 
-    public int getyMouse() {
+    protected int getyMouse() {
         return yMouse;
     }
 
-    public void setyMouse(int yMouse) {
+    protected void setyMouse(int yMouse) {
         this.yMouse = yMouse;
     }
 
-    public JLabel getButton_minimize() {
+    protected JLabel getButton_minimize() {
         return button_minimize;
     }
 
-    public void minimize(int State) {
+    protected void minimize(int State) {
         this.setState(State);
     }
 
-    public JLabel getButton_exit() {
+    protected JLabel getButton_exit() {
         return button_exit;
     }
 
-    public JPanel getPanel_undecorated() {
+    protected JPanel getPanel_undecorated() {
         return panel_undecorated;
     }//</editor-fold>
     

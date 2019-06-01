@@ -37,7 +37,7 @@ public class V_Admin extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="USERS">   
     
-    public JTextField getEditText_searchUsers() {
+    protected JTextField getEditText_searchUsers() {
         return editText_searchUsers;
     }
 
@@ -159,7 +159,7 @@ public class V_Admin extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="ANIMAL">  
     
-    public JTextField getEditText_searchAnimal() {
+    protected JTextField getEditText_searchAnimal() {
         return editText_searchAnimal;
     }
 
@@ -289,7 +289,7 @@ public class V_Admin extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="ANIMAL TYPE">   
     
-    public JTextField getEditText_searchAnimalType() {
+    protected JTextField getEditText_searchAnimalType() {
         return editText_searchAnimalType;
     }
 
@@ -351,7 +351,7 @@ public class V_Admin extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="TYPE PET">   
     
-    public JTextField getEditText_searchTypePet() {
+    protected JTextField getEditText_searchTypePet() {
         return editText_searchTypePet;
     }
 

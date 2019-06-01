@@ -34,7 +34,7 @@ public class V_Customers extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="ANIMAL CARE">
     
-    public JTextField getEditText_searchAnimalCare() {
+    protected JTextField getEditText_searchAnimalCare() {
         return editText_searchAnimalCare;
     }
 
